@@ -1,20 +1,8 @@
-import { Inter, Geist_Mono } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale, getTranslations } from 'next-intl/server';
-import '../globals.css';
 import { locales } from '@/lib/i18n/config';
 import CookieConsent from '@/components/layout/CookieConsent';
-
-const inter = Inter({
-  variable: '--font-sans',
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import LocaleHtmlLang from '@/components/layout/LocaleHtmlLang';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://lonside.ai';
 
@@ -73,14 +61,10 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className="h-full scroll-smooth">
-      <body className={`${inter.variable} ${geistMono.variable} font-sans bg-[#050505] text-[#fafafa] antialiased selection:bg-blue-600/30 selection:text-blue-200 min-h-screen flex flex-col`}>
-
-        <NextIntlClientProvider messages={messages}>
-          {children}
-          <CookieConsent />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      <LocaleHtmlLang locale={locale} />
+      {children}
+      <CookieConsent />
+    </NextIntlClientProvider>
   );
 }
