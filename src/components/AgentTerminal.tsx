@@ -315,7 +315,7 @@ export default function AgentTerminal() {
                         {t("systemPromptLabel")}
                       </span>
                       <p className="text-[10px] font-mono text-slate-400 leading-relaxed bg-slate-950/80 p-2 rounded border border-white/5 line-clamp-3">
-                        "{agent.systemPrompt}"
+                        &ldquo;{agent.systemPrompt}&rdquo;
                       </p>
                     </div>
                   </div>

@@ -16,22 +16,20 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-const ICONS = [
-  <Cpu className="w-5 h-5 text-brand-purple" />,
-  <Sparkles className="w-5 h-5 text-brand-purple" />,
-  <Database className="w-5 h-5 text-brand-purple" />,
-  <ShieldCheck className="w-5 h-5 text-brand-purple" />,
-];
+const ICONS = [Cpu, Sparkles, Database, ShieldCheck];
 
 export default function MethodePage() {
   const tHero = useTranslations("methode");
   const t = useTranslations("methodeData");
   const stepsRaw = t.raw("steps") as Array<{ phase: string; title: string; desc: string; bullets: string[] }>;
 
-  const stepsDetails = stepsRaw.map((step, idx) => ({
-    ...step,
-    icon: ICONS[idx] || <Cpu className="w-5 h-5 text-brand-purple" />
-  }));
+  const stepsDetails = stepsRaw.map((step, idx) => {
+    const IconComponent = ICONS[idx] || Cpu;
+    return {
+      ...step,
+      icon: <IconComponent className="w-5 h-5 text-brand-purple" />
+    };
+  });
 
   return (
     <>

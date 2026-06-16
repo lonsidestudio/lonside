@@ -28,6 +28,34 @@ export default function CookieConsent() {
     marketing: false,
   });
 
+  const applyConsent = (state: CookieConsentState) => {
+    // Persistent choices
+    localStorage.setItem('lonside-cookie-consent', JSON.stringify(state));
+    
+    // Manage Plausible Script
+    const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
+    if (plausibleDomain) {
+      if (state.analytics) {
+        // Load plausible script
+        const existingScript = document.getElementById('plausible-script');
+        if (!existingScript) {
+          const script = document.createElement('script');
+          script.id = 'plausible-script';
+          script.defer = true;
+          script.setAttribute('data-domain', plausibleDomain);
+          script.src = 'https://plausible.io/js/script.js';
+          document.body.appendChild(script);
+        }
+      } else {
+        // Remove plausible script if already loaded
+        const script = document.getElementById('plausible-script');
+        if (script) {
+          script.remove();
+        }
+      }
+    }
+  };
+
   useEffect(() => {
     setMounted(true);
     
@@ -67,34 +95,6 @@ export default function CookieConsent() {
       window.removeEventListener('open-cookie-consent', handleOpen);
     };
   }, []);
-
-  const applyConsent = (state: CookieConsentState) => {
-    // Persistent choices
-    localStorage.setItem('lonside-cookie-consent', JSON.stringify(state));
-    
-    // Manage Plausible Script
-    const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
-    if (plausibleDomain) {
-      if (state.analytics) {
-        // Load plausible script
-        const existingScript = document.getElementById('plausible-script');
-        if (!existingScript) {
-          const script = document.createElement('script');
-          script.id = 'plausible-script';
-          script.defer = true;
-          script.setAttribute('data-domain', plausibleDomain);
-          script.src = 'https://plausible.io/js/script.js';
-          document.body.appendChild(script);
-        }
-      } else {
-        // Remove plausible script if already loaded
-        const script = document.getElementById('plausible-script');
-        if (script) {
-          script.remove();
-        }
-      }
-    }
-  };
 
   const handleAcceptAll = () => {
     const newState = { accepted: true, analytics: true, marketing: true };

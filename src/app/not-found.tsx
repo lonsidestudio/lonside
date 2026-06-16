@@ -13,14 +13,14 @@ export default function NotFound() {
         <div>
           <div className="text-6xl font-mono font-bold text-brand-purple mb-2">404</div>
           <h1 className="text-xl font-bold text-white mb-2">Page introuvable</h1>
-          <p className="text-sm text-slate-400">Cette route n'existe pas dans notre architecture.</p>
+          <p className="text-sm text-slate-400">Cette route n’existe pas dans notre architecture.</p>
         </div>
         <Link
           href="/"
           className="inline-flex items-center gap-2 px-6 py-3 bg-brand-purple hover:bg-brand-purple-hover text-sm font-bold text-white rounded-lg transition-all"
         >
           <ArrowLeft className="w-4 h-4" />
-          Retour à l'accueil
+          Retour à l’accueil
         </Link>
       </div>
     </div>

@@ -162,7 +162,7 @@ export default function Home() {
                 }
 
                 return (
-                  <Link key={href} href={href as any} className={className}>
+                  <Link key={href} href={href as never} className={className}>
                     {content}
                   </Link>
                 );

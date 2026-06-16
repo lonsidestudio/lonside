@@ -27,7 +27,7 @@ function LocaleSwitcher() {
   return (
     <button
       type="button"
-      onClick={() => router.replace(pathname as any, { locale: alternate })}
+      onClick={() => router.replace(pathname as never, { locale: alternate })}
       className="text-[10px] font-bold font-mono text-slate-400 hover:text-brand-purple border border-white/10 hover:border-brand-purple/30 px-2.5 py-1.5 rounded-lg transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
       aria-label={label}
     >

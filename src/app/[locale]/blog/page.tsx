@@ -70,7 +70,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
                   <div className="flex-1 space-y-4">
                     <div className="flex items-center gap-3">
                       <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold border ${CATEGORY_COLORS[featured.category]}`}>
-                        {t(`categories.${featured.category}` as any)}
+                        {t(`categories.${featured.category as 'ia' | 'web' | 'design' | 'seo'}`)}
                       </span>
                       <span className="text-[10px] font-mono text-slate-500 flex items-center gap-1">
                         <Clock className="w-3 h-3" /> {featured.readingTime} {t('minRead')}
@@ -105,7 +105,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold border ${CATEGORY_COLORS[post.category]}`}>
-                        {t(`categories.${post.category}` as any)}
+                        {t(`categories.${post.category as 'ia' | 'web' | 'design' | 'seo'}`)}
                       </span>
                       <span className="text-[10px] font-mono text-slate-500 flex items-center gap-1">
                         <Clock className="w-3 h-3" /> {post.readingTime} {t('minRead')}
