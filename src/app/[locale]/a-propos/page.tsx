@@ -4,7 +4,6 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Badge } from '@/components/ui/Badge';
-import { Card } from '@/components/ui/Card';
 import { Users, Code2, Zap, ShieldCheck, TrendingUp } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/lib/i18n/navigation';

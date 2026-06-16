@@ -17,7 +17,7 @@ const SERVICE_LINKS = [
   "/services/site-vitrine",
   "/services/application-web",
   "/services/automatisation",
-];
+] as const;
 
 interface Bullet {
   label: string;

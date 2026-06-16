@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/lib/i18n/navigation';
 import Navbar from '@/components/layout/Navbar';
@@ -64,7 +63,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
 
         {featured && (
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-            <Link href={`/blog/${featured.slug}`} className="block group">
+            <Link href={{ pathname: '/blog/[slug]', params: { slug: featured.slug } }} className="block group">
               <div className="p-8 rounded-2xl bg-[#0d0d11]/60 border border-white/5 hover:border-brand-purple/20 transition-all duration-300 backdrop-blur-md shadow-2xl relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
@@ -100,7 +99,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {others.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} className="block group">
+              <Link key={post.slug} href={{ pathname: '/blog/[slug]', params: { slug: post.slug } }} className="block group">
                 <div className="h-full flex flex-col justify-between space-y-4 p-6 rounded-2xl bg-[#0d0d11]/60 border border-white/5 hover:border-brand-purple/20 transition-all duration-300 hover:bg-[#0d0d11]/90 hover:shadow-[0_10px_25px_-10px_rgba(124,58,237,0.12)] backdrop-blur-sm relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />
                   <div className="space-y-3">

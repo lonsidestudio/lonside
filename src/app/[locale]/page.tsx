@@ -128,30 +128,44 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {exploreCards.map(({ icon, titleKey, descKey, ctaKey, href }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="group relative p-8 rounded-2xl bg-[#0d0d11]/60 border border-white/5 hover:border-brand-purple/30 hover:bg-[#0d0d11]/90 transition-all duration-500 backdrop-blur-sm flex flex-col justify-between"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />
-                  <div>
-                    <div className="p-3.5 w-fit rounded-xl bg-slate-900/80 border border-white/5 mb-6 group-hover:scale-110 group-hover:border-brand-purple/20 transition-all duration-300">
-                      {icon}
+              {exploreCards.map(({ icon, titleKey, descKey, ctaKey, href }) => {
+                const isAnchor = href.startsWith("#");
+                const className = "group relative p-8 rounded-2xl bg-[#0d0d11]/60 border border-white/5 hover:border-brand-purple/30 hover:bg-[#0d0d11]/90 transition-all duration-500 backdrop-blur-sm flex flex-col justify-between";
+                const content = (
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />
+                    <div>
+                      <div className="p-3.5 w-fit rounded-xl bg-slate-900/80 border border-white/5 mb-6 group-hover:scale-110 group-hover:border-brand-purple/20 transition-all duration-300">
+                        {icon}
+                      </div>
+                      <h3 className="text-base font-bold text-slate-100 mb-2 group-hover:text-brand-purple transition-colors duration-300">
+                        {t(titleKey)}
+                      </h3>
+                      <p className="text-xs text-slate-400 leading-relaxed mb-8">
+                        {t(descKey)}
+                      </p>
                     </div>
-                    <h3 className="text-base font-bold text-slate-100 mb-2 group-hover:text-brand-purple transition-colors duration-300">
-                      {t(titleKey)}
-                    </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed mb-8">
-                      {t(descKey)}
-                    </p>
-                  </div>
-                  <div className="inline-flex items-center text-xs font-bold text-brand-purple">
-                    <span>{t(ctaKey)}</span>
-                    <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform duration-300" />
-                  </div>
-                </Link>
-              ))}
+                    <div className="inline-flex items-center text-xs font-bold text-brand-purple">
+                      <span>{t(ctaKey)}</span>
+                      <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </div>
+                  </>
+                );
+
+                if (isAnchor) {
+                  return (
+                    <a key={href} href={href} className={className}>
+                      {content}
+                    </a>
+                  );
+                }
+
+                return (
+                  <Link key={href} href={href as any} className={className}>
+                    {content}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>

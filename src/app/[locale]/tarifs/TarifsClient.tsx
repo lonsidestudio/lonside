@@ -347,7 +347,7 @@ export default function TarifsClient() {
                   </div>
                 </div>
                 <Link
-                  href={contactUrl}
+                  href={contactUrl as any}
                   className="flex flex-1 sm:flex-none items-center justify-center gap-2 py-3 px-5 rounded-xl text-xs font-bold text-white bg-brand-purple hover:bg-brand-purple-hover shadow-lg hover:shadow-[0_0_28px_rgba(124,58,237,0.45)] active:scale-95 transition-all duration-200 whitespace-nowrap"
                 >
                   Démarrer mon projet

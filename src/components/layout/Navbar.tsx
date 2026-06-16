@@ -27,7 +27,7 @@ function LocaleSwitcher() {
   return (
     <button
       type="button"
-      onClick={() => router.replace(pathname, { locale: alternate })}
+      onClick={() => router.replace(pathname as any, { locale: alternate })}
       className="text-[10px] font-bold font-mono text-slate-400 hover:text-brand-purple border border-white/10 hover:border-brand-purple/30 px-2.5 py-1.5 rounded-lg transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
       aria-label={label}
     >
@@ -89,7 +89,7 @@ export default function Navbar() {
     { name: t("tarifs"), href: "/tarifs" },
     { name: t("blog"), href: "/blog" },
     { name: t("aPropos"), href: "/a-propos" },
-  ];
+  ] as const;
 
   const services = [
     {
@@ -116,7 +116,7 @@ export default function Navbar() {
       desc: ts("items.design.desc"),
       icon: <Sparkles className="w-4 h-4 text-brand-purple" aria-hidden="true" />,
     },
-  ];
+  ] as const;
 
   return (
     <>

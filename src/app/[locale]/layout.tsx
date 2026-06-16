@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { Inter, Geist_Mono } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale, getTranslations } from 'next-intl/server';
