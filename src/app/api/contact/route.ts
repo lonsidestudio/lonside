@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { z } from 'zod';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+
 
 // In-memory rate limiter — 3 requests per IP per minute
 // For multi-instance production, replace with Upstash Redis
@@ -69,6 +69,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true });
   }
 
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
     from: 'lonside <onboarding@resend.dev>',
     to: ['hello@lonside.ai'],
