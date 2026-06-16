@@ -126,12 +126,9 @@ export default function Footer() {
             <span aria-hidden="true" className="text-slate-700">•</span>
             <Link href="/legal/cgv" className="hover:underline hover:text-brand-purple transition-colors">{tLegal("cgv")}</Link>
             <span aria-hidden="true" className="text-slate-700">•</span>
-            <button
-              onClick={() => window.dispatchEvent(new Event('open-cookie-consent'))}
-              className="hover:underline hover:text-brand-purple transition-colors cursor-pointer bg-transparent border-none p-0 text-slate-500 font-sans text-xs focus:outline-none"
-            >
+            <Link href="/legal/cookies" className="hover:underline hover:text-brand-purple transition-colors">
               {tLegal("cookies")}
-            </button>
+            </Link>
           </div>
         </div>
       </div>

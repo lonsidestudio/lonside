@@ -1,16 +1,20 @@
-import { config, collection, fields } from '@keystatic/core';
+import { config, collection, singleton, fields } from '@keystatic/core';
 
 export default config({
   storage: { kind: 'local' },
   ui: {
     brand: { name: 'Lonside Studio' },
-    navigation: { Contenu: ['blog', 'portfolio'] },
+    navigation: {
+      Contenu: ['blog', 'portfolio'],
+      Légal: ['mentionsLegales', 'politiqueConfidentialite', 'cgv', 'cookies'],
+    },
   },
   collections: {
     blog: collection({
       label: 'Articles de blog',
       slugField: 'slug',
       path: 'content/blog/*',
+      format: { data: 'yaml' },
       schema: {
         slug: fields.slug({ name: { label: 'URL Slug' } }),
         titleFr: fields.text({ label: 'Titre (FR)', validation: { isRequired: true } }),
@@ -50,6 +54,7 @@ export default config({
       label: 'Projets Portfolio',
       slugField: 'slug',
       path: 'content/portfolio/*',
+      format: { data: 'yaml' },
       schema: {
         slug: fields.slug({ name: { label: 'URL Slug' } }),
         client: fields.text({ label: 'Nom du client' }),
@@ -105,6 +110,102 @@ export default config({
         seoTitleEn: fields.text({ label: 'SEO Title (EN)' }),
         seoDescriptionFr: fields.text({ label: 'Meta description SEO (FR)', multiline: true }),
         seoDescriptionEn: fields.text({ label: 'SEO Meta Description (EN)', multiline: true }),
+      },
+    }),
+  },
+  singletons: {
+    mentionsLegales: singleton({
+      label: 'Mentions Légales',
+      path: 'content/legal/mentions-legales',
+      format: { data: 'yaml' },
+      schema: {
+        titleFr: fields.text({ label: 'Titre (FR)', validation: { isRequired: true } }),
+        titleEn: fields.text({ label: 'Titre (EN)', validation: { isRequired: true } }),
+        sectionsFr: fields.array(
+          fields.object({
+            title: fields.text({ label: 'Titre de la section (FR)', validation: { isRequired: true } }),
+            content: fields.text({ label: 'Contenu (FR) (HTML supporté)', multiline: true }),
+          }),
+          { label: 'Sections (FR)', itemLabel: (p) => p.fields.title.value }
+        ),
+        sectionsEn: fields.array(
+          fields.object({
+            title: fields.text({ label: 'Titre de la section (EN)', validation: { isRequired: true } }),
+            content: fields.text({ label: 'Contenu (EN) (HTML supporté)', multiline: true }),
+          }),
+          { label: 'Sections (EN)', itemLabel: (p) => p.fields.title.value }
+        ),
+      },
+    }),
+    politiqueConfidentialite: singleton({
+      label: 'Politique de Confidentialité',
+      path: 'content/legal/politique-confidentialite',
+      format: { data: 'yaml' },
+      schema: {
+        titleFr: fields.text({ label: 'Titre (FR)', validation: { isRequired: true } }),
+        titleEn: fields.text({ label: 'Titre (EN)', validation: { isRequired: true } }),
+        sectionsFr: fields.array(
+          fields.object({
+            title: fields.text({ label: 'Titre de la section (FR)', validation: { isRequired: true } }),
+            content: fields.text({ label: 'Contenu (FR) (HTML supporté)', multiline: true }),
+          }),
+          { label: 'Sections (FR)', itemLabel: (p) => p.fields.title.value }
+        ),
+        sectionsEn: fields.array(
+          fields.object({
+            title: fields.text({ label: 'Titre de la section (EN)', validation: { isRequired: true } }),
+            content: fields.text({ label: 'Contenu (EN) (HTML supporté)', multiline: true }),
+          }),
+          { label: 'Sections (EN)', itemLabel: (p) => p.fields.title.value }
+        ),
+      },
+    }),
+    cgv: singleton({
+      label: 'CGV (Conditions Générales)',
+      path: 'content/legal/cgv',
+      format: { data: 'yaml' },
+      schema: {
+        titleFr: fields.text({ label: 'Titre (FR)', validation: { isRequired: true } }),
+        titleEn: fields.text({ label: 'Titre (EN)', validation: { isRequired: true } }),
+        sectionsFr: fields.array(
+          fields.object({
+            title: fields.text({ label: 'Titre de la section (FR)', validation: { isRequired: true } }),
+            content: fields.text({ label: 'Contenu (FR) (HTML supporté)', multiline: true }),
+          }),
+          { label: 'Sections (FR)', itemLabel: (p) => p.fields.title.value }
+        ),
+        sectionsEn: fields.array(
+          fields.object({
+            title: fields.text({ label: 'Titre de la section (EN)', validation: { isRequired: true } }),
+            content: fields.text({ label: 'Contenu (EN) (HTML supporté)', multiline: true }),
+          }),
+          { label: 'Sections (EN)', itemLabel: (p) => p.fields.title.value }
+        ),
+      },
+    }),
+    cookies: singleton({
+      label: 'Charte des Cookies',
+      path: 'content/legal/cookies',
+      format: { data: 'yaml' },
+      schema: {
+        titleFr: fields.text({ label: 'Titre (FR)', validation: { isRequired: true } }),
+        titleEn: fields.text({ label: 'Titre (EN)', validation: { isRequired: true } }),
+        buttonLabelFr: fields.text({ label: 'Label du bouton (FR)', defaultValue: 'Modifier mes préférences de cookies' }),
+        buttonLabelEn: fields.text({ label: 'Label du bouton (EN)', defaultValue: 'Modify my cookie settings' }),
+        sectionsFr: fields.array(
+          fields.object({
+            title: fields.text({ label: 'Titre de la section (FR)', validation: { isRequired: true } }),
+            content: fields.text({ label: 'Contenu (FR) (HTML supporté)', multiline: true }),
+          }),
+          { label: 'Sections (FR)', itemLabel: (p) => p.fields.title.value }
+        ),
+        sectionsEn: fields.array(
+          fields.object({
+            title: fields.text({ label: 'Titre de la section (EN)', validation: { isRequired: true } }),
+            content: fields.text({ label: 'Contenu (EN) (HTML supporté)', multiline: true }),
+          }),
+          { label: 'Sections (EN)', itemLabel: (p) => p.fields.title.value }
+        ),
       },
     }),
   },

@@ -67,6 +67,10 @@ export const pathnames = {
   '/legal/cgv': {
     fr: '/legal/cgv',
     en: '/legal/terms-of-sale'
+  },
+  '/legal/cookies': {
+    fr: '/legal/cookies',
+    en: '/legal/cookie-policy'
   }
 } as const;
 

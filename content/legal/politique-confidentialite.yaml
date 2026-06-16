@@ -1,0 +1,20 @@
+titleFr: Politique de confidentialité
+titleEn: Privacy Policy
+sectionsFr:
+  - title: Données collectées
+    content: "Lonside collecte uniquement les données que vous nous transmettez volontairement via le formulaire de contact : nom, email, et message. Ces données sont utilisées exclusivement pour répondre à vos demandes."
+  - title: Conservation des données
+    content: "Vos données sont conservées pour une durée maximale de 3 ans à compter de votre dernière interaction avec nous, conformément à la réglementation RGPD."
+  - title: Vos droits
+    content: "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement et de portabilité de vos données. Pour exercer ces droits, contactez-nous à hello@lonside.ai."
+  - title: Cookies
+    content: "Ce site n'utilise pas de cookies de tracking tiers. Seuls des cookies techniques strictement nécessaires au fonctionnement du site peuvent être utilisés."
+sectionsEn:
+  - title: Data Collected
+    content: "Lonside only collects data that you voluntarily transmit via the contact form: name, email, and message. This data is used exclusively to respond to your inquiries."
+  - title: Data Retention
+    content: "Your data is stored for a maximum period of 3 years from your last interaction with us, in compliance with GDPR guidelines."
+  - title: Your Rights
+    content: "Pursuant to GDPR, you have the right to access, rectify, erase, and request portability of your data. To exercise these rights, contact us at hello@lonside.ai."
+  - title: Cookies
+    content: "This site does not use third-party tracking cookies. Only technical cookies strictly necessary for the operation of the website may be used."

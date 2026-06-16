@@ -1,0 +1,22 @@
+titleFr: Mentions légales
+titleEn: Legal Notices
+sectionsFr:
+  - title: Éditeur du site
+    content: |-
+      <p><span class="text-slate-300 font-semibold">Raison sociale :</span> Lonside</p><p><span class="text-slate-300 font-semibold">Statut :</span> Auto-entrepreneur / SAS (à compléter)</p><p><span class="text-slate-300 font-semibold">Siège social :</span> France</p><p><span class="text-slate-300 font-semibold">Email :</span> hello@lonside.ai</p>
+  - title: Hébergement
+    content: Ce site est hébergé par Vercel Inc., 340 Pine Street, Suite 900, San Francisco, CA 94104, USA.
+  - title: Propriété intellectuelle
+    content: L'ensemble des contenus, textes, images, logos et éléments graphiques présents sur ce site sont la propriété exclusive de Lonside. Toute reproduction, totale ou partielle, est strictement interdite sans autorisation écrite préalable.
+  - title: Limitation de responsabilité
+    content: Lonside s'efforce de fournir des informations exactes et à jour. Toutefois, des erreurs ou omissions peuvent survenir. Lonside ne saurait être tenu responsable de l'utilisation faite des informations présentées sur ce site.
+sectionsEn:
+  - title: Website Publisher
+    content: |-
+      <p><span class="text-slate-300 font-semibold">Company Name:</span> Lonside</p><p><span class="text-slate-300 font-semibold">Status:</span> Sole proprietorship / SAS (to be completed)</p><p><span class="text-slate-300 font-semibold">Registered Office:</span> France</p><p><span class="text-slate-300 font-semibold">Email:</span> hello@lonside.ai</p>
+  - title: Hosting Provider
+    content: This website is hosted by Vercel Inc., 340 Pine Street, Suite 900, San Francisco, CA 94104, USA.
+  - title: Intellectual Property
+    content: All content, texts, images, logos, and graphic components on this site are the exclusive property of Lonside. Any reproduction, total or partial, is strictly prohibited without prior written permission.
+  - title: Limitation of Liability
+    content: Lonside endeavors to provide accurate and up-to-date information. However, errors or omissions may occur. Lonside cannot be held liable for the use of the information presented on this site.

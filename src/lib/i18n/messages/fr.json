@@ -436,6 +436,10 @@
     "privacy": {
       "title": "Politique de Confidentialité",
       "description": "Consultez nos engagements RGPD concernant la protection et la conservation de vos données personnelles."
+    },
+    "cookies": {
+      "title": "Charte des Cookies",
+      "description": "Consultez notre politique d'utilisation des cookies et configurez vos consentements de tracking."
     }
   },
   "frustration": {
@@ -1000,6 +1004,28 @@
         {
           "title": "Cookies",
           "content": "Ce site n'utilise pas de cookies de tracking tiers. Seuls des cookies techniques strictement nécessaires au fonctionnement du site peuvent être utilisés."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Charte d'utilisation des cookies",
+      "buttonLabel": "Modifier mes préférences de cookies",
+      "sections": [
+        {
+          "title": "Qu'est-ce qu'un cookie ?",
+          "content": "Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, tablette ou mobile) lors de la visite d'un site ou de la consultation d'une publicité. Il a pour but de collecter des informations relatives à votre navigation afin de vous proposer des services personnalisés ou d'analyser l'audience du site."
+        },
+        {
+          "title": "Comment gérons-nous votre consentement ?",
+          "content": "Lors de votre première visite sur notre site, un bandeau d'information vous informe de la présence de cookies et vous invite à indiquer votre choix. Les cookies ne sont déposés que si vous les acceptez, à l'exception des cookies techniques strictement nécessaires au fonctionnement du site. Vous pouvez modifier vos choix à tout moment en cliquant sur le bouton de configuration ci-dessous."
+        },
+        {
+          "title": "Quels types de cookies utilisons-nous ?",
+          "content": "<div class=\"space-y-4\"><p><strong class=\"text-white\">1. Cookies techniques (Essentiels) :</strong> Ces cookies sont indispensables à la navigation sur le site (comme les identifiants de session, le choix de la langue de navigation, ou l'enregistrement de votre consentement pour les cookies). Ils ne peuvent pas être désactivés.</p><p><strong class=\"text-white\">2. Cookies de mesure d'audience (Statistiques) :</strong> Ces outils nous aident à comprendre le parcours des visiteurs et l'utilisation globale du site pour en améliorer la vitesse et l'ergonomie. Nous utilisons un outil respectueux de la vie privée (Plausible Analytics), actif uniquement avec votre accord.</p><p><strong class=\"text-white\">3. Cookies marketing :</strong> Ces cookies suivent les utilisateurs à travers le web pour afficher des messages pertinents. Nous n'utilisons aucun cookie de ce type à l'heure actuelle.</p></div>"
+        },
+        {
+          "title": "Liste détaillée des cookies internes déposés",
+          "content": "<div class=\"overflow-x-auto border border-white/5 rounded-lg\"><table class=\"w-full text-left border-collapse text-[11px] text-slate-400\"><thead><tr class=\"border-b border-white/10 bg-[#0d0d11]\"><th class=\"p-3 text-slate-200 font-bold\">Nom</th><th class=\"p-3 text-slate-200 font-bold\">Objectif</th><th class=\"p-3 text-slate-200 font-bold\">Fournisseur</th><th class=\"p-3 text-slate-200 font-bold\">Durée</th></tr></thead><tbody><tr class=\"border-b border-white/5\"><td class=\"p-3 font-semibold text-brand-purple font-mono\">lonside-cookie-consent</td><td class=\"p-3\">Retient les préférences de consentement de cookies de l'utilisateur.</td><td class=\"p-3 text-slate-300\">lonside.ai</td><td class=\"p-3\">1 an</td></tr><tr class=\"border-b border-white/5\"><td class=\"p-3 font-semibold text-brand-purple font-mono\">NEXT_LOCALE</td><td class=\"p-3\">Retient la langue sélectionnée pour la navigation (fr/en).</td><td class=\"p-3 text-slate-300\">lonside.ai</td><td class=\"p-3\">Persistant</td></tr></tbody></table></div>"
         }
       ]
     }

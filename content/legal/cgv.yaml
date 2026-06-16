@@ -1,0 +1,24 @@
+titleFr: Conditions Générales de Vente
+titleEn: Terms of Service
+sectionsFr:
+  - title: Objet
+    content: "Les présentes CGV régissent les relations contractuelles entre Lonside (ci-après \"le Prestataire\") et ses clients dans le cadre de prestations de développement web, design et automatisation."
+  - title: Devis et commandes
+    content: "Toute prestation fait l'objet d'un devis préalable signé des deux parties. Le devis précise la nature des prestations, les délais, les modalités de livraison et le prix forfaitaire TTC."
+  - title: Modalités de paiement
+    content: "Un acompte de 40% est exigible à la signature du devis. Le solde de 60% est dû à la livraison finale. Tout retard de paiement entraîne des pénalités de 3 fois le taux légal."
+  - title: Propriété intellectuelle
+    content: "Le client devient propriétaire intégral du code source, des maquettes et de l'ensemble des livrables dès réception du paiement complet. Lonside se réserve le droit de mentionner le projet dans son portfolio."
+  - title: Droit applicable
+    content: "Les présentes CGV sont soumises au droit français. En cas de litige, les parties s'engagent à rechercher une solution amiable avant tout recours juridictionnel."
+sectionsEn:
+  - title: Purpose
+    content: "These Terms of Service govern the contractual relationship between Lonside (hereinafter \"the Provider\") and its clients for web development, design, and automation services."
+  - title: Quotes and Orders
+    content: "Every service is subject to a prior quote signed by both parties. The quote specifies the nature of the services, timelines, delivery terms, and the flat-rate price including taxes."
+  - title: Payment Terms
+    content: "A 40% deposit is payable upon signing the quote. The remaining 60% is due upon final delivery. Any late payment results in penalties of 3 times the legal interest rate."
+  - title: Intellectual Property
+    content: "The client gains full ownership of the source code, mockups, and all deliverables once full payment is received. Lonside reserves the right to showcase the project in its portfolio."
+  - title: Governing Law
+    content: "These Terms are governed by French law. In case of dispute, the parties agree to seek an amicable resolution before any legal action."

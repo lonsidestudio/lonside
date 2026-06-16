@@ -1,6 +1,7 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { getTranslations } from 'next-intl/server';
+import { reader } from '@/lib/keystatic/reader';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -14,7 +15,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function PolitiqueConfidentialitePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'legalData' });
-  const privacy = t.raw('privacy') as { title: string; sections: Array<{ title: string; content: string }> };
+
+  // Read from Keystatic singleton and fallback to messages if not found
+  const entry = await reader.singletons.politiqueConfidentialite.read();
+  
+  const title = entry
+    ? (locale === 'en' ? (entry.titleEn || entry.titleFr) : entry.titleFr)
+    : (t.raw('privacy') as { title: string }).title;
+
+  const rawSections = entry
+    ? (locale === 'en' ? entry.sectionsEn : entry.sectionsFr)
+    : (t.raw('privacy') as { sections: Array<{ title: string; content: string }> }).sections;
+
+  const sections = (rawSections || []) as Array<{ title: string; content: string }>;
 
   return (
     <>
@@ -25,10 +38,10 @@ export default async function PolitiqueConfidentialitePage({ params }: { params:
 
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 relative z-10">
           <div>
-            <h1 className="text-2xl font-bold text-white mb-2">{privacy.title}</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">{title}</h1>
             <p className="text-xs text-slate-500">{t('lastUpdateLabel')}</p>
           </div>
-          {privacy.sections.map((section, idx) => (
+          {sections.map((section, idx) => (
             <section key={idx} className="space-y-4">
               <h2 className="text-base font-bold text-slate-200">{section.title}</h2>
               <div className="text-xs text-slate-400 leading-relaxed" dangerouslySetInnerHTML={{ __html: section.content }} />
