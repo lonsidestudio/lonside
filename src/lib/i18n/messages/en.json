@@ -217,7 +217,8 @@
     "mentions": "Legal notices",
     "privacy": "Privacy policy",
     "cgv": "Terms of Service",
-    "lastUpdate": "Last updated"
+    "lastUpdate": "Last updated",
+    "cookies": "Cookies"
   },
   "footer": {
     "tagline": "Web development and graphic design augmented by in-house AI agent processes. Human precision, automated speed.",
@@ -1055,5 +1056,20 @@
         ]
       }
     ]
+  },
+  "cookieConsent": {
+    "title": "Cookie settings",
+    "description": "We use cookies to optimize your experience, analyze our traffic, and display relevant ads. You can accept all cookies or configure your choices.",
+    "acceptAll": "Accept all",
+    "declineAll": "Decline all",
+    "customize": "Customize",
+    "save": "Save my choices",
+    "essentialTitle": "Strictly necessary",
+    "essentialDesc": "These cookies are essential for the website to function properly (session, security, language) and cannot be deactivated.",
+    "analyticsTitle": "Audience measurement",
+    "analyticsDesc": "These cookies allow us to understand how visitors interact with the site to improve its usability and speed.",
+    "marketingTitle": "Marketing",
+    "marketingDesc": "These cookies are used to track visitors across websites in order to deliver relevant advertisements.",
+    "close": "Close"
   }
 }

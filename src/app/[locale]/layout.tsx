@@ -4,6 +4,7 @@ import { getMessages, setRequestLocale, getTranslations } from 'next-intl/server
 import Script from 'next/script';
 import '../globals.css';
 import { locales } from '@/lib/i18n/config';
+import CookieConsent from '@/components/layout/CookieConsent';
 
 const inter = Inter({
   variable: '--font-sans',
@@ -75,16 +76,10 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className="h-full scroll-smooth">
       <body className={`${inter.variable} ${geistMono.variable} font-sans bg-[#050505] text-[#fafafa] antialiased selection:bg-blue-600/30 selection:text-blue-200 min-h-screen flex flex-col`}>
-        {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
-          <Script
-            defer
-            data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
-            src="https://plausible.io/js/script.js"
-            strategy="afterInteractive"
-          />
-        )}
+
         <NextIntlClientProvider messages={messages}>
           {children}
+          <CookieConsent />
         </NextIntlClientProvider>
       </body>
     </html>

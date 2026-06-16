@@ -13,6 +13,8 @@ export default function ContactClient() {
   const locale = useLocale();
   const searchParams = useSearchParams();
 
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@lonside.ai";
+
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "", _trap: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -129,8 +131,8 @@ export default function ContactClient() {
                   <div>
                     <h3 className="text-xs font-bold text-slate-300">{t("channels.email.title")}</h3>
                     <p className="text-xs text-slate-400 mt-1">{t("channels.email.desc")}</p>
-                    <a href="mailto:hello@lonside.ai" className="text-xs font-bold text-brand-purple hover:underline mt-1.5 block">
-                      hello@lonside.ai
+                    <a href={`mailto:${contactEmail}`} className="text-xs font-bold text-brand-purple hover:underline mt-1.5 block">
+                      {contactEmail}
                     </a>
                   </div>
                 </div>

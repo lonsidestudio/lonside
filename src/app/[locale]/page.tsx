@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default function Home() {
   const t = useTranslations("home");
+  const twitterUrl = process.env.NEXT_PUBLIC_TWITTER_URL || "https://twitter.com/lonside_ai";
 
   const exploreCards = [
     {
@@ -195,7 +196,7 @@ export default function Home() {
               "addressCountry": "FR"
             },
             "sameAs": [
-              "https://twitter.com/lonside_ai"
+              twitterUrl
             ]
           })
         }}

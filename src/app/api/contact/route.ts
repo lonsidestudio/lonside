@@ -30,6 +30,8 @@ const contactSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'hello@lonside.ai';
+
   const ip =
     request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ??
     request.headers.get('x-real-ip') ??
@@ -72,7 +74,7 @@ export async function POST(request: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
     from: 'lonside <onboarding@resend.dev>',
-    to: ['hello@lonside.ai'],
+    to: [contactEmail],
     replyTo: email,
     subject: `[lonside.ai] ${subject || `Message de ${name}`}`,
     html: `

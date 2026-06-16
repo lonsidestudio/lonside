@@ -217,7 +217,8 @@
     "mentions": "Mentions légales",
     "privacy": "Politique de confidentialité",
     "cgv": "Conditions Générales de Vente",
-    "lastUpdate": "Dernière mise à jour"
+    "lastUpdate": "Dernière mise à jour",
+    "cookies": "Cookies"
   },
   "footer": {
     "tagline": "Le développement web et le design graphique augmentés par des processus d'agents IA faits maison. Précision humaine, vitesse automatisée.",
@@ -1055,5 +1056,20 @@
         ]
       }
     ]
+  },
+  "cookieConsent": {
+    "title": "Gestion des cookies",
+    "description": "Nous utilisons des cookies pour optimiser votre expérience, analyser le trafic de notre site et diffuser des annonces pertinentes. Vous pouvez accepter tout ou configurer vos choix.",
+    "acceptAll": "Tout accepter",
+    "declineAll": "Tout refuser",
+    "customize": "Personnaliser",
+    "save": "Enregistrer mes choix",
+    "essentialTitle": "Strictement nécessaires",
+    "essentialDesc": "Ces cookies sont indispensables au bon fonctionnement du site (session, sécurité, langue) et ne peuvent pas être désactivés.",
+    "analyticsTitle": "Mesure d'audience",
+    "analyticsDesc": "Ces cookies nous permettent de comprendre comment les visiteurs interagissent avec le site afin d'en améliorer l'ergonomie et la vitesse.",
+    "marketingTitle": "Marketing",
+    "marketingDesc": "Ces cookies sont utilisés pour suivre les visiteurs à travers les sites web afin de proposer des publicités pertinentes.",
+    "close": "Fermer"
   }
 }
