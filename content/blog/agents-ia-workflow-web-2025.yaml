@@ -1,0 +1,20 @@
+slug: agents-ia-workflow-web-2025
+titleFr: "Comment les agents IA divisent par 3 le temps de développement web en 2025"
+titleEn: "How AI agents cut web development time by 3x in 2025"
+excerptFr: "Analyse de nos pipelines internes : comment nous orchestrons Claude, Cursor et des agents N8N pour livrer des projets en quelques jours plutôt qu'en semaines."
+excerptEn: "An analysis of our internal pipelines: how we orchestrate Claude, Cursor and N8N agents to deliver projects in days rather than weeks."
+category: ia
+publishedAt: "2025-05-20"
+readingTime: 8
+featured: true
+tags:
+  - IA
+  - Agents
+  - Workflow
+  - Next.js
+authorName: "Kevin T."
+authorRole: "Fondateur & Lead Dev"
+seoTitleFr: "Agents IA & développement web : diviser par 3 le temps de livraison en 2025"
+seoTitleEn: "AI agents & web development: 3x faster delivery in 2025"
+seoDescriptionFr: "Découvrez comment Lonside orchestre Claude, Cursor et N8N pour livrer des projets web en quelques jours. Analyse technique de nos pipelines IA internes."
+seoDescriptionEn: "Discover how Lonside orchestrates Claude, Cursor and N8N to deliver web projects in days. A technical deep-dive into our internal AI pipelines."

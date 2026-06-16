@@ -1,0 +1,1059 @@
+{
+  "nav": {
+    "servicesLabel": "Services",
+    "methode": "Méthode",
+    "portfolio": "Portfolio",
+    "tarifs": "Tarifs",
+    "blog": "Blog",
+    "aPropos": "À propos",
+    "contact": "Contact",
+    "cta": "Démarrer un projet",
+    "solutions": "Nos expertises",
+    "navigation": "Navigation",
+    "allServices": "Voir tous les services"
+  },
+  "home": {
+    "badge": "Agence web augmentée par l'IA",
+    "headline": "Votre site internet livré",
+    "headlineHighlight": "3× plus vite. Code à vous.",
+    "subheadline": "Du design de marque premium au développement Next.js sur-mesure. Sites ultra-rapides, applications web et automatisation IA — sans délai, sans frais cachés, propriété intellectuelle 100% transférée.",
+    "ctaPrimary": "Démarrer un projet",
+    "ctaSecondary": "Voir le portfolio",
+    "stats": {
+      "velocity": "Vitesse de livraison",
+      "ownership": "Propriété IP exclusive",
+      "tests": "Fiabilité garantie",
+      "lockin": "Zéro frais d'abonnement"
+    },
+    "explore": {
+      "title": "Explorez notre univers",
+      "subtitle": "Accédez directement aux sections dédiées pour comprendre notre offre et notre méthode.",
+      "exploreCards": "Accéder aux briques de services",
+      "cards": {
+        "services": {
+          "title": "Nos Services",
+          "desc": "Identité visuelle premium, sites internet ultra-rapides et plateformes métiers sur-mesure.",
+          "cta": "Découvrir les services"
+        },
+        "methode": {
+          "title": "Notre Méthode",
+          "desc": "Comment nos experts et nos assistants IA collaborent pour diviser par 3 vos délais de livraison sans compromis.",
+          "cta": "Suivre la méthode"
+        },
+        "portfolio": {
+          "title": "Portfolio",
+          "desc": "Études de cas réelles et résultats : Nova-Retail, Velo-SaaS, Helix-Branding. Chiffres et témoignages.",
+          "cta": "Voir les dossiers techniques"
+        },
+        "faq": {
+          "title": "F.A.Q.",
+          "desc": "Réponses claires sur la propriété exclusive du code, la maintenance et notre technologie IA.",
+          "cta": "Consulter la FAQ"
+        }
+      }
+    }
+  },
+  "services": {
+    "badge": "Notre catalogue d'expertises",
+    "headline": "Des briques technologiques",
+    "headlineHighlight": "conçues pour votre croissance.",
+    "subheadline": "Découvrez nos solutions sur-mesure combinant ingénierie Next.js avancée et design de luxe.",
+    "items": {
+      "vitrine": {
+        "name": "Création de Site Internet & SEO",
+        "desc": "Sites Next.js ultra-rapides, structurés pour Google et optimisés pour convertir vos visiteurs."
+      },
+      "app": {
+        "name": "Application Web & Espace Client",
+        "desc": "Portails clients sécurisés, tableaux de bord et bases de données Supabase sur-mesure."
+      },
+      "auto": {
+        "name": "Automatisation IA & Gain de Temps",
+        "desc": "Workflows N8N, connexions d'API et agents IA pour éliminer vos tâches manuelles répétitives."
+      },
+      "design": {
+        "name": "Identité Visuelle & Design de Marque",
+        "desc": "Logos vectoriels, chartes graphiques et design systems Figma pour crédibiliser votre marque."
+      }
+    }
+  },
+  "methode": {
+    "badge": "Notre méthode",
+    "headline": "4 phases structurées,",
+    "headlineHighlight": "du brief au déploiement.",
+    "subheadline": "Cadrage, design, développement Next.js, mise en ligne — des livrables définis à chaque étape, sans surprise."
+  },
+  "portfolio": {
+    "badge": "Portfolio",
+    "headline": "Des projets livrés,",
+    "headlineHighlight": "des résultats prouvés.",
+    "subheadline": "Consultez les audits de performance réels de nos clients avec chiffres, délais et témoignages.",
+    "deliveredIn": "Livré en",
+    "days": "jours",
+    "viewDetails": "Voir le dossier technique",
+    "testimonial": "Témoignage client",
+    "projectLink": "Visiter le projet en direct",
+    "process": "Détails de notre processus",
+    "feedback": "Retour client complet"
+  },
+  "tarifs": {
+    "badge": "Tarifs",
+    "headline": "Choisissez votre forfait.",
+    "headlineHighlight": "Le reste, c'est notre affaire.",
+    "subheadline": "Des tarifs fixes, sans clauses cachées. Configurez votre projet en quelques clics et obtenez une estimation immédiate — sans appel commercial.",
+    "from": "À partir de",
+    "perProject": "/ projet",
+    "perMonth": "/ mois",
+    "highlighted": "Le plus populaire",
+    "addons": {
+      "title": "Options complémentaires",
+      "subtitle": "À ajouter à n'importe quel forfait."
+    },
+    "guarantees": {
+      "fixed": {
+        "title": "Contrat au forfait garanti",
+        "desc": "Le tarif validé lors de la signature est fixe. Aucun dépassement de budget ni coût additionnel non planifié."
+      },
+      "speed": {
+        "title": "Développement accéléré",
+        "desc": "Grâce à nos agents d'orchestration et nos outils internes, vos projets sont livrés en quelques jours."
+      },
+      "ip": {
+        "title": "Propriété intellectuelle à 100%",
+        "desc": "Le code source, les maquettes Figma, les accès à l'hébergement vous appartiennent intégralement."
+      }
+    }
+  },
+  "blog": {
+    "badge": "Blog",
+    "headline": "Articles, guides",
+    "headlineHighlight": "& ressources web.",
+    "subheadline": "Tutoriels Next.js, stratégies SEO et guides d'automatisation IA pour propulser votre visibilité en ligne et votre productivité.",
+    "readMore": "Lire l'article",
+    "minRead": "min de lecture",
+    "categories": {
+      "all": "Tous",
+      "ia": "IA & Automatisation",
+      "web": "Développement Web",
+      "design": "Design & UX",
+      "seo": "SEO & Performance"
+    }
+  },
+  "aPropos": {
+    "badge": "Notre ADN",
+    "headline": "L'ingénierie web française",
+    "headlineHighlight": "réinventée par l'IA.",
+    "subheadline": "Lonside est une agence web augmentée par l'IA. Nous associons l'exigence d'ingénieurs Next.js seniors à la vitesse de nos agents d'orchestration pour livrer des sites internet et des applications web d'exception — 3× plus vite qu'une agence classique.",
+    "mission": {
+      "title": "Qui sommes-nous ?",
+      "content": "Nous sommes un studio d'ingénierie digitale nouvelle génération. Notre ambition est simple : bannir les processus obsolètes des agences traditionnelles pour livrer des produits web d'une qualité irréprochable dans des délais records. En mariant le savoir-faire d'experts humains chevronnés à l'automatisation d'agents IA spécialisés, nous divisons vos temps de développement par trois tout en maintenant un niveau d'exigence maximal sur le code source."
+    },
+    "features": {
+      "expert": "Développement Next.js",
+      "augmented": "Processus IA-Augmenté",
+      "lockin": "Propriété Exclusive Git",
+      "roi": "ROI Mesuré & Garanti"
+    },
+    "values": {
+      "title": "Les trois piliers de Lonside",
+      "transparency": {
+        "title": "Transparence absolue",
+        "desc": "Pas de mauvaise surprise : devis fixe, périmètre clair et livraison du dépôt de code Git à chaque fin de sprint."
+      },
+      "craft": {
+        "title": "Artisanat du code",
+        "desc": "Chaque ligne de code générée par nos outils est minutieusement lue, optimisée et signée par un ingénieur senior."
+      },
+      "impact": {
+        "title": "Culture du résultat",
+        "desc": "Nous ne concevons pas de site passif : tout produit livré doit générer de la vitesse, de l'acquisition SEO et du ROI."
+      }
+    },
+    "ctaTitle": "Donnons vie à votre vision",
+    "ctaSubtitle": "Discutons de votre architecture de données, de vos objectifs de conversion ou de vos besoins d'automatisation.",
+    "ctaBtn": "Estimer mon projet en 2 min",
+    "techStack": {
+      "title": "Notre stack technique"
+    }
+  },
+  "contact": {
+    "badge": "Prenons contact",
+    "headline": "Votre projet commence",
+    "headlineHighlight": "par une conversation.",
+    "subheadline": "Décrivez votre besoin en quelques mots. Nous vous répondons sous 24h ouvrées avec une première analyse gratuite.",
+    "form": {
+      "name": "Votre nom",
+      "email": "Votre email de contact",
+      "subject": "Sujet de votre message",
+      "message": "Votre message",
+      "namePlaceholder": "Ex: Jean Dupont",
+      "emailPlaceholder": "jean@entreprise.com",
+      "subjectPlaceholder": "Ex: Projet de refonte vitrine Next.js",
+      "messagePlaceholder": "Décrivez votre besoin en quelques phrases...",
+      "submit": "Envoyer mon message",
+      "sending": "Envoi en cours...",
+      "successTitle": "Message envoyé avec succès !",
+      "successDesc": "Notre équipe analyse votre demande et vous recontactera dans les plus brefs délais.",
+      "errorDesc": "Une erreur est survenue. Réessayez ou contactez-nous directement par email."
+    },
+    "channels": {
+      "title": "Nos canaux de communication",
+      "email": {
+        "title": "Par email",
+        "desc": "Écrivez-nous à tout moment :"
+      },
+      "call": {
+        "title": "Appel de cadrage",
+        "desc": "Réservez un créneau de 15 minutes :",
+        "cta": "Prendre rendez-vous sur Calendly"
+      },
+      "response": {
+        "title": "Temps de réponse",
+        "desc": "Nous répondons à vos messages en moins de 2 heures ouvrées."
+      }
+    }
+  },
+  "legal": {
+    "mentions": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "cgv": "Conditions Générales de Vente",
+    "lastUpdate": "Dernière mise à jour"
+  },
+  "footer": {
+    "tagline": "Le développement web et le design graphique augmentés par des processus d'agents IA faits maison. Précision humaine, vitesse automatisée.",
+    "sitemap": "Plan du site",
+    "guarantees": "Garanties",
+    "connect": "Nous rejoindre",
+    "copyright": "Tous droits réservés.",
+    "ip": "100% propriété intellectuelle",
+    "opensource": "Code open-source standard",
+    "reports": "Rapports d'impact réels",
+    "nocost": "Zéro coût caché",
+    "configurator": "Configurateur"
+  },
+  "faq": {
+    "title": "Questions fréquemment posées",
+    "subtitle": "Nous croyons en la transparence totale. Voici les réponses aux interrogations les plus courantes.",
+    "badge": "Des réponses claires",
+    "items": [
+      {
+        "q": "Suis-je propriétaire du code source de mon site internet ou de mon application ?",
+        "a": "Oui, intégralement. Contrairement aux agences classiques ou aux solutions SaaS fermées, vous possédez 100% de la propriété intellectuelle de votre projet. Nous vous livrons le code source propre sur un dépôt GitHub privé à votre nom. Vous êtes libre de l'héberger où vous le souhaitez et de travailler avec d'autres développeurs à l'avenir — sans aucune dépendance envers nous."
+      },
+      {
+        "q": "Puis-je faire évoluer mon site internet ou mon application web après la livraison ?",
+        "a": "Absolument. Le code est développé selon les standards du web moderne (Next.js, React, TypeScript). N'importe quel développeur qualifié peut reprendre et modifier le projet instantanément. Nous proposons également des formules d'accompagnement mensuelles pour piloter vos évolutions futures en toute sérénité."
+      },
+      {
+        "q": "Comment l'IA vous permet-elle de livrer 3× plus vite sans sacrifier la qualité ?",
+        "a": "Nos agents d'orchestration IA automatisent les tâches répétitives : génération de la structure du code, tests de robustesse, adaptation des formats d'images et génération de contenu. Nos ingénieurs humains se concentrent exclusivement sur ce qui crée de la valeur : l'architecture métier, l'esthétique premium et la stratégie de conversion."
+      },
+      {
+        "q": "Y a-t-il des frais cachés ou des abonnements obligatoires après la livraison ?",
+        "a": "Non. Le tarif validé dans le devis est fixe et définitif pour le périmètre convenu. Les seuls frais récurrents sont vos abonnements d'outils tiers (hébergeur, Stripe, etc.), payés directement aux fournisseurs — sans aucune marge ni frais de notre part."
+      },
+      {
+        "q": "Vos sites internet sont-ils optimisés pour le SEO Google et le mobile ?",
+        "a": "Oui, c'est notre priorité absolue. Tous nos projets sont développés en Mobile-First et rigoureusement audités avec Google Lighthouse pour obtenir des scores de performance et de référencement naturel (SEO) optimaux (cible > 95/100). Résultat : vos clients vous trouvent sur Google, et ne repartent pas à cause d'un chargement lent."
+      }
+    ]
+  },
+  "servicesGrid": {
+    "badge": "Nos briques de solutions",
+    "title": "Une ingénierie de pointe,",
+    "titleHighlight": "accélérée par l'IA",
+    "subtitle": "Nous concevons des solutions logicielles robustes et des identités visuelles mémorables. L'IA exécute les tâches répétitives en arrière-plan, nos experts se concentrent sur vos résultats.",
+    "humanLabel": "Pro",
+    "agentLabel": "IA",
+    "aiBoostPrefix": "Gain de temps IA",
+    "items": [
+      {
+        "title": "Identité visuelle & Direction artistique",
+        "tag": "Image de marque",
+        "description": "Création de votre univers graphique haut de gamme pour inspirer confiance et justifier des tarifs premium.",
+        "aiBoost": "Génération ultra-rapide de déclinaisons de formats et de supports prêts à l'emploi.",
+        "agentName": "Agent Créatif",
+        "bullets": [
+          {
+            "label": "Vision & Stratégie (Expert)",
+            "details": "Cadrage de votre positionnement de marque unique.",
+            "type": "human"
+          },
+          {
+            "label": "Variations de formats (IA)",
+            "details": "Déclinaison instantanée pour le web, l'impression et les réseaux sociaux.",
+            "type": "agent"
+          },
+          {
+            "label": "Exports & Optimisation (IA)",
+            "details": "Adaptation automatique de tous vos fichiers dans les formats finaux.",
+            "type": "agent"
+          }
+        ]
+      },
+      {
+        "title": "Sites internet & Acquisition clients",
+        "tag": "Performance & Visibilité",
+        "description": "Sites internet d'exception, ultra-rapides et structurés dès le départ pour grimper sur Google.",
+        "aiBoost": "Optimisation technique SEO et réduction du code pour un chargement instantané.",
+        "agentName": "Agent d'Optimisation",
+        "bullets": [
+          {
+            "label": "Copywriting & UX (Expert)",
+            "details": "Rédaction des messages clés pour inciter vos visiteurs à l'action.",
+            "type": "human"
+          },
+          {
+            "label": "Temps de chargement < 0.5s (IA)",
+            "details": "Code allégé pour éviter de perdre les visiteurs sur mobile.",
+            "type": "agent"
+          },
+          {
+            "label": "Structure SEO parfaite (IA)",
+            "details": "Indexation technique optimale pour plaire aux algorithmes de Google.",
+            "type": "agent"
+          }
+        ]
+      },
+      {
+        "title": "Plateformes Web & Espaces Clients",
+        "tag": "Processus métiers",
+        "description": "Développement d'outils internes et d'espaces clients sécurisés pour simplifier votre quotidien.",
+        "aiBoost": "Génération de tests de sécurité et de robustesse pour éliminer les bugs.",
+        "agentName": "Agent de Structure",
+        "bullets": [
+          {
+            "label": "Conception fonctionnelle (Expert)",
+            "details": "Création du parcours utilisateur et de la logique métier.",
+            "type": "human"
+          },
+          {
+            "label": "Garantie zéro bug (IA)",
+            "details": "Génération de tests automatiques pour assurer la stabilité du site.",
+            "type": "agent"
+          },
+          {
+            "label": "Sécurité renforcée (IA)",
+            "details": "Audits réguliers de la base de données et protection des accès.",
+            "type": "agent"
+          }
+        ]
+      },
+      {
+        "title": "Automatisation & Gains Opérationnels",
+        "tag": "Efficacité interne",
+        "description": "Connexion de vos logiciels actuels pour automatiser vos tâches répétitives et gagner des heures chaque semaine.",
+        "aiBoost": "Configuration automatique de flux de données et surveillance continue.",
+        "agentName": "Agent d'Automatisation",
+        "bullets": [
+          {
+            "label": "Cadrage des processus (Expert)",
+            "details": "Analyse de vos flux de travail et identification des gains de temps.",
+            "type": "human"
+          },
+          {
+            "label": "Flux automatisés (IA)",
+            "details": "Synchronisation sans couture de vos outils (paiements, CRM, emails).",
+            "type": "agent"
+          },
+          {
+            "label": "Surveillance active 24/7 (IA)",
+            "details": "Contrôle automatique du bon fonctionnement de vos processus.",
+            "type": "agent"
+          }
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "ready": "Prêt à démarrer ?",
+    "startProject": "Démarrer un projet",
+    "seePortfolio": "Voir le portfolio",
+    "configurator": "Accéder au configurateur"
+  },
+  "metadata": {
+    "defaultTitle": "Lonside | Agence Web IA — Création Site Internet Next.js & Automatisation",
+    "titleTemplate": "%s | Lonside",
+    "description": "Agence web augmentée par l'IA. Création de sites internet Next.js haute performance, applications web sur-mesure et automatisation de processus. Propriété intellectuelle 100% transférée. Devis en ligne.",
+    "keywords": "création site internet, agence web IA, développement Next.js, application web sur-mesure, automatisation IA, design graphique, SEO, refonte site internet",
+    "home": {
+      "title": "Lonside — Agence Web IA",
+      "description": "Lonside crée vos sites internet Next.js ultra-rapides, vos applications web sur-mesure et automatise vos processus grâce à l'IA. Livraison 3× plus rapide qu'une agence classique. Propriété intellectuelle 100% à vous."
+    },
+    "services": {
+      "title": "Création Site Internet, Application Web & Automatisation IA | Lonside",
+      "description": "Site vitrine Next.js SEO, portail client Supabase, pipeline d'automatisation N8N et identité visuelle Figma. Devis en ligne, tarif fixe, IP 100% transférée."
+    },
+    "siteVitrine": {
+      "title": "Création Site Vitrine Next.js — SEO & Haute Performance | Lonside",
+      "description": "Site internet sur-mesure Next.js, score Google Lighthouse > 95, chargement < 1s et structure SEO optimale. Attirez plus de clients et convertissez davantage de visiteurs."
+    },
+    "applicationWeb": {
+      "title": "Développement Application Web Sur-Mesure & Espace Client | Lonside",
+      "description": "Création de portails clients sécurisés, tableaux de bord et outils métiers avec Next.js, Supabase et PostgreSQL. Intégration Stripe, authentification et API sur-mesure."
+    },
+    "automatisation": {
+      "title": "Automatisation de Processus & Agents IA Métiers | Lonside",
+      "description": "Supprimez vos tâches manuelles grâce à des workflows N8N, des connexions d'API et des agents IA (Claude/GPT). Gagnez des heures chaque semaine."
+    },
+    "design": {
+      "title": "Création Identité Visuelle & Design de Marque Premium | Lonside",
+      "description": "Logos vectoriels originaux, charte graphique Figma et design system complet pour crédibiliser votre marque et justifier vos tarifs. Droits d'exploitation 100% transférés."
+    },
+    "methode": {
+      "title": "Notre Méthode Agence Web IA + Ingénieurs Humains | Lonside",
+      "description": "4 phases structurées, délais respectés et transparence totale. Découvrez comment nos agents IA et nos ingénieurs Next.js seniors collaborent pour livrer votre projet 3× plus vite."
+    },
+    "portfolio": {
+      "title": "Portfolio Agence Web — Études de Cas & Résultats Prouvés | Lonside",
+      "description": "Audits de performance réels, métriques et témoignages clients : Nova-Retail, Velo-SaaS, Helix-Branding. Consultez nos dossiers techniques complets."
+    },
+    "tarifs": {
+      "title": "Tarifs Création Site Internet & Application Web | Devis en Ligne — Lonside",
+      "description": "Prix fixes et transparents pour la création de sites internet Next.js, applications web Supabase et automatisation IA. Devis en ligne instantané sans appel commercial."
+    },
+    "blog": {
+      "title": "Blog Next.js, SEO & Automatisation IA | Lonside",
+      "description": "Tutoriels Next.js, guides d'optimisation SEO et stratégies d'automatisation IA pour propulser votre visibilité en ligne. Insights hebdomadaires par l'équipe Lonside."
+    },
+    "aPropos": {
+      "title": "Lonside | Agence Web IA Française — Qui Sommes-Nous ?",
+      "description": "Lonside est une agence web française augmentée par l'IA. Experts Next.js, design de marque et automatisation pour PME et startups. Propriété intellectuelle 100% transférée à la livraison."
+    },
+    "contact": {
+      "title": "Contactez Lonside | Devis Gratuit Création Site Internet & App Web",
+      "description": "Décrivez votre projet en quelques mots. Nos experts vous répondent sous 24h ouvrées avec une première analyse gratuite et un devis fixe sans surprise."
+    },
+    "cgv": {
+      "title": "Conditions Générales de Vente",
+      "description": "Consultez les CGV régissant les prestations de développement web et design de Lonside."
+    },
+    "mentionsLegales": {
+      "title": "Mentions Légales",
+      "description": "Mentions légales concernant l'édition, l'hébergement et la propriété intellectuelle du site Lonside."
+    },
+    "privacy": {
+      "title": "Politique de Confidentialité",
+      "description": "Consultez nos engagements RGPD concernant la protection et la conservation de vos données personnelles."
+    }
+  },
+  "frustration": {
+    "badge": "Briser les barrières",
+    "title": "Pourquoi nos clients détestaient les ",
+    "titleHighlight": "agences classiques",
+    "subtitle": "Nous avons pris chaque point de douleur et de frustration client pour en faire la fondation même de notre charte d'ingénierie et de design.",
+    "oldMethod": "L'ancienne méthode",
+    "oldMethodStatus": "Statut : Frustration récurrente",
+    "newMethod": "Process lonside",
+    "satisfaction": {
+      "title": "Satisfaction garantie",
+      "desc": "Paiement par jalons validés ensemble, étape par étape"
+    },
+    "ip": {
+      "title": "Votre code vous appartient",
+      "desc": "Copyright et accès intégralement transférés à la livraison"
+    },
+    "lockin": {
+      "title": "Liberté totale",
+      "desc": "Pas d'outils captifs, pas d'abonnements cachés"
+    },
+    "cards": [
+      {
+        "frustrationTitle": "Le devis qui enfle",
+        "frustrationDesc": "Le tarif annoncé est attractif. Puis arrivent les adaptations mobiles, les correctifs post-lancement, les 'non inclus' du contrat. La facture finale peut facilement doubler.",
+        "solutionTitle": "Un périmètre fixé, un prix ferme",
+        "solutionDesc": "Chaque fonctionnalité est définie, chiffrée et contractualisée avant le premier jour de travail. Si on l'a validé ensemble, il est inclus — point final.",
+        "metric": "Prix signé = prix à la livraison, sans exception"
+      },
+      {
+        "frustrationTitle": "La date de livraison qui glisse",
+        "frustrationDesc": "3 semaines annoncées, 3 mois réels. Les allers-retours internes, les imprévus non anticipés et les sous-traitants font exploser tous les calendriers.",
+        "solutionTitle": "Livraison 3× plus rapide, garantie",
+        "solutionDesc": "Nos outils automatisent les tâches répétitives. Nos ingénieurs concentrent leur expertise là où elle compte vraiment. Résultat : un rythme de livraison qui tient ses engagements.",
+        "metric": "Délai moyen divisé par 3 vs. une agence classique"
+      },
+      {
+        "frustrationTitle": "Le silence radio",
+        "frustrationDesc": "Vous envoyez votre brief, puis plus rien pendant des semaines. Quand le livrable arrive, il est trop tard pour corriger le cap — et tout est à refaire.",
+        "solutionTitle": "Visibilité totale à chaque étape",
+        "solutionDesc": "Un espace de suivi partagé, mis à jour en continu. Vous validez les maquettes, lisez les avancements et donnez votre avis à chaque jalon — avant que les décisions soient irréversibles.",
+        "metric": "Avancement partagé toutes les 2 heures en journée"
+      },
+      {
+        "frustrationTitle": "Captif de votre agence",
+        "frustrationDesc": "Votre site est bâti sur leur outil, leur hébergement, leur système. La moindre modification passe par eux — et leur tarif horaire. Changer d'agence devient un projet en soi.",
+        "solutionTitle": "Vous possédez tout, sans exception",
+        "solutionDesc": "Code source livré sur votre dépôt privé, hébergement à votre nom, accès complet à tous les outils. Vous pouvez changer de prestataire demain — sans perdre un seul fichier.",
+        "metric": "100% propriété transférée à la signature du contrat"
+      }
+    ]
+  },
+  "terminal": {
+    "badge": "Processus augmenté",
+    "title": "La puissance du travail ",
+    "titleHighlight": "collaboratif",
+    "subtitle": "Nous combinons la rigueur et la créativité d'experts humains avec l'efficacité de nos assistants IA pour diviser vos délais de livraison par 3, sans jamais faire de compromis sur la qualité.",
+    "interactiveTitle": "Suivi de création interactif",
+    "stepLabel": "Étape",
+    "aiRoleLabel": "ASSISTANCE IA",
+    "humanRoleLabel": "REVUE HUMAINE",
+    "deliverableLabel": "Livrable généré :",
+    "dashboardTitle": "Tableau de Bord IA",
+    "dashboardStatus": "Actif",
+    "velocityLabel": "Multiplier de Vélocité",
+    "velocityValue": "x3.8 Efficacité",
+    "errorRateLabel": "Taux d'erreur",
+    "qaQualityLabel": "Qualité audit",
+    "agentSectionTitle": "Détails de nos assistants",
+    "systemPromptLabel": "Consigne système de l'agent",
+    "steps": [
+      {
+        "title": "Cadrage & Spécifications",
+        "subtitle": "Clarifier votre besoin et estimer les délais",
+        "aiRole": "Analyse instantanée de votre cahier des charges, modélisation des processus métiers et estimation des coûts.",
+        "humanRole": "Entretien stratégique personnalisé, validation du backlog de fonctionnalités et ajustement du devis final.",
+        "deliverable": "Plan projet & Backlog complet de fonctionnalités"
+      },
+      {
+        "title": "Design de marque & UI",
+        "subtitle": "Créer votre univers visuel haut de gamme",
+        "aiRole": "Génération automatique de palettes de couleurs contemporaines et déclinaisons rapides de variations de logos.",
+        "humanRole": "Création artistique sur-mesure, validation des maquettes interactives et harmonisation créative globale.",
+        "deliverable": "Charte graphique complète & Maquettes Figma interactives"
+      },
+      {
+        "title": "Développement & Code",
+        "subtitle": "Écrire une application rapide et sécurisée",
+        "aiRole": "Génération de la structure du code (squelettes de composants) et des requêtes de base de données.",
+        "humanRole": "Écriture des algorithmes métiers complexes, intégration finale des pages et peaufinage des animations.",
+        "deliverable": "Application web Next.js prête et optimisée pour mobile"
+      },
+      {
+        "title": "Audit & Mise en Ligne",
+        "subtitle": "Garantir la fiabilité absolue et le SEO",
+        "aiRole": "Exécution automatique de tests de charge, vérification des failles de sécurité et calcul du score de vitesse.",
+        "humanRole": "Tests d'accessibilité (WCAG), revue finale de l'expérience utilisateur et déploiement en production.",
+        "deliverable": "Site internet en ligne avec score Google Lighthouse optimal"
+      }
+    ],
+    "agents": [
+      {
+        "id": "context",
+        "name": "Agent Cadrage",
+        "role": "Analyse du brief & des délais",
+        "specs": [
+          "Analyse de votre secteur d'activité",
+          "Rédaction de votre cahier des charges",
+          "Estimation immédiate des délais"
+        ],
+        "systemPrompt": "Générer un backlog fonctionnel clair en identifiant les cas limites et les priorités de développement...",
+        "efficiency": "+300% de vitesse"
+      },
+      {
+        "id": "branding",
+        "name": "Agent Design",
+        "role": "Inspiration & déclinaison graphique",
+        "specs": [
+          "Générateur de chartes de couleurs contemporaines",
+          "Génération de variations de logos vectoriels",
+          "Mise en page automatique adaptative"
+        ],
+        "systemPrompt": "Analyser l'univers de marque du client pour suggérer des palettes graphiques premium adaptées...",
+        "efficiency": "+450% de variations"
+      },
+      {
+        "id": "architecture",
+        "name": "Agent Code",
+        "role": "Écriture des bases de l'application",
+        "specs": [
+          "Squelettes de pages Next.js / React",
+          "Structure sécurisée de bases de données",
+          "Connexions d'outils tiers (Stripe, CRM)"
+        ],
+        "systemPrompt": "Écrire les fichiers de configuration de base de données et préparer les formulaires sécurisés...",
+        "efficiency": "+250% de rapidité"
+      },
+      {
+        "id": "qa",
+        "name": "Agent Fiabilité",
+        "role": "Tests automatiques & performance",
+        "specs": [
+          "Tests de rapidité mobile & bureau",
+          "Audit contre les failles de sécurité",
+          "Validation du parcours de conversion"
+        ],
+        "systemPrompt": "Scanner le code source pour identifier d'éventuelles vulnérabilités ou ralentissements de page...",
+        "efficiency": "100% de sécurité"
+      }
+    ]
+  },
+  "estimator": {
+    "badge": "Configurateur interactif",
+    "title": "Estimez le périmètre de votre projet",
+    "subtitle": "Sélectionnez les briques fonctionnelles nécessaires à votre produit pour voir instantanément l'estimation de prix, de délai et les agents IA affectés.",
+    "step1": "Étape 1 : Choisir les briques de service",
+    "step2": "Étape 2 : Envoyer le cadrage projet",
+    "daysLabel": "jours de dev",
+    "scopingReport": "Scoping telemetry report",
+    "estimatedBudget": "Budget global estimé",
+    "discountApplied": "✓ Offre combinée appliquée (-10% sur le pack global)",
+    "deliveryTime": "Délai de livraison",
+    "allocatedAgents": "Allocation d'agents IA",
+    "successTitle": "Plan de projet généré !",
+    "successDesc": "Un e-mail de cadrage complet a été envoyé à {email}.",
+    "phasesTitle": "Phases estimées de réalisation",
+    "phase1Title": "Cadrage & Préparation",
+    "phase1Desc": "Définition précise du backlog et mise en place de la charte de couleurs. (1-3 jours)",
+    "phase2Title": "Développement & Assemblage",
+    "phase2Desc": "Création des pages sur-mesure, connexions d'outils et codage accéléré. (3-7 jours)",
+    "phase3Title": "Audit de Sécurité & Livraison",
+    "phase3Desc": "Tests automatisés de charge, audit de vitesse Lighthouse et mise en ligne. (1-2 jours)",
+    "ctaMeeting": "Prendre rendez-vous de lancement (Call 15 min)",
+    "labelName": "Nom / entreprise",
+    "labelEmail": "Email de contact",
+    "labelBrief": "Brief / remarques additionnelles",
+    "placeholderName": "Ex: Nova-Retail",
+    "placeholderEmail": "sarah@nova-retail.com",
+    "placeholderBrief": "Description succincte de vos besoins spécifiques...",
+    "btnSubmit": "Valider la configuration",
+    "btnSubmitting": "Traitement en cours...",
+    "bricks": [
+      {
+        "id": "logo",
+        "name": "Charte de marque & logo",
+        "category": "Branding",
+        "desc": "Création graphique complète, charte de couleurs de luxe et adaptation aux réseaux sociaux."
+      },
+      {
+        "id": "landing",
+        "name": "Site internet vitrine (haute performance)",
+        "category": "Développement",
+        "desc": "Site moderne optimisé pour votre visibilité sur Google, animations fluides et affichage instantané."
+      },
+      {
+        "id": "saas",
+        "name": "Application web & espace client sécurisé",
+        "category": "Développement",
+        "desc": "Interface d'administration de vos données, comptes clients sécurisés et fonctionnalités sur-mesure."
+      },
+      {
+        "id": "agent",
+        "name": "Automatisation de vos tâches répétitives",
+        "category": "Intelligence artificielle",
+        "desc": "Création d'assistants intelligents pour traiter vos e-mails, documents ou automatisations internes."
+      },
+      {
+        "id": "api",
+        "name": "Connexion d'outils tiers (Stripe, CRM...)",
+        "category": "Intégration",
+        "desc": "Liaison sécurisée de vos outils favoris : paiements en ligne Stripe, gestion de clients (CRM), etc."
+      }
+    ]
+  },
+  "portfolioData": {
+    "badge": "Nos dossiers clients",
+    "title": "Dossiers techniques de ",
+    "titleHighlight": "résultats concrets",
+    "subtitle": "Chaque projet est accompagné d'un audit technique transparent détaillant l'impact de nos agents IA et la rigueur de nos ingénieurs humains.",
+    "btnDetails": "Consulter le Dossier Technique",
+    "drawerTitle": "Dossier technique IA + humain",
+    "tabReport": "Rapport d'Impact",
+    "tabTimeline": "Déroulement du Projet",
+    "tabCode": "Comparatif de Méthode",
+    "tabCharts": "Indicateurs Clés",
+    "clientProblem": "Problème du client",
+    "approach": "Notre approche next-gen",
+    "ctaSimilar": "Démarrer un projet similaire",
+    "lastUpdate": "Mis à jour le 15 Juin 2026",
+    "challengeLabel": "Défi",
+    "solutionLabel": "Solution",
+    "stackLabel": "Stack",
+    "ctaTitle": "Votre projet sera le prochain.",
+    "ctaSubtitle": "Démarrons une conversation sur votre vision. Cadrage gratuit, réponse sous 24h.",
+    "ctaContact": "Démarrer un projet",
+    "ctaTarifs": "Voir les tarifs",
+    "traditionalMethod": "Agence ou méthode traditionnelle",
+    "lonsideMethod": "Processus lonside (Humain + IA)",
+    "chartsDesc": "Voici l'analyse comparée mesurée directement sur le projet entre les normes standards d'une agence classique et notre approche augmentée.",
+    "chartLonsideLabel": "Lonside (Agentic)",
+    "chartStandardLabel": "Agence Standard",
+    "projectLinkLabel": "Lien du produit",
+    "processLabel": "Notre processus",
+    "feedbackLabel": "Retour d'expérience"
+  },
+  "servicesData": {
+    "title": "L'impact sur vos résultats business",
+    "subtitle": "Pourquoi choisir un code Next.js pur et sur-mesure plutôt que des templates CMS lourds et instables ?",
+    "tableHeaderCriteria": "Critère technique",
+    "tableHeaderStandard": "CMS Standard (WordPress/Prestashop)",
+    "tableHeaderLonside": "Standard Lonside (Next.js/Supabase)",
+    "tableHeaderImpact": "Bénéfice business direct",
+    "ctaText": "Démarrer mon projet maintenant",
+    "comparison": [
+      {
+        "feature": "Temps de chargement",
+        "standard": "Entre 3.5s et 5.2s (CMS lourds, templates WordPress surchargés)",
+        "lonside": "Sous les 0.5s (Next.js statique hébergé sur CDN mondial)",
+        "impact": "Divise le taux d'abandon client par 2"
+      },
+      {
+        "feature": "Personnalisation fonctionnelle",
+        "standard": "Limitée par les plugins existants, souvent instables ou payants",
+        "lonside": "Totale (Code sur-mesure répondant exactement à vos processus)",
+        "impact": "Zéro contrainte opérationnelle"
+      },
+      {
+        "feature": "Référencement naturel (SEO)",
+        "standard": "Structure sémantique moyenne et lenteer technique pénalisée par Google",
+        "lonside": "Score Lighthouse 100/100, balises sémantiques parfaites par défaut",
+        "impact": "Indexation Google optimale et trafic organique en hausse"
+      },
+      {
+        "feature": "Maintenance & Sécurité",
+        "standard": "Mises à jour régulières obligatoires des modules, risques de piratage élevés",
+        "lonside": "Architecture sans base de données exposée, immunisée par défaut",
+        "impact": "Zéro frais de maintenance corrective ou de hack"
+      }
+    ],
+    "subpages": {
+      "siteVitrine": {
+        "badge": "Site Vitrine & Acquisition SEO",
+        "title": "Un site vitrine haut de gamme",
+        "titleHighlight": "qui transforme vos visiteurs en clients.",
+        "subtitle": "Nous concevons des sites internet d'exception sur-mesure. Alliant vitesse de chargement fulgurante et référencement naturel optimisé, nos créations captent l'attention et génèrent des opportunités pour votre activité.",
+        "cta": "Estimer le coût de mon site",
+        "pillars": [
+          {
+            "title": "Affichage Instantané",
+            "desc": "Chaque milliseconde de retard fait perdre des clients. Nos sites se chargent en moins de 0.5s grâce à un code Next.js optimisé."
+          },
+          {
+            "title": "Optimisation Google (SEO)",
+            "desc": "Nous structurons techniquement vos pages (balises sémantiques, vitesse, plans de site) pour plaire aux robots de Google et maximiser votre trafic organique."
+          },
+          {
+            "title": "Zéro Maintenance Complexe",
+            "desc": "Pas de serveurs instables ni de plugins WordPress à mettre à jour tous les jours. Nos solutions statiques sont sécurisées par défaut et gratuites à héberger."
+          }
+        ],
+        "deliverablesTitle": "Ce que vous recevez (Livrables inclus)",
+        "deliverables": [
+          "Maquettes graphiques sur-mesure (Zéro template préconçu)",
+          "Vitesse de chargement optimale pour retenir vos clients sur mobile (< 1s)",
+          "Optimisation technique complète pour grimper sur Google (SEO)",
+          "Interface fluide et responsive adaptée à tous les écrans",
+          "Hébergement haut de gamme inclus et sécurisé",
+          "Espace administrateur intuitif pour modifier vos textes en toute autonomie",
+          "Propriété exclusive de 100% de votre code (aucun abonnement captif)"
+        ]
+      },
+      "applicationWeb": {
+        "badge": "Plateformes Métier & Espaces Clients",
+        "title": "Des plateformes web robustes",
+        "titleHighlight": "pour automatiser vos opérations.",
+        "subtitle": "Espaces clients sécurisés, portails partenaires, outils internes connectés. Nous concevons vos outils métiers Next.js/Supabase pour structurer vos données et booster votre productivité au quotidien.",
+        "cta": "Estimer le coût de mon application",
+        "pillars": [
+          {
+            "title": "Espaces Sécurisés",
+            "desc": "Authentification sécurisée avec gestion fine des rôles (Admin, Salariés, Clients) pour protéger vos données confidentielles."
+          },
+          {
+            "title": "Bases de Données Centralisées",
+            "desc": "Architecture Supabase / PostgreSQL performante et évolutive, connectée en temps réel pour synchroniser vos informations."
+          },
+          {
+            "title": "Paiements & Facturation",
+            "desc": "Intégration robuste de Stripe pour gérer vos abonnements, cartes bancaires et facturation récurrente en pilote automatique."
+          }
+        ],
+        "deliverablesTitle": "Livrables de développement inclus",
+        "deliverables": [
+          "Base de données SQL structurée et sécurisée",
+          "Interface d'administration sur-mesure et espace client",
+          "Intégration d'outils tiers via API (CRMs, Factures)",
+          "Suite de tests automatisés pour éviter toute régression",
+          "Hébergement scalable configuré en production",
+          "Session de formation pour vos équipes opérationnelles",
+          "Garantie corrective et support technique 30 jours"
+        ]
+      },
+      "automatisation": {
+        "badge": "Gains de Temps & Automatisation IA",
+        "title": "Supprimez vos tâches manuelles",
+        "titleHighlight": "grâce à des pipelines automatisés.",
+        "subtitle": "Pourquoi perdre des heures sur des saisies de données répétitives ? Nous connectons vos outils actuels (CRM, Stripe, emails) et déployons des assistants IA internes pour faire travailler vos logiciels à votre place.",
+        "cta": "Estimer mon gain de temps",
+        "pillars": [
+          {
+            "title": "Connexion d'API (Zéro Saisie)",
+            "desc": "Synchronisation automatique de vos bases de données clients, de vos outils de facturation et de vos boîtes mails."
+          },
+          {
+            "title": "Assistants IA Métiers",
+            "desc": "Intégration d'agents intelligents (Claude / GPT) capables d'extraire des données de PDF ou de rédiger des réponses types."
+          },
+          {
+            "title": "Surveillance & Alertes 24/7",
+            "desc": "Mise en place de notifications automatiques sur Slack ou par email dès qu'une action clé nécessite votre attention."
+          }
+        ],
+        "deliverablesTitle": "Ce que nous livrons",
+        "deliverables": [
+          "Cartographie et documentation de vos processus automatisés",
+          "Mise en place de workflows N8N ou Make hébergés",
+          "Configuration des webhooks et intégrations sécurisées",
+          "Création et paramétrage d'assistants IA avec prompts de marque",
+          "Journal d'erreurs et système de ré-exécution automatique",
+          "Support applicatif de 30 jours inclus"
+        ]
+      },
+      "design": {
+        "badge": "Crédibilité & Design de Marque",
+        "title": "Une identité visuelle premium",
+        "titleHighlight": "qui justifie vos tarifs.",
+        "subtitle": "La crédibilité de votre entreprise se joue dans les premières secondes. Nous créons des chartes de marque uniques, contemporaines et haut de gamme, déclinées sur tous vos supports physiques et numériques.",
+        "cta": "Démarrer mon étude de marque",
+        "pillars": [
+          {
+            "title": "Direction Artistique Sur-Mesure",
+            "desc": "Création de logos vectoriels originaux, typographies de caractère et palettes de couleurs modernes adaptées à votre positionnement."
+          },
+          {
+            "title": "Design System Figma",
+            "desc": "Conception d'une bibliothèque de composants structurée pour garantir la cohérence absolue de tous vos futurs designs."
+          },
+          {
+            "title": "Prototypes Haute-Fidélité",
+            "desc": "Maquettes animées interactives testables sur mobile et ordinateur pour valider l'ergonomie avant d'écrire la moindre ligne de code."
+          }
+        ],
+        "deliverablesTitle": "Livrables graphiques & sources",
+        "deliverables": [
+          "Fichiers sources Figma entièrement structurés (Design System)",
+          "Logo principal, secondaire et favicons (Formats SVG / PNG / WebP)",
+          "Guide de marque digital (Brand Book) incluant les règles de styles",
+          "Prototypes interactifs prêts pour les tests utilisateurs",
+          "Kit de bannières pour les réseaux sociaux (LinkedIn, Twitter)",
+          "Droits d'exploitation intellectuelle transférés à 100%"
+        ]
+      }
+    }
+  },
+  "pricingData": {
+    "title": "Configurateur avancé",
+    "subtitle": "Combinez les briques fonctionnelles et obtenez une estimation personnalisée en temps réel.",
+    "tiers": [
+      {
+        "id": "starter",
+        "name": "Starter",
+        "price": 1500,
+        "description": "Idéal pour lancer votre acquisition client en ligne rapidement.",
+        "cta": "Choisir Starter",
+        "features": [
+          "Site d'acquisition client (jusqu'à 8 pages)",
+          "Design responsive Mobile-First",
+          "Temps de chargement ultra-rapide (< 1s)",
+          "Formulaire de contact & capture de prospects",
+          "1 phase de révision complète",
+          "Hébergement haute performance sécurisé",
+          "Propriété exclusive à 100% (code source livré)"
+        ]
+      },
+      {
+        "id": "pro",
+        "name": "Pro",
+        "price": 4500,
+        "description": "Pour automatiser votre activité et fidéliser vos clients.",
+        "cta": "Choisir Pro",
+        "features": [
+          "Tout Starter inclus",
+          "Plateforme web sur-mesure (Espace Client)",
+          "Accès sécurisé pour vos utilisateurs",
+          "Base de données sécurisée et centralisée",
+          "Intégration de paiements (Stripe/Cartes)",
+          "Automatisation de vos flux de travail (2 connecteurs)",
+          "3 phases de révisions complètes",
+          "Support technique post-lancement (30 jours)"
+        ]
+      },
+      {
+        "id": "enterprise",
+        "name": "Enterprise",
+        "price": 9500,
+        "description": "Pour les projets d'envergure, automatisations complexes et agents IA sur-mesure.",
+        "cta": "Nous contacter",
+        "features": [
+          "Tout Pro inclus",
+          "Assistants IA métiers sur-mesure (Claude/GPT)",
+          "Architecture hautement évolutive & API",
+          "Audits complets de sécurité & charge",
+          "Formation de vos équipes aux outils (4h)",
+          "Maintenance & assistance mensuelle (6 mois)",
+          "Révisions illimitées",
+          "Chef de projet senior dédié"
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "id": "design",
+        "name": "Identité visuelle complète",
+        "price": 800,
+        "unit": "projet"
+      },
+      {
+        "id": "seo",
+        "name": "Audit SEO + stratégie contenu",
+        "price": 600,
+        "unit": "projet"
+      },
+      {
+        "id": "automation",
+        "name": "Pipeline automatisation N8N",
+        "price": 1200,
+        "unit": "projet"
+      },
+      {
+        "id": "maintenance",
+        "name": "Maintenance mensuelle",
+        "price": 350,
+        "unit": "mois"
+      },
+      {
+        "id": "ai-agent",
+        "name": "Agent IA métier sur-mesure",
+        "price": 2000,
+        "unit": "agent"
+      }
+    ]
+  },
+  "blogData": {
+    "btnBack": "Retour au blog",
+    "readingTimeSuffix": "min de lecture",
+    "comingSoon": "Contenu complet à venir — abonnez-vous pour être notifié."
+  },
+  "legalData": {
+    "lastUpdateLabel": "Dernière mise à jour : Juin 2025",
+    "mentions": {
+      "title": "Mentions légales",
+      "sections": [
+        {
+          "title": "Éditeur du site",
+          "content": "<p><span class=\"text-slate-300 font-semibold\">Raison sociale :</span> Lonside</p><p><span class=\"text-slate-300 font-semibold\">Statut :</span> Auto-entrepreneur / SAS (à compléter)</p><p><span class=\"text-slate-300 font-semibold\">Siège social :</span> France</p><p><span class=\"text-slate-300 font-semibold\">Email :</span> hello@lonside.ai</p>"
+        },
+        {
+          "title": "Hébergement",
+          "content": "Ce site est hébergé par Vercel Inc., 340 Pine Street, Suite 900, San Francisco, CA 94104, USA."
+        },
+        {
+          "title": "Propriété intellectuelle",
+          "content": "L'ensemble des contenus, textes, images, logos et éléments graphiques présents sur ce site sont la propriété exclusive de Lonside. Toute reproduction, totale ou partielle, est strictement interdite sans autorisation écrite préalable."
+        },
+        {
+          "title": "Limitation de responsabilité",
+          "content": "Lonside s'efforce de fournir des informations exactes et à jour. Toutefois, des erreurs ou omissions peuvent survenir. Lonside ne saurait être tenu responsable de l'utilisation faite des informations présentées sur ce site."
+        }
+      ]
+    },
+    "cgv": {
+      "title": "Conditions Générales de Vente",
+      "sections": [
+        {
+          "title": "Objet",
+          "content": "Les présentes CGV régissent les relations contractuelles entre Lonside (ci-après \"le Prestataire\") et ses clients dans le cadre de prestations de développement web, design et automatisation."
+        },
+        {
+          "title": "Devis et commandes",
+          "content": "Toute prestation fait l'objet d'un devis préalable signé des deux parties. Le devis précise la nature des prestations, les délais, les modalités de livraison et le prix forfaitaire TTC."
+        },
+        {
+          "title": "Modalités de paiement",
+          "content": "Un acompte de 40% est exigible à la signature du devis. Le solde de 60% est dû à la livraison finale. Tout retard de paiement entraîne des pénalités de 3 fois le taux légal."
+        },
+        {
+          "title": "Propriété intellectuelle",
+          "content": "Le client devient propriétaire intégral du code source, des maquettes et de l'ensemble des livrables dès réception du paiement complet. Lonside se réserve le droit de mentionner le projet dans son portfolio."
+        },
+        {
+          "title": "Droit applicable",
+          "content": "Les présentes CGV sont soumises au droit français. En cas de litige, les parties s'engagent à rechercher une solution amiable avant tout recours juridictionnel."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "sections": [
+        {
+          "title": "Données collectées",
+          "content": "Lonside collecte uniquement les données que vous nous transmettez volontairement via le formulaire de contact : nom, email, et message. Ces données sont utilisées exclusivement pour répondre à vos demandes."
+        },
+        {
+          "title": "Conservation des données",
+          "content": "Vos données sont conservées pour une durée maximale de 3 ans à compter de votre dernière interaction avec nous, conformément à la réglementation RGPD."
+        },
+        {
+          "title": "Vos droits",
+          "content": "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement et de portabilité de vos données. Pour exercer ces droits, contactez-nous à hello@lonside.ai."
+        },
+        {
+          "title": "Cookies",
+          "content": "Ce site n'utilise pas de cookies de tracking tiers. Seuls des cookies techniques strictement nécessaires au fonctionnement du site peuvent être utilisés."
+        }
+      ]
+    }
+  },
+  "methodeData": {
+    "title": "Notre Méthodologie en Détail",
+    "subtitle": "Découvrez les actions concrètes menées à chaque étape de votre projet pour garantir le succès et le respect parfait de vos spécifications.",
+    "ctaTitle": "Prêt à démarrer l'étape de cadrage ?",
+    "ctaSubtitle": "Nous prenons en charge la formalisation de votre idée. Utilisez notre outil interactif pour estimer et cadrer votre projet immédiatement.",
+    "ctaBtn": "Accéder au configurateur",
+    "steps": [
+      {
+        "phase": "Phase 1",
+        "title": "Cadrage & Spécifications Métiers",
+        "desc": "Nous éliminons toute ambiguïté technique. Notre processus démarre par un audit complet de vos outils actuels et la rédaction de spécifications claires en français, sans jargon informatique.",
+        "bullets": [
+          "Définition précise du backlog de fonctionnalités",
+          "Choix de l'architecture de données (PostgreSQL, Supabase ou Prisma)",
+          "Choix de la méthode d'intégration (API directes, Make, N8N)",
+          "Estimation rigoureuse du calendrier et des coûts"
+        ]
+      },
+      {
+        "phase": "Phase 2",
+        "title": "Identité de Marque & UX/UI",
+        "desc": "L'esthétique de votre site est votre vitrine. Nous créons des chartes graphiques contemporaines et des interfaces utilisateur intuitives pour inspirer immédiatement confiance à vos clients.",
+        "bullets": [
+          "Création de logos originaux et d'icônes sur-mesure",
+          "Conception de maquettes interactives haute-fidélité sur Figma",
+          "Prototypes dynamiques testables sur mobile et ordinateur",
+          "Définition du Design System (couleurs HSL, typographies, espacements)"
+        ]
+      },
+      {
+        "phase": "Phase 3",
+        "title": "Développement Standardisé & Propre",
+        "desc": "Nos experts écrivent un code moderne, évolutif et standardisé. Pas de technologies propriétaires bloquantes : nous utilisons Next.js, React et TypeScript pour vous garantir une indépendance totale.",
+        "bullets": [
+          "Architecture Next.js ultra-rapide (Régénération statique)",
+          "Optimisation mobile (Mobile-First) systématique",
+          "Intégration d'espaces clients sécurisés et de solutions de paiement",
+          "Automatisation des flux de données et des triggers d'emails"
+        ]
+      },
+      {
+        "phase": "Phase 4",
+        "title": "Audit Qualité & Lancement",
+        "desc": "Avant chaque mise en ligne, nos agents de test et nos ingénieurs effectuent des audits poussés pour garantir la sécurité de vos données et le bon affichage de vos pages.",
+        "bullets": [
+          "Tests de charge et simulation d'utilisateurs simultanés",
+          "Audit de sécurité contre les failles OWASP les plus courantes",
+          "Optimisation de vitesse Google Lighthouse (cible >95/100)",
+          "Mise en production sécurisée sur Vercel, Netlify ou AWS"
+        ]
+      }
+    ]
+  }
+}

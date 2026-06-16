@@ -1,0 +1,19 @@
+slug: design-system-figma-tailwind
+titleFr: "Construire un Design System Figma → TailwindCSS en 2025"
+titleEn: "Building a Design System Figma → TailwindCSS in 2025"
+excerptFr: "Notre workflow pour aller de la charte graphique Figma à un Design System TailwindCSS v4 cohérent, documenté et maintenable."
+excerptEn: "Our workflow for going from a Figma brand guide to a consistent, documented and maintainable TailwindCSS v4 Design System."
+category: design
+publishedAt: "2025-03-10"
+readingTime: 10
+featured: false
+tags:
+  - Figma
+  - TailwindCSS
+  - Design System
+authorName: "Kevin T."
+authorRole: "Fondateur & Lead Dev"
+seoTitleFr: "Design System Figma vers TailwindCSS v4 : workflow complet 2025"
+seoTitleEn: "Design System Figma to TailwindCSS v4: complete workflow 2025"
+seoDescriptionFr: "Comment Lonside construit des Design Systems cohérents de Figma à TailwindCSS v4. Variables, tokens, documentation — le guide complet."
+seoDescriptionEn: "How Lonside builds consistent Design Systems from Figma to TailwindCSS v4. Variables, tokens, documentation — the complete guide."

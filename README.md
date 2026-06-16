@@ -1,36 +1,183 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# lonside — Digital Engineering Studio
 
-## Getting Started
+Site web de l'agence **lonside**, un studio d'ingénierie digitale augmentée par l'IA. Stack Next.js 16 + TailwindCSS v4 + next-intl.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Architecture DDD (Domain-Driven Design)
+
+Le projet suit une architecture DDD légère avec une séparation claire entre domaines métier, composants UI et pages.
+
+```
+src/
+├── app/
+│   ├── [locale]/                    # Routes i18n (fr par défaut, en optionnel)
+│   │   ├── layout.tsx               # Layout racine avec NextIntlClientProvider
+│   │   ├── page.tsx                 # Home
+│   │   ├── a-propos/page.tsx        # À propos
+│   │   ├── services/
+│   │   │   ├── page.tsx             # Liste des services + tableau comparatif
+│   │   │   ├── site-vitrine/page.tsx
+│   │   │   ├── application-web/page.tsx
+│   │   │   ├── automatisation/page.tsx
+│   │   │   └── design/page.tsx
+│   │   ├── methode/page.tsx         # Processus / Méthodologie
+│   │   ├── portfolio/page.tsx       # Réalisations clients
+│   │   ├── tarifs/page.tsx          # Configurateur de prix
+│   │   ├── blog/
+│   │   │   ├── page.tsx             # Index des articles
+│   │   │   └── [slug]/page.tsx      # Article dynamique
+│   │   ├── contact/page.tsx
+│   │   └── legal/
+│   │       ├── mentions-legales/page.tsx
+│   │       ├── politique-confidentialite/page.tsx
+│   │       └── cgv/page.tsx
+│   ├── globals.css
+│   ├── layout.tsx                   # Root layout (pass-through)
+│   ├── not-found.tsx                # Page 404 custom
+│   └── sitemap.ts                   # Sitemap dynamique
+├── domains/                         # Couche DDD — données et types métier
+│   ├── services/   (types.ts, data.ts)
+│   ├── portfolio/  (types.ts, data.ts)
+│   ├── pricing/    (types.ts, data.ts)
+│   └── blog/       (types.ts, data.ts)
+├── components/
+│   ├── layout/
+│   │   ├── Navbar.tsx               # Navigation principale (mis à jour)
+│   │   └── Footer.tsx               # Pied de page (mis à jour)
+│   ├── ui/                          # Composants atomiques
+│   │   ├── Badge.tsx
+│   │   ├── Button.tsx
+│   │   ├── Card.tsx
+│   │   └── SectionHeader.tsx
+│   ├── sections/                    # Sections réutilisables
+│   │   └── CTABanner.tsx
+│   └── (legacy)                     # Composants existants conservés
+│       ├── AgentTerminal.tsx
+│       ├── CostEstimator.tsx
+│       ├── DossierDrawer.tsx
+│       ├── FAQ.tsx
+│       ├── FrustrationGrid.tsx
+│       └── ServicesGrid.tsx
+├── lib/
+│   ├── i18n/
+│   │   ├── config.ts                # Locales disponibles
+│   │   ├── request.ts               # Configuration next-intl
+│   │   └── messages/
+│   │       ├── fr.json              # Traductions françaises
+│   │       └── en.json              # Traductions anglaises
+│   └── utils.ts
+├── hooks/
+│   └── useMediaQuery.ts
+└── middleware.ts                    # Middleware i18n
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Démarrage rapide
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Installation des dépendances
+npm install
 
-## Learn More
+# Serveur de développement
+npm run dev
 
-To learn more about Next.js, take a look at the following resources:
+# Build de production
+npm run build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Lancer la production
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Le site sera disponible sur [http://localhost:3000](http://localhost:3000).
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Guide i18n
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Langues disponibles
+
+| Locale | Langue   | Préfixe URL |
+|--------|----------|-------------|
+| `fr`   | Français | aucun (par défaut) |
+| `en`   | Anglais  | `/en/...`  |
+
+### Ajouter une langue
+
+1. Ajouter le code locale dans `src/lib/i18n/config.ts` :
+   ```typescript
+   export const locales = ['fr', 'en', 'de'] as const; // ex: ajout de l'allemand
+   ```
+
+2. Créer le fichier de messages dans `src/lib/i18n/messages/de.json` en copiant `fr.json` et en traduisant les valeurs.
+
+3. Redémarrer le serveur de développement.
+
+### Utiliser les traductions dans une page
+
+**Server Component (recommandé) :**
+```tsx
+import { useTranslations } from 'next-intl';
+
+export default function MyPage() {
+  const t = useTranslations('myNamespace');
+  return <h1>{t('myKey')}</h1>;
+}
+```
+
+**Client Component :**
+```tsx
+'use client';
+import { useTranslations } from 'next-intl';
+
+export default function MyComponent() {
+  const t = useTranslations('myNamespace');
+  return <span>{t('myKey')}</span>;
+}
+```
+
+---
+
+## Conventions de code
+
+- **Composants** : PascalCase (`MyComponent.tsx`)
+- **Hooks** : camelCase préfixé par `use` (`useMediaQuery.ts`)
+- **Types** : suffixe `Type` ou `Interface` dans les fichiers `types.ts`
+- **Data** : constantes UPPER_CASE dans les fichiers `data.ts`
+- **Imports** : alias `@/` pour `src/`
+- **CSS** : TailwindCSS v4 uniquement, pas de CSS modules
+- **"use client"** : uniquement quand nécessaire (hooks React, event handlers)
+
+---
+
+## Variables d'environnement
+
+Créer un fichier `.env.local` à la racine :
+
+```env
+# URL publique du site (pour sitemap et OG)
+NEXT_PUBLIC_SITE_URL=https://lonside.ai
+
+# (futur) Resend pour l'envoi d'emails du formulaire de contact
+RESEND_API_KEY=re_xxxxxxxx
+
+# (futur) Supabase pour la base de données
+NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+```
+
+---
+
+## Stack technique
+
+| Couche | Technologie |
+|--------|-------------|
+| Framework | Next.js 16 (App Router) |
+| UI | React 19 |
+| Typage | TypeScript 5 |
+| Styles | TailwindCSS v4 |
+| i18n | next-intl |
+| Animations | Framer Motion |
+| Icônes | Lucide React |
+| Hébergement | Vercel |

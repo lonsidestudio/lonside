@@ -1,0 +1,1059 @@
+{
+  "nav": {
+    "servicesLabel": "Services",
+    "methode": "Method",
+    "portfolio": "Portfolio",
+    "tarifs": "Pricing",
+    "blog": "Blog",
+    "aPropos": "About",
+    "contact": "Contact",
+    "cta": "Start a project",
+    "solutions": "Our expertise",
+    "navigation": "Navigation",
+    "allServices": "View all services"
+  },
+  "home": {
+    "badge": "AI-powered web agency",
+    "headline": "Your website, delivered",
+    "headlineHighlight": "3× faster. Code is yours.",
+    "subheadline": "From premium brand design to custom Next.js development. Ultra-fast sites, web applications and AI automation — no delays, no hidden fees, 100% IP transferred.",
+    "ctaPrimary": "Start a project",
+    "ctaSecondary": "Explore portfolio",
+    "stats": {
+      "velocity": "Delivery speed",
+      "ownership": "Exclusive IP ownership",
+      "tests": "Guaranteed reliability",
+      "lockin": "Zero subscription fees"
+    },
+    "explore": {
+      "title": "Explore our universe",
+      "subtitle": "Access dedicated sections to understand our offering and methodology.",
+      "exploreCards": "Access service building blocks",
+      "cards": {
+        "services": {
+          "title": "Our Services",
+          "desc": "Premium brand design, ultra-fast websites, and tailor-made business tools.",
+          "cta": "Explore services"
+        },
+        "methode": {
+          "title": "Our Method",
+          "desc": "How our experts and AI tools collaborate to divide delivery times by 3 without compromising quality.",
+          "cta": "Follow the method"
+        },
+        "portfolio": {
+          "title": "Portfolio",
+          "desc": "Real-world case studies and results: Nova-Retail, Velo-SaaS, Helix-Branding. Metrics and testimonials.",
+          "cta": "View case studies"
+        },
+        "faq": {
+          "title": "F.A.Q.",
+          "desc": "Clear answers about code ownership, maintenance, and our AI-assisted technology.",
+          "cta": "Read the FAQ"
+        }
+      }
+    }
+  },
+  "services": {
+    "badge": "Our catalog of expertise",
+    "headline": "Software building blocks",
+    "headlineHighlight": "crafted for your business growth.",
+    "subheadline": "Explore our tailor-made solutions combining advanced Next.js engineering and luxury design.",
+    "items": {
+      "vitrine": {
+        "name": "Website Creation & SEO",
+        "desc": "Ultra-fast Next.js sites, structured for Google and optimised to convert your visitors."
+      },
+      "app": {
+        "name": "Web App & Client Portal",
+        "desc": "Secure client portals, dashboards and custom Supabase databases built to scale."
+      },
+      "auto": {
+        "name": "AI Automation & Time Savings",
+        "desc": "N8N workflows, API integrations and AI agents to eliminate your manual repetitive tasks."
+      },
+      "design": {
+        "name": "Visual Identity & Brand Design",
+        "desc": "Vector logos, brand guidelines and Figma design systems to build instant credibility."
+      }
+    }
+  },
+  "methode": {
+    "badge": "Our method",
+    "headline": "4 structured phases,",
+    "headlineHighlight": "from brief to deployment.",
+    "subheadline": "Scoping, design, Next.js development, go-live — defined deliverables at every phase, no surprises."
+  },
+  "portfolio": {
+    "badge": "Portfolio",
+    "headline": "Projects delivered,",
+    "headlineHighlight": "results proven.",
+    "subheadline": "Review real performance audits from our clients with metrics, timelines and testimonials.",
+    "deliveredIn": "Delivered in",
+    "days": "days",
+    "viewDetails": "View technical folder",
+    "testimonial": "Client testimonial",
+    "projectLink": "Visit live project",
+    "process": "Our process details",
+    "feedback": "Full client feedback"
+  },
+  "tarifs": {
+    "badge": "Pricing",
+    "headline": "Pick your plan.",
+    "headlineHighlight": "We'll handle the rest.",
+    "subheadline": "Fixed prices, no hidden fees. Configure your project in a few clicks and get an instant estimate — no sales call needed.",
+    "from": "Starting from",
+    "perProject": "/ project",
+    "perMonth": "/ month",
+    "highlighted": "Most popular",
+    "addons": {
+      "title": "Add-on options",
+      "subtitle": "Add to any package."
+    },
+    "guarantees": {
+      "fixed": {
+        "title": "Fixed-price contract",
+        "desc": "The price agreed at signing is fixed. No budget overrun or unplanned costs."
+      },
+      "speed": {
+        "title": "Accelerated development",
+        "desc": "Thanks to our orchestration agents and internal tools, projects are delivered in days."
+      },
+      "ip": {
+        "title": "100% intellectual property",
+        "desc": "Source code, Figma mockups and hosting access are entirely yours."
+      }
+    }
+  },
+  "blog": {
+    "badge": "Blog",
+    "headline": "Articles, guides",
+    "headlineHighlight": "& web resources.",
+    "subheadline": "Next.js tutorials, SEO strategies and AI automation guides to grow your online visibility and productivity.",
+    "readMore": "Read article",
+    "minRead": "min read",
+    "categories": {
+      "all": "All",
+      "ia": "AI & Automation",
+      "web": "Web Development",
+      "design": "Design & UX",
+      "seo": "SEO & Performance"
+    }
+  },
+  "aPropos": {
+    "badge": "Our DNA",
+    "headline": "Web engineering",
+    "headlineHighlight": "reinvented by AI.",
+    "subheadline": "Lonside is an AI-augmented web agency. We pair the rigour of senior Next.js engineers with the speed of our orchestration agents to deliver exceptional websites and web applications — 3× faster than a traditional agency.",
+    "mission": {
+      "title": "Who are we?",
+      "content": "We are a next-generation digital engineering studio. Our mission is simple: eliminate obsolete traditional agency workflows to deliver top-notch digital products in record time. By pairing the experience of seasoned human developers with the automation of specialized AI agents, we divide development times by three while maintaining complete source code craftsmanship."
+    },
+    "features": {
+      "expert": "Next.js Development",
+      "augmented": "AI-Augmented Process",
+      "lockin": "Exclusive Git Ownership",
+      "roi": "Measured & Guaranteed ROI"
+    },
+    "values": {
+      "title": "The three pillars of Lonside",
+      "transparency": {
+        "title": "Absolute transparency",
+        "desc": "No hidden costs: fixed pricing, clear scopes, and Git code repository access at the end of each sprint."
+      },
+      "craft": {
+        "title": "Code craftsmanship",
+        "desc": "Every single line of code generated by our tools is carefully reviewed, optimized, and signed off by a senior engineer."
+      },
+      "impact": {
+        "title": "Result culture",
+        "desc": "We don't build passive websites: every product we ship must generate speed, organic SEO growth, and solid business ROI."
+      }
+    },
+    "ctaTitle": "Let's bring your vision to life",
+    "ctaSubtitle": "Let's discuss your data architecture, user conversion goals, or internal task automation needs.",
+    "ctaBtn": "Estimate my project in 2 min",
+    "techStack": {
+      "title": "Our tech stack"
+    }
+  },
+  "contact": {
+    "badge": "Get in touch",
+    "headline": "Your project starts",
+    "headlineHighlight": "with a conversation.",
+    "subheadline": "Describe your need in a few words. We respond within 24 business hours with a free initial analysis.",
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "subject": "Subject",
+      "message": "Your message",
+      "namePlaceholder": "e.g. John Smith",
+      "emailPlaceholder": "john@company.com",
+      "subjectPlaceholder": "e.g. Next.js website project",
+      "messagePlaceholder": "Describe your need in a few sentences...",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "successTitle": "Message sent!",
+      "successDesc": "Our team is reviewing your request and will get back to you shortly.",
+      "errorDesc": "Something went wrong. Please try again or email us directly."
+    },
+    "channels": {
+      "title": "Our communication channels",
+      "email": {
+        "title": "By email",
+        "desc": "Write to us anytime:"
+      },
+      "call": {
+        "title": "Scoping call",
+        "desc": "Book a 15-minute slot:",
+        "cta": "Schedule on Calendly"
+      },
+      "response": {
+        "title": "Response time",
+        "desc": "We reply to messages within 2 business hours."
+      }
+    }
+  },
+  "legal": {
+    "mentions": "Legal notices",
+    "privacy": "Privacy policy",
+    "cgv": "Terms of Service",
+    "lastUpdate": "Last updated"
+  },
+  "footer": {
+    "tagline": "Web development and graphic design augmented by in-house AI agent processes. Human precision, automated speed.",
+    "sitemap": "Sitemap",
+    "guarantees": "Guarantees",
+    "connect": "Follow us",
+    "copyright": "All rights reserved.",
+    "ip": "100% intellectual property",
+    "opensource": "Standard open-source code",
+    "reports": "Real impact reports",
+    "nocost": "Zero hidden cost",
+    "configurator": "Configurator"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "We believe in total transparency. Here are answers to the most common questions from our partners.",
+    "badge": "Clear answers",
+    "items": [
+      {
+        "q": "Do I own the source code of my website or web application?",
+        "a": "Yes, entirely. Unlike traditional agencies or closed SaaS platforms, you own 100% of the intellectual property. We deliver clean source code to a private GitHub repository in your name. You are free to host it anywhere and work with any developer in the future — no lock-in, ever."
+      },
+      {
+        "q": "Can I evolve my website or web application after delivery?",
+        "a": "Absolutely. The code is built to modern web standards (Next.js, React, TypeScript). Any qualified developer worldwide can pick up and modify the project instantly. We also offer monthly support packages to manage your future updates with peace of mind."
+      },
+      {
+        "q": "How does AI let you deliver 3× faster without sacrificing quality?",
+        "a": "Our AI orchestration agents automate repetitive tasks: generating code scaffolding, running robustness tests, adapting image formats and drafting content. Our human engineers focus exclusively on what creates value: business architecture, premium aesthetics and conversion strategy."
+      },
+      {
+        "q": "Are there hidden fees or mandatory subscriptions after delivery?",
+        "a": "No. The price agreed in the quote is fixed and final for the agreed scope. The only recurring costs are your third-party tool subscriptions (hosting, Stripe, etc.), paid directly to providers — with zero markup or fees from us."
+      },
+      {
+        "q": "Are your websites optimised for Google SEO and mobile?",
+        "a": "Yes, it's our absolute priority. Every project is developed Mobile-First and rigorously audited with Google Lighthouse targeting scores above 95/100 for performance and SEO. The result: your clients find you on Google and don't bounce because of slow load times."
+      }
+    ]
+  },
+  "servicesGrid": {
+    "badge": "Our solution building blocks",
+    "title": "Cutting-edge engineering,",
+    "titleHighlight": "accelerated by AI",
+    "subtitle": "We design robust software solutions and memorable visual identities. AI automates repetitive tasks behind the scenes, allowing our experts to focus on your business outcomes.",
+    "humanLabel": "Pro",
+    "agentLabel": "AI",
+    "aiBoostPrefix": "AI Time Savings",
+    "items": [
+      {
+        "title": "Visual Identity & Art Direction",
+        "tag": "Brand image",
+        "description": "Creation of your high-end graphic universe to inspire trust and justify premium pricing.",
+        "aiBoost": "Ultra-fast generation of format variations and ready-to-use digital/print assets.",
+        "agentName": "Creative Agent",
+        "bullets": [
+          {
+            "label": "Vision & Strategy (Expert)",
+            "details": "Framing your unique brand positioning.",
+            "type": "human"
+          },
+          {
+            "label": "Format Variations (AI)",
+            "details": "Instant layout adaptation for web, print, and social media.",
+            "type": "agent"
+          },
+          {
+            "label": "Exports & Optimizations (AI)",
+            "details": "Automatic asset resizing and processing into final formats.",
+            "type": "agent"
+          }
+        ]
+      },
+      {
+        "title": "Websites & Client Acquisition",
+        "tag": "Performance & Visibility",
+        "description": "Exceptional, ultra-fast websites designed to rank high on Google and turn visitors into buyers.",
+        "aiBoost": "SEO code optimization and page payload reduction for instant rendering.",
+        "agentName": "Optimization Agent",
+        "bullets": [
+          {
+            "label": "Copywriting & UX (Expert)",
+            "details": "Writing key business copy to prompt user action.",
+            "type": "human"
+          },
+          {
+            "label": "Load time under 0.5s (AI)",
+            "details": "Lightweight code structure to minimize mobile bounce rate.",
+            "type": "agent"
+          },
+          {
+            "label": "Perfect SEO structure (AI)",
+            "details": "Optimized semantic markup for maximum Google crawlability.",
+            "type": "agent"
+          }
+        ]
+      },
+      {
+        "title": "Web Platforms & Customer Portals",
+        "tag": "Business workflows",
+        "description": "Development of internal administration tools and secure portals to streamline your daily operations.",
+        "aiBoost": "Automatic unit test suite generation and security audits to avoid code bugs.",
+        "agentName": "Structure Agent",
+        "bullets": [
+          {
+            "label": "Functional Design (Expert)",
+            "details": "Mapping user journeys and defining core business logic.",
+            "type": "human"
+          },
+          {
+            "label": "Bug-free guarantee (AI)",
+            "details": "Automated regression tests to ensure continuous site stability.",
+            "type": "agent"
+          },
+          {
+            "label": "Reinforced security (AI)",
+            "details": "Automatic database protection and access audits.",
+            "type": "agent"
+          }
+        ]
+      },
+      {
+        "title": "Automation & Operational Gains",
+        "tag": "Internal efficiency",
+        "description": "Connecting your current software apps to automate repetitive tasks and save hours every week.",
+        "aiBoost": "Automatic data pipeline configuration and real-time process monitoring.",
+        "agentName": "Automation Agent",
+        "bullets": [
+          {
+            "label": "Workflow Mapping (Expert)",
+            "details": "Analyzing your current process to pinpoint automation opportunities.",
+            "type": "human"
+          },
+          {
+            "label": "Automated sync (AI)",
+            "details": "Seamless data synchronization across payments, CRM, and email tools.",
+            "type": "agent"
+          },
+          {
+            "label": "24/7 Active Monitoring (AI)",
+            "details": "Continuous background checks on your automation pipelines.",
+            "type": "agent"
+          }
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "ready": "Ready to start?",
+    "startProject": "Start a project",
+    "seePortfolio": "See portfolio",
+    "configurator": "Open configurator"
+  },
+  "metadata": {
+    "defaultTitle": "Lonside | AI Web Agency — Next.js Website Creation & Automation",
+    "titleTemplate": "%s | Lonside",
+    "description": "AI-powered web agency. Custom Next.js high-performance websites, bespoke web applications and process automation. 100% IP transferred. Get an instant online quote.",
+    "keywords": "website creation, AI web agency, Next.js development, custom web application, AI automation, brand design, SEO, website redesign",
+    "home": {
+      "title": "Lonside — AI Web Agency",
+      "description": "Lonside builds ultra-fast Next.js websites, custom web applications and automates your workflows with AI — 3× faster than a traditional agency. 100% IP is yours."
+    },
+    "services": {
+      "title": "Website Creation, Web App & AI Automation | Lonside",
+      "description": "Next.js SEO showcase sites, Supabase client portals, N8N automation pipelines and Figma visual identity. Fixed pricing, instant quote, 100% IP transferred."
+    },
+    "siteVitrine": {
+      "title": "Next.js Showcase Website — SEO & High Performance | Lonside",
+      "description": "Custom Next.js website, Google Lighthouse score > 95, sub-1s load time and optimal SEO structure. Attract more visitors and convert them into customers."
+    },
+    "applicationWeb": {
+      "title": "Custom Web Application & Client Portal Development | Lonside",
+      "description": "Secure client portals, dashboards and business tools built with Next.js, Supabase and PostgreSQL. Stripe payments, authentication and custom APIs."
+    },
+    "automatisation": {
+      "title": "Process Automation & Custom AI Business Agents | Lonside",
+      "description": "Eliminate manual tasks with N8N workflows, API integrations and AI agents (Claude/GPT). Save hours every week on repetitive operations."
+    },
+    "design": {
+      "title": "Visual Identity & Premium Brand Design | Lonside",
+      "description": "Original vector logos, Figma brand guidelines and complete design system to build credibility and justify your pricing. 100% IP rights transferred."
+    },
+    "methode": {
+      "title": "Our AI + Senior Engineers Web Agency Method | Lonside",
+      "description": "4 structured phases, respected deadlines and full transparency. See how our AI agents and senior Next.js engineers collaborate to deliver 3× faster."
+    },
+    "portfolio": {
+      "title": "Web Agency Portfolio — Case Studies & Proven Results | Lonside",
+      "description": "Real performance audits, metrics and client testimonials: Nova-Retail, Velo-SaaS, Helix-Branding. Full technical case studies available."
+    },
+    "tarifs": {
+      "title": "Web Development Pricing & Website Cost Estimator | Lonside",
+      "description": "Transparent fixed pricing for Next.js websites, Supabase web applications and AI automation. Get an instant online quote — no sales call needed."
+    },
+    "blog": {
+      "title": "Next.js, SEO & AI Automation Blog | Lonside",
+      "description": "Next.js tutorials, SEO optimisation guides and AI automation strategies to grow your online visibility. Weekly insights from the Lonside team."
+    },
+    "aPropos": {
+      "title": "Lonside | AI Web Agency — Who We Are",
+      "description": "Lonside is an AI-augmented web agency pairing senior Next.js engineers with AI orchestration agents. Custom websites, apps and automation for SMBs and startups. 100% IP transferred."
+    },
+    "contact": {
+      "title": "Contact Lonside | Free Quote for Website & Web App",
+      "description": "Describe your project in a few words. Our experts reply within 24 business hours with a free initial analysis and a fixed-price quote — no surprises."
+    },
+    "cgv": {
+      "title": "Terms of Service",
+      "description": "Review Lonside's Terms of Service governing web development, design and automation contracts."
+    },
+    "mentionsLegales": {
+      "title": "Legal Notices",
+      "description": "Legal notices regarding the publishing, hosting and intellectual property of Lonside website."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "Review our GDPR compliance details regarding the protection and storage of your personal data."
+    }
+  },
+  "frustration": {
+    "badge": "Breaking barriers",
+    "title": "Why our clients hated ",
+    "titleHighlight": "traditional agencies",
+    "subtitle": "We took every client pain point and frustration to make it the very foundation of our engineering and design charter.",
+    "oldMethod": "The old method",
+    "oldMethodStatus": "Status: Recurring frustration",
+    "newMethod": "Lonside process",
+    "satisfaction": {
+      "title": "Satisfaction guaranteed",
+      "desc": "Payment by milestones validated together, step by step"
+    },
+    "ip": {
+      "title": "Your code belongs to you",
+      "desc": "Copyright and full access transferred at delivery"
+    },
+    "lockin": {
+      "title": "Total freedom",
+      "desc": "No captive tools, no hidden subscriptions"
+    },
+    "cards": [
+      {
+        "frustrationTitle": "The quote that keeps growing",
+        "frustrationDesc": "The initial price looks attractive. Then come the mobile adjustments, post-launch fixes, and the 'not included' contract clauses. The final invoice can easily double.",
+        "solutionTitle": "One scope. One fixed price.",
+        "solutionDesc": "Every feature is defined, priced, and signed off before day one. If we agreed on it together, it's included — full stop.",
+        "metric": "Signed price = delivery price, no exceptions"
+      },
+      {
+        "frustrationTitle": "The deadline that keeps slipping",
+        "frustrationDesc": "3 weeks announced, 3 months real. Internal back-and-forth, unexpected issues and subcontractors blow every schedule out of proportion.",
+        "solutionTitle": "3× faster delivery, guaranteed",
+        "solutionDesc": "Our tools automate repetitive tasks. Our engineers focus their expertise where it actually matters. The result: a delivery pace that keeps its promises.",
+        "metric": "Average timeline divided by 3 vs. a traditional agency"
+      },
+      {
+        "frustrationTitle": "Radio silence",
+        "frustrationDesc": "You send your brief, then nothing for weeks. When the deliverable finally arrives, it's too late to change course — and everything needs redoing.",
+        "solutionTitle": "Full visibility at every step",
+        "solutionDesc": "A shared tracking space, updated continuously. You approve mockups, read progress updates and give feedback at each milestone — before decisions become irreversible.",
+        "metric": "Progress shared every 2 hours during the day"
+      },
+      {
+        "frustrationTitle": "Locked to your agency",
+        "frustrationDesc": "Your site runs on their tool, their hosting, their system. Every change goes through them — and their hourly rate. Switching agencies becomes a project in itself.",
+        "solutionTitle": "You own everything, no exceptions",
+        "solutionDesc": "Source code delivered to your private repository, hosting in your name, full access to every tool. You can switch providers tomorrow — without losing a single file.",
+        "metric": "100% ownership transferred at contract signing"
+      }
+    ]
+  },
+  "terminal": {
+    "badge": "Augmented Process",
+    "title": "The power of collaborative ",
+    "titleHighlight": "work",
+    "subtitle": "We combine the rigor and creativity of human experts with the efficiency of our AI assistants to divide your delivery times by 3, without ever compromising on quality.",
+    "interactiveTitle": "Interactive creation tracking",
+    "stepLabel": "Step",
+    "aiRoleLabel": "AI ASSISTANCE",
+    "humanRoleLabel": "HUMAN REVIEW",
+    "deliverableLabel": "Generated deliverable:",
+    "dashboardTitle": "AI Dashboard",
+    "dashboardStatus": "Active",
+    "velocityLabel": "Velocity Multiplier",
+    "velocityValue": "x3.8 Efficiency",
+    "errorRateLabel": "Error rate",
+    "qaQualityLabel": "Audit quality",
+    "agentSectionTitle": "Our assistants details",
+    "systemPromptLabel": "Agent system prompt",
+    "steps": [
+      {
+        "title": "Scoping & Specifications",
+        "subtitle": "Clarify your requirements and estimate timelines",
+        "aiRole": "Instant analysis of your project specifications, business process modeling, and cost estimation.",
+        "humanRole": "Personalized strategic interview, validation of the feature backlog, and final scope adjustments.",
+        "deliverable": "Project plan & complete feature backlog"
+      },
+      {
+        "title": "Brand Design & UI",
+        "subtitle": "Create your premium visual universe",
+        "aiRole": "Automatic generation of contemporary color palettes and rapid variations of logo designs.",
+        "humanRole": "Custom art direction, validation of interactive mockups, and overall creative tuning.",
+        "deliverable": "Complete brand guidelines & interactive Figma mockups"
+      },
+      {
+        "title": "Development & Code",
+        "subtitle": "Write a fast and secure application",
+        "aiRole": "Generation of code structure (component skeletons) and basic database queries.",
+        "humanRole": "Writing complex business algorithms, final page integration, and animation polishing.",
+        "deliverable": "Next.js web application ready and optimized for mobile"
+      },
+      {
+        "title": "Audit & Deployment",
+        "subtitle": "Guarantee absolute reliability and SEO",
+        "aiRole": "Automatic execution of load tests, security audits, and page speed performance calculations.",
+        "humanRole": "Accessibility testing (WCAG), review final user experience, and production deployment.",
+        "deliverable": "Live website with optimal Google Lighthouse score"
+      }
+    ],
+    "agents": [
+      {
+        "id": "context",
+        "name": "Scoping Agent",
+        "role": "Brief & timeline analysis",
+        "specs": [
+          "Analysis of your business sector",
+          "Drafting of your specifications",
+          "Immediate estimation of timelines"
+        ],
+        "systemPrompt": "Generate a clear functional backlog by identifying edge cases and development priorities...",
+        "efficiency": "+300% speed boost"
+      },
+      {
+        "id": "branding",
+        "name": "Design Agent",
+        "role": "Inspiration & graphic variation",
+        "specs": [
+          "Contemporary color palette generator",
+          "Vector logo variations generation",
+          "Automated responsive layouts"
+        ],
+        "systemPrompt": "Analyze the client's brand universe to suggest premium, tailored graphic palettes...",
+        "efficiency": "+450% variations"
+      },
+      {
+        "id": "architecture",
+        "name": "Code Agent",
+        "role": "Writing application boilerplates",
+        "specs": [
+          "Next.js / React page skeletons",
+          "Secure database structures",
+          "Third-party integrations (Stripe, CRM)"
+        ],
+        "systemPrompt": "Write database configurations files and prepare secure form endpoints...",
+        "efficiency": "+250% speed boost"
+      },
+      {
+        "id": "qa",
+        "name": "Reliability Agent",
+        "role": "Automated tests & performance",
+        "specs": [
+          "Mobile & desktop speed tests",
+          "Audit against security vulnerabilities",
+          "Conversion flow validation"
+        ],
+        "systemPrompt": "Scan the source code to identify potential vulnerabilities or page latency bottlenecks...",
+        "efficiency": "100% security"
+      }
+    ]
+  },
+  "estimator": {
+    "badge": "Interactive Configurator",
+    "title": "Estimate your project scope",
+    "subtitle": "Select the functional building blocks needed for your product to instantly see cost estimates, timelines, and allocated AI agents.",
+    "step1": "Step 1: Choose service building blocks",
+    "step2": "Step 2: Send project scope details",
+    "daysLabel": "dev days",
+    "scopingReport": "Scoping telemetry report",
+    "estimatedBudget": "Estimated global budget",
+    "discountApplied": "✓ Bundle discount applied (-10% on the global package)",
+    "deliveryTime": "Delivery time",
+    "allocatedAgents": "AI Agents allocation",
+    "successTitle": "Project plan generated!",
+    "successDesc": "A comprehensive scoping email has been sent to {email}.",
+    "phasesTitle": "Estimated roadmap phases",
+    "phase1Title": "Scoping & Preparation",
+    "phase1Desc": "Precise backlog definition and color guidelines setup. (1-3 days)",
+    "phase2Title": "Development & Assembly",
+    "phase2Desc": "Custom pages creation, tool connections, and accelerated coding. (3-7 days)",
+    "phase3Title": "Security Audit & Launch",
+    "phase3Desc": "Automated load testing, Lighthouse speed audit, and deployment. (1-2 days)",
+    "ctaMeeting": "Book a kickoff meeting (15 min Call)",
+    "labelName": "Name / Company",
+    "labelEmail": "Contact email",
+    "labelBrief": "Brief / additional notes",
+    "placeholderName": "e.g. Nova-Retail",
+    "placeholderEmail": "sarah@nova-retail.com",
+    "placeholderBrief": "Brief description of your specific needs...",
+    "btnSubmit": "Validate configuration",
+    "btnSubmitting": "Processing...",
+    "bricks": [
+      {
+        "id": "logo",
+        "name": "Brand identity & logo",
+        "category": "Branding",
+        "desc": "Complete graphic creation, luxury color scheme, and social media assets adaptation."
+      },
+      {
+        "id": "landing",
+        "name": "Showcase website (high performance)",
+        "category": "Development",
+        "desc": "Modern site optimized for Google ranking, smooth animations, and instant loading."
+      },
+      {
+        "id": "saas",
+        "name": "Web application & secure client portal",
+        "category": "Development",
+        "desc": "Admin dashboard for your data, secure client accounts, and custom features."
+      },
+      {
+        "id": "agent",
+        "name": "Repetitive tasks automation",
+        "category": "Artificial intelligence",
+        "desc": "Creation of smart assistants to process your emails, documents, or internal tasks."
+      },
+      {
+        "id": "api",
+        "name": "Third-party tools integrations (Stripe, CRM...)",
+        "category": "Integration",
+        "desc": "Secure linkage of your favorite apps: Stripe payments, CRM software, and more."
+      }
+    ]
+  },
+  "portfolioData": {
+    "badge": "Our Client Cases",
+    "title": "Technical folders of ",
+    "titleHighlight": "concrete results",
+    "subtitle": "Each project is accompanied by a transparent technical audit detailing the impact of our AI agents and the rigor of our human engineers.",
+    "btnDetails": "Read Technical Folder",
+    "drawerTitle": "AI + Human Technical Folder",
+    "tabReport": "Impact Report",
+    "tabTimeline": "Project Timeline",
+    "tabCode": "Method Comparison",
+    "tabCharts": "Key Indicators",
+    "clientProblem": "Client problem",
+    "approach": "Our next-gen approach",
+    "ctaSimilar": "Start a similar project",
+    "lastUpdate": "Updated on June 15, 2026",
+    "challengeLabel": "Challenge",
+    "solutionLabel": "Solution",
+    "stackLabel": "Stack",
+    "ctaTitle": "Your project will be next.",
+    "ctaSubtitle": "Let's start a conversation about your vision. Free scoping, reply within 24h.",
+    "ctaContact": "Start a project",
+    "ctaTarifs": "View pricing",
+    "traditionalMethod": "Traditional agency or process",
+    "lonsideMethod": "Lonside process (Human + AI)",
+    "chartsDesc": "Here is the comparative analysis measured directly on the project between standard traditional agency metrics and our augmented approach.",
+    "chartLonsideLabel": "Lonside (Agentic)",
+    "chartStandardLabel": "Standard Agency",
+    "projectLinkLabel": "Product Link",
+    "processLabel": "Our Process",
+    "feedbackLabel": "Client Feedback"
+  },
+  "servicesData": {
+    "title": "The impact on your business results",
+    "subtitle": "Why choose pure, bespoke Next.js code over bloated and unstable CMS templates?",
+    "tableHeaderCriteria": "Technical Criterion",
+    "tableHeaderStandard": "Standard CMS (WordPress/Prestashop)",
+    "tableHeaderLonside": "Lonside Standard (Next.js/Supabase)",
+    "tableHeaderImpact": "Direct Business Impact",
+    "ctaText": "Start my project now",
+    "comparison": [
+      {
+        "feature": "Load Time",
+        "standard": "Between 3.5s and 5.2s (Heavy CMS platforms, bloated WordPress templates)",
+        "lonside": "Under 0.5s (Static Next.js hosted on a global CDN)",
+        "impact": "Cuts cart abandonment rate in half"
+      },
+      {
+        "feature": "Functional Customization",
+        "standard": "Limited by existing plugins, which are often unstable or paid",
+        "lonside": "Absolute (Custom code tailored perfectly to your business workflows)",
+        "impact": "Zero operational constraints"
+      },
+      {
+        "feature": "Search Engine Optimization (SEO)",
+        "standard": "Average semantic structure and technical slowness penalized by Google",
+        "lonside": "100/100 Lighthouse score, clean semantic tags by default",
+        "impact": "Optimal Google indexing and organic traffic growth"
+      },
+      {
+        "feature": "Maintenance & Security",
+        "standard": "Frequent mandatory plugin updates, high risks of security breaches",
+        "lonside": "Serverless, static architecture with no exposed database by default",
+        "impact": "Zero budget spent on security fixes or hack recovery"
+      }
+    ],
+    "subpages": {
+      "siteVitrine": {
+        "badge": "Showcase Sites & SEO Acquisition",
+        "title": "A premium showcase website",
+        "titleHighlight": "that converts visitors into clients.",
+        "subtitle": "We design exceptional custom websites. Combining lightning-fast load times with optimized SEO, our creations capture attention and generate sales opportunities for your business.",
+        "cta": "Estimate my website cost",
+        "pillars": [
+          {
+            "title": "Instant Rendering",
+            "desc": "Every millisecond of delay costs customers. Our websites load in less than 0.5s thanks to highly optimized Next.js code."
+          },
+          {
+            "title": "Google SEO Optimization",
+            "desc": "We technically structure your pages (semantic tags, speed, sitemaps) to rank higher on Google search results."
+          },
+          {
+            "title": "Zero Complex Maintenance",
+            "desc": "No unstable servers or WordPress plugins to update daily. Our static solutions are secure by default and cost-free to host."
+          }
+        ],
+        "deliverablesTitle": "What you receive (Deliverables included)",
+        "deliverables": [
+          "Custom graphic design (No pre-made templates used)",
+          "Optimal loading speed to keep mobile visitors (< 1s)",
+          "Full technical search engine optimization (SEO)",
+          "Fluid and responsive layout adapted to all screen sizes",
+          "Secure, premium hosting setup included",
+          "Intuitive admin space to update texts independently",
+          "100% exclusive code ownership (no captive software locks)"
+        ]
+      },
+      "applicationWeb": {
+        "badge": "Business Portals & Client Spaces",
+        "title": "Robust web platforms",
+        "titleHighlight": "to automate your operations.",
+        "subtitle": "Secure customer areas, partner portals, connected internal tools. We build custom Next.js/Supabase business apps to organize your data and boost daily productivity.",
+        "cta": "Estimate my application cost",
+        "pillars": [
+          {
+            "title": "Secure Areas",
+            "desc": "Encrypted authentication with precise user permissions (Admin, Employee, Customer) to safeguard confidential data."
+          },
+          {
+            "title": "Centralized Databases",
+            "desc": "PostgreSQL database structure managed by Supabase, featuring real-time synchronization."
+          },
+          {
+            "title": "Payments & Billing",
+            "desc": "Seamless Stripe integration to automate subscription billing, credit card processing, and invoice generation."
+          }
+        ],
+        "deliverablesTitle": "Development deliverables included",
+        "deliverables": [
+          "Structured and secured SQL database",
+          "Custom admin interface and customer space",
+          "Third-party integrations via API (CRM, invoicing tools)",
+          "Automated test suite to prevent regressions",
+          "Scalable hosting configured for production environment",
+          "Training session for your operational staff",
+          "30-day technical support and bug warranty"
+        ]
+      },
+      "automatisation": {
+        "badge": "Time Savings & AI Automation",
+        "title": "Eliminate manual tasks",
+        "titleHighlight": "with automated workflows.",
+        "subtitle": "Why waste hours on repetitive manual data entry? We connect your current tools (CRM, Stripe, email) and deploy smart AI assistants to run operations in the background.",
+        "cta": "Estimate my time savings",
+        "pillars": [
+          {
+            "title": "API Integrations (Zero Typing)",
+            "desc": "Automatic synchronization between your customer database, invoicing software, and email inboxes."
+          },
+          {
+            "title": "Business AI Assistants",
+            "desc": "Integration of smart agents (Claude / GPT) to extract PDF data or draft draft email replies automatically."
+          },
+          {
+            "title": "24/7 Monitoring & Alerts",
+            "desc": "Instant notifications on Slack or via email whenever a critical action requires human confirmation."
+          }
+        ],
+        "deliverablesTitle": "What we deliver",
+        "deliverables": [
+          "Mapping and documentation of your automated processes",
+          "N8N or Make workflow hosting setup",
+          "Secure webhook configurations and API integrations",
+          "Custom AI assistants prompting aligned with your guidelines",
+          "Error logging and automatic retry pipelines",
+          "30-day post-launch automation support"
+        ]
+      },
+      "design": {
+        "badge": "Credibility & Brand Design",
+        "title": "A premium visual identity",
+        "titleHighlight": "that justifies your pricing.",
+        "subtitle": "Your business credibility is judged in the first few seconds. We create unique, high-end visual brands scaled across all physical and digital communication channels.",
+        "cta": "Start my branding project",
+        "pillars": [
+          {
+            "title": "Custom Art Direction",
+            "desc": "Creation of original vector logos, distinct typography, and modern color palettes matched with your market positioning."
+          },
+          {
+            "title": "Figma Design System",
+            "desc": "Structuring a clean library of components to ensure absolute visual consistency across future designs."
+          },
+          {
+            "title": "High-Fidelity Prototypes",
+            "desc": "Interactive mockups to test UX on mobile and desktop before writing any frontend code."
+          }
+        ],
+        "deliverablesTitle": "Branding & source files included",
+        "deliverables": [
+          "Fully structured Figma source files (Design System)",
+          "Primary logo, secondary variations, and favicons (SVG / PNG / WebP)",
+          "Digital Brand Guidelines Book outlining styles and layout rules",
+          "Interactive prototypes ready for user testing",
+          "Social media header kit (LinkedIn, Twitter)",
+          "100% intellectual property and copyright transfer"
+        ]
+      }
+    }
+  },
+  "pricingData": {
+    "title": "Advanced Configurator",
+    "subtitle": "Combine functional building blocks and get a personalized estimate in real time.",
+    "tiers": [
+      {
+        "id": "starter",
+        "name": "Starter",
+        "price": 1500,
+        "description": "Ideal to kickstart your customer acquisition online quickly.",
+        "cta": "Choose Starter",
+        "features": [
+          "Client acquisition website (up to 8 pages)",
+          "Mobile-First responsive design",
+          "Ultra-fast loading speed (< 1s)",
+          "Contact form & lead capture",
+          "1 complete revision phase",
+          "Secure high-performance hosting setup",
+          "100% exclusive intellectual property (source code delivered)"
+        ]
+      },
+      {
+        "id": "pro",
+        "name": "Pro",
+        "price": 4500,
+        "description": "To automate your workflows and build customer loyalty.",
+        "cta": "Choose Pro",
+        "features": [
+          "All Starter features included",
+          "Custom web platform (Client Space)",
+          "Secure user authentication",
+          "Centralized and secure database",
+          "Stripe/cards payment integrations",
+          "Workflows automation (2 connectors)",
+          "3 complete revision phases",
+          "Post-launch technical support (30 days)"
+        ]
+      },
+      {
+        "id": "enterprise",
+        "name": "Enterprise",
+        "price": 9500,
+        "description": "For large-scale projects, complex automations, and custom AI agents.",
+        "cta": "Contact us",
+        "features": [
+          "All Pro features included",
+          "Custom business AI assistants (Claude/GPT)",
+          "Highly scalable architecture & API endpoints",
+          "Full load testing & security audits",
+          "Operational team training on tools (4h)",
+          "Monthly assistance & maintenance (6 months)",
+          "Unlimited revisions",
+          "Dedicated senior project manager"
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "id": "design",
+        "name": "Complete brand identity",
+        "price": 800,
+        "unit": "project"
+      },
+      {
+        "id": "seo",
+        "name": "SEO audit + content strategy",
+        "price": 600,
+        "unit": "project"
+      },
+      {
+        "id": "automation",
+        "name": "N8N automation pipeline",
+        "price": 1200,
+        "unit": "project"
+      },
+      {
+        "id": "maintenance",
+        "name": "Monthly support & maintenance",
+        "price": 350,
+        "unit": "month"
+      },
+      {
+        "id": "ai-agent",
+        "name": "Custom business AI agent",
+        "price": 2000,
+        "unit": "agent"
+      }
+    ]
+  },
+  "blogData": {
+    "btnBack": "Back to blog",
+    "readingTimeSuffix": "min read",
+    "comingSoon": "Full content coming soon — subscribe to get notified."
+  },
+  "legalData": {
+    "lastUpdateLabel": "Last updated: June 2025",
+    "mentions": {
+      "title": "Legal Notices",
+      "sections": [
+        {
+          "title": "Website Publisher",
+          "content": "<p><span class=\"text-slate-300 font-semibold\">Company Name:</span> Lonside</p><p><span class=\"text-slate-300 font-semibold\">Status:</span> Sole proprietorship / SAS (to be completed)</p><p><span class=\"text-slate-300 font-semibold\">Registered Office:</span> France</p><p><span class=\"text-slate-300 font-semibold\">Email:</span> hello@lonside.ai</p>"
+        },
+        {
+          "title": "Hosting Provider",
+          "content": "This website is hosted by Vercel Inc., 340 Pine Street, Suite 900, San Francisco, CA 94104, USA."
+        },
+        {
+          "title": "Intellectual Property",
+          "content": "All content, texts, images, logos, and graphic components on this site are the exclusive property of Lonside. Any reproduction, total or partial, is strictly prohibited without prior written permission."
+        },
+        {
+          "title": "Limitation of Liability",
+          "content": "Lonside endeavors to provide accurate and up-to-date information. However, errors or omissions may occur. Lonside cannot be held liable for the use of the information presented on this site."
+        }
+      ]
+    },
+    "cgv": {
+      "title": "Terms of Service",
+      "sections": [
+        {
+          "title": "Purpose",
+          "content": "These Terms of Service govern the contractual relationship between Lonside (hereinafter \"the Provider\") and its clients for web development, design, and automation services."
+        },
+        {
+          "title": "Quotes and Orders",
+          "content": "Every service is subject to a prior quote signed by both parties. The quote specifies the nature of the services, timelines, delivery terms, and the flat-rate price including taxes."
+        },
+        {
+          "title": "Payment Terms",
+          "content": "A 40% deposit is payable upon signing the quote. The remaining 60% is due upon final delivery. Any late payment results in penalties of 3 times the legal interest rate."
+        },
+        {
+          "title": "Intellectual Property",
+          "content": "The client gains full ownership of the source code, mockups, and all deliverables once full payment is received. Lonside reserves the right to showcase the project in its portfolio."
+        },
+        {
+          "title": "Governing Law",
+          "content": "These Terms are governed by French law. In case of dispute, the parties agree to seek an amicable resolution before any legal action."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "sections": [
+        {
+          "title": "Data Collected",
+          "content": "Lonside only collects data that you voluntarily transmit via the contact form: name, email, and message. This data is used exclusively to respond to your inquiries."
+        },
+        {
+          "title": "Data Retention",
+          "content": "Your data is stored for a maximum period of 3 years from your last interaction with us, in compliance with GDPR guidelines."
+        },
+        {
+          "title": "Your Rights",
+          "content": "Pursuant to GDPR, you have the right to access, rectify, erase, and request portability of your data. To exercise these rights, contact us at hello@lonside.ai."
+        },
+        {
+          "title": "Cookies",
+          "content": "This site does not use third-party tracking cookies. Only technical cookies strictly necessary for the operation of the website may be used."
+        }
+      ]
+    }
+  },
+  "methodeData": {
+    "title": "Our Methodology in Detail",
+    "subtitle": "Discover the concrete actions taken at each stage of your project to ensure success and perfect adherence to your specifications.",
+    "ctaTitle": "Ready to start the scoping phase?",
+    "ctaSubtitle": "We take care of formalizing your idea. Use our interactive tool to estimate and scope your project immediately.",
+    "ctaBtn": "Open configurator",
+    "steps": [
+      {
+        "phase": "Phase 1",
+        "title": "Scoping & Business Specifications",
+        "desc": "We eliminate all technical ambiguity. Our process starts with a full audit of your current tools and drafting clear specifications, free from computer jargon.",
+        "bullets": [
+          "Precise definition of the feature backlog",
+          "Choice of database architecture (PostgreSQL, Supabase or Prisma)",
+          "Choice of integration method (direct APIs, Make, N8N)",
+          "Rigorous estimation of timeline and costs"
+        ]
+      },
+      {
+        "phase": "Phase 2",
+        "title": "Brand Identity & UX/UI",
+        "desc": "The aesthetics of your site is your shop window. We create contemporary brand guidelines and intuitive user interfaces to immediately inspire trust in your customers.",
+        "bullets": [
+          "Creation of original logos and custom icons",
+          "Design of high-fidelity interactive mockups on Figma",
+          "Dynamic prototypes testable on mobile and desktop",
+          "Design System definition (HSL colors, typography, spacing)"
+        ]
+      },
+      {
+        "phase": "Phase 3",
+        "title": "Standardized & Clean Development",
+        "desc": "Our experts write modern, scalable, and standardized code. No vendor lock-in: we use Next.js, React, and TypeScript to guarantee your total independence.",
+        "bullets": [
+          "Ultra-fast Next.js architecture (Static Regeneration)",
+          "Systematic Mobile-First optimization",
+          "Integration of secure client portals and payment solutions",
+          "Automation of data pipelines and email triggers"
+        ]
+      },
+      {
+        "phase": "Phase 4",
+        "title": "Quality Audit & Launch",
+        "desc": "Before going live, our test agents and engineers carry out advanced audits to guarantee your data security and page rendering.",
+        "bullets": [
+          "Load tests and simulation of concurrent users",
+          "Security audit against the most common OWASP vulnerabilities",
+          "Google Lighthouse speed optimization (target >95/100)",
+          "Secure deployment on Vercel, Netlify or AWS"
+        ]
+      }
+    ]
+  }
+}
