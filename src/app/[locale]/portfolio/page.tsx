@@ -21,6 +21,7 @@ export default async function PortfolioPage({ params }: { params: Promise<{ loca
     industry: locale === 'en' ? (entry.industryEn || entry.industryFr) : entry.industryFr,
     headline: locale === 'en' ? (entry.headlineEn || entry.headlineFr) : entry.headlineFr,
     deliveryDays: entry.deliveryDays ?? 0,
+    isProprietary: Boolean(entry.isProprietary),
     techStack: [...entry.techStack],
     metrics: entry.metrics.map((m) => ({
       label: locale === 'en' ? (m.labelEn || m.labelFr) : m.labelFr,
@@ -28,6 +29,16 @@ export default async function PortfolioPage({ params }: { params: Promise<{ loca
       delta: locale === 'en' ? (m.deltaEn || m.deltaFr) : m.deltaFr,
     })),
   }));
+
+  const preferredOrder = ['welqo', 'michi', 'bely', 'weedin'];
+  projects.sort((a, b) => {
+    const idxA = preferredOrder.indexOf(a.slug);
+    const idxB = preferredOrder.indexOf(b.slug);
+    if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+    if (idxA !== -1) return -1;
+    if (idxB !== -1) return 1;
+    return a.slug.localeCompare(b.slug);
+  });
 
   return <PortfolioClient projects={projects} />;
 }

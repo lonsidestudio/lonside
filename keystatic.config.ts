@@ -68,6 +68,42 @@ export default config({
         solutionEn: fields.text({ label: 'Solution Provided (EN)', multiline: true }),
         clientFeedbackFr: fields.text({ label: 'Retour client détaillé (FR)', multiline: true }),
         clientFeedbackEn: fields.text({ label: 'Detailed Client Feedback (EN)', multiline: true }),
+        isProprietary: fields.checkbox({
+          label: 'Produit Propriétaire Lonside (Studio Venture)',
+          defaultValue: false,
+        }),
+        studioNoteFr: fields.text({
+          label: 'Note du studio Lonside (FR)',
+          multiline: true,
+        }),
+        studioNoteEn: fields.text({
+          label: 'Lonside Studio Note (EN)',
+          multiline: true,
+        }),
+        clientNeeds: fields.array(
+          fields.object({
+            titleFr: fields.text({ label: 'Titre du besoin (FR)' }),
+            titleEn: fields.text({ label: 'Title (EN)' }),
+            descFr: fields.text({ label: 'Description (FR)', multiline: true }),
+            descEn: fields.text({ label: 'Description (EN)', multiline: true }),
+          }),
+          { label: 'Besoins client', itemLabel: (p) => p.fields.titleFr.value || 'Besoin' }
+        ),
+        constraints: fields.array(
+          fields.object({
+            titleFr: fields.text({ label: 'Titre du défi / contrainte (FR)' }),
+            titleEn: fields.text({ label: 'Title (EN)' }),
+            badgeFr: fields.text({ label: 'Badge / Catégorie (FR)' }),
+            badgeEn: fields.text({ label: 'Badge (EN)' }),
+            riskFr: fields.text({ label: 'Contrainte subie & Risque (FR)', multiline: true }),
+            riskEn: fields.text({ label: 'Constraint & Risk (EN)', multiline: true }),
+            resolutionFr: fields.text({ label: 'Arbitrage & Solution Lonside (FR)', multiline: true }),
+            resolutionEn: fields.text({ label: 'Resolution & Decision (EN)', multiline: true }),
+          }),
+          { label: 'Contraintes & Arbitrages', itemLabel: (p) => p.fields.titleFr.value || 'Contrainte' }
+        ),
+        architectureSummaryFr: fields.text({ label: 'Synthèse de l\'architecture (FR)', multiline: true }),
+        architectureSummaryEn: fields.text({ label: 'Architecture Summary (EN)', multiline: true }),
         services: fields.array(fields.text({ label: 'Service' }), {
           label: 'Services réalisés',
           itemLabel: (p) => p.value,

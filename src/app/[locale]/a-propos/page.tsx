@@ -119,8 +119,8 @@ export default function AProposPage() {
             </p>
             <div className="pt-2">
               <Link
-                href="/tarifs"
-                className="inline-flex items-center justify-center px-6 py-3 bg-brand-purple hover:bg-brand-purple-hover text-xs font-bold text-white rounded-lg transition-all duration-300 hover:scale-[1.02] space-x-2 border border-brand-purple/10 shadow-lg shadow-purple-500/10 hover:shadow-[0_0_20px_rgba(124,58,237,0.4)]"
+                href="/estimation"
+                className="inline-flex items-center justify-center px-5 py-2.5 bg-brand-purple hover:bg-brand-purple-hover text-xs font-semibold text-white rounded-lg transition-all duration-200 space-x-2 border border-brand-purple/10 shadow-md shadow-purple-500/10 hover:shadow-[0_0_15px_rgba(124,58,237,0.35)]"
               >
                 <span>{t("ctaBtn")}</span>
                 <span className="text-xs">→</span>

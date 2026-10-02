@@ -65,10 +65,10 @@ export default function NotFound() {
         {/* CTA */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-7 py-3 bg-brand-purple hover:bg-brand-purple-hover text-sm font-bold text-white rounded-xl transition-all duration-200 shadow-[0_0_24px_rgba(124,58,237,0.3)] hover:shadow-[0_0_32px_rgba(124,58,237,0.5)] hover:-translate-y-0.5"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-purple hover:bg-brand-purple-hover text-xs font-semibold text-white rounded-lg transition-all duration-200 shadow-[0_0_18px_rgba(124,58,237,0.3)] hover:shadow-[0_0_24px_rgba(124,58,237,0.5)]"
         >
-          <ArrowLeft className="w-4 h-4" />
-          Retour à l'accueil
+          <ArrowLeft className="w-3.5 h-3.5" />
+          Retour à l&apos;accueil
         </Link>
 
       </div>

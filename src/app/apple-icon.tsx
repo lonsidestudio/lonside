@@ -8,25 +8,28 @@ export default function AppleIcon() {
     (
       <div
         style={{
-          background: '#050505',
+          background: '#0a0a0e',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          borderRadius: '40px',
+          borderRadius: '38px',
+          border: '3px solid rgba(124,58,237,0.5)',
+          boxShadow: '0 0 40px rgba(124,58,237,0.25)',
         }}
       >
         <span
           style={{
-            color: '#7c3aed',
-            fontSize: '110px',
+            color: '#8b5cf6',
+            fontSize: '100px',
             fontWeight: '900',
             fontFamily: 'monospace',
             lineHeight: 1,
+            letterSpacing: '-4px',
           }}
         >
-          L
+          L·
         </span>
       </div>
     ),

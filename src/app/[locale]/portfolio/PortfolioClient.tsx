@@ -20,6 +20,7 @@ interface PortfolioProject {
   industry: string;
   headline: string;
   deliveryDays: number;
+  isProprietary?: boolean;
   techStack: string[];
   metrics: ProjectMetric[];
 }
@@ -59,9 +60,16 @@ export default function PortfolioClient({ projects }: Props) {
               >
                 <div className="space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/5 pb-3">
-                    <span className="text-[10px] font-bold tracking-wider text-brand-purple font-mono bg-brand-purple/10 border border-brand-purple/20 px-2 py-0.5 rounded-full">
-                      {project.industry}
-                    </span>
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <span className="text-[10px] font-bold tracking-wider text-brand-purple font-mono bg-brand-purple/10 border border-brand-purple/20 px-2 py-0.5 rounded-full">
+                        {project.industry}
+                      </span>
+                      {project.isProprietary && (
+                        <span className="text-[9px] font-bold tracking-wider text-emerald-400 font-mono bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">
+                          {tData('proprietaryBadge')}
+                        </span>
+                      )}
+                    </div>
                     <span className="text-[10px] font-bold text-slate-500 font-mono">
                       {t('deliveredIn')} {project.deliveryDays} {t('days')}
                     </span>
@@ -99,7 +107,7 @@ export default function PortfolioClient({ projects }: Props) {
                     href={{ pathname: '/portfolio/[slug]', params: { slug: project.slug } }}
                     className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-[11px] font-bold transition-all duration-300 border border-white/10 hover:border-brand-purple/30 bg-[#0d0d11] hover:bg-brand-purple text-slate-300 hover:text-white"
                   >
-                    <span>{t('viewDetails') || 'Voir le dossier technique'}</span>
+                    <span>{t('viewDetails') || "Découvrir l'étude de cas"}</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </Link>
                 </div>
@@ -109,25 +117,25 @@ export default function PortfolioClient({ projects }: Props) {
         </section>
 
         <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
-          <div className="p-8 rounded-2xl bg-[#0d0d11]/60 backdrop-blur-sm border border-white/5 hover:border-brand-purple/20 transition-all duration-500 text-center space-y-6">
+          <div className="p-8 rounded-2xl bg-[#0d0d11]/60 backdrop-blur-sm border border-white/5 text-center space-y-6">
             <h3 className="text-base sm:text-lg font-bold text-white">{tData('ctaTitle')}</h3>
             <p className="text-xs text-slate-400 max-w-xl mx-auto leading-relaxed">
               {tData('ctaSubtitle')}
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 bg-brand-purple hover:bg-brand-purple-hover text-xs font-bold text-white rounded-lg transition-all duration-300 hover:scale-[1.02] space-x-2 border border-brand-purple/10 shadow-lg shadow-purple-500/10 hover:shadow-[0_0_20px_rgba(124,58,237,0.4)]"
+                className="inline-flex items-center justify-center px-5 py-2.5 bg-brand-purple hover:bg-brand-purple-hover text-xs font-semibold text-white rounded-lg transition-all duration-200 space-x-2 border border-brand-purple/10 shadow-md shadow-purple-500/10 hover:shadow-[0_0_15px_rgba(124,58,237,0.35)]"
               >
                 <span>{tData('ctaContact')}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <Link
-                href="/tarifs"
-                className="inline-flex items-center justify-center px-6 py-3 border border-white/10 hover:border-brand-purple/30 text-xs font-bold text-slate-300 rounded-lg transition-all duration-300 hover:scale-[1.02] bg-[#0d0d11] hover:bg-[#121216]"
+                href="/estimation"
+                className="inline-flex items-center justify-center px-5 py-2.5 border border-white/10 hover:border-brand-purple/30 text-xs font-semibold text-slate-300 rounded-lg transition-all duration-200 bg-[#0d0d11] hover:bg-[#121216]"
               >
                 <Clock className="w-3.5 h-3.5 mr-1.5" />
-                {tData('ctaTarifs')}
+                {tData('ctaEstimation')}
               </Link>
             </div>
           </div>

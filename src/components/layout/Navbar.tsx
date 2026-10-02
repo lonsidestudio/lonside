@@ -13,6 +13,7 @@ import {
   Layout,
   Database,
   Cpu,
+  Users,
 } from "lucide-react";
 
 const MOBILE_MENU_ID = "mobile-nav-menu";
@@ -86,7 +87,7 @@ export default function Navbar() {
   const navLinks = [
     { name: t("methode"), href: "/methode" },
     { name: t("portfolio"), href: "/portfolio" },
-    { name: t("tarifs"), href: "/tarifs" },
+    { name: t("estimation"), href: "/estimation" },
     { name: t("blog"), href: "/blog" },
     { name: t("aPropos"), href: "/a-propos" },
   ] as const;
@@ -115,6 +116,12 @@ export default function Navbar() {
       href: "/services/design",
       desc: ts("items.design.desc"),
       icon: <Sparkles className="w-4 h-4 text-brand-purple" aria-hidden="true" />,
+    },
+    {
+      name: ts("items.regie.name"),
+      href: "/services/regie",
+      desc: ts("items.regie.desc"),
+      icon: <Users className="w-4 h-4 text-brand-purple" aria-hidden="true" />,
     },
   ] as const;
 
@@ -264,7 +271,7 @@ export default function Navbar() {
               >
                 <span>{t("cta")}</span>
                 <ArrowRight
-                  className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"
+                  className="w-3.5 h-3.5"
                   aria-hidden="true"
                 />
               </Link>
@@ -400,10 +407,10 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={closeMobileMenu}
-            className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold text-white bg-brand-purple hover:bg-brand-purple-hover transition-all duration-200 shadow-lg shadow-purple-500/10"
+            className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-xs font-semibold text-white bg-brand-purple hover:bg-brand-purple-hover transition-all duration-200 shadow-md shadow-purple-500/10"
           >
             {t("cta")}
-            <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
           </Link>
         </div>
       </aside>

@@ -56,7 +56,7 @@ export default function CostEstimator() {
   const brickMeta: Record<string, { price: number; days: number; agents: string[]; acceleration: string }> = {
     logo:    { price: 1500, days: 3,  agents: ["Creative Agent"],                            acceleration: "x4.5" },
     landing: { price: 2500, days: 5,  agents: ["Optimization Agent", "Structure Agent"],      acceleration: "x3.0" },
-    saas:    { price: 5000, days: 10, agents: ["Structure Agent", "Reliability Agent"],        acceleration: "x4.0" },
+    saas:    { price: 5400, days: 12, agents: ["Structure Agent", "Reliability Agent"],        acceleration: "x4.0" },
     agent:   { price: 3500, days: 7,  agents: ["Optimization Agent", "Reliability Agent"],    acceleration: "x3.5" },
     api:     { price: 1800, days: 4,  agents: ["Structure Agent"],                            acceleration: "x3.0" },
   };
@@ -106,8 +106,7 @@ export default function CostEstimator() {
           className="text-center mb-16"
           style={{
             opacity: titleInView ? 1 : 0,
-            transform: titleInView ? "translateY(0)" : "translateY(16px)",
-            transition: "opacity 0.55s ease, transform 0.55s ease",
+            transition: "opacity 0.55s ease",
           }}
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-brand-purple text-xs font-semibold tracking-wide mb-4">
@@ -145,8 +144,7 @@ export default function CostEstimator() {
                   onClick={() => handleToggleBrick(brick.id)}
                   style={{
                     opacity: bricksInView ? 1 : 0,
-                    transform: bricksInView ? "translateX(0)" : "translateX(-12px)",
-                    transition: "opacity 0.5s ease, transform 0.5s ease, border-color 0.2s, background-color 0.2s, box-shadow 0.2s",
+                    transition: "opacity 0.5s ease, border-color 0.2s, background-color 0.2s, box-shadow 0.2s",
                     transitionDelay: `${i * 70}ms`,
                   }}
                   className={`p-5 rounded-xl border cursor-pointer flex items-start justify-between group ${
@@ -188,8 +186,7 @@ export default function CostEstimator() {
             className="flex flex-col gap-5 lg:sticky lg:top-28 lg:self-start"
             style={{
               opacity: hudInView ? 1 : 0,
-              transform: hudInView ? "translateY(0)" : "translateY(20px)",
-              transition: "opacity 0.6s ease, transform 0.6s ease",
+              transition: "opacity 0.6s ease",
               transitionDelay: "150ms",
             }}
           >
@@ -205,13 +202,14 @@ export default function CostEstimator() {
               <div className="space-y-4">
                 {/* Price */}
                 <div>
-                  <span className="text-[10px] font-bold tracking-wide text-slate-500 block mb-1">
+                  <span className="text-[10px] font-bold tracking-wide text-slate-400 block mb-1">
                     {t("estimatedBudget")}
                   </span>
                   <div className="flex items-baseline gap-2">
+                    <span className="text-xs text-slate-400 font-medium">À partir de</span>
                     <span
                       key={totalPrice}
-                      className="text-3xl font-bold text-white font-mono animate-in fade-in zoom-in-95 duration-200"
+                      className="text-3xl font-bold text-white font-mono animate-in fade-in duration-200"
                     >
                       {totalPrice.toLocaleString("fr-FR")} €
                     </span>
@@ -221,12 +219,14 @@ export default function CostEstimator() {
                       </span>
                     )}
                   </div>
+                  <span className="text-[9px] text-slate-500 block mt-1">
+                    * Estimation indicative soumise à confirmation lors de notre session de cadrage offerte (15 min).
+                  </span>
                   {/* Bundle discount badge */}
                   <div
                     style={{
                       opacity: isBundle ? 1 : 0,
-                      transform: isBundle ? "translateY(0)" : "translateY(-4px)",
-                      transition: "opacity 0.3s ease, transform 0.3s ease",
+                      transition: "opacity 0.3s ease",
                       height: isBundle ? "auto" : 0,
                       overflow: "hidden",
                     }}
@@ -274,7 +274,7 @@ export default function CostEstimator() {
             {/* Form / Success */}
             <div className="p-6 rounded-2xl border border-white/8 bg-[#0d0d11]">
               {submitSuccess ? (
-                <div className="space-y-6 animate-in fade-in zoom-in-95 duration-300">
+                <div className="space-y-6 animate-in fade-in duration-300">
                   <div className="text-center pb-4 border-b border-white/5">
                     <div className="inline-flex items-center justify-center p-2 rounded-full bg-emerald-500/10 text-emerald-400 mb-2 border border-emerald-500/20">
                       <Check className="w-5 h-5 animate-bounce" />
@@ -310,7 +310,7 @@ export default function CostEstimator() {
                     href="https://calendly.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center py-3 px-4 rounded-lg text-xs font-bold text-white bg-brand-purple hover:bg-brand-purple-hover shadow-lg shadow-purple-500/10 hover:shadow-[0_0_20px_rgba(124,58,237,0.35)] active:scale-95 transition-all duration-200"
+                    className="w-full flex items-center justify-center py-2.5 px-4 rounded-lg text-xs font-semibold text-white bg-brand-purple hover:bg-brand-purple-hover shadow-md shadow-purple-500/10 hover:shadow-[0_0_15px_rgba(124,58,237,0.35)] transition-all duration-200"
                   >
                     {t("ctaMeeting")}
                   </a>
@@ -353,7 +353,7 @@ export default function CostEstimator() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg text-xs font-bold text-white bg-brand-purple hover:bg-brand-purple-hover shadow-lg hover:shadow-[0_0_20px_rgba(124,58,237,0.35)] active:scale-95 transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none cursor-pointer"
+                      className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-xs font-semibold text-white bg-brand-purple hover:bg-brand-purple-hover shadow-md hover:shadow-[0_0_15px_rgba(124,58,237,0.35)] transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none cursor-pointer"
                     >
                       {isSubmitting ? (
                         <span>{t("btnSubmitting")}</span>

@@ -45,13 +45,13 @@ export default function ApplicationWebPage() {
             {t("subtitle")}
           </p>
 
-          <div className="pt-4">
+          <div className="pt-3">
             <Link
-              href="/tarifs"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-brand-purple hover:bg-brand-purple-hover text-sm font-bold text-white rounded-lg transition-all duration-300 hover:scale-[1.02] space-x-2 border border-brand-purple/10 shadow-lg shadow-purple-500/10 hover:shadow-[0_0_20px_rgba(124,58,237,0.4)]"
+              href="/estimation"
+              className="inline-flex items-center justify-center px-5 py-2.5 bg-brand-purple hover:bg-brand-purple-hover text-xs font-semibold text-white rounded-lg transition-all duration-200 space-x-2 border border-brand-purple/10 shadow-md shadow-purple-500/10 hover:shadow-[0_0_15px_rgba(124,58,237,0.35)]"
             >
               <span>{t("cta")}</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </section>

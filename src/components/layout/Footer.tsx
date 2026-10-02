@@ -49,7 +49,7 @@ export default function Footer() {
                 <Link href="/portfolio" className="hover:text-brand-purple transition-colors">{tNav("portfolio")}</Link>
               </li>
               <li>
-                <Link href="/tarifs" className="hover:text-brand-purple transition-colors">{tNav("tarifs")} &amp; {t("configurator")}</Link>
+                <Link href="/estimation" className="hover:text-brand-purple transition-colors">{tNav("estimation")}</Link>
               </li>
               <li>
                 <Link href="/blog" className="hover:text-brand-purple transition-colors">{tNav("blog")}</Link>

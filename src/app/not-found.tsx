@@ -9,10 +9,10 @@ export default function NotFound() {
         <h1 className="text-xl font-bold">Page introuvable</h1>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-[#7c3aed] hover:bg-[#6d28d9] text-sm font-bold text-white rounded-xl transition-all"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#7c3aed] hover:bg-[#6d28d9] text-xs font-semibold text-white rounded-lg transition-all"
         >
-          <ArrowLeft className="w-4 h-4" />
-          Retour à l'accueil
+          <ArrowLeft className="w-3.5 h-3.5" />
+          Retour à l&apos;accueil
         </Link>
       </div>
     </div>

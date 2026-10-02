@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Sparkles, Layout, Database, Terminal, ArrowUpRight, Check } from "lucide-react";
+import { Sparkles, Layout, Database, Terminal, ArrowUpRight, Check, Users, ArrowRight } from "lucide-react";
 import { Link } from "@/lib/i18n/navigation";
 import { useInView } from "@/hooks/useInView";
 
@@ -50,11 +50,10 @@ export default function ServicesGrid() {
             <Link
               key={index}
               href={SERVICE_LINKS[index] || "/services"}
-              className="group relative p-6 md:p-8 rounded-2xl bg-[#0d0d11] border border-white/8 hover:border-brand-purple/30 backdrop-blur-xl transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 flex flex-col justify-between overflow-hidden cursor-pointer"
+              className="group relative p-6 md:p-8 rounded-2xl bg-[#0d0d11] border border-white/8 hover:border-brand-purple/30 backdrop-blur-xl transition-[border-color,box-shadow] duration-500 flex flex-col justify-between overflow-hidden cursor-pointer"
               style={{
                 opacity: gridInView ? 1 : 0,
-                transform: gridInView ? "translateY(0) scale(1)" : "translateY(28px) scale(0.98)",
-                transition: "opacity 0.65s ease, transform 0.65s ease, border-color 0.5s, box-shadow 0.5s",
+                transition: "opacity 0.65s ease, border-color 0.5s, box-shadow 0.5s",
                 transitionDelay: `${index * 110}ms`,
               }}
             >
@@ -76,7 +75,7 @@ export default function ServicesGrid() {
 
                 <h3 className="text-lg md:text-xl font-bold text-slate-100 mb-3 flex items-center group-hover:text-brand-purple transition-colors duration-300">
                   <span>{service.title}</span>
-                  <ArrowUpRight className="w-4 h-4 ml-1.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 text-brand-purple" />
+                  <ArrowUpRight className="w-4 h-4 ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-brand-purple" />
                 </h3>
 
                 <p className="text-xs sm:text-sm text-slate-400 mb-6 leading-relaxed">
@@ -121,6 +120,39 @@ export default function ServicesGrid() {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Banner Régie & Staff Augmentation */}
+        <div className="mt-8">
+          <Link
+            href="/services/regie"
+            className="group relative p-6 md:p-8 rounded-2xl bg-gradient-to-r from-[#0d0d14] via-[#120f24] to-[#0d0d14] border border-brand-purple/30 hover:border-brand-purple/60 shadow-[0_0_35px_rgba(124,58,237,0.12)] transition-all duration-300 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 cursor-pointer overflow-hidden"
+          >
+            <div className="flex items-start md:items-center gap-4">
+              <div className="p-3.5 rounded-xl bg-purple-500/10 border border-purple-500/20 text-brand-purple shrink-0">
+                <Users className="w-6 h-6" />
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-400/10 text-amber-300 border border-amber-400/20 font-bold">
+                    NOUVEAU • RENFORT DÉDIÉ
+                  </span>
+                  <span className="text-[10px] font-mono text-emerald-400">Opérationnel sous 48h</span>
+                </div>
+                <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-purple-200 transition-colors">
+                  Régie Dédiée & Développeurs Seniors IA (Staff Augmentation)
+                </h3>
+                <p className="text-xs text-slate-400 max-w-2xl font-normal">
+                  Embarquez un ingénieur senior d&apos;élite immédiatement opérationnel dans votre squad. Vélocité x3, zéro dette, essai 5 jours sans risque et 100% propriété sur votre Git.
+                </p>
+              </div>
+            </div>
+
+            <div className="shrink-0 flex items-center gap-2 text-xs font-semibold text-white bg-brand-purple group-hover:bg-brand-purple-hover px-4 py-2.5 rounded-lg shadow-md transition-colors">
+              <span>Découvrir la Régie</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </div>
+          </Link>
         </div>
       </div>
     </section>

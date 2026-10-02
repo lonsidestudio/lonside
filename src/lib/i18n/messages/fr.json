@@ -3,7 +3,7 @@
     "servicesLabel": "Services",
     "methode": "Méthode",
     "portfolio": "Portfolio",
-    "tarifs": "Tarifs",
+    "estimation": "Estimer mon projet",
     "blog": "Blog",
     "aPropos": "À propos",
     "contact": "Contact",
@@ -14,9 +14,9 @@
   },
   "home": {
     "badge": "Agence web augmentée par l'IA",
-    "headline": "Votre site internet livré",
+    "headline": "Vos projets digitaux, livrés",
     "headlineHighlight": "3× plus vite. Code à vous.",
-    "subheadline": "Du design de marque premium au développement Next.js sur-mesure. Sites ultra-rapides, applications web et automatisation IA — sans délai, sans frais cachés, propriété intellectuelle 100% transférée.",
+    "subheadline": "Sites ultra-rapides, applications web sur-mesure et automatisation IA — sans délai, sans frais cachés, propriété intellectuelle 100% transférée.",
     "ctaPrimary": "Démarrer un projet",
     "ctaSecondary": "Voir le portfolio",
     "stats": {
@@ -42,7 +42,7 @@
         },
         "portfolio": {
           "title": "Portfolio",
-          "desc": "Études de cas réelles et résultats : Nova-Retail, Velo-SaaS, Helix-Branding. Chiffres et témoignages.",
+          "desc": "Études de cas réelles et résultats : Welqo, Michi 道, Bely. Chiffres et témoignages.",
           "cta": "Voir les dossiers techniques"
         },
         "faq": {
@@ -50,6 +50,128 @@
           "desc": "Réponses claires sur la propriété exclusive du code, la maintenance et notre technologie IA.",
           "cta": "Consulter la FAQ"
         }
+      }
+    }
+  },
+  "flagship": {
+    "badge": "Offres Phares",
+    "headline": "Trois solutions.",
+    "headlineHighlight": "Un ROI mesurable.",
+    "subheadline": "Du MVP SaaS au renfort de squad : des délais fermes, zéro dette et 100% de cession Git.",
+    "mvpCard": {
+      "tag": "Startups & SaaS",
+      "title": "Sprint MVP 14 Jours",
+      "desc": "Votre SaaS complet prêt à encaisser (Stripe + Supabase) livré en 2 semaines chrono.",
+      "investmentLabel": "Enveloppe indicative",
+      "investmentRange": "5 500 € – 8 900 €",
+      "investmentSub": "Selon modules requis",
+      "delay": "14 jours ouvrés",
+      "cta": "Estimer mon MVP",
+      "ctaScoping": "Ou réserver un cadrage (15 min)",
+      "deliverables": [
+        "Web App Next.js 16 + Base Supabase PostgreSQL",
+        "Authentification sécurisée & rôles RBAC",
+        "Paiements récurrents Stripe & facturation",
+        "2 connecteurs de flux (N8N, CRM, webhooks)",
+        "Code source 100% cédé sur votre GitHub"
+      ]
+    },
+    "switchCard": {
+      "tag": "PME & Sortie CMS",
+      "title": "Refonte & Sortie CMS",
+      "desc": "Quittez les CMS lents et les plugins instables pour un site Next.js ultra-rapide.",
+      "investmentLabel": "Enveloppe indicative",
+      "investmentRange": "2 500 € – 4 500 €",
+      "investmentSub": "Selon volume de pages",
+      "delay": "5 jours ouvrés",
+      "cta": "Estimer ma Refonte",
+      "ctaScoping": "Ou réserver un audit (15 min)",
+      "deliverables": [
+        "Site Next.js statique (< 0.5s d'affichage)",
+        "Score Google Lighthouse 100/100 garanti",
+        "Zéro abonnement ni plugin payant",
+        "Migration sans perte de trafic (SEO intact)",
+        "Sécurité native contre les failles CMS"
+      ]
+    },
+    "regieCard": {
+      "tag": "Scaleups & Squads",
+      "title": "Régie Dédiée & Squad IA",
+      "desc": "Un ingénieur senior intégré à votre squad sous 48h, avec une vélocité triplée.",
+      "investmentLabel": "Format d'intervention",
+      "investmentRange": "Mensuel flexible",
+      "investmentSub": "Temps plein ou partiel (min. 10j)",
+      "delay": "Opérationnel sous 48h",
+      "cta": "Estimer mon Renfort",
+      "ctaScoping": "Découvrir la Régie IA",
+      "deliverables": [
+        "Ingénieur senior certifié (Next.js, Python, Cloud)",
+        "Vélocité x3 grâce à nos agents internes",
+        "Intégration directe (Slack, Linear, GitHub)",
+        "Garantie Zero Data Retention & NDA",
+        "Essai de 5 jours sans risque, sans engagement"
+      ]
+    },
+    "roi": {
+      "badge": "Comparateur ROI",
+      "title": "Mesurez vos gains réels",
+      "subtitle": "Comparez une agence classique face au standard Lonside.",
+      "tabMvp": "01. MVP SaaS",
+      "tabSwitch": "02. Sortie CMS",
+      "tabRegie": "03. Régie Squad",
+      "ctaSimulate": "Lancer le simulateur complet",
+      "labels": {
+        "traditional": "Approche Classique",
+        "lonside": "Standard Lonside",
+        "cost": "Investissement",
+        "timeline": "Délai de livraison",
+        "recurring": "Frais récurrents",
+        "ownership": "Propriété du code",
+        "savingsTitle": "Gains nets constatés",
+        "savingsSubtitle": "Calculés sur la première année",
+        "moneySaved": "Économie directe",
+        "timeSaved": "Avance sur le marché",
+        "perfBoost": "Vitesse",
+        "conversionBoost": "Gain de conversion"
+      },
+      "mvpData": {
+        "tradCost": "20 000 € – 30 000 €",
+        "lonsideCost": "5 500 € – 8 900 €",
+        "tradTimeline": "12 à 16 semaines",
+        "lonsideTimeline": "14 jours ouvrés",
+        "tradRecurring": "Hébergement lourd + maintenance",
+        "lonsideRecurring": "0 € / mois (CDN mondial)",
+        "tradOwnership": "Dépendance agence",
+        "lonsideOwnership": "100% Cession code GitHub",
+        "moneySavedValue": "~15 000 €",
+        "timeSavedValue": "+2.5 mois",
+        "conversionBoostValue": "100% live"
+      },
+      "switchData": {
+        "tradCost": "5 000 € – 8 000 € + abonnements",
+        "lonsideCost": "2 500 € – 4 500 €",
+        "tradTimeline": "6 à 10 semaines",
+        "lonsideTimeline": "5 jours ouvrés",
+        "tradRecurring": "120 € / mois (plugins + maintenance)",
+        "lonsideRecurring": "0 € d'abonnement imposé",
+        "tradOwnership": "Captif de la plateforme",
+        "lonsideOwnership": "Code source autonome",
+        "moneySavedValue": "~3 500 € / an",
+        "timeSavedValue": "+6 semaines",
+        "conversionBoostValue": "+25% à +40%"
+      },
+      "regieData": {
+        "tradCost": "Recrutement CDI (15k€ chasse + charges)",
+        "lonsideCost": "Facturation aux jours réels (zéro frais RH)",
+        "tradTimeline": "4 à 8 semaines de recrutement",
+        "lonsideTimeline": "Opérationnel sous 48h",
+        "tradRecurring": "Masse salariale fixe & préavis 3 mois",
+        "lonsideRecurring": "Ajustable d'un mois sur l'autre",
+        "tradOwnership": "Risque d'inadéquation ou turnover",
+        "lonsideOwnership": "100% Git privé + Essai 5j sans risque",
+        "moneySavedValue": "~15 000 €",
+        "timeSavedValue": "+1.5 mois",
+        "conversionBoostValue": "Vélocité x3"
       }
     }
   },
@@ -74,53 +196,550 @@
       "design": {
         "name": "Identité Visuelle & Design de Marque",
         "desc": "Logos vectoriels, chartes graphiques et design systems Figma pour crédibiliser votre marque."
+      },
+      "regie": {
+        "name": "Régie & Développeurs Seniors IA",
+        "desc": "Embarquez un ingénieur senior d'élite dopé à l'IA dans votre squad sous 48h, sans engagement rigide."
       }
     }
   },
   "methode": {
     "badge": "Notre méthode",
-    "headline": "4 phases structurées,",
-    "headlineHighlight": "du brief au déploiement.",
-    "subheadline": "Cadrage, design, développement Next.js, mise en ligne — des livrables définis à chaque étape, sans surprise."
+    "headline": "4 phases. Des livrables.",
+    "headlineHighlight": "Zéro surprise.",
+    "subheadline": "Cadrage, design, développement Next.js et déploiement — chaque étape débouche sur un livrable concret."
   },
   "portfolio": {
-    "badge": "Portfolio",
-    "headline": "Des projets livrés,",
-    "headlineHighlight": "des résultats prouvés.",
-    "subheadline": "Consultez les audits de performance réels de nos clients avec chiffres, délais et témoignages.",
-    "deliveredIn": "Livré en",
+    "badge": "Portfolio & Études de cas",
+    "headline": "Des projets d'exception,",
+    "headlineHighlight": "un impact business mesuré.",
+    "subheadline": "Découvrez comment nous concevons des plateformes web sur-mesure, rapides et pensées pour convertir et durer.",
+    "deliveredIn": "Déployé en",
     "days": "jours",
-    "viewDetails": "Voir le dossier technique",
+    "viewDetails": "Découvrir l'étude de cas",
     "testimonial": "Témoignage client",
     "projectLink": "Visiter le projet en direct",
-    "process": "Détails de notre processus",
-    "feedback": "Retour client complet"
+    "process": "Déroulement du projet",
+    "feedback": "Retour d'expérience client"
   },
   "tarifs": {
-    "badge": "Tarifs",
-    "headline": "Choisissez votre forfait.",
-    "headlineHighlight": "Le reste, c'est notre affaire.",
-    "subheadline": "Des tarifs fixes, sans clauses cachées. Configurez votre projet en quelques clics et obtenez une estimation immédiate — sans appel commercial.",
+    "badge": "Tarifs & Modalités",
+    "headline": "Deux modes de collaboration.",
+    "headlineHighlight": "Un engagement d'excellence sans compromis.",
+    "subheadline": "Forfaits Sprints pour vos projets clés en main ou Régie Augmentée pour accélérer vos équipes internes. Choisissez le modèle adapté à votre échelle.",
     "from": "À partir de",
     "perProject": "/ projet",
     "perMonth": "/ mois",
+    "perDay": "/ jour",
     "highlighted": "Le plus populaire",
+    "tabs": {
+      "projects": "Forfaits Sprints & Projets",
+      "regie": "Régie Dédiée & Profils IA-Augmentés",
+      "newBadge": "Nouveau"
+    },
     "addons": {
       "title": "Options complémentaires",
-      "subtitle": "À ajouter à n'importe quel forfait."
+      "subtitle": "À ajouter à n'importe quel forfait projet."
     },
     "guarantees": {
       "fixed": {
-        "title": "Contrat au forfait garanti",
-        "desc": "Le tarif validé lors de la signature est fixe. Aucun dépassement de budget ni coût additionnel non planifié."
+        "title": "Cadre budgétaire & Délais garantis",
+        "desc": "Enveloppe claire sans surprise et engagement de livraison ferme : 10% de remise par tranche de 48h en cas de dépassement de délai."
       },
       "speed": {
-        "title": "Développement accéléré",
-        "desc": "Grâce à nos agents d'orchestration et nos outils internes, vos projets sont livrés en quelques jours."
+        "title": "Ingénierie haute vélocité",
+        "desc": "Livraison en 5 à 12 jours ouvrés selon les formules grâce à notre architecture Next.js 16 et notre chaîne d'orchestration augmentée."
       },
       "ip": {
-        "title": "Propriété intellectuelle à 100%",
-        "desc": "Le code source, les maquettes Figma, les accès à l'hébergement vous appartiennent intégralement."
+        "title": "100% Propriété & Zéro Lock-in",
+        "desc": "Code Next.js pur livré sur votre GitHub, maquettes Figma éditables, 0 abonnement CMS forcé, 0 dépendance captive."
+      }
+    },
+    "regie": {
+      "badge": "Staff Augmentation & Régie IA",
+      "headline": "Embarquez un développeur senior d'élite,",
+      "headlineHighlight": "augmenté par IA dans votre squad sous 48h.",
+      "subheadline": "Intégrez des ingénieurs chevronnés immédiatement opérationnels. Une vélocité triplée grâce à nos agents internes, zéro dette technique et 100% de propriété sur votre Git.",
+      "trustPills": [
+        "Top 3% des Talents",
+        "Opérationnel sous 48h",
+        "Zero Data Retention (ZDR)",
+        "Essai 5 jours sans risque",
+        "100% Cession Git"
+      ],
+      "agenticMethod": {
+        "badge": "Méthode Agentique",
+        "title": "Ce que signifie 'Ingénieur Augmenté par IA'",
+        "subtitle": "L'IA élimine le code répétitif pour concentrer 100% du temps sur la logique métier critique.",
+        "cards": [
+          {
+            "tag": "Expertise Humaine",
+            "title": "Pilote Senior & Décisions Métiers",
+            "desc": "Architecture, modélisation SQL et sécurité. Un ingénieur senior chevronné conçoit et valide chaque commit."
+          },
+          {
+            "tag": "Vélocité x4",
+            "title": "Scaffolding & Typage Strict",
+            "desc": "Génération accélérée des composants Next.js, schémas Zod et contrats TypeScript sans boilerplate inutile."
+          },
+          {
+            "tag": "Qualité Industrielle",
+            "title": "Tests Automatisés Continus",
+            "desc": "Création automatique des suites Vitest et Playwright (>85% couverture) avec scan préventif des failles."
+          },
+          {
+            "tag": "Zéro Dette",
+            "title": "Documentation & Code Propre",
+            "desc": "Documentation d'API, migrations SQL limpides et code maintenable directement exploitable par votre équipe."
+          }
+        ]
+      },
+      "screening": {
+        "badge": "Sélection Drastique",
+        "title": "Seuls les 3% Meilleurs Profils Retenus",
+        "subtitle": "Chaque ingénieur franchit un protocole de qualification rigoureux avant toute mission.",
+        "pillars": [
+          {
+            "step": "01",
+            "title": "Séniorité Éprouvée",
+            "desc": "Track record éprouvé sur des applications à fort trafic en production. Références clients vérifiées."
+          },
+          {
+            "step": "02",
+            "title": "Architecture & Données",
+            "desc": "Épreuve de modélisation relationnelle PostgreSQL, API modulaires et scalabilité sans dette."
+          },
+          {
+            "step": "03",
+            "title": "Live Coding Augmenté",
+            "desc": "Test pratique en direct avec nos agents IA : typage strict, vitesse et réflexes de test."
+          },
+          {
+            "step": "04",
+            "title": "Sécurité OWASP & Rituels",
+            "desc": "Vérification des réflexes cybersécurité (RBAC, CSRF), communication claire et immersion agile."
+          }
+        ]
+      },
+      "dailyRoutine": {
+        "badge": "Immersion Squad",
+        "title": "Une Journée Type en Régie",
+        "subtitle": "Une intégration fluide dans vos canaux et rituels de travail habituels.",
+        "timeline": [
+          {
+            "time": "09:30",
+            "title": "Daily Standup & Alignement",
+            "desc": "Synchronisation sur Slack ou Meet, priorités Linear/Jira et levée des blockers."
+          },
+          {
+            "time": "10:00 - 12:30",
+            "title": "Deep Work & Scaffolding IA",
+            "desc": "Production accélérée des composants, contrats d'API et modèles avec typage strict."
+          },
+          {
+            "time": "14:00 - 16:30",
+            "title": "Logique Métier & Tests",
+            "desc": "Implémentation artisanale des algorithmes critiques et génération des tests automatisés."
+          },
+          {
+            "time": "16:30 - 17:30",
+            "title": "Revue Git & Staging",
+            "desc": "Pull Requests documentées sur votre Git privé et déploiement de validation sur staging."
+          },
+          {
+            "time": "Continu",
+            "title": "Support Async Réactif",
+            "desc": "Réponses en moins de 15 min sur votre Slack d'équipe en journée. Zéro intermédiaire."
+          }
+        ]
+      },
+      "securityGuarantee": {
+        "badge": "Confidentialité & Propriété",
+        "title": "Sécurité Entreprise & Cession Immédiate",
+        "subtitle": "Un cadre contractuel strict et étanche pour protéger vos données et votre code.",
+        "items": [
+          {
+            "title": "Zero Data Retention (ZDR)",
+            "desc": "Clés API d'entreprise certifiées ZDR : aucun code ni donnée n'est conservé ou réutilisé pour entraîner une IA publique."
+          },
+          {
+            "title": "Dépôt Git Privé Client",
+            "desc": "L'ingénieur travaille exclusivement sur votre GitHub ou GitLab. Vous gardez la visibilité totale sur chaque commit."
+          },
+          {
+            "title": "100% Propriété Intellectuelle Cédée",
+            "desc": "Transfert automatique de l'ensemble des droits patrimoniaux dès chaque commit Git, sans frais cachés."
+          },
+          {
+            "title": "NDA Bilatéral Strict & RGPD",
+            "desc": "Accord de confidentialité bilatéral conforme au droit français et respect strict des exigences RGPD."
+          }
+        ]
+      },
+      "engagementModels": {
+        "badge": "Formules Flexibles",
+        "title": "4 Formats d'Intervention Adaptés à vos Enjeux",
+        "subtitle": "Du renfort commando d'urgence à la squad complète dédiée, choisissez l'envergure nécessaire.",
+        "items": [
+          {
+            "tag": "Time-to-Market d'Urgence",
+            "title": "Sprint Commando Dédié",
+            "duration": "2 à 4 semaines",
+            "cadence": "Plein temps (5j / sem)",
+            "desc": "Débloquer une mise en production imminente, préparer une démo investisseurs ou intégrer une feature critique.",
+            "cta": "Lancer un sprint commando"
+          },
+          {
+            "tag": "Renfort Squad Continu",
+            "title": "Immersion Squad Mensuelle",
+            "duration": "1 à 6 mois",
+            "cadence": "10 à 20 jours / mois",
+            "desc": "Éponger un backlog chargé et accélérer la cadence des releases sans alourdir votre masse salariale fixe.",
+            "cta": "Réserver un renfort squad"
+          },
+          {
+            "tag": "Accélération Maximale",
+            "title": "Squad Augmentée Clé-en-Main",
+            "duration": "3 à 6 mois",
+            "cadence": "2 à 3 ingénieurs + Lead",
+            "desc": "Équipe technique complète et synchronisée (Frontend, Backend, Lead) pour livrer un produit d'envergure à vitesse x3.",
+            "cta": "Composer ma squad"
+          },
+          {
+            "tag": "Direction Technique & Stratégie",
+            "title": "Fractional CTO & Tech Lead",
+            "duration": "Accompagnement continu",
+            "cadence": "1 à 2 jours / semaine",
+            "desc": "L'expertise d'un directeur technique chevronné pour arbitrer votre stack, sécuriser vos investissements et cadrer l'équipe.",
+            "cta": "Solliciter un Fractional CTO"
+          }
+        ]
+      },
+      "squadBuilder": {
+        "badge": "Simulateur de Squad",
+        "title": "Configurez votre Squad Sur-Mesure",
+        "subtitle": "Ajustez les volumes de jours par profil pour estimer votre budget et votre vélocité équivalente.",
+        "rolesTitle": "Sélection des profils",
+        "daysSuffix": "j / mois",
+        "cadencePrompt": "Volume d'intervention :",
+        "summaryBadge": "Capacité estimée de votre Squad",
+        "budgetLabel": "Budget mensuel indicatif",
+        "velocityLabel": "Débit de production équivalent",
+        "velocityPrefix": "Équivaut à la production de",
+        "velocitySuffix": "ingénieurs traditionnels à plein temps",
+        "savingsTitle": "Économie vs Recrutement CDI & ESN",
+        "savingsDesc": "Zéro coût de chasse RH (~15k€/dev), 0 préavis de 3 mois, flexibilité totale au mois et semaine d'essai de 5 jours sans risque.",
+        "cta": "Valider cette configuration"
+      },
+      "rolesTitle": "5 Profils Stratégiques Disponibles sous 48h",
+      "rolesSubtitle": "Ingénieurs seniors certifiés, immédiatement opérationnels sur votre stack technique.",
+      "roles": [
+        {
+          "id": "fullstack",
+          "tag": "Fullstack",
+          "title": "Senior Fullstack Engineer",
+          "experience": "Senior",
+          "skills": "Next.js 16, React 19, TypeScript, Node.js, Python, Supabase, Tailwind",
+          "desc": "Expédie vos fonctionnalités de bout en bout à vitesse x3.",
+          "rate": "À partir de 650 €",
+          "rateUnit": "/ jour (TJM)",
+          "dailyRateNumber": 650,
+          "commitment": "Plein temps ou partiel (min. 10j)",
+          "idealFor": "Startups et PME devant accélérer sans embauche lourde.",
+          "ticketsTitle": "Exemples de tickets expédiés en 48h :",
+          "exampleTickets": [
+            "Refonte du tunnel de paiement Stripe avec webhooks idempotents",
+            "Auth multi-rôles RBAC sécurisée avec logs d'audit complets",
+            "Optimisation de requêtes SQL lentes et mise en cache CDN/Redis"
+          ],
+          "deliverables": [
+            "Features end-to-end (Frontend + Backend + DB)",
+            "Tests d'intégration Vitest/Playwright (>85%)",
+            "Participation active aux dailies et rituels agiles"
+          ],
+          "cta": "Réserver ce profil"
+        },
+        {
+          "id": "frontend",
+          "tag": "Frontend & UX",
+          "title": "Senior Frontend Engineer",
+          "experience": "Senior",
+          "skills": "React 19, Next.js, TypeScript, Tailwind CSS, Framer Motion, WCAG",
+          "desc": "Transforme vos maquettes Figma en interfaces web fluides (< 0.5s).",
+          "rate": "À partir de 650 €",
+          "rateUnit": "/ jour (TJM)",
+          "dailyRateNumber": 650,
+          "commitment": "Sprint commando ou renfort continu",
+          "idealFor": "Plateformes exigeant une interface soignée et des Web Vitals parfaits.",
+          "ticketsTitle": "Exemples de tickets expédiés en 48h :",
+          "exampleTickets": [
+            "Intégration d'un Design System complet Figma vers React/Tailwind",
+            "Score Lighthouse mobile optimisé de 45 à 98/100",
+            "Tableau de bord analytique interactif temps réel"
+          ],
+          "deliverables": [
+            "Composants React modulaires, typés et documentés",
+            "Optimisation radicale des temps de chargement",
+            "Responsive pixel-perfect testé multi-devices"
+          ],
+          "cta": "Réserver ce profil"
+        },
+        {
+          "id": "backend",
+          "tag": "Backend & Cloud",
+          "title": "Senior Backend Architect",
+          "experience": "Lead Archi",
+          "skills": "Python, Node.js, PostgreSQL, Supabase, Redis, Docker, OWASP, AWS",
+          "desc": "Conçoit des architectures de données robustes et scalables sous fort trafic.",
+          "rate": "À partir de 700 €",
+          "rateUnit": "/ jour (TJM)",
+          "dailyRateNumber": 700,
+          "commitment": "Refonte d'architecture ou renfort dédié",
+          "idealFor": "Plateformes avec des lenteurs de base de données ou forte montée en charge.",
+          "ticketsTitle": "Exemples de tickets expédiés en 48h :",
+          "exampleTickets": [
+            "Refonte de schémas PostgreSQL et élimination des requêtes N+1",
+            "Audit de sécurité applicative et correction des failles OWASP",
+            "Pipeline CI/CD automatisé avec déploiement zéro downtime"
+          ],
+          "deliverables": [
+            "Schémas SQL optimisés, indexés et documentés",
+            "APIs REST / GraphQL performantes et sécurisées",
+            "Infrastructure Dockerisée prête pour le scaling automatique"
+          ],
+          "cta": "Réserver ce profil"
+        },
+        {
+          "id": "cto",
+          "tag": "Direction Tech",
+          "title": "Fractional CTO & Tech Lead",
+          "experience": "Fractional CTO",
+          "skills": "Architecture Système (DDD), Choix de Stack, Sécurité OWASP, Scalabilité, Mentoring",
+          "desc": "L'expertise d'un directeur technique à temps partagé sans le coût d'un CDI.",
+          "rate": "À partir de 2 800 €",
+          "rateUnit": "/ mois (1 à 2j / sem)",
+          "dailyRateNumber": 700,
+          "commitment": "Accompagnement mensuel flexible",
+          "idealFor": "Fondateurs non techniques et PME en transition numérique stratégique.",
+          "ticketsTitle": "Exemples de missions stratégiques :",
+          "exampleTickets": [
+            "Audit d'architecture et de sécurité avant levée de fonds",
+            "Arbitrage technologique et feuille de route de refonte",
+            "Cadrage des recrutements tech et gouvernance de code"
+          ],
+          "deliverables": [
+            "Audit complet d'architecture, sécurité et performances",
+            "Feuille de route technique alignée sur le business",
+            "Garantie de non-dépendance et sélection des prestataires"
+          ],
+          "cta": "Solliciter un Fractional CTO"
+        },
+        {
+          "id": "automation",
+          "tag": "Automatisation IA",
+          "title": "Architecte Automatisation IA",
+          "experience": "Lead IA",
+          "skills": "Agents LLM (Claude, OpenAI), N8N/Make, RAG, Webhooks, APIs REST",
+          "desc": "Déploie des flux intelligents et agents IA pour supprimer les saisies manuelles.",
+          "rate": "À partir de 700 €",
+          "rateUnit": "/ jour (ou forfait commando)",
+          "dailyRateNumber": 700,
+          "commitment": "Sprint commando ou accompagnement",
+          "idealFor": "Équipes souhaitant supprimer les tâches répétitives et connecter leurs outils.",
+          "ticketsTitle": "Exemples de flux automatisés déployés :",
+          "exampleTickets": [
+            "Agent IA de traitement automatique de PDF et injection ERP",
+            "Pipeline N8N synchronisant Stripe, HubSpot et PostgreSQL",
+            "Assistant interne connecté à vos bases de connaissances (RAG)"
+          ],
+          "deliverables": [
+            "Cartographie et automatisation des flux métiers",
+            "Pipelines N8N sécurisés et surveillés 24/7",
+            "Formation de vos équipes et transfert complet"
+          ],
+          "cta": "Automatiser mes flux"
+        }
+      ],
+      "comparison": {
+        "badge": "Comparatif Sans Filtre",
+        "title": "ESN Classique vs Freelance Solo vs Régie Lonside",
+        "subtitle": "Pourquoi les startups et PME choisissent nos profils augmentés plutôt que les intermédiaires traditionnels.",
+        "headers": {
+          "criterion": "Critères",
+          "esn": "ESN Classique",
+          "freelance": "Freelance Solo",
+          "lonside": "Régie Augmentée Lonside"
+        },
+        "rows": [
+          {
+            "criterion": "Délai de démarrage",
+            "esn": "3 à 6 semaines (process lourd)",
+            "freelance": "1 à 3 semaines selon dispo",
+            "lonside": "Opérationnel sous 48h chrono"
+          },
+          {
+            "criterion": "Vélocité de production",
+            "esn": "Standard (1x), bureaucratie",
+            "freelance": "Standard (1x), outillage isolé",
+            "lonside": "Vélocité x3 (Agents IA & scaffolding)"
+          },
+          {
+            "criterion": "Niveau de séniorité",
+            "esn": "Juniors souvent vendus comme confirmés",
+            "freelance": "Niveau très variable et dur à auditer",
+            "lonside": "Uniquement des profils seniors certifiés et audités"
+          },
+          {
+            "criterion": "Couverture de tests",
+            "esn": "Souvent sacrifiée pour tenir les dates",
+            "freelance": "Aléatoire selon les habitudes",
+            "lonside": "Systématique : >85% de couverture Vitest/E2E"
+          },
+          {
+            "criterion": "Flexibilité & Risque",
+            "esn": "Contrats rigides de 3 à 6 mois min.",
+            "freelance": "Risque d'abandon ou dépriorisation",
+            "lonside": "Essai 5j sans risque, engagement au sprint"
+          },
+          {
+            "criterion": "Propriété du code",
+            "esn": "Clauses complexes et rétention",
+            "freelance": "Cession au solde de tout compte",
+            "lonside": "100% Cession immédiate sur votre Git"
+          }
+        ]
+      },
+      "caseStudies": {
+        "badge": "Cas Concrets",
+        "title": "Deux Situations Critiques Débloquées en Moins d'un Mois",
+        "subtitle": "Des résultats concrets et mesurables pour nos clients.",
+        "items": [
+          {
+            "tag": "Fintech B2B — 6 Semaines",
+            "title": "Refonte d'API de paiement & Certification ACPR",
+            "context": "API non conforme sous contrainte réglementaire ferme à 2 mois et équipe interne saturée.",
+            "action": "Intégration sous 48h d'un Senior Backend. Réécriture des flux d'idempotence et 120 tests d'intégration.",
+            "result": "Certification validée avec 2 semaines d'avance. Gain de vélocité équivalent à 3 mois de dev classique."
+          },
+          {
+            "tag": "Scaleup SaaS — 4 Semaines",
+            "title": "Migration Next.js & Division par 4 du Temps de Chargement",
+            "context": "Frontend monolithique vieillissant (latence 4.2s) générant un fort taux de churn à l'onboarding.",
+            "action": "Binôme Fractional CTO (cadrage) et Senior Frontend. Migration Next.js 16 et refonte du Design System.",
+            "result": "Temps de chargement réduit à 0.4s. Hausse de +34% de conversion à l'onboarding dès la semaine 1."
+          }
+        ]
+      },
+      "calculator": {
+        "badge": "Simulateur TCO & Rentabilité",
+        "title": "Estimez votre Retour sur Investissement",
+        "subtitle": "Simulez le coût indicatif, l'équivalent de production et l'économie face à un recrutement CDI.",
+        "selectRole": "Expertise recherchée",
+        "selectCadence": "Volume mensuel",
+        "investmentLabel": "Budget mensuel indicatif",
+        "equivalentLabel": "Débit de production équivalent",
+        "equivalentDesc": "Grâce à notre chaîne d'orchestration agentique, ce volume équivaut à la production de :",
+        "equivalentValue": "2.5 à 3 développeurs traditionnels",
+        "savingsTitle": "Économie directe vs Recrutement CDI",
+        "savingsDesc": "Économisez ~15 000 € de frais de chasse, 3 mois de préavis et l'aléa des charges patronales fixes.",
+        "cta": "Bloquer ce profil pour un sprint d'essai"
+      },
+      "useCases": {
+        "badge": "Scénarios d'Intervention",
+        "title": "Quand Faire Appel à la Régie Augmentée ?",
+        "subtitle": "Quatre moments clés où notre intervention débloque immédiatement votre trajectoire.",
+        "items": [
+          {
+            "tag": "Time-to-Market",
+            "title": "Sprint Commando & Deadline Critique",
+            "subtitle": "Lancement produit, démo investisseurs, pic saisonnier",
+            "desc": "Une date de mise en ligne ferme approche. Nous intégrons 1 à 2 seniors sous 48h pour délivrer les features clés dans les délais.",
+            "duration": "2 à 6 semaines"
+          },
+          {
+            "tag": "Renfort Squad",
+            "title": "Dépassement de Backlog & Vélocité",
+            "subtitle": "Éponger le retard sans recruter à l'aveugle",
+            "desc": "Votre backlog s'allonge et l'équipe sature. Notre ingénieur senior prend en charge des blocs fonctionnels en autonomie.",
+            "duration": "1 à 6 mois"
+          },
+          {
+            "tag": "Dette & Archi",
+            "title": "Refonte d'Architecture & Sécurité",
+            "subtitle": "Migration Next.js App Router, audit OWASP, scaling",
+            "desc": "Votre code historique freine votre croissance. Nous refactorisons, sécurisons et posons des fondations saines.",
+            "duration": "3 à 8 semaines"
+          },
+          {
+            "tag": "Gouvernance",
+            "title": "Direction Technique Fractionnée (CTO)",
+            "subtitle": "Pilotage stratégique pour fondateurs et PME",
+            "desc": "Bénéficiez d'une vision C-level pour piloter vos choix d'infra et rassurer vos investisseurs, sans CDI à 150k€.",
+            "duration": "1 à 2j / sem"
+          }
+        ]
+      },
+      "processTitle": "Démarrage en 3 Étapes Simples",
+      "processSubtitle": "Un parcours clair pour intégrer votre ingénieur sous 48h.",
+      "processSteps": [
+        {
+          "step": "01",
+          "title": "Échange technique (30 min)",
+          "desc": "Cadrage précis de votre besoin, de votre stack et de vos priorités de sprint."
+        },
+        {
+          "step": "02",
+          "title": "Semaine d'essai sans risque",
+          "desc": "Démarrage sous 48h. Si le niveau ne vous convient pas après 5 jours, vous ne réglez que les livrables validés."
+        },
+        {
+          "step": "03",
+          "title": "Immersion & Vélocité continue",
+          "desc": "Accès direct à votre Slack et vos dépôts Git. Dailies, Pull Requests documentées et livraisons régulières."
+        }
+      ],
+      "faq": {
+        "title": "Questions Fréquentes",
+        "subtitle": "Toutes les réponses pour aborder votre collaboration en toute sérénité.",
+        "items": [
+          {
+            "q": "Comment garantissez-vous que le profil est réellement senior ?",
+            "a": "Chaque ingénieur justifie d'un parcours éprouvé sur des architectures à fort trafic. Tous franchissent une épreuve d'architecture, un test de live coding et un audit de sécurité avant toute mission."
+          },
+          {
+            "q": "Nos données ou notre code sont-ils envoyés à des IA publiques ?",
+            "a": "Non. Nos outils utilisent exclusivement des clés d'entreprise certifiées Zero Data Retention (ZDR). Votre code et vos données ne sont jamais conservés ni utilisés pour entraîner des modèles."
+          },
+          {
+            "q": "Comment s'effectue la validation des livrables au quotidien ?",
+            "a": "Notre ingénieur travaille sur des branches Git dédiées et soumet des Pull Requests documentées. Aucune ligne de code n'est mergée sans la revue et l'approbation de votre équipe."
+          },
+          {
+            "q": "Comment fonctionne la semaine d'essai de 5 jours ?",
+            "a": "Si à l'issue des 5 premiers jours vous estimez que la cadence ou la communication ne répondent pas à vos attentes, vous pouvez interrompre la mission sans préavis ni pénalité."
+          },
+          {
+            "q": "Pouvons-nous moduler le volume de jours d'un mois sur l'autre ?",
+            "a": "Oui, en totale flexibilité. Vous pouvez monter à temps plein pour un lancement, puis passer à 5-10 jours par mois pour la maintenance et les évolutions sur simple préavis."
+          },
+          {
+            "q": "Où sont basés les développeurs et comment communiquent-ils ?",
+            "a": "Tous nos ingénieurs sont basés en France (fuseau horaire de Paris) et travaillent en français courant. Ils s'intègrent directement sur votre Slack d'équipe en remote, avec ateliers en présentiel possibles."
+          },
+          {
+            "q": "Quel est le cadre juridique du contrat ?",
+            "a": "Un contrat de prestation B2B simple de droit français, sans engagement longue durée forcé. Facturation mensuelle au réel des jours convenus, zéro charges sociales et zéro préavis de départ."
+          },
+          {
+            "q": "Que se passe-t-il si nos priorités produit changent en cours de route ?",
+            "a": "Notre développeur est immergé dans votre backlog agile. Si une priorité change, vous réorientez simplement les tickets sur Linear ou Jira sans aucun avenant contractuel."
+          }
+        ]
+      },
+      "banner": {
+        "title": "Besoin d'un cadrage technique de 15 minutes ?",
+        "subtitle": "Échangez avec nous pour qualifier votre besoin et réserver votre profil senior sous 48h.",
+        "cta": "Réserver mon appel de cadrage offert"
       }
     }
   },
@@ -379,7 +998,7 @@
     "keywords": "création site internet, agence web IA, développement Next.js, application web sur-mesure, automatisation IA, design graphique, SEO, refonte site internet",
     "home": {
       "title": "Lonside — Agence Web IA",
-      "description": "Lonside crée vos sites internet Next.js ultra-rapides, vos applications web sur-mesure et automatise vos processus grâce à l'IA. Livraison 3× plus rapide qu'une agence classique. Propriété intellectuelle 100% à vous."
+      "description": "Lonside crée vos projets digitaux 3× plus vite : sites Next.js, applications web sur-mesure et automatisation IA. Propriété intellectuelle 100% à vous."
     },
     "services": {
       "title": "Création Site Internet, Application Web & Automatisation IA | Lonside",
@@ -387,11 +1006,11 @@
     },
     "siteVitrine": {
       "title": "Création Site Vitrine Next.js — SEO & Haute Performance | Lonside",
-      "description": "Site internet sur-mesure Next.js, score Google Lighthouse > 95, chargement < 1s et structure SEO optimale. Attirez plus de clients et convertissez davantage de visiteurs."
+      "description": "Site internet sur-mesure Next.js, score Google Lighthouse > 95 et structure SEO optimale. Attirez plus de clients et convertissez davantage de visiteurs."
     },
     "applicationWeb": {
       "title": "Développement Application Web Sur-Mesure & Espace Client | Lonside",
-      "description": "Création de portails clients sécurisés, tableaux de bord et outils métiers avec Next.js, Supabase et PostgreSQL. Intégration Stripe, authentification et API sur-mesure."
+      "description": "Portails clients sécurisés, tableaux de bord et outils métiers avec Next.js et Supabase. Intégration Stripe, authentification et API sur-mesure."
     },
     "automatisation": {
       "title": "Automatisation de Processus & Agents IA Métiers | Lonside",
@@ -399,27 +1018,27 @@
     },
     "design": {
       "title": "Création Identité Visuelle & Design de Marque Premium | Lonside",
-      "description": "Logos vectoriels originaux, charte graphique Figma et design system complet pour crédibiliser votre marque et justifier vos tarifs. Droits d'exploitation 100% transférés."
+      "description": "Logos vectoriels, charte graphique Figma et design system complet pour crédibiliser votre marque. Droits d'exploitation 100% transférés, sans abonnement."
     },
     "methode": {
       "title": "Notre Méthode Agence Web IA + Ingénieurs Humains | Lonside",
-      "description": "4 phases structurées, délais respectés et transparence totale. Découvrez comment nos agents IA et nos ingénieurs Next.js seniors collaborent pour livrer votre projet 3× plus vite."
+      "description": "4 phases structurées, délais respectés, transparence totale. Nos agents IA et ingénieurs Next.js seniors livrent votre projet 3× plus vite."
     },
     "portfolio": {
       "title": "Portfolio Agence Web — Études de Cas & Résultats Prouvés | Lonside",
-      "description": "Audits de performance réels, métriques et témoignages clients : Nova-Retail, Velo-SaaS, Helix-Branding. Consultez nos dossiers techniques complets."
+      "description": "Audits de performance réels, métriques et témoignages clients : Welqo, Michi 道, Bely. Consultez nos dossiers techniques complets."
     },
-    "tarifs": {
-      "title": "Tarifs Création Site Internet & Application Web | Devis en Ligne — Lonside",
-      "description": "Prix fixes et transparents pour la création de sites internet Next.js, applications web Supabase et automatisation IA. Devis en ligne instantané sans appel commercial."
+    "estimation": {
+      "title": "Simulateur d'Investissement & Cadrage Projet Web & IA | Lonside",
+      "description": "Estimez votre budget, délais et vélocité en 5 minutes. Cadrage technique gratuit sous 24h pour votre projet web, app ou renfort d'équipe IA."
     },
     "blog": {
       "title": "Blog Next.js, SEO & Automatisation IA | Lonside",
-      "description": "Tutoriels Next.js, guides d'optimisation SEO et stratégies d'automatisation IA pour propulser votre visibilité en ligne. Insights hebdomadaires par l'équipe Lonside."
+      "description": "Tutoriels Next.js, guides SEO et stratégies d'automatisation IA pour propulser votre visibilité. Insights hebdomadaires par l'équipe Lonside."
     },
     "aPropos": {
       "title": "Lonside | Agence Web IA Française — Qui Sommes-Nous ?",
-      "description": "Lonside est une agence web française augmentée par l'IA. Experts Next.js, design de marque et automatisation pour PME et startups. Propriété intellectuelle 100% transférée à la livraison."
+      "description": "Lonside est une agence web française augmentée par l'IA. Experts Next.js, design et automatisation pour PME et startups. IP 100% transférée à la livraison."
     },
     "contact": {
       "title": "Contactez Lonside | Devis Gratuit Création Site Internet & App Web",
@@ -427,19 +1046,23 @@
     },
     "cgv": {
       "title": "Conditions Générales de Vente",
-      "description": "Consultez les CGV régissant les prestations de développement web et design de Lonside."
+      "description": "Conditions générales de vente Lonside : développement web, design et automatisation IA. Tarif fixe, propriété intellectuelle transférée, sans abonnement."
     },
     "mentionsLegales": {
       "title": "Mentions Légales",
-      "description": "Mentions légales concernant l'édition, l'hébergement et la propriété intellectuelle du site Lonside."
+      "description": "Mentions légales de Lonside : éditeur, directeur de publication, hébergeur et informations relatives à la propriété intellectuelle du site."
     },
     "privacy": {
       "title": "Politique de Confidentialité",
-      "description": "Consultez nos engagements RGPD concernant la protection et la conservation de vos données personnelles."
+      "description": "Politique de confidentialité Lonside : vos données personnelles sont protégées conformément au RGPD. Pas de revente de données, pas de tracking intrusif."
     },
     "cookies": {
       "title": "Charte des Cookies",
-      "description": "Consultez notre politique d'utilisation des cookies et configurez vos consentements de tracking."
+      "description": "Politique de cookies de Lonside : nous utilisons uniquement des cookies essentiels au fonctionnement du site. Configurez vos préférences à tout moment."
+    },
+    "regie": {
+      "title": "Régie Développeur IA & Staff Augmentation Senior | Lonside",
+      "description": "Développeur senior augmenté par IA dans votre équipe sous 48h. Next.js, React, Node, Python, Fractional CTO. Vélocité x3, zéro dette, essai 5 jours."
     }
   },
   "frustration": {
@@ -494,100 +1117,100 @@
     ]
   },
   "terminal": {
-    "badge": "Processus augmenté",
-    "title": "La puissance du travail ",
-    "titleHighlight": "collaboratif",
-    "subtitle": "Nous combinons la rigueur et la créativité d'experts humains avec l'efficacité de nos assistants IA pour diviser vos délais de livraison par 3, sans jamais faire de compromis sur la qualité.",
+    "badge": "Processus augmenté par l'IA",
+    "title": "IA + expertise humaine — ",
+    "titleHighlight": "à chaque étape.",
+    "subtitle": "Nos assistants IA accélèrent l'analyse, le design et les tests. Nos experts valident, affinent et livrent. Résultat : 3× plus vite, sans compromis.",
     "interactiveTitle": "Suivi de création interactif",
     "stepLabel": "Étape",
     "aiRoleLabel": "ASSISTANCE IA",
     "humanRoleLabel": "REVUE HUMAINE",
-    "deliverableLabel": "Livrable généré :",
+    "deliverableLabel": "Livrable :",
     "dashboardTitle": "Tableau de Bord IA",
     "dashboardStatus": "Actif",
-    "velocityLabel": "Multiplier de Vélocité",
-    "velocityValue": "x3.8 Efficacité",
+    "velocityLabel": "Vélocité",
+    "velocityValue": "x3.8",
     "errorRateLabel": "Taux d'erreur",
-    "qaQualityLabel": "Qualité audit",
-    "agentSectionTitle": "Détails de nos assistants",
-    "systemPromptLabel": "Consigne système de l'agent",
+    "qaQualityLabel": "Score qualité",
+    "agentSectionTitle": "Nos assistants IA",
+    "systemPromptLabel": "Instruction système",
     "steps": [
       {
-        "title": "Cadrage & Spécifications",
-        "subtitle": "Clarifier votre besoin et estimer les délais",
-        "aiRole": "Analyse instantanée de votre cahier des charges, modélisation des processus métiers et estimation des coûts.",
-        "humanRole": "Entretien stratégique personnalisé, validation du backlog de fonctionnalités et ajustement du devis final.",
-        "deliverable": "Plan projet & Backlog complet de fonctionnalités"
+        "title": "Cadrage",
+        "subtitle": "Votre besoin, formalisé en 48h",
+        "aiRole": "Analyse du brief, modélisation des besoins et estimation automatique des délais.",
+        "humanRole": "Entretien stratégique, validation du backlog priorisé et confirmation du budget.",
+        "deliverable": "Backlog priorisé + calendrier ferme"
       },
       {
-        "title": "Design de marque & UI",
-        "subtitle": "Créer votre univers visuel haut de gamme",
-        "aiRole": "Génération automatique de palettes de couleurs contemporaines et déclinaisons rapides de variations de logos.",
-        "humanRole": "Création artistique sur-mesure, validation des maquettes interactives et harmonisation créative globale.",
-        "deliverable": "Charte graphique complète & Maquettes Figma interactives"
+        "title": "Design",
+        "subtitle": "Votre univers visuel, testable avant le code",
+        "aiRole": "Génération de palettes, explorations graphiques et déclinaisons de maquettes rapides.",
+        "humanRole": "Direction artistique, validation mobile-first et construction du Design System.",
+        "deliverable": "Maquettes Figma + Design System"
       },
       {
-        "title": "Développement & Code",
-        "subtitle": "Écrire une application rapide et sécurisée",
-        "aiRole": "Génération de la structure du code (squelettes de composants) et des requêtes de base de données.",
-        "humanRole": "Écriture des algorithmes métiers complexes, intégration finale des pages et peaufinage des animations.",
-        "deliverable": "Application web Next.js prête et optimisée pour mobile"
+        "title": "Développement",
+        "subtitle": "Code moderne, évolutif, 100% à vous",
+        "aiRole": "Génération des squelettes de composants, requêtes DB et connexions d'outils tiers.",
+        "humanRole": "Logique métier, intégrations finales, animations et revue de code.",
+        "deliverable": "Next.js optimisé — propriété totale"
       },
       {
-        "title": "Audit & Mise en Ligne",
-        "subtitle": "Garantir la fiabilité absolue et le SEO",
-        "aiRole": "Exécution automatique de tests de charge, vérification des failles de sécurité et calcul du score de vitesse.",
-        "humanRole": "Tests d'accessibilité (WCAG), revue finale de l'expérience utilisateur et déploiement en production.",
-        "deliverable": "Site internet en ligne avec score Google Lighthouse optimal"
+        "title": "Audit & Lancement",
+        "subtitle": "Mis en ligne. Rapide. Sécurisé.",
+        "aiRole": "Tests de charge automatisés, audit sécurité OWASP et calcul du score Lighthouse.",
+        "humanRole": "Revue UX finale, tests accessibilité et déploiement en production.",
+        "deliverable": "En ligne — Lighthouse > 95, sécurisé"
       }
     ],
     "agents": [
       {
         "id": "context",
         "name": "Agent Cadrage",
-        "role": "Analyse du brief & des délais",
+        "role": "Analyse du brief & estimation",
         "specs": [
-          "Analyse de votre secteur d'activité",
-          "Rédaction de votre cahier des charges",
-          "Estimation immédiate des délais"
+          "Analyse de vos contraintes métiers",
+          "Génération du backlog de fonctionnalités",
+          "Estimation des délais et du budget"
         ],
-        "systemPrompt": "Générer un backlog fonctionnel clair en identifiant les cas limites et les priorités de développement...",
+        "systemPrompt": "Analyser le brief client, identifier les priorités et générer un backlog structuré avec estimation de complexité...",
         "efficiency": "+300% de vitesse"
       },
       {
         "id": "branding",
         "name": "Agent Design",
-        "role": "Inspiration & déclinaison graphique",
+        "role": "Exploration & déclinaison visuelle",
         "specs": [
-          "Générateur de chartes de couleurs contemporaines",
-          "Génération de variations de logos vectoriels",
-          "Mise en page automatique adaptative"
+          "Génération de palettes de couleurs premium",
+          "Déclinaisons de maquettes haute-fidélité",
+          "Adaptation mobile-first automatique"
         ],
-        "systemPrompt": "Analyser l'univers de marque du client pour suggérer des palettes graphiques premium adaptées...",
+        "systemPrompt": "Analyser l'univers de marque pour proposer des identités visuelles premium cohérentes et testables...",
         "efficiency": "+450% de variations"
       },
       {
         "id": "architecture",
         "name": "Agent Code",
-        "role": "Écriture des bases de l'application",
+        "role": "Génération de code & intégrations",
         "specs": [
-          "Squelettes de pages Next.js / React",
-          "Structure sécurisée de bases de données",
-          "Connexions d'outils tiers (Stripe, CRM)"
+          "Squelettes de composants Next.js / React",
+          "Schémas de base de données sécurisés",
+          "Connexions Stripe, CRM et outils tiers"
         ],
-        "systemPrompt": "Écrire les fichiers de configuration de base de données et préparer les formulaires sécurisés...",
+        "systemPrompt": "Générer la structure de code optimisée, les schémas DB et les connecteurs d'APIs tierces...",
         "efficiency": "+250% de rapidité"
       },
       {
         "id": "qa",
         "name": "Agent Fiabilité",
-        "role": "Tests automatiques & performance",
+        "role": "Tests automatisés & performance",
         "specs": [
-          "Tests de rapidité mobile & bureau",
-          "Audit contre les failles de sécurité",
-          "Validation du parcours de conversion"
+          "Tests de charge mobile et bureau",
+          "Audit de sécurité (failles OWASP)",
+          "Validation du score Lighthouse"
         ],
-        "systemPrompt": "Scanner le code source pour identifier d'éventuelles vulnérabilités ou ralentissements de page...",
+        "systemPrompt": "Scanner le code pour détecter vulnérabilités, régressions et optimiser les performances de chargement...",
         "efficiency": "100% de sécurité"
       }
     ]
@@ -600,7 +1223,7 @@
     "step2": "Étape 2 : Envoyer le cadrage projet",
     "daysLabel": "jours de dev",
     "scopingReport": "Scoping telemetry report",
-    "estimatedBudget": "Budget global estimé",
+    "estimatedBudget": "Enveloppe budgétaire indicative",
     "discountApplied": "✓ Offre combinée appliquée (-10% sur le pack global)",
     "deliveryTime": "Délai de livraison",
     "allocatedAgents": "Allocation d'agents IA",
@@ -617,74 +1240,82 @@
     "labelName": "Nom / entreprise",
     "labelEmail": "Email de contact",
     "labelBrief": "Brief / remarques additionnelles",
-    "placeholderName": "Ex: Nova-Retail",
-    "placeholderEmail": "sarah@nova-retail.com",
+    "placeholderName": "Ex: Welqo",
+    "placeholderEmail": "contact@welqo.fr",
     "placeholderBrief": "Description succincte de vos besoins spécifiques...",
     "btnSubmit": "Valider la configuration",
     "btnSubmitting": "Traitement en cours...",
     "bricks": [
       {
         "id": "logo",
-        "name": "Charte de marque & logo",
+        "name": "Charte de marque & Design System Figma",
         "category": "Branding",
-        "desc": "Création graphique complète, charte de couleurs de luxe et adaptation aux réseaux sociaux."
+        "desc": "Direction artistique complète, identité visuelle d'exception, composants UI Figma et déclinaisons numériques."
       },
       {
         "id": "landing",
-        "name": "Site internet vitrine (haute performance)",
+        "name": "Site vitrine d'élite & conversion (< 0.5s)",
         "category": "Développement",
-        "desc": "Site moderne optimisé pour votre visibilité sur Google, animations fluides et affichage instantané."
+        "desc": "Site Next.js 16 ultra-performant, score Lighthouse 100/100, copywriting structuré et capture de prospects."
       },
       {
         "id": "saas",
-        "name": "Application web & espace client sécurisé",
+        "name": "Application web, Espace Client & Supabase",
         "category": "Développement",
-        "desc": "Interface d'administration de vos données, comptes clients sécurisés et fonctionnalités sur-mesure."
+        "desc": "Base PostgreSQL, authentification sécurisée RBAC, intégration de facturation Stripe et dashboard métier."
       },
       {
         "id": "agent",
-        "name": "Automatisation de vos tâches répétitives",
+        "name": "Agent IA métier autonome & traitement de flux",
         "category": "Intelligence artificielle",
-        "desc": "Création d'assistants intelligents pour traiter vos e-mails, documents ou automatisations internes."
+        "desc": "Assistants intelligents dédiés (Claude / GPT) pour automatiser la qualification de leads, l'analyse ou le support."
       },
       {
         "id": "api",
-        "name": "Connexion d'outils tiers (Stripe, CRM...)",
+        "name": "Workflows N8N & intégrations d'API critiques",
         "category": "Intégration",
-        "desc": "Liaison sécurisée de vos outils favoris : paiements en ligne Stripe, gestion de clients (CRM), etc."
+        "desc": "Connexion temps réel de vos outils métiers (CRM, ERP, webhooks, notifications) sans ressaisie manuelle."
       }
     ]
   },
   "portfolioData": {
-    "badge": "Nos dossiers clients",
-    "title": "Dossiers techniques de ",
-    "titleHighlight": "résultats concrets",
-    "subtitle": "Chaque projet est accompagné d'un audit technique transparent détaillant l'impact de nos agents IA et la rigueur de nos ingénieurs humains.",
-    "btnDetails": "Consulter le Dossier Technique",
-    "drawerTitle": "Dossier technique IA + humain",
+    "badge": "Études de cas & Résultats",
+    "proprietaryBadge": "Propriété Lonside",
+    "title": "Études de cas & ",
+    "titleHighlight": "impact business mesurable",
+    "subtitle": "Découvrez comment l'alliance de la direction artistique, de la rigueur d'ingénierie et de nos processus accélérés transforme les ambitions de nos clients en succès concrets.",
+    "btnDetails": "Consulter l'Étude de Cas",
+    "drawerTitle": "Dossier d'ingénierie & d'impact",
     "tabReport": "Rapport d'Impact",
     "tabTimeline": "Déroulement du Projet",
     "tabCode": "Comparatif de Méthode",
     "tabCharts": "Indicateurs Clés",
-    "clientProblem": "Problème du client",
-    "approach": "Notre approche next-gen",
+    "clientProblem": "Problématique client",
+    "approach": "Notre réponse stratégique",
     "ctaSimilar": "Démarrer un projet similaire",
-    "lastUpdate": "Mis à jour le 15 Juin 2026",
-    "challengeLabel": "Défi",
-    "solutionLabel": "Solution",
-    "stackLabel": "Stack",
+    "lastUpdate": "Mis à jour récemment",
+    "challengeLabel": "Défi Stratégique",
+    "solutionLabel": "Solution Conçue",
+    "stackLabel": "Technologies Maîtresses",
     "ctaTitle": "Votre projet sera le prochain.",
     "ctaSubtitle": "Démarrons une conversation sur votre vision. Cadrage gratuit, réponse sous 24h.",
     "ctaContact": "Démarrer un projet",
-    "ctaTarifs": "Voir les tarifs",
+    "ctaEstimation": "Estimer mon projet",
     "traditionalMethod": "Agence ou méthode traditionnelle",
-    "lonsideMethod": "Processus lonside (Humain + IA)",
+    "lonsideMethod": "Processus Lonside (Excellence & Accélération)",
     "chartsDesc": "Voici l'analyse comparée mesurée directement sur le projet entre les normes standards d'une agence classique et notre approche augmentée.",
     "chartLonsideLabel": "Lonside (Agentic)",
     "chartStandardLabel": "Agence Standard",
-    "projectLinkLabel": "Lien du produit",
-    "processLabel": "Notre processus",
-    "feedbackLabel": "Retour d'expérience"
+    "projectLinkLabel": "Découvrir la plateforme",
+    "processLabel": "Notre processus d'exécution",
+    "feedbackLabel": "Retour d'expérience client",
+    "needsLabel": "Besoins & Contexte Stratégique",
+    "needsSubtitle": "Les défis de croissance et les impératifs opérationnels qui ont motivé l'intervention de Lonside.",
+    "constraintsLabel": "Défis Stratégiques & Choix d'Ingénierie",
+    "constraintsSubtitle": "Comment nos choix d'architecture ont transformé des contraintes critiques en avantages compétitifs durables.",
+    "architectureLabel": "Socle Technologique & Performance",
+    "riskLabel": "Enjeu critique & Risque business",
+    "resolutionLabel": "Solution d'excellence Lonside"
   },
   "servicesData": {
     "title": "L'impact sur vos résultats business",
@@ -702,21 +1333,33 @@
         "impact": "Divise le taux d'abandon client par 2"
       },
       {
+        "feature": "Abonnements & Coûts cachés",
+        "standard": "Abonnements CMS captifs (50-200€/mois) + licences de plugins payantes",
+        "lonside": "0€ d'abonnement captif imposé, hébergement moderne quasi-gratuit",
+        "impact": "Économie de plus de 3 000€ sur 24 mois"
+      },
+      {
+        "feature": "Délais de livraison",
+        "standard": "8 à 16 semaines avec retards fréquents et devis opaques",
+        "lonside": "5 à 12 jours ouvrés garantis contractuellement",
+        "impact": "Time-to-Market divisé par 4 pour devancer vos concurrents"
+      },
+      {
         "feature": "Personnalisation fonctionnelle",
-        "standard": "Limitée par les plugins existants, souvent instables ou payants",
-        "lonside": "Totale (Code sur-mesure répondant exactement à vos processus)",
+        "standard": "Limitée par les plugins existants, souvent instables ou conflictuels",
+        "lonside": "Totale (Code Next.js pur répondant exactement à vos processus métiers)",
         "impact": "Zéro contrainte opérationnelle"
       },
       {
         "feature": "Référencement naturel (SEO)",
-        "standard": "Structure sémantique moyenne et lenteer technique pénalisée par Google",
+        "standard": "Structure sémantique moyenne et lenteur technique pénalisée par Google",
         "lonside": "Score Lighthouse 100/100, balises sémantiques parfaites par défaut",
         "impact": "Indexation Google optimale et trafic organique en hausse"
       },
       {
         "feature": "Maintenance & Sécurité",
-        "standard": "Mises à jour régulières obligatoires des modules, risques de piratage élevés",
-        "lonside": "Architecture sans base de données exposée, immunisée par défaut",
+        "standard": "Mises à jour régulières obligatoires des modules, failles et risques élevés",
+        "lonside": "Architecture moderne sans base exposée, code propre et pérenne",
         "impact": "Zéro frais de maintenance corrective ou de hack"
       }
     ],
@@ -725,124 +1368,313 @@
         "badge": "Site Vitrine & Acquisition SEO",
         "title": "Un site vitrine haut de gamme",
         "titleHighlight": "qui transforme vos visiteurs en clients.",
-        "subtitle": "Nous concevons des sites internet d'exception sur-mesure. Alliant vitesse de chargement fulgurante et référencement naturel optimisé, nos créations captent l'attention et génèrent des opportunités pour votre activité.",
+        "subtitle": "Sites internet d'exception alliant vitesse fulgurante et SEO optimisé pour générer des opportunités qualifiées.",
         "cta": "Estimer le coût de mon site",
         "pillars": [
           {
             "title": "Affichage Instantané",
-            "desc": "Chaque milliseconde de retard fait perdre des clients. Nos sites se chargent en moins de 0.5s grâce à un code Next.js optimisé."
+            "desc": "Moins de 0.5s d'affichage en Next.js pour retenir chaque visiteur."
           },
           {
             "title": "Optimisation Google (SEO)",
-            "desc": "Nous structurons techniquement vos pages (balises sémantiques, vitesse, plans de site) pour plaire aux robots de Google et maximiser votre trafic organique."
+            "desc": "Structure technique sémantique et balisage parfaits pour Google."
           },
           {
-            "title": "Zéro Maintenance Complexe",
-            "desc": "Pas de serveurs instables ni de plugins WordPress à mettre à jour tous les jours. Nos solutions statiques sont sécurisées par défaut et gratuites à héberger."
+            "title": "Zéro Maintenance",
+            "desc": "Code statique moderne, sécurisé par défaut et économique à héberger."
           }
         ],
         "deliverablesTitle": "Ce que vous recevez (Livrables inclus)",
         "deliverables": [
-          "Maquettes graphiques sur-mesure (Zéro template préconçu)",
-          "Vitesse de chargement optimale pour retenir vos clients sur mobile (< 1s)",
-          "Optimisation technique complète pour grimper sur Google (SEO)",
-          "Interface fluide et responsive adaptée à tous les écrans",
-          "Hébergement haut de gamme inclus et sécurisé",
-          "Espace administrateur intuitif pour modifier vos textes en toute autonomie",
-          "Propriété exclusive de 100% de votre code (aucun abonnement captif)"
+          "Maquettes Figma sur-mesure (zéro template)",
+          "Affichage instantané (< 0.5s) & Score Lighthouse 100",
+          "Structure SEO technique complète & balises Schema.org",
+          "Interface responsive fluide sur tous les écrans",
+          "100% Cession du code source livré sur GitHub"
         ]
       },
       "applicationWeb": {
         "badge": "Plateformes Métier & Espaces Clients",
         "title": "Des plateformes web robustes",
         "titleHighlight": "pour automatiser vos opérations.",
-        "subtitle": "Espaces clients sécurisés, portails partenaires, outils internes connectés. Nous concevons vos outils métiers Next.js/Supabase pour structurer vos données et booster votre productivité au quotidien.",
+        "subtitle": "Espaces clients sécurisés, portails partenaires et SaaS conçus sous Next.js et Supabase.",
         "cta": "Estimer le coût de mon application",
         "pillars": [
           {
             "title": "Espaces Sécurisés",
-            "desc": "Authentification sécurisée avec gestion fine des rôles (Admin, Salariés, Clients) pour protéger vos données confidentielles."
+            "desc": "Authentification et gestion fine des rôles (Admin, Salariés, Clients)."
           },
           {
-            "title": "Bases de Données Centralisées",
-            "desc": "Architecture Supabase / PostgreSQL performante et évolutive, connectée en temps réel pour synchroniser vos informations."
+            "title": "Bases Centralisées",
+            "desc": "Architecture Supabase / PostgreSQL temps réel, scalable et fiable."
           },
           {
-            "title": "Paiements & Facturation",
-            "desc": "Intégration robuste de Stripe pour gérer vos abonnements, cartes bancaires et facturation récurrente en pilote automatique."
+            "title": "Paiements Stripe",
+            "desc": "Abonnements récurrents et facturation automatique sans friction."
           }
         ],
         "deliverablesTitle": "Livrables de développement inclus",
         "deliverables": [
-          "Base de données SQL structurée et sécurisée",
+          "Base de données PostgreSQL structurée et sécurisée",
           "Interface d'administration sur-mesure et espace client",
-          "Intégration d'outils tiers via API (CRMs, Factures)",
-          "Suite de tests automatisés pour éviter toute régression",
-          "Hébergement scalable configuré en production",
-          "Session de formation pour vos équipes opérationnelles",
-          "Garantie corrective et support technique 30 jours"
+          "Intégrations API tierces (CRMs, Stripe, facturation)",
+          "Suite de tests automatisés (>85% couverture)",
+          "100% Cession des droits et code source sur votre Git"
         ]
       },
       "automatisation": {
         "badge": "Gains de Temps & Automatisation IA",
         "title": "Supprimez vos tâches manuelles",
         "titleHighlight": "grâce à des pipelines automatisés.",
-        "subtitle": "Pourquoi perdre des heures sur des saisies de données répétitives ? Nous connectons vos outils actuels (CRM, Stripe, emails) et déployons des assistants IA internes pour faire travailler vos logiciels à votre place.",
+        "subtitle": "Connectez vos outils métiers et déployez des assistants IA pour supprimer vos tâches répétitives.",
         "cta": "Estimer mon gain de temps",
         "pillars": [
           {
             "title": "Connexion d'API (Zéro Saisie)",
-            "desc": "Synchronisation automatique de vos bases de données clients, de vos outils de facturation et de vos boîtes mails."
+            "desc": "Synchronisation automatique de vos bases clients, factures et emails."
           },
           {
             "title": "Assistants IA Métiers",
-            "desc": "Intégration d'agents intelligents (Claude / GPT) capables d'extraire des données de PDF ou de rédiger des réponses types."
+            "desc": "Agents intelligents pour extraire des données et traiter vos flux."
           },
           {
             "title": "Surveillance & Alertes 24/7",
-            "desc": "Mise en place de notifications automatiques sur Slack ou par email dès qu'une action clé nécessite votre attention."
+            "desc": "Notifications en temps réel sur Slack ou par email sur les actions clés."
           }
         ],
         "deliverablesTitle": "Ce que nous livrons",
         "deliverables": [
-          "Cartographie et documentation de vos processus automatisés",
-          "Mise en place de workflows N8N ou Make hébergés",
-          "Configuration des webhooks et intégrations sécurisées",
-          "Création et paramétrage d'assistants IA avec prompts de marque",
-          "Journal d'erreurs et système de ré-exécution automatique",
-          "Support applicatif de 30 jours inclus"
+          "Cartographie claire de vos processus automatisés",
+          "Workflows N8N ou Make hébergés et supervisés",
+          "Configuration sécurisée des webhooks et clés API",
+          "Assistants IA sur-mesure avec prompts métiers",
+          "Support applicatif et garantie technique 30 jours"
         ]
       },
       "design": {
         "badge": "Crédibilité & Design de Marque",
         "title": "Une identité visuelle premium",
         "titleHighlight": "qui justifie vos tarifs.",
-        "subtitle": "La crédibilité de votre entreprise se joue dans les premières secondes. Nous créons des chartes de marque uniques, contemporaines et haut de gamme, déclinées sur tous vos supports physiques et numériques.",
+        "subtitle": "Chartes graphiques et Design Systems modernes qui renforcent votre autorité et justifient vos tarifs.",
         "cta": "Démarrer mon étude de marque",
         "pillars": [
           {
             "title": "Direction Artistique Sur-Mesure",
-            "desc": "Création de logos vectoriels originaux, typographies de caractère et palettes de couleurs modernes adaptées à votre positionnement."
+            "desc": "Logos vectoriels originaux, typographies de caractère et palette sur-mesure."
           },
           {
             "title": "Design System Figma",
-            "desc": "Conception d'une bibliothèque de composants structurée pour garantir la cohérence absolue de tous vos futurs designs."
+            "desc": "Bibliothèque de composants structurée pour tous vos futurs écrans."
           },
           {
             "title": "Prototypes Haute-Fidélité",
-            "desc": "Maquettes animées interactives testables sur mobile et ordinateur pour valider l'ergonomie avant d'écrire la moindre ligne de code."
+            "desc": "Maquettes animées testables pour valider l'UX avant de coder."
           }
         ],
         "deliverablesTitle": "Livrables graphiques & sources",
         "deliverables": [
-          "Fichiers sources Figma entièrement structurés (Design System)",
-          "Logo principal, secondaire et favicons (Formats SVG / PNG / WebP)",
-          "Guide de marque digital (Brand Book) incluant les règles de styles",
+          "Design System complet sous Figma (tokens & composants)",
+          "Pack logos vectoriels et déclinaisons (SVG, PNG, WebP)",
+          "Brand Book digital avec règles de typographie et couleurs",
           "Prototypes interactifs prêts pour les tests utilisateurs",
-          "Kit de bannières pour les réseaux sociaux (LinkedIn, Twitter)",
-          "Droits d'exploitation intellectuelle transférés à 100%"
+          "Cession totale et exclusive des droits d'exploitation"
+        ]
+      },
+      "regie": {
+        "badge": "Staff Augmentation & Régie IA",
+        "title": "Renforcez votre squad avec des ingénieurs seniors",
+        "titleHighlight": "augmentés par nos agents IA, sous 48h.",
+        "subtitle": "Développeurs seniors immédiatement opérationnels dans votre squad, avec vélocité triplée et zéro dette.",
+        "cta": "Découvrir les profils & tarifs régie",
+        "pillars": [
+          {
+            "title": "Opérationnel sous 48h",
+            "desc": "Zéro délai RH : premiers tickets pris dès les premiers jours."
+          },
+          {
+            "title": "Vélocité Triplée",
+            "desc": "Nos agents de scaffolding automatisent les tâches répétitives."
+          },
+          {
+            "title": "Zéro Dette & Cession Git",
+            "desc": "Code testé (>85%), documentation vivante et droits transférés."
+          }
+        ],
+        "deliverablesTitle": "Garanties d'intervention & Standards inclus",
+        "deliverables": [
+          "Ingénieur senior certifié (Next.js, Python, Cloud)",
+          "Immersion directe dans vos rituels (Slack, Linear, GitHub)",
+          "Tests unitaires et d'intégration systématiques",
+          "Garantie Zero Data Retention & NDA bilatéral",
+          "Essai de 5 jours sans risque, engagement flexible"
         ]
       }
+    }
+  },
+  "estimationPage": {
+    "badge": "Simulateur d'Investissement",
+    "headline": "Estimez votre investissement",
+    "headlineHighlight": "en quelques clics.",
+    "subheadline": "Configurez vos briques techniques pour obtenir une estimation de budget, délai et vélocité.",
+    "modeSwitcher": {
+      "projects": "Projet Clé en main",
+      "regie": "Renfort d'Équipe"
+    },
+    "projects": {
+      "step1": {
+        "badge": "Étape 01",
+        "title": "Quelle est la typologie de votre projet ?",
+        "subtitle": "Sélectionnez votre type de projet.",
+        "types": [
+          {
+            "id": "saas",
+            "name": "Web App & SaaS",
+            "tag": "Next.js + SQL",
+            "desc": "Dashboard interactif, base PostgreSQL et authentification sécurisée."
+          },
+          {
+            "id": "vitrine",
+            "name": "Site Vitrine & Marque",
+            "tag": "Vitesse < 0.5s",
+            "desc": "Site vitrine haute performance (< 0.5s), design soigné et SEO optimisé."
+          },
+          {
+            "id": "refonte",
+            "name": "Refonte & Sortie CMS",
+            "tag": "Modernisation",
+            "desc": "Migration d'un site lent (WordPress, stack obsolète) vers Next.js moderne."
+          },
+          {
+            "id": "automation",
+            "name": "Pipelines & Agents IA",
+            "tag": "Workflows IA",
+            "desc": "Connexion de vos outils (CRM, ERP, webhooks) et assistants IA sur-mesure."
+          }
+        ]
+      },
+      "step2": {
+        "badge": "Étape 02",
+        "title": "Quelle est l'envergure visée ?",
+        "subtitle": "Définissez la portée du premier jalon.",
+        "scales": [
+          {
+            "id": "mvp",
+            "name": "Sprint MVP (1-2 sem.)",
+            "tag": "Lancement express",
+            "desc": "Pour valider vite votre marché avec le cœur fonctionnel."
+          },
+          {
+            "id": "scaleup",
+            "name": "Complet (2-3 sem.)",
+            "tag": "Production",
+            "desc": "Produit complet avec rôles, paiements et sécurité renforcée."
+          },
+          {
+            "id": "enterprise",
+            "name": "Scale & Critique",
+            "tag": "Haute dispo & SLA",
+            "desc": "Architecture distribuée pour fort trafic avec haute disponibilité."
+          }
+        ]
+      },
+      "step3": {
+        "badge": "Étape 03",
+        "title": "Modules & exigences techniques requises",
+        "subtitle": "Sélectionnez les briques à intégrer à votre estimation.",
+        "modules": [
+          {
+            "id": "stripe",
+            "name": "Paiements & Stripe",
+            "desc": "Checkout sécurisé, abonnements et facturation automatique."
+          },
+          {
+            "id": "rbac",
+            "name": "Auth & Rôles RBAC",
+            "desc": "Connexion OAuth, permissions par rôles et sessions sécurisées."
+          },
+          {
+            "id": "design",
+            "name": "Design System Figma",
+            "desc": "Direction artistique sur-mesure et composants Figma réutilisables."
+          },
+          {
+            "id": "seo",
+            "name": "SEO & Web Vitals",
+            "desc": "Score Lighthouse 95+, balises sémantiques et indexation Google."
+          },
+          {
+            "id": "ai",
+            "name": "Agents IA Métiers",
+            "desc": "Intégration LLM entreprise avec garantie Zero Data Retention (ZDR)."
+          },
+          {
+            "id": "testing",
+            "name": "Tests & CI/CD",
+            "desc": "Tests unitaires et E2E Vitest/Playwright avec pipeline CI/CD."
+          }
+        ]
+      },
+      "summary": {
+        "badge": "Synthèse",
+        "title": "Votre estimation personnalisée",
+        "budgetRangeTitle": "Fourchette indicative",
+        "budgetSubtitle": "Forfait tout compris, aucun coût caché.",
+        "deliveryTitle": "Délai moyen",
+        "deliverySubtitle": "Livré sur votre Git privé.",
+        "velocityTitle": "Gain de vélocité",
+        "velocitySubtitle": "Vs. agence classique.",
+        "ctaScoping": "Planifier mon cadrage (15 min)",
+        "ctaScopingSubtitle": "Échange avec un architecte • Devis fixe sous 24h",
+        "ctaWritten": "Ou envoyer mon brief par écrit",
+        "guaranteesTitle": "Standards inclus d'office :",
+        "guarantees": [
+          "100% Cession du code sur votre Git dès le 1er commit",
+          "Code Next.js pur, sans abonnement ni lock-in",
+          "Période d'essai de 5 jours sans risque",
+          "Devis ferme et définitif à la signature"
+        ]
+      }
+    },
+    "whyRanges": {
+      "badge": "Notre Approche",
+      "title": "Pourquoi une fourchette d'investissement ?",
+      "subtitle": "Un chiffrage adapté à la réalité technique de votre projet.",
+      "cards": [
+        {
+          "title": "Chaque architecture est unique",
+          "desc": "Une fourchette respecte votre périmètre exact sans rogner sur les tests."
+        },
+        {
+          "title": "La valeur prime sur les heures",
+          "desc": "Nos agents IA éliminent le répétitif pour livrer un code propre 3x plus vite."
+        },
+        {
+          "title": "Zéro surprise à la livraison",
+          "desc": "Après le cadrage de 15 min, le devis est fixe : vous payez ce que vous signez."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Questions fréquentes sur l'estimation",
+      "subtitle": "Tout ce que vous devez savoir avant de planifier votre cadrage.",
+      "items": [
+        {
+          "q": "Comment cette fourchette est-elle calculée ?",
+          "a": "Elle est basée sur nos livraisons réelles (Next.js, Supabase, Python). Elle inclut l'architecture, le code, les tests et le déploiement."
+        },
+        {
+          "q": "Que comprend l'échange de 15 minutes ?",
+          "a": "Un échange direct avec un lead architecte pour valider votre faisabilité et vous remettre un devis fixe sous 24h ouvrées."
+        },
+        {
+          "q": "Puis-je changer d'avis sur les modules en cours de route ?",
+          "a": "Oui. Le cadrage permet de découper votre projet en phases (ex: Phase 1 MVP puis modules avancés en sprint 2)."
+        },
+        {
+          "q": "Qu'en est-il de la propriété du code et des accès ?",
+          "a": "Vous possédez 100% du code source sur votre propre dépôt GitHub privé dès le premier commit, sans abonnement captif."
+        }
+      ]
     }
   },
   "pricingData": {
@@ -852,83 +1684,83 @@
       {
         "id": "starter",
         "name": "Starter",
-        "price": 1500,
-        "description": "Idéal pour lancer votre acquisition client en ligne rapidement.",
+        "price": 2400,
+        "description": "Site vitrine d'élite & conversion client, livré en 5 jours ouvrés.",
         "cta": "Choisir Starter",
         "features": [
-          "Site d'acquisition client (jusqu'à 8 pages)",
-          "Design responsive Mobile-First",
-          "Temps de chargement ultra-rapide (< 1s)",
-          "Formulaire de contact & capture de prospects",
-          "1 phase de révision complète",
-          "Hébergement haute performance sécurisé",
-          "Propriété exclusive à 100% (code source livré)"
+          "Site d'acquisition d'exception (jusqu'à 6 pages sur-mesure)",
+          "Design Figma exclusif (zéro template préfabriqué)",
+          "Affichage instantané (< 0.5s) & SEO Lighthouse 100/100",
+          "Livraison express garantie en 5 jours ouvrés",
+          "Formulaire de contact & capture de prospects connectés",
+          "100% Propriété intellectuelle (code Next.js livré sur GitHub)",
+          "Zéro abonnement plateforme captif (hébergement optimisé)"
         ]
       },
       {
         "id": "pro",
         "name": "Pro",
-        "price": 4500,
-        "description": "Pour automatiser votre activité et fidéliser vos clients.",
+        "price": 5400,
+        "description": "MVP applicatif complet, portail client sécurisé et flux automatisés.",
         "cta": "Choisir Pro",
         "features": [
-          "Tout Starter inclus",
-          "Plateforme web sur-mesure (Espace Client)",
-          "Accès sécurisé pour vos utilisateurs",
-          "Base de données sécurisée et centralisée",
-          "Intégration de paiements (Stripe/Cartes)",
-          "Automatisation de vos flux de travail (2 connecteurs)",
+          "Tout le pack Starter inclus",
+          "Application web Next.js & Base Supabase PostgreSQL",
+          "Espace client sécurisé & gestion fine des accès (RBAC)",
+          "Intégration Stripe (abonnements & paiements sécurisés)",
+          "2 pipelines d'automatisation N8N / webhooks connectés",
+          "Livraison garantie en 12 jours ouvrés",
           "3 phases de révisions complètes",
-          "Support technique post-lancement (30 jours)"
+          "Garantie technique & support dédié post-lancement (30 jours)"
         ]
       },
       {
         "id": "enterprise",
         "name": "Enterprise",
-        "price": 9500,
-        "description": "Pour les projets d'envergure, automatisations complexes et agents IA sur-mesure.",
+        "price": 9900,
+        "description": "Plateforme sur-mesure, agents IA métiers autonomes et accompagnement technique étendu.",
         "cta": "Nous contacter",
         "features": [
-          "Tout Pro inclus",
-          "Assistants IA métiers sur-mesure (Claude/GPT)",
-          "Architecture hautement évolutive & API",
-          "Audits complets de sécurité & charge",
-          "Formation de vos équipes aux outils (4h)",
-          "Maintenance & assistance mensuelle (6 mois)",
-          "Révisions illimitées",
-          "Chef de projet senior dédié"
+          "Tout le pack Pro inclus",
+          "Assistants IA métiers personnalisés (Claude / OpenAI / RAG)",
+          "Architecture haute performance & API REST/GraphQL",
+          "Audits complets de conformité, sécurité et charge",
+          "6 mois de maintenance & évolutions incluses (valeur 2 100 €)",
+          "Formation opérationnelle de vos équipes (4h)",
+          "Chef de projet & Tech Lead senior dédié",
+          "Révisions illimitées jusqu'à validation parfaite"
         ]
       }
     ],
     "addons": [
       {
         "id": "design",
-        "name": "Identité visuelle complète",
-        "price": 800,
+        "name": "Identité visuelle & Design System Figma",
+        "price": 950,
         "unit": "projet"
       },
       {
         "id": "seo",
-        "name": "Audit SEO + stratégie contenu",
-        "price": 600,
+        "name": "Audit SEO technique + stratégie sémantique",
+        "price": 750,
         "unit": "projet"
       },
       {
         "id": "automation",
-        "name": "Pipeline automatisation N8N",
-        "price": 1200,
+        "name": "Pipeline automatisation N8N / API",
+        "price": 1400,
         "unit": "projet"
       },
       {
         "id": "maintenance",
-        "name": "Maintenance mensuelle",
+        "name": "Forfait Tech Lead & Maintenance mensuelle",
         "price": 350,
         "unit": "mois"
       },
       {
         "id": "ai-agent",
-        "name": "Agent IA métier sur-mesure",
-        "price": 2000,
+        "name": "Agent IA métier autonome sur-mesure",
+        "price": 2500,
         "unit": "agent"
       }
     ]
@@ -1031,54 +1863,50 @@
     }
   },
   "methodeData": {
-    "title": "Notre Méthodologie en Détail",
-    "subtitle": "Découvrez les actions concrètes menées à chaque étape de votre projet pour garantir le succès et le respect parfait de vos spécifications.",
-    "ctaTitle": "Prêt à démarrer l'étape de cadrage ?",
-    "ctaSubtitle": "Nous prenons en charge la formalisation de votre idée. Utilisez notre outil interactif pour estimer et cadrer votre projet immédiatement.",
-    "ctaBtn": "Accéder au configurateur",
+    "title": "Ce qu'on livre à chaque étape",
+    "subtitle": "Un process structuré, augmenté par l'IA. Pas de jargon — des résultats mesurables à chaque phase.",
+    "ctaTitle": "Prêt à estimer votre projet ?",
+    "ctaSubtitle": "Cadrage, délais et budget en 5 minutes. Notre configurateur fait le reste.",
+    "ctaBtn": "Estimer mon projet",
     "steps": [
       {
-        "phase": "Phase 1",
-        "title": "Cadrage & Spécifications Métiers",
-        "desc": "Nous éliminons toute ambiguïté technique. Notre processus démarre par un audit complet de vos outils actuels et la rédaction de spécifications claires en français, sans jargon informatique.",
+        "phase": "Phase 1 — Cadrage",
+        "title": "Clarifier avant de construire",
+        "desc": "On démarre par votre besoin réel, pas par la technique. Un audit de votre situation, un backlog priorisé et un calendrier ferme — en moins d'une semaine.",
         "bullets": [
-          "Définition précise du backlog de fonctionnalités",
-          "Choix de l'architecture de données (PostgreSQL, Supabase ou Prisma)",
-          "Choix de la méthode d'intégration (API directes, Make, N8N)",
-          "Estimation rigoureuse du calendrier et des coûts"
+          "Backlog de fonctionnalités priorisé",
+          "Architecture et stack validés",
+          "Calendrier et budget fixés à l'avance"
         ]
       },
       {
-        "phase": "Phase 2",
-        "title": "Identité de Marque & UX/UI",
-        "desc": "L'esthétique de votre site est votre vitrine. Nous créons des chartes graphiques contemporaines et des interfaces utilisateur intuitives pour inspirer immédiatement confiance à vos clients.",
+        "phase": "Phase 2 — Design",
+        "title": "Un univers visuel qui convertit",
+        "desc": "Design premium, mobile-first. Vos maquettes Figma sont testables avant la première ligne de code — vous validez ce que vous obtiendrez.",
         "bullets": [
-          "Création de logos originaux et d'icônes sur-mesure",
-          "Conception de maquettes interactives haute-fidélité sur Figma",
-          "Prototypes dynamiques testables sur mobile et ordinateur",
-          "Définition du Design System (couleurs HSL, typographies, espacements)"
+          "Maquettes interactives haute-fidélité",
+          "Design System complet (couleurs, typos, composants)",
+          "Validation sur mobile avant développement"
         ]
       },
       {
-        "phase": "Phase 3",
-        "title": "Développement Standardisé & Propre",
-        "desc": "Nos experts écrivent un code moderne, évolutif et standardisé. Pas de technologies propriétaires bloquantes : nous utilisons Next.js, React et TypeScript pour vous garantir une indépendance totale.",
+        "phase": "Phase 3 — Développement",
+        "title": "Code moderne, zéro dépendance forcée",
+        "desc": "Next.js, React, TypeScript. Un code lisible, évolutif et 100% transférable — vous en êtes propriétaire. Aucun outil propriétaire bloquant.",
         "bullets": [
-          "Architecture Next.js ultra-rapide (Régénération statique)",
-          "Optimisation mobile (Mobile-First) systématique",
-          "Intégration d'espaces clients sécurisés et de solutions de paiement",
-          "Automatisation des flux de données et des triggers d'emails"
+          "Architecture Next.js haute performance",
+          "Espaces clients, paiements et automatisations intégrés",
+          "Propriété totale du code source"
         ]
       },
       {
-        "phase": "Phase 4",
-        "title": "Audit Qualité & Lancement",
-        "desc": "Avant chaque mise en ligne, nos agents de test et nos ingénieurs effectuent des audits poussés pour garantir la sécurité de vos données et le bon affichage de vos pages.",
+        "phase": "Phase 4 — Lancement",
+        "title": "Mis en ligne. Rapide. Sécurisé.",
+        "desc": "Lighthouse > 95, audit sécurité, tests de charge — avant chaque déploiement. Mise en production sur Vercel ou AWS. Aucune régression.",
         "bullets": [
-          "Tests de charge et simulation d'utilisateurs simultanés",
-          "Audit de sécurité contre les failles OWASP les plus courantes",
-          "Optimisation de vitesse Google Lighthouse (cible >95/100)",
-          "Mise en production sécurisée sur Vercel, Netlify ou AWS"
+          "Score Lighthouse > 95 garanti",
+          "Audit sécurité (failles OWASP)",
+          "Déploiement sur Vercel / AWS / Netlify"
         ]
       }
     ]

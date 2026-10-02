@@ -22,8 +22,11 @@ export default function ContactClient() {
   useEffect(() => {
     const plan = searchParams.get("plan");
     const addonsStr = searchParams.get("addons");
+    const source = searchParams.get("source");
+    const mode = searchParams.get("mode");
+    const role = searchParams.get("role");
 
-    if (plan || addonsStr) {
+    if (plan || addonsStr || source || mode === "regie") {
       // Find translated names
       const rawTiers = tPricing.raw("tiers") as { id: string; name: string }[];
       const rawAddons = tPricing.raw("addons") as { id: string; name: string }[];
@@ -37,11 +40,111 @@ export default function ContactClient() {
       let subject = "";
       let message = "";
 
-      if (locale === "fr") {
+      const squadParam = searchParams.get("squad");
+
+      if (mode === "regie") {
+        if (squadParam) {
+          if (locale === "fr") {
+            subject = "Configuration Squad Augmentée Sur-Mesure";
+            message = `Bonjour,\n\nJ'ai configuré la composition de squad suivante sur votre simulateur :\n- Détail de la squad : ${squadParam}\n\nContexte de notre projet et objectifs de livraison :\n- Stack technique actuelle :\n- Date de démarrage souhaitée :\n- Objectifs du premier sprint :\n`;
+          } else {
+            subject = "Custom Augmented Squad Configuration";
+            message = `Hello,\n\nI have configured the following squad setup via your simulator:\n- Squad composition: ${squadParam}\n\nProject context and delivery goals:\n- Current tech stack:\n- Target start date:\n- Key sprint goals:\n`;
+          }
+        } else if (role === "fullstack") {
+          if (locale === "fr") {
+            subject = "Renfort Régie - Senior Fullstack Engineer Augmenté (IA Boosted)";
+            message = "Bonjour,\n\nJe souhaite échanger sur la mise à disposition d'un Senior Fullstack Engineer IA-Augmenté pour accélérer notre roadmap de développement.\n\nStack technique & contexte de notre équipe :\n- Stack actuelle :\n- Objectifs du sprint :\n- Durée envisagée :\n";
+          } else {
+            subject = "Staff Augmentation - Senior AI-Augmented Fullstack Engineer";
+            message = "Hello,\n\nI would like to discuss embedding a Senior AI-Augmented Fullstack Engineer to accelerate our product roadmap.\n\nOur current tech stack & team context:\n- Current stack:\n- Sprint goals:\n- Target duration:\n";
+          }
+        } else if (role === "frontend") {
+          if (locale === "fr") {
+            subject = "Renfort Régie - Senior Frontend & Design Engineer";
+            message = "Bonjour,\n\nJe souhaite intégrer un Senior Frontend & Design Engineer pour concevoir des interfaces ultra-fluides, optimiser nos Core Web Vitals et structurer notre Design System.\n\nContexte & objectifs :\n- Framework / Stack (React / Next.js) :\n- Maquettes Figma prêtes (Oui / Non) :\n- Volume estimé :\n";
+          } else {
+            subject = "Staff Augmentation - Senior Frontend & Design Engineer";
+            message = "Hello,\n\nI would like to onboard a Senior Frontend & Design Engineer to build high-performance interfaces, optimize Core Web Vitals, and build our Design System.\n\nContext & goals:\n- Framework / Stack (React / Next.js):\n- Figma mockups ready (Yes / No):\n- Estimated cadence:\n";
+          }
+        } else if (role === "backend") {
+          if (locale === "fr") {
+            subject = "Renfort Régie - Senior Backend & Cloud Architect";
+            message = "Bonjour,\n\nJe recherche un Senior Backend & Cloud Architect pour refondre notre architecture de données, optimiser nos requêtes et sécuriser nos APIs critiques.\n\nContexte technique :\n- Base de données & Langages (PostgreSQL, Python, Node) :\n- Enjeux clés (Performance, Sécurité, Scaling) :\n- Durée souhaitée :\n";
+          } else {
+            subject = "Staff Augmentation - Senior Backend & Cloud Architect";
+            message = "Hello,\n\nI am looking for a Senior Backend & Cloud Architect to optimize our relational data model, eliminate query bottlenecks, and harden API security.\n\nTechnical context:\n- Database & Languages (PostgreSQL, Python, Node):\n- Key challenges (Performance, Security, Scaling):\n- Target duration:\n";
+          }
+        } else if (role === "cto") {
+          if (locale === "fr") {
+            subject = "Accompagnement - Fractional CTO & Tech Lead d'Impact";
+            message = "Bonjour,\n\nNous recherchons un Fractional CTO / Tech Lead expérimenté pour structurer notre architecture technique, auditer notre stack et accompagner nos choix stratégiques.\n\nContexte & enjeux clés :\n- Phase de l'entreprise (Amorçage, PME, Scaleup) :\n- Défis techniques prioritaires :\n- Rythme souhaité (1-2 jours / semaine) :\n";
+          } else {
+            subject = "Advisory - Fractional CTO & High-Impact Tech Lead";
+            message = "Hello,\n\nWe are looking for an experienced Fractional CTO / Tech Lead to guide our architecture, audit our stack, and lead strategic technical decisions.\n\nContext & key challenges:\n- Company stage (Seed, SMB, Scaleup):\n- Priority challenges:\n- Desired cadence (1-2 days / week):\n";
+          }
+        } else if (role === "automation") {
+          if (locale === "fr") {
+            subject = "Mission Commando - Architecte Automatisation Métier & Agents IA";
+            message = "Bonjour,\n\nJe souhaite déployer des pipelines d'automatisation et des agents IA sur-mesure pour supprimer nos tâches manuelles et connecter nos flux de données.\n\nProcessus métiers ciblés :\n- Outils à connecter (CRM, Stripe, ERP, N8N) :\n- Volume / Tâches répétitives actuelles :\n";
+          } else {
+            subject = "Commando Sprint - Business Automation & AI Agent Architect";
+            message = "Hello,\n\nI would like to deploy custom automation workflows and AI agents to eliminate manual bottlenecks and connect our business data streams.\n\nTarget processes:\n- Tools to connect (CRM, Stripe, ERP, N8N):\n- Current manual volume / bottlenecks:\n";
+          }
+        } else {
+          if (locale === "fr") {
+            subject = "Demande d'information - Régie Développeur IA Augmenté";
+            message = "Bonjour,\n\nJe souhaite échanger sur vos offres de régie et renfort d'équipe en ingénieurs augmentés par IA.\n\nNotre besoin :\n";
+          } else {
+            subject = "Inquiry - AI-Augmented Staff Augmentation";
+            message = "Hello,\n\nI would like to learn more about your AI-augmented staff augmentation services.\n\nOur team's need:\n";
+          }
+        }
+      } else if (source === "estimation" || source === "estimation_banner") {
+        const estimateType = searchParams.get("type");
+        const estimateScale = searchParams.get("scale");
+        const estimateModules = searchParams.get("modules");
+        const estimateRange = searchParams.get("range");
+        const estimateDays = searchParams.get("days");
+
+        const typeLabels: Record<string, string> = {
+          saas: locale === "fr" ? "Application Web & SaaS" : "Custom Web App & SaaS",
+          vitrine: locale === "fr" ? "Site Vitrine & Expérience de Marque" : "Flagship Website & Brand Experience",
+          refonte: locale === "fr" ? "Migration & Modernisation Next.js" : "Next.js Migration & Modernization",
+          automation: locale === "fr" ? "Pipeline d'Automatisation & Agents IA" : "Automation Pipeline & AI Agents",
+        };
+        const typeName = typeLabels[estimateType || ""] || (estimateType || (locale === "fr" ? "Projet Web & IA" : "Web & AI Project"));
+        const rangeText = estimateRange ? `${estimateRange.replace("-", " € – ")} €` : "";
+        const daysText = estimateDays ? `${estimateDays.replace("-", " à ")} jours ouvrés` : "";
+
+        if (locale === "fr") {
+          subject = `Cadrage Technique 15 min - ${typeName} ${rangeText ? `(${rangeText})` : ""}`.trim();
+          message = `Bonjour,\n\nJ'ai simulé mon projet sur votre configurateur d'investissement :\n- Typologie : ${typeName}\n- Échelle visée : ${estimateScale || "Standard"}\n- Modules requis : ${estimateModules || "Standard"}\n- Enveloppe indicative : ${rangeText || "À affiner"}\n- Délai moyen estimé : ${daysText || "À affiner"}\n\nContexte de notre projet et objectifs :\n- Présentation en quelques lignes :\n- Date idéale de lancement :\n`;
+        } else {
+          subject = `15-Min Technical Scoping - ${typeName} ${rangeText ? `(${rangeText})` : ""}`.trim();
+          message = `Hello,\n\nI have configured my project on your investment estimator:\n- Typology: ${typeName}\n- Scope & scale: ${estimateScale || "Standard"}\n- Required modules: ${estimateModules || "Standard"}\n- Estimated range: ${rangeText || "To be defined"}\n- Estimated timeline: ${daysText || "To be defined"}\n\nOur project context & goals:\n- Brief overview:\n- Target launch date:\n`;
+        }
+      } else if (source === "sprint-mvp") {
+        if (locale === "fr") {
+          subject = "Cadrage Technique - Sprint MVP 14 Jours (Livraison accélérée)";
+          message = "Bonjour,\n\nJe souhaite démarrer un cadrage pour un Sprint MVP 14 Jours afin de lancer mon application web / SaaS (Next.js + Supabase + Stripe).\n\nVoici un aperçu de mon produit et de mes objectifs :\n";
+        } else {
+          subject = "Technical Scoping - 14-Day MVP Sprint (Accelerated Delivery)";
+          message = "Hello,\n\nI would like to schedule a scoping session for a 14-Day MVP Sprint to build my web application / SaaS (Next.js + Supabase + Stripe).\n\nHere is an overview of my product and target timeline:\n";
+        }
+      } else if (source === "switch-wordpress") {
+        if (locale === "fr") {
+          subject = "Cadrage Technique - Switch WordPress vers Next.js (Délai garanti 5 jours)";
+          message = "Bonjour,\n\nJe souhaite migrer mon site web actuel vers la stack Next.js haute performance pour éliminer les plugins lents et passer au standard < 0.5s.\n\nAdresse de mon site actuel :\n";
+        } else {
+          subject = "Technical Scoping - WordPress to Next.js Switch (5-Day Guaranteed)";
+          message = "Hello,\n\nI want to migrate my current website to high-performance Next.js to eliminate sluggish plugins and get < 0.5s speed.\n\nCurrent website URL:\n";
+        }
+      } else if (locale === "fr") {
         subject = plan ? `Demande de projet - Plan ${planName}` : "Demande de devis et options";
-        message = "Bonjour,\n\nJe souhaite obtenir un devis pour un projet avec les caractéristiques suivantes :\n";
+        message = "Bonjour,\n\nJe souhaite obtenir une estimation détaillée pour un projet avec les caractéristiques suivantes :\n";
         if (plan) {
-          message += `- Formule : Plan ${planName}\n`;
+          message += `- Formule indicative : Plan ${planName}\n`;
         }
         if (selectedAddons.length > 0) {
           message += `- Options complémentaires : ${selectedAddons.join(", ")}\n`;
@@ -49,9 +152,9 @@ export default function ContactClient() {
         message += "\nMerci de me recontacter pour en discuter.";
       } else {
         subject = plan ? `Project Inquiry - ${planName} Plan` : "Project Inquiry with Add-ons";
-        message = "Hello,\n\nI would like to get a quote for a project with the following details:\n";
+        message = "Hello,\n\nI would like to get a detailed quote for a project with the following details:\n";
         if (plan) {
-          message += `- Plan: ${planName} Plan\n`;
+          message += `- Target plan: ${planName} Plan\n`;
         }
         if (selectedAddons.length > 0) {
           message += `- Add-ons: ${selectedAddons.join(", ")}\n`;
@@ -168,9 +271,9 @@ export default function ContactClient() {
             </div>
 
             {/* Contact Form Column */}
-            <div className="lg:col-span-3 p-8 rounded-2xl bg-[#0d0d11]/60 border border-white/5 backdrop-blur-md shadow-2xl hover:border-brand-purple/20 transition-all duration-500 relative">
+            <div className="lg:col-span-3 p-8 rounded-2xl bg-[#0d0d11]/60 border border-white/5 backdrop-blur-md shadow-2xl relative">
               {submitSuccess ? (
-                <div className="text-center py-12 space-y-4 animate-in fade-in zoom-in-95 duration-300">
+                <div className="text-center py-12 space-y-4 animate-in fade-in duration-300">
                   <div className="inline-flex items-center justify-center p-3 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                     <Check className="w-6 h-6 animate-bounce" />
                   </div>
@@ -257,7 +360,7 @@ export default function ContactClient() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full flex items-center justify-center py-3.5 px-6 rounded-lg text-xs font-bold text-white bg-brand-purple hover:bg-brand-purple-hover shadow-lg transition-all duration-300 disabled:opacity-50 cursor-pointer border border-brand-purple/10 hover:shadow-[0_0_20px_rgba(124,58,237,0.4)]"
+                    className="w-full flex items-center justify-center py-2.5 px-5 rounded-lg text-xs font-semibold text-white bg-brand-purple hover:bg-brand-purple-hover shadow-md transition-all duration-200 disabled:opacity-50 cursor-pointer border border-brand-purple/10 hover:shadow-[0_0_15px_rgba(124,58,237,0.35)]"
                   >
                     {isSubmitting ? (
                       <span>{t("form.sending")}</span>

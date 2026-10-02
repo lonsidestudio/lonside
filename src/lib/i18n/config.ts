@@ -8,9 +8,9 @@ export const pathnames = {
     fr: '/a-propos',
     en: '/about'
   },
-  '/tarifs': {
-    fr: '/tarifs',
-    en: '/pricing'
+  '/estimation': {
+    fr: '/estimation',
+    en: '/estimate'
   },
   '/portfolio': {
     fr: '/portfolio',
@@ -51,6 +51,10 @@ export const pathnames = {
   '/services/application-web': {
     fr: '/services/application-web',
     en: '/services/web-application'
+  },
+  '/services/regie': {
+    fr: '/services/regie',
+    en: '/services/staff-augmentation'
   },
   '/methode': {
     fr: '/methode',
