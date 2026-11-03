@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { captureLeadEvent } from "@/lib/posthog";
 import { useTranslations, useLocale } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
@@ -171,6 +172,13 @@ export default function ContactClient() {
   }, [searchParams, locale, tPricing]);
 
   const [submitError, setSubmitError] = useState(false);
+  const formStarted = useRef(false);
+
+  const handleFormStart = () => {
+    if (!formStarted.current) {
+      formStarted.current = captureLeadEvent('contact_form_started');
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -187,11 +195,14 @@ export default function ContactClient() {
       });
 
       if (!res.ok) throw new Error("Send failed");
+      const result = await res.json();
+      if (result.delivered === true) captureLeadEvent('contact_form_submitted');
 
       setSubmitSuccess(true);
       setFormData({ name: "", email: "", subject: "", message: "", _trap: "" });
       setTimeout(() => setSubmitSuccess(false), 6000);
     } catch {
+      captureLeadEvent('contact_form_failed');
       setSubmitError(true);
     } finally {
       setIsSubmitting(false);
@@ -281,7 +292,7 @@ export default function ContactClient() {
                   <p className="text-xs text-slate-400 max-w-md mx-auto">{t("form.successDesc")}</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} onChange={handleFormStart} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">
@@ -382,3 +393,4 @@ export default function ContactClient() {
     </>
   );
 }
+

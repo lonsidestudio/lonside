@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Inter, Geist_Mono } from 'next/font/google';
 import ConsentAnalytics from '@/components/layout/ConsentAnalytics';
+import PostHogAnalytics from '@/components/layout/PostHogAnalytics';
 import './globals.css';
 
 const inter = Inter({
@@ -26,7 +27,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       >
         {children}
         <ConsentAnalytics enabled={process.env.VERCEL_ENV === 'production'} />
+        <PostHogAnalytics enabled={process.env.VERCEL_ENV === 'production'} />
       </body>
     </html>
   );
 }
+
