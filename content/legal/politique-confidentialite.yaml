@@ -4,21 +4,22 @@ sectionsFr:
   - title: Données collectées
     content: "Lonside collecte les données que vous nous transmettez volontairement via le formulaire de contact : nom, email, et message. Ces données sont utilisées exclusivement pour répondre à vos demandes."
   - title: Mesure d’audience
-    content: "Avec votre accord, nous utilisons Vercel Web Analytics pour mesurer les visites et les pages consultées sur le site de production. Les données de navigation sont transmises à Vercel pour fournir ces statistiques. Les paramètres des URL et les fragments sont supprimés avant envoi. Aucun cookie de mesure d’audience n’est utilisé. Vous pouvez refuser ou retirer votre accord dans les préférences de cookies ; les nouveaux envois sont alors bloqués."
+    content: "Avec votre accord, nous utilisons Vercel Web Analytics pour mesurer les visites et les pages consultées sur le site de production. Les données de navigation sont transmises à Vercel pour fournir ces statistiques. Nous utilisons aussi PostHog (collecte européenne) pour analyser les pages consultées et les étapes du formulaire de contact, uniquement avec votre accord. Les noms, emails et messages du formulaire ne sont pas transmis à PostHog. Les relectures de sessions sont désactivées. Les paramètres des URL et les fragments sont supprimés avant envoi. Vercel ne dépose pas de cookie de mesure d’audience ; PostHog utilise le stockage local du navigateur pour reconnaître les visites, ainsi que le stockage de session. Vous pouvez refuser ou retirer votre accord dans les préférences de cookies ; les nouveaux envois sont alors bloqués."
   - title: Conservation des données
     content: "Vos données sont conservées pour une durée maximale de 3 ans à compter de votre dernière interaction avec nous, conformément à la réglementation RGPD."
   - title: Vos droits
     content: "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement et de portabilité de vos données. Pour exercer ces droits, contactez-nous à hello@lonside.ai."
   - title: Cookies
-    content: "Ce site n'utilise pas de cookies de tracking tiers. Seuls des cookies techniques strictement nécessaires au fonctionnement du site peuvent être utilisés."
+    content: "Les statistiques facultatives Vercel et PostHog sont activées uniquement avec votre accord. PostHog utilise le stockage local et de session du navigateur. Vous pouvez retirer votre accord depuis les préférences de cookies."
 sectionsEn:
   - title: Data Collected
     content: "Lonside collects data that you voluntarily transmit via the contact form: name, email, and message. This data is used exclusively to respond to your inquiries."
   - title: Audience measurement
-    content: "With your consent, we use Vercel Web Analytics to measure visits and page views on the production website. Navigation data is sent to Vercel to provide these statistics. URL query parameters and fragments are removed before sending. No audience measurement cookies are used. You can refuse or withdraw consent in cookie preferences; further events are then blocked."
+    content: "With your consent, we use Vercel Web Analytics to measure visits and page views on the production website. Navigation data is sent to Vercel to provide these statistics. We also use PostHog (European ingestion) to analyze pages viewed and contact form steps, only with your consent. Form names, email addresses and message contents are not sent to PostHog. Session replay is disabled. URL query parameters and fragments are removed before sending. Vercel does not set audience measurement cookies; PostHog uses browser local storage to recognize visits, as well as session storage. You can refuse or withdraw consent in cookie preferences; further events are then blocked."
   - title: Data Retention
     content: "Your data is stored for a maximum period of 3 years from your last interaction with us, in compliance with GDPR guidelines."
   - title: Your Rights
     content: "Pursuant to GDPR, you have the right to access, rectify, erase, and request portability of your data. To exercise these rights, contact us at hello@lonside.ai."
   - title: Cookies
     content: "This site does not use third-party tracking cookies. Only technical cookies strictly necessary for the operation of the website may be used."
+

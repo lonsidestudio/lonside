@@ -67,8 +67,11 @@ export async function POST(request: NextRequest) {
   }
 
   if (!process.env.RESEND_API_KEY) {
+    if (process.env.NODE_ENV === 'production') {
+      return NextResponse.json({ error: 'Service de contact indisponible.' }, { status: 503 });
+    }
     console.warn('[contact] RESEND_API_KEY not set — email skipped in dev.');
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, delivered: false });
   }
 
   const resend = new Resend(process.env.RESEND_API_KEY);
@@ -101,5 +104,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Erreur lors de l\'envoi.' }, { status: 500 });
   }
 
-  return NextResponse.json({ success: true });
+  return NextResponse.json({ success: true, delivered: true });
 }
+

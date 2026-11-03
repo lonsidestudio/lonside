@@ -1827,7 +1827,7 @@
         },
         {
           "title": "Mesure d’audience",
-          "content": "Avec votre accord, nous utilisons Vercel Web Analytics pour mesurer les visites et les pages consultées sur le site de production. Les données de navigation sont transmises à Vercel pour fournir ces statistiques. Les paramètres des URL et les fragments sont supprimés avant envoi. Aucun cookie de mesure d’audience n’est utilisé. Vous pouvez refuser ou retirer votre accord dans les préférences de cookies ; les nouveaux envois sont alors bloqués."
+          "content": "Avec votre accord, nous utilisons Vercel Web Analytics pour mesurer les visites et les pages consultées sur le site de production. Les données de navigation sont transmises à Vercel pour fournir ces statistiques. Nous utilisons aussi PostHog (collecte européenne) pour analyser les pages consultées et les étapes du formulaire de contact, uniquement avec votre accord. Les noms, emails et messages du formulaire ne sont pas transmis à PostHog. Les relectures de sessions sont désactivées. Les paramètres des URL et les fragments sont supprimés avant envoi. Vercel ne dépose pas de cookie de mesure d’audience ; PostHog utilise le stockage local du navigateur pour reconnaître les visites, ainsi que le stockage de session. Vous pouvez refuser ou retirer votre accord dans les préférences de cookies ; les nouveaux envois sont alors bloqués."
         },
         {
           "title": "Conservation des données",
@@ -1839,7 +1839,7 @@
         },
         {
           "title": "Cookies",
-          "content": "Ce site n'utilise pas de cookies de tracking tiers. Seuls des cookies techniques strictement nécessaires au fonctionnement du site peuvent être utilisés."
+          "content": "Les statistiques facultatives Vercel et PostHog sont activées uniquement avec votre accord. PostHog utilise le stockage local et de session du navigateur. Vous pouvez retirer votre accord depuis les préférences de cookies."
         }
       ]
     },
@@ -1857,7 +1857,7 @@
         },
         {
           "title": "Quels types de cookies utilisons-nous ?",
-          "content": "<div class=\"space-y-4\"><p><strong class=\"text-white\">1. Cookies techniques (Essentiels) :</strong> Ces cookies sont indispensables à la navigation sur le site (comme les identifiants de session, le choix de la langue de navigation, ou l'enregistrement de votre consentement pour les cookies). Ils ne peuvent pas être désactivés.</p><p><strong class=\"text-white\">2. Cookies de mesure d'audience (Statistiques) :</strong> Ces outils nous aident à comprendre le parcours des visiteurs et l'utilisation globale du site pour en améliorer la vitesse et l'ergonomie. Nous utilisons Vercel Web Analytics, sans cookies de mesure d’audience, uniquement avec votre accord et sur le site de production. Le refus ou le retrait de votre accord bloque les nouveaux envois.</p><p><strong class=\"text-white\">3. Cookies marketing :</strong> Ces cookies suivent les utilisateurs à travers le web pour afficher des messages pertinents. Nous n'utilisons aucun cookie de ce type à l'heure actuelle.</p></div>"
+          "content": "<div class=\"space-y-4\"><p><strong class=\"text-white\">1. Cookies techniques (Essentiels) :</strong> Ces cookies sont indispensables à la navigation sur le site (comme les identifiants de session, le choix de la langue de navigation, ou l'enregistrement de votre consentement pour les cookies). Ils ne peuvent pas être désactivés.</p><p><strong class=\"text-white\">2. Cookies de mesure d'audience (Statistiques) :</strong> Ces outils nous aident à comprendre le parcours des visiteurs et l'utilisation globale du site pour en améliorer la vitesse et l'ergonomie. Nous utilisons Vercel Web Analytics et PostHog uniquement avec votre accord et sur le site de production. PostHog utilise le stockage local et de session du navigateur pour mesurer les visites, les pages consultées et les étapes du formulaire. Ces données restent dans le stockage du navigateur jusqu’à leur suppression ou la fin de la session selon leur type. Le refus ou le retrait de votre accord bloque les nouveaux envois.</p><p><strong class=\"text-white\">3. Cookies marketing :</strong> Ces cookies suivent les utilisateurs à travers le web pour afficher des messages pertinents. Nous n'utilisons aucun cookie de ce type à l'heure actuelle.</p></div>"
         },
         {
           "title": "Liste détaillée des cookies internes déposés",
@@ -1917,7 +1917,7 @@
   },
   "cookieConsent": {
     "title": "Gestion des cookies",
-    "description": "Nous mémorisons vos préférences et utilisons Vercel Web Analytics uniquement avec votre accord pour mesurer les visites, sans cookies de mesure d’audience. Vous pouvez accepter, refuser ou personnaliser vos choix.",
+    "description": "Nous mémorisons vos préférences. Avec votre accord, Vercel et PostHog mesurent les visites et les demandes de contact ; PostHog utilise le stockage du navigateur. Vous pouvez accepter, refuser ou personnaliser vos choix.",
     "acceptAll": "Tout accepter",
     "declineAll": "Tout refuser",
     "customize": "Personnaliser",
@@ -1925,7 +1925,7 @@
     "essentialTitle": "Strictement nécessaires",
     "essentialDesc": "Ces cookies sont indispensables au bon fonctionnement du site (session, sécurité, langue) et ne peuvent pas être désactivés.",
     "analyticsTitle": "Mesure d'audience",
-    "analyticsDesc": "Vercel Web Analytics mesure les visites et les pages consultées, sans cookies de mesure d’audience, uniquement avec votre accord.",
+    "analyticsDesc": "Vercel et PostHog mesurent les visites, les pages et les étapes du formulaire uniquement avec votre accord. PostHog utilise le stockage local et de session du navigateur.",
     "marketingTitle": "Marketing",
     "marketingDesc": "Ces cookies sont utilisés pour suivre les visiteurs à travers les sites web afin de proposer des publicités pertinentes.",
     "close": "Fermer"
