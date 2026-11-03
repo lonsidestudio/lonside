@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { Inter, Geist_Mono } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/next';
+import ConsentAnalytics from '@/components/layout/ConsentAnalytics';
 import './globals.css';
 
 const inter = Inter({
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className={`${inter.variable} ${geistMono.variable} font-sans bg-[#050505] text-[#fafafa] antialiased selection:bg-blue-600/30 selection:text-blue-200 min-h-screen flex flex-col`}
       >
         {children}
-        <Analytics />
+        <ConsentAnalytics enabled={process.env.VERCEL_ENV === 'production'} />
       </body>
     </html>
   );

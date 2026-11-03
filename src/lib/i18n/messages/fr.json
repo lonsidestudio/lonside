@@ -1823,7 +1823,11 @@
       "sections": [
         {
           "title": "Données collectées",
-          "content": "Lonside collecte uniquement les données que vous nous transmettez volontairement via le formulaire de contact : nom, email, et message. Ces données sont utilisées exclusivement pour répondre à vos demandes."
+          "content": "Lonside collecte les données que vous nous transmettez volontairement via le formulaire de contact : nom, email, et message. Ces données sont utilisées exclusivement pour répondre à vos demandes."
+        },
+        {
+          "title": "Mesure d’audience",
+          "content": "Avec votre accord, nous utilisons Vercel Web Analytics pour mesurer les visites et les pages consultées sur le site de production. Les données de navigation sont transmises à Vercel pour fournir ces statistiques. Les paramètres des URL et les fragments sont supprimés avant envoi. Aucun cookie de mesure d’audience n’est utilisé. Vous pouvez refuser ou retirer votre accord dans les préférences de cookies ; les nouveaux envois sont alors bloqués."
         },
         {
           "title": "Conservation des données",
@@ -1853,11 +1857,11 @@
         },
         {
           "title": "Quels types de cookies utilisons-nous ?",
-          "content": "<div class=\"space-y-4\"><p><strong class=\"text-white\">1. Cookies techniques (Essentiels) :</strong> Ces cookies sont indispensables à la navigation sur le site (comme les identifiants de session, le choix de la langue de navigation, ou l'enregistrement de votre consentement pour les cookies). Ils ne peuvent pas être désactivés.</p><p><strong class=\"text-white\">2. Cookies de mesure d'audience (Statistiques) :</strong> Ces outils nous aident à comprendre le parcours des visiteurs et l'utilisation globale du site pour en améliorer la vitesse et l'ergonomie. Nous utilisons un outil respectueux de la vie privée (Plausible Analytics), actif uniquement avec votre accord.</p><p><strong class=\"text-white\">3. Cookies marketing :</strong> Ces cookies suivent les utilisateurs à travers le web pour afficher des messages pertinents. Nous n'utilisons aucun cookie de ce type à l'heure actuelle.</p></div>"
+          "content": "<div class=\"space-y-4\"><p><strong class=\"text-white\">1. Cookies techniques (Essentiels) :</strong> Ces cookies sont indispensables à la navigation sur le site (comme les identifiants de session, le choix de la langue de navigation, ou l'enregistrement de votre consentement pour les cookies). Ils ne peuvent pas être désactivés.</p><p><strong class=\"text-white\">2. Cookies de mesure d'audience (Statistiques) :</strong> Ces outils nous aident à comprendre le parcours des visiteurs et l'utilisation globale du site pour en améliorer la vitesse et l'ergonomie. Nous utilisons Vercel Web Analytics, sans cookies de mesure d’audience, uniquement avec votre accord et sur le site de production. Le refus ou le retrait de votre accord bloque les nouveaux envois.</p><p><strong class=\"text-white\">3. Cookies marketing :</strong> Ces cookies suivent les utilisateurs à travers le web pour afficher des messages pertinents. Nous n'utilisons aucun cookie de ce type à l'heure actuelle.</p></div>"
         },
         {
           "title": "Liste détaillée des cookies internes déposés",
-          "content": "<div class=\"overflow-x-auto border border-white/5 rounded-lg\"><table class=\"w-full text-left border-collapse text-[11px] text-slate-400\"><thead><tr class=\"border-b border-white/10 bg-[#0d0d11]\"><th class=\"p-3 text-slate-200 font-bold\">Nom</th><th class=\"p-3 text-slate-200 font-bold\">Objectif</th><th class=\"p-3 text-slate-200 font-bold\">Fournisseur</th><th class=\"p-3 text-slate-200 font-bold\">Durée</th></tr></thead><tbody><tr class=\"border-b border-white/5\"><td class=\"p-3 font-semibold text-brand-purple font-mono\">lonside-cookie-consent</td><td class=\"p-3\">Retient les préférences de consentement de cookies de l'utilisateur.</td><td class=\"p-3 text-slate-300\">lonside.ai</td><td class=\"p-3\">1 an</td></tr><tr class=\"border-b border-white/5\"><td class=\"p-3 font-semibold text-brand-purple font-mono\">NEXT_LOCALE</td><td class=\"p-3\">Retient la langue sélectionnée pour la navigation (fr/en).</td><td class=\"p-3 text-slate-300\">lonside.ai</td><td class=\"p-3\">Persistant</td></tr></tbody></table></div>"
+          "content": "<div class=\"overflow-x-auto border border-white/5 rounded-lg\"><table class=\"w-full text-left border-collapse text-[11px] text-slate-400\"><thead><tr class=\"border-b border-white/10 bg-[#0d0d11]\"><th class=\"p-3 text-slate-200 font-bold\">Nom</th><th class=\"p-3 text-slate-200 font-bold\">Objectif</th><th class=\"p-3 text-slate-200 font-bold\">Fournisseur</th><th class=\"p-3 text-slate-200 font-bold\">Durée</th></tr></thead><tbody><tr class=\"border-b border-white/5\"><td class=\"p-3 font-semibold text-brand-purple font-mono\">lonside-cookie-consent</td><td class=\"p-3\">Retient les préférences de consentement de cookies de l'utilisateur.</td><td class=\"p-3 text-slate-300\">lonside.ai</td><td class=\"p-3\">Jusqu’à suppression du stockage local</td></tr><tr class=\"border-b border-white/5\"><td class=\"p-3 font-semibold text-brand-purple font-mono\">NEXT_LOCALE</td><td class=\"p-3\">Retient la langue sélectionnée pour la navigation (fr/en).</td><td class=\"p-3 text-slate-300\">lonside.ai</td><td class=\"p-3\">Persistant</td></tr></tbody></table></div>"
         }
       ]
     }
@@ -1913,7 +1917,7 @@
   },
   "cookieConsent": {
     "title": "Gestion des cookies",
-    "description": "Nous utilisons des cookies pour optimiser votre expérience, analyser le trafic de notre site et diffuser des annonces pertinentes. Vous pouvez accepter tout ou configurer vos choix.",
+    "description": "Nous mémorisons vos préférences et utilisons Vercel Web Analytics uniquement avec votre accord pour mesurer les visites, sans cookies de mesure d’audience. Vous pouvez accepter, refuser ou personnaliser vos choix.",
     "acceptAll": "Tout accepter",
     "declineAll": "Tout refuser",
     "customize": "Personnaliser",
@@ -1921,7 +1925,7 @@
     "essentialTitle": "Strictement nécessaires",
     "essentialDesc": "Ces cookies sont indispensables au bon fonctionnement du site (session, sécurité, langue) et ne peuvent pas être désactivés.",
     "analyticsTitle": "Mesure d'audience",
-    "analyticsDesc": "Ces cookies nous permettent de comprendre comment les visiteurs interagissent avec le site afin d'en améliorer l'ergonomie et la vitesse.",
+    "analyticsDesc": "Vercel Web Analytics mesure les visites et les pages consultées, sans cookies de mesure d’audience, uniquement avec votre accord.",
     "marketingTitle": "Marketing",
     "marketingDesc": "Ces cookies sont utilisés pour suivre les visiteurs à travers les sites web afin de proposer des publicités pertinentes.",
     "close": "Fermer"
