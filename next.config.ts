@@ -26,13 +26,13 @@ const securityHeaders = [
     value: [
       "default-src 'self'",
       // Next.js needs unsafe-inline for styles; unsafe-eval only in dev
-      `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''} plausible.io`,
+      `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
       "style-src 'self' 'unsafe-inline'",
       // next/font self-hosts fonts — no external font CDN needed
       "font-src 'self'",
       "img-src 'self' data: blob:",
-      // API calls: self + Plausible + Sentry + Vercel vitals
-      "connect-src 'self' plausible.io *.sentry.io vitals.vercel-insights.com",
+      // API calls: self (including Vercel Analytics) + Sentry + Vercel vitals
+      "connect-src 'self' *.sentry.io vitals.vercel-insights.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { CONSENT_KEY, CONSENT_EVENT } from '@/lib/analytics-consent';
 import { useTranslations } from 'next-intl';
 import { Cookie, Shield, Check, ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -29,31 +30,12 @@ export default function CookieConsent() {
   });
 
   const applyConsent = (state: CookieConsentState) => {
-    // Persistent choices
-    localStorage.setItem('lonside-cookie-consent', JSON.stringify(state));
-    
-    // Manage Plausible Script
-    const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
-    if (plausibleDomain) {
-      if (state.analytics) {
-        // Load plausible script
-        const existingScript = document.getElementById('plausible-script');
-        if (!existingScript) {
-          const script = document.createElement('script');
-          script.id = 'plausible-script';
-          script.defer = true;
-          script.setAttribute('data-domain', plausibleDomain);
-          script.src = 'https://plausible.io/js/script.js';
-          document.body.appendChild(script);
-        }
-      } else {
-        // Remove plausible script if already loaded
-        const script = document.getElementById('plausible-script');
-        if (script) {
-          script.remove();
-        }
-      }
+    try {
+      localStorage.setItem(CONSENT_KEY, JSON.stringify(state));
+    } catch {
+      // Storage unavailable: analytics stays disabled.
     }
+    window.dispatchEvent(new Event(CONSENT_EVENT));
   };
 
   useEffect(() => {

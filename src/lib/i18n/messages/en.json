@@ -1823,7 +1823,11 @@
       "sections": [
         {
           "title": "Data Collected",
-          "content": "Lonside only collects data that you voluntarily transmit via the contact form: name, email, and message. This data is used exclusively to respond to your inquiries."
+          "content": "Lonside collects data that you voluntarily transmit via the contact form: name, email, and message. This data is used exclusively to respond to your inquiries."
+        },
+        {
+          "title": "Audience measurement",
+          "content": "With your consent, we use Vercel Web Analytics to measure visits and page views on the production website. Navigation data is sent to Vercel to provide these statistics. URL query parameters and fragments are removed before sending. No audience measurement cookies are used. You can refuse or withdraw consent in cookie preferences; further events are then blocked."
         },
         {
           "title": "Data Retention",
@@ -1853,11 +1857,11 @@
         },
         {
           "title": "What types of cookies do we use?",
-          "content": "<div class=\"space-y-4\"><p><strong class=\"text-white\">1. Technical cookies (Essential):</strong> These cookies are indispensable for browsing the site (such as session identifiers, browser language choice, or recording your cookie consent preferences). They cannot be deactivated.</p><p><strong class=\"text-white\">2. Audience measurement cookies (Statistics):</strong> These tools help us understand visitor behavior and overall site utilization to improve its speed and usability. We use a privacy-first tool (Plausible Analytics), which is only active with your consent.</p><p><strong class=\"text-white\">3. Marketing cookies:</strong> These cookies track users across the web to display relevant messages. We do not use any such cookies at this time.</p></div>"
+          "content": "<div class=\"space-y-4\"><p><strong class=\"text-white\">1. Technical cookies (Essential):</strong> These cookies are indispensable for browsing the site (such as session identifiers, browser language choice, or recording your cookie consent preferences). They cannot be deactivated.</p><p><strong class=\"text-white\">2. Audience measurement cookies (Statistics):</strong> These tools help us understand visitor behavior and overall site utilization to improve its speed and usability. We use Vercel Web Analytics without audience measurement cookies, only with your consent and on the production website. Refusing or withdrawing consent blocks further events.</p><p><strong class=\"text-white\">3. Marketing cookies:</strong> These cookies track users across the web to display relevant messages. We do not use any such cookies at this time.</p></div>"
         },
         {
           "title": "Detailed list of stored internal cookies",
-          "content": "<div class=\"overflow-x-auto border border-white/5 rounded-lg\"><table class=\"w-full text-left border-collapse text-[11px] text-slate-400\"><thead><tr class=\"border-b border-white/10 bg-[#0d0d11]\"><th class=\"p-3 text-slate-200 font-bold\">Name</th><th class=\"p-3 text-slate-200 font-bold\">Objective</th><th class=\"p-3 text-slate-200 font-bold\">Provider</th><th class=\"p-3 text-slate-200 font-bold\">Duration</th></tr></thead><tbody><tr class=\"border-b border-white/5\"><td class=\"p-3 font-semibold text-brand-purple font-mono\">lonside-cookie-consent</td><td class=\"p-3\">Saves the user's cookie consent choices.</td><td class=\"p-3 text-slate-300\">lonside.ai</td><td class=\"p-3\">1 year</td></tr><tr class=\"border-b border-white/5\"><td class=\"p-3 font-semibold text-brand-purple font-mono\">NEXT_LOCALE</td><td class=\"p-3\">Saves the selected navigation language (fr/en).</td><td class=\"p-3 text-slate-300\">lonside.ai</td><td class=\"p-3\">Persistent</td></tr></tbody></table></div>"
+          "content": "<div class=\"overflow-x-auto border border-white/5 rounded-lg\"><table class=\"w-full text-left border-collapse text-[11px] text-slate-400\"><thead><tr class=\"border-b border-white/10 bg-[#0d0d11]\"><th class=\"p-3 text-slate-200 font-bold\">Name</th><th class=\"p-3 text-slate-200 font-bold\">Objective</th><th class=\"p-3 text-slate-200 font-bold\">Provider</th><th class=\"p-3 text-slate-200 font-bold\">Duration</th></tr></thead><tbody><tr class=\"border-b border-white/5\"><td class=\"p-3 font-semibold text-brand-purple font-mono\">lonside-cookie-consent</td><td class=\"p-3\">Saves the user's cookie consent choices.</td><td class=\"p-3 text-slate-300\">lonside.ai</td><td class=\"p-3\">Until local storage is cleared</td></tr><tr class=\"border-b border-white/5\"><td class=\"p-3 font-semibold text-brand-purple font-mono\">NEXT_LOCALE</td><td class=\"p-3\">Saves the selected navigation language (fr/en).</td><td class=\"p-3 text-slate-300\">lonside.ai</td><td class=\"p-3\">Persistent</td></tr></tbody></table></div>"
         }
       ]
     }
@@ -1913,7 +1917,7 @@
   },
   "cookieConsent": {
     "title": "Cookie settings",
-    "description": "We use cookies to optimize your experience, analyze our traffic, and display relevant ads. You can accept all cookies or configure your choices.",
+    "description": "We save your preferences and use Vercel Web Analytics only with your consent to measure visits, without audience measurement cookies. You can accept, refuse or customize your choices.",
     "acceptAll": "Accept all",
     "declineAll": "Decline all",
     "customize": "Customize",
@@ -1921,7 +1925,7 @@
     "essentialTitle": "Strictly necessary",
     "essentialDesc": "These cookies are essential for the website to function properly (session, security, language) and cannot be deactivated.",
     "analyticsTitle": "Audience measurement",
-    "analyticsDesc": "These cookies allow us to understand how visitors interact with the site to improve its usability and speed.",
+    "analyticsDesc": "Vercel Web Analytics measures visits and page views without audience measurement cookies, only with your consent.",
     "marketingTitle": "Marketing",
     "marketingDesc": "These cookies are used to track visitors across websites in order to deliver relevant advertisements.",
     "close": "Close"
