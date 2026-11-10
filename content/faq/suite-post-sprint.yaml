@@ -1,0 +1,7 @@
+order: 5
+questionFr: "Que se passe-t-il après la livraison de mon Sprint Launch ou Scale ?"
+questionEn: "What happens after the delivery of my Launch or Scale sprint?"
+answerFr: "Vous recevez un Pack Handover complet comprenant la documentation technique, les tests automatisés, les variables d'environnement chiffrées et une visite guidée vidéo de l'architecture. Votre équipe interne peut reprendre la main immédiatement. Pour accélérer encore, vous pouvez activer notre Régie d'Immersion Squad (1 à 3 ingénieurs seniors intégrés à votre rythme) sans engagement long terme."
+answerEn: "You receive a complete Handover Pack containing architecture documentation, automated test suites, encrypted environment secrets, and an in-depth video walkthrough. Your internal team can immediately take ownership. If you wish to accelerate feature velocity, you can activate our Immersion Squad model (1 to 3 senior engineers embedded in your workflows) with zero long-term lock-in."
+category: "handover"
+

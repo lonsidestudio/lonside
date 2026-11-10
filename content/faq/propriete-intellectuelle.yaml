@@ -1,0 +1,7 @@
+order: 2
+questionFr: "À qui appartient le code source et la propriété intellectuelle ?"
+questionEn: "Who owns the source code and intellectual property?"
+answerFr: "À vous, à 100%. Dès le premier commit, le code source est poussé sur votre propre dépôt GitHub privé sous licence exclusive. Vous êtes pleinement propriétaire de l'ensemble de la base de code, des schémas de données, des configurations d'infrastructure et des actifs graphiques. Zéro lock-in, zéro redevance récurrente."
+answerEn: "You do, 100%. From the very first commit, all code is pushed directly to your private GitHub repository under exclusive license. You own every line of code, database schema, infrastructure configuration, and design asset. Zero vendor lock-in, zero ongoing royalty fees."
+category: "ip"
+

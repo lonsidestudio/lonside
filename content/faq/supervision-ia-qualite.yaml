@@ -1,0 +1,7 @@
+order: 6
+questionFr: "Utilisez-vous de l'intelligence artificielle pour coder sans contrôle humain ?"
+questionEn: "Do you use artificial intelligence to write code without human review?"
+answerFr: "Absolument pas. L'IA chez Lonside est un accélérateur d'outillage (automatisation des tâches répétitives, génération de cas de tests limites, validation syntaxique). L'architecture système, les choix de sécurité, la logique métier et les revues de code sont assurées à 100% par des ingénieurs seniors. De plus, nos environnements d'IA respectent des politiques strictes Zero Data Retention (ZDR) garantissant l'étanchéité absolue de votre code et de vos données."
+answerEn: "Absolutely not. At Lonside, AI acts as an internal accelerator (automating boilerplate, generating edge-case tests, syntax validation). System architecture, security validations, business domain logic, and code reviews are handled 100% by senior engineers. Furthermore, all AI workflows operate under strict Zero Data Retention (ZDR) enterprise policies ensuring your proprietary IP remains fully isolated."
+category: "quality"
+

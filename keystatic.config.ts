@@ -1,64 +1,37 @@
 import { config, collection, singleton, fields } from '@keystatic/core';
 
+const githubRepo = process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_REPO || process.env.KEYSTATIC_GITHUB_REPO;
+const [repoOwner, repoName] = (githubRepo || 'KevinTSAGUE/lonside').split('/');
+
+const isProd = process.env.NODE_ENV === 'production' && Boolean(githubRepo);
+
 export default config({
-  storage: { kind: 'local' },
+  storage: isProd
+    ? {
+        kind: 'github',
+        repo: {
+          owner: repoOwner,
+          name: repoName,
+        },
+      }
+    : { kind: 'local' },
   ui: {
-    brand: { name: 'Lonside Studio' },
+    brand: { name: 'Lonside — Studio Haute Vélocité' },
     navigation: {
-      Contenu: ['blog', 'portfolio'],
-      Légal: ['mentionsLegales', 'politiqueConfidentialite', 'cgv', 'cookies'],
+      'Contenu Studio': ['portfolio', 'faq'],
+      'Conformité Légale': ['mentionsLegales', 'politiqueConfidentialite', 'cgv', 'cookies'],
     },
   },
   collections: {
-    blog: collection({
-      label: 'Articles de blog',
-      slugField: 'slug',
-      path: 'content/blog/*',
-      format: { data: 'yaml' },
-      schema: {
-        slug: fields.slug({ name: { label: 'URL Slug' } }),
-        titleFr: fields.text({ label: 'Titre (FR)', validation: { isRequired: true } }),
-        titleEn: fields.text({ label: 'Title (EN)' }),
-        excerptFr: fields.text({ label: 'Extrait (FR)', multiline: true }),
-        excerptEn: fields.text({ label: 'Excerpt (EN)', multiline: true }),
-        category: fields.select({
-          label: 'Catégorie',
-          options: [
-            { label: 'Intelligence Artificielle', value: 'ia' },
-            { label: 'Développement Web', value: 'web' },
-            { label: 'Design', value: 'design' },
-            { label: 'SEO', value: 'seo' },
-          ],
-          defaultValue: 'web',
-        }),
-        publishedAt: fields.date({ label: 'Date de publication' }),
-        readingTime: fields.number({ label: 'Temps de lecture (min)' }),
-        featured: fields.checkbox({ label: 'Article à la une', defaultValue: false }),
-        tags: fields.array(fields.text({ label: 'Tag' }), {
-          label: 'Tags',
-          itemLabel: (p) => p.value,
-        }),
-        authorName: fields.text({ label: 'Auteur — Nom', defaultValue: 'Kevin T.' }),
-        authorRole: fields.text({
-          label: 'Auteur — Rôle',
-          defaultValue: 'Fondateur & Lead Dev',
-        }),
-        seoTitleFr: fields.text({ label: 'Titre SEO (FR)' }),
-        seoTitleEn: fields.text({ label: 'SEO Title (EN)' }),
-        seoDescriptionFr: fields.text({ label: 'Meta description (FR)', multiline: true }),
-        seoDescriptionEn: fields.text({ label: 'Meta description (EN)', multiline: true }),
-      },
-    }),
-
     portfolio: collection({
-      label: 'Projets Portfolio',
+      label: 'Études de Cas (Portfolio)',
       slugField: 'slug',
       path: 'content/portfolio/*',
       format: { data: 'yaml' },
       schema: {
-        slug: fields.slug({ name: { label: 'URL Slug' } }),
-        client: fields.text({ label: 'Nom du client' }),
-        industryFr: fields.text({ label: 'Secteur d\'activité (FR)' }),
+        slug: fields.slug({ name: { label: 'Slug Unique (ex: michi)' } }),
+        client: fields.text({ label: 'Nom du client / projet' }),
+        industryFr: fields.text({ label: "Secteur d'activité (FR)" }),
         industryEn: fields.text({ label: 'Industry / Sector (EN)' }),
         headlineFr: fields.text({ label: 'Accroche (FR)', multiline: true }),
         headlineEn: fields.text({ label: 'Headline (EN)', multiline: true }),
@@ -102,7 +75,7 @@ export default config({
           }),
           { label: 'Contraintes & Arbitrages', itemLabel: (p) => p.fields.titleFr.value || 'Contrainte' }
         ),
-        architectureSummaryFr: fields.text({ label: 'Synthèse de l\'architecture (FR)', multiline: true }),
+        architectureSummaryFr: fields.text({ label: "Synthèse de l'architecture (FR)", multiline: true }),
         architectureSummaryEn: fields.text({ label: 'Architecture Summary (EN)', multiline: true }),
         services: fields.array(fields.text({ label: 'Service' }), {
           label: 'Services réalisés',
@@ -146,6 +119,32 @@ export default config({
         seoTitleEn: fields.text({ label: 'SEO Title (EN)' }),
         seoDescriptionFr: fields.text({ label: 'Meta description SEO (FR)', multiline: true }),
         seoDescriptionEn: fields.text({ label: 'SEO Meta Description (EN)', multiline: true }),
+      },
+    }),
+
+    faq: collection({
+      label: 'Questions Fréquentes (FAQ)',
+      slugField: 'questionFr',
+      path: 'content/faq/*',
+      format: { data: 'yaml' },
+      schema: {
+        order: fields.number({ label: 'Ordre d’affichage (1, 2, 3...)', defaultValue: 1 }),
+        questionFr: fields.text({ label: 'Question (FR)', validation: { isRequired: true } }),
+        questionEn: fields.text({ label: 'Question (EN)', validation: { isRequired: true } }),
+        answerFr: fields.text({ label: 'Réponse (FR)', multiline: true, validation: { isRequired: true } }),
+        answerEn: fields.text({ label: 'Réponse (EN)', multiline: true, validation: { isRequired: true } }),
+        category: fields.select({
+          label: 'Catégorie',
+          options: [
+            { label: 'Tarifs & Délais', value: 'pricing' },
+            { label: 'Propriété Intellectuelle (IP)', value: 'ip' },
+            { label: 'Stack Technique', value: 'tech' },
+            { label: 'Garanties & SLA', value: 'guarantee' },
+            { label: 'Handover & Suivi', value: 'handover' },
+            { label: 'Qualité & IA', value: 'quality' },
+          ],
+          defaultValue: 'pricing',
+        }),
       },
     }),
   },

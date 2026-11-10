@@ -1,0 +1,7 @@
+order: 3
+questionFr: "Quelle est votre stack technique de prédilection ?"
+questionEn: "What is your primary engineering technology stack?"
+answerFr: "Nous développons exclusivement sur des standards modernes et pérennes : Next.js 16 (App Router), TypeScript en mode strict, Tailwind CSS pour le frontend ; PostgreSQL / Supabase, Python (FastAPI) ou Node.js pour le backend et les pipelines de données. Aucune technologie exotique éphémère : uniquement des socles industriels maintenables par n'importe quel ingénieur senior dans le monde."
+answerEn: "We engineer strictly on battle-tested, modern industry standards: Next.js 16 (App Router), strict TypeScript, and Tailwind CSS on frontend; PostgreSQL / Supabase, Python (FastAPI) or Node.js on backend and data pipelines. No ephemeral niche frameworks: only robust foundations easily maintainable by any senior engineer worldwide."
+category: "tech"
+
