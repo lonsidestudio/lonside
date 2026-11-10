@@ -18,14 +18,15 @@ Inspirée des références mondiales du design et de l'ingénierie numérique (*
 ## 💎 Nouveautés Majeures
 
 ### 1. Parcours Client One-Page Haute Précision
-- **Architecture unifiée :** Suppression de la navigation éclatée au profit d'une expérience linéaire et rythmée structurée en 7 sections stratégiques :
-  1. **Hero Studio :** Accroche frontale, statut de disponibilité temps réel, boutons d'action rapide vers le calendrier de réservation et les études de cas.
-  2. **Manifeste & Vision :** Antithèse des dérives d'agences traditionnelles, engagement de cession immédiate du code sur le dépôt GitHub client.
-  3. **Méthode Commando en 4 Phases :** Cadrage (J1-J2), Sprint d'Ingénierie (J3-J12), QA & Tests (J13), Livraison & Déploiement (J14).
-  4. **Études de Cas Industrielles (Work) :** Présentation des produits développés (*Welqo, Weedin, Bely, Michi*), KPI mesurables et ouverture instantanée des dossiers techniques.
-  5. **Tarifs & Forfaits Fermes :** Comparateur direct entre *Sprint Launch (14 jours, 6 900 €)* et *Sprint Scale (30 jours, 13 900 €)* avec clause contractuelle de pénalité en cas de retard.
-  6. **FAQ Interactive :** Accordéons répondant aux 8 interrogations clés des fondateurs.
-  7. **Contact Direct :** Prise de rendez-vous immédiate via calendrier synchronisé et formulaire avec protection anti-bot Honeypot.
+- **Architecture unifiée :** Suppression de la navigation éclatée au profit d'une expérience linéaire et rythmée structurée en 8 sections stratégiques :
+  1. **Hero Studio :** Accroche frontale épurée, statut de disponibilité temps réel, boutons d'action rapide vers le calendrier de réservation et les études de cas.
+  2. **Origine & Engagement (`WhyUsSection`) :** Cartouche d'atelier d'ingénierie inspiré du modèle Designjoy, déclaration de conviction sans intermédiaire et promesse de vélocité.
+  3. **Études de Cas Industrielles (Work) :** Présentation des produits développés (*Welqo, Weedin, Bely, Michi*), KPI mesurables et ouverture instantanée des dossiers techniques.
+  4. **Manifeste & Vision :** Engagement de cession immédiate du code sur le compte GitHub client et garantie de délai scellé.
+  5. **Méthode Commando en 4 Phases :** Cadrage (J1-J2), Sprint d'Ingénierie (J3-J12), QA & Tests (J13), Livraison & Déploiement (J14).
+  6. **Tarifs & Forfaits Fermes :** Comparateur direct entre *Sprint Launch (14 jours, 6 900 €)* et *Sprint Scale (30 jours, 13 900 €)* avec clause contractuelle de pénalité en cas de retard.
+  7. **FAQ Interactive :** Accordéons répondant aux 8 interrogations clés des fondateurs.
+  8. **Contact Direct :** Prise de rendez-vous immédiate via calendrier synchronisé et formulaire avec protection anti-bot Honeypot.
 
 ### 2. Dossier Technique Interactif (`DossierDrawer`)
 - Tiroir latéral d'analyse technique sans arrondi gauche (`rounded-none`) pour une esthétique architecturale brute.

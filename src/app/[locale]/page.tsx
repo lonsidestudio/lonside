@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import StudioAtmosphere from "@/components/StudioAtmosphere";
+import WhyUsSection from "@/components/home/WhyUsSection";
 import WorkSection from "@/components/home/WorkSection";
 import ManifestoSection from "@/components/home/ManifestoSection";
 import MethodSection from "@/components/home/MethodSection";
@@ -177,8 +178,8 @@ export default async function HomePage({ params }: PageProps) {
             {/* Accroche Humaine, Chaude et Précise */}
             <p className="mt-5 sm:mt-7 max-w-2xl text-base sm:text-lg text-zinc-600 font-normal leading-relaxed px-2">
               {isEn
-                ? "We design and build reliable web applications and platforms for founders who value clarity and momentum. A locked scope, a fixed budget with zero surprises, and clean code that belongs 100% to you."
-                : "Nous concevons et développons des applications web et plateformes fiables pour les fondateurs et équipes qui veulent avancer vite. Un périmètre clair, un prix fixe sans surprise, et un code propre qui vous appartient entièrement dès le premier jour."}
+                ? "We design and build reliable web applications and platforms for founders who value clarity and momentum."
+                : "Nous concevons et développons des applications web et plateformes fiables pour les fondateurs et équipes qui veulent avancer vite."}
             </p>
 
             {/* Actions Claires & Directes Ergonomiques */}
@@ -221,6 +222,9 @@ export default async function HomePage({ params }: PageProps) {
             </div>
           </div>
         </section>
+
+        {/* ── SECTION POURQUOI LONSIDE / ORIGINE (STYLE DESIGNJOY) ── */}
+        <WhyUsSection locale={currentLocale} />
 
         {/* ── PROJETS ── */}
         <WorkSection projects={projects} locale={currentLocale} />

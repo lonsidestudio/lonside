@@ -11,6 +11,7 @@ et ce projet adhère aux principes du [Semantic Versioning](https://semver.org/l
 
 ### 🚀 Ajouté (Added)
 - **Architecture One-Page Haute Précision :** Refonte intégrale du parcours client en une page d'ingénierie continue (Hero, Manifeste, Méthode 4 phases, 4 Études de cas, Tarifs fermes, FAQ accordéon, Contact).
+- **Section d'Origine & d'Artisanat (WhyUsSection) :** Nouveau bloc positionné immédiatement après le Hero et les métriques, inspiré de l'épure éditoriale de Designjoy (cartouche d'atelier sans intermédiaire ni commercial, grand titre avec accent éditorial en italique et sous-texte d'engagement clarifié).
 - **SEO & GEO (Generative Engine Optimization) de classe mondiale :**
   - Schémas JSON-LD `Organization`, `WebSite`, `FAQPage` (accordéons interactifs Google SERP) et `OfferCatalog` (`Sprint Launch 6 900 €` et `Sprint Scale 13 900 €`).
   - Intégration du manifeste `public/llms.txt` pour les moteurs de recherche IA (*Perplexity, ChatGPT Search, Claude*).
