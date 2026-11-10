@@ -1,114 +1,137 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #050505;
-  --color-foreground: #fafafa;
-  --color-card: #0d0d11;
-  --color-card-border: rgba(255, 255, 255, 0.08);
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-canvas: #000000;
+  --color-surface: #0a0a0a;
+  --color-surface-elevated: #121212;
+  --color-surface-subtle: #18181b;
   
-  --color-brand-purple: #7c3aed;
-  --color-brand-purple-hover: #6d28d9;
-  --color-slate-muted: #94a3b8;
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.20);
   
-  --font-sans: 'Inter', sans-serif, system-ui;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
   
-  --animate-float: float 6s ease-in-out infinite;
+  --color-signal-live: #10b981;
+  --color-signal-live-glow: rgba(16, 185, 129, 0.25);
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Inter Tight', 'Inter', -apple-system, sans-serif;
+  
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-marquee: marquee 35s linear infinite;
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-text-glow: textGlow 2s ease-in-out infinite alternate;
   
   @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-8px); }
   }
-  @keyframes textGlow {
-    from {
-      text-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
-    }
-    to {
-      text-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
-    }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 }
 
 :root {
-  --background: #050505;
-  --foreground: #fafafa;
+  --background: #000000;
+  --foreground: #ffffff;
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #000000;
+  color: #ffffff;
   overflow-x: hidden;
   font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Pure Minimalist Dark */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(124, 58, 237, 0.25);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 9999px;
-  border: 2px solid #050505;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(124, 58, 237, 0.5);
+  background: rgba(255, 255, 255, 0.35);
 }
 
-/* Glassmorphism Classes */
-.glass-panel {
-  background: #0d0d11;
+/* Luxury Monochrome Cards & Panels */
+.luxury-card {
+  background: #0a0a0a;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease;
 }
 
-.glass-panel-hover:hover {
-  border-color: rgba(124, 58, 237, 0.4);
-  box-shadow: 0 0 30px rgba(124, 58, 237, 0.08);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.luxury-card:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  background-color: #0e0e0e;
 }
 
-/* Shimmer animations */
-.shimmer-text {
-  background: linear-gradient(to right, #ffffff 20%, #c084fc 40%, #7c3aed 60%, #ffffff 80%);
-  background-size: 200% auto;
-  color: transparent;
-  background-clip: text;
+/* Platinum Text Shimmer for High-End Focus */
+.shimmer-platinum {
+  background: linear-gradient(110deg, #ffffff 15%, #a1a1aa 45%, #ffffff 75%);
+  background-size: 250% 100%;
   -webkit-background-clip: text;
-  animation: shine 8s linear infinite;
+  background-clip: text;
+  color: transparent;
+  animation: shinePlatinum 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-@keyframes shine {
-  to {
-    background-position: 200% center;
-  }
+@keyframes shinePlatinum {
+  0% { background-position: 200% 0; }
+  100% { background-position: -50% 0; }
 }
 
-/* Unified layout classes */
-.glow-radial-purple {
-  background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.08) 0%, transparent 60%);
+/* Studio Pill Tag */
+.studio-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #a1a1aa;
+}
+
+/* Subtle Dark Grid */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 4rem 4rem;
 }
 
 /* ── Accessibility: Respect user's reduced-motion preference ── */
 @media (prefers-reduced-motion: reduce) {
-  /* Stop shimmer text gradient animation */
-  .shimmer-text {
+  .shimmer-platinum {
     animation: none;
-    background: linear-gradient(to right, #ffffff 30%, #c084fc 70%);
-    background-size: 100%;
-    background-clip: text;
+    background: #ffffff;
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
   }
 
-  /* Stop all CSS animations and transitions */
   *,
   *::before,
   *::after {
