@@ -31,8 +31,8 @@ const securityHeaders = [
       // next/font self-hosts fonts — no external font CDN needed
       "font-src 'self'",
       "img-src 'self' data: blob:",
-      // API calls: self, Sentry, Vercel vitals and PostHog EU ingestion/config
-      "connect-src 'self' *.sentry.io vitals.vercel-insights.com https://eu.i.posthog.com https://eu-assets.i.posthog.com",
+      // API calls: self, Vercel vitals and PostHog EU ingestion/config
+      "connect-src 'self' vitals.vercel-insights.com https://eu.i.posthog.com https://eu-assets.i.posthog.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
@@ -54,6 +54,23 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+  // 301 Permanent Redirects consolidating 59 old routes to high-converting root anchors
+  redirects: async () => [
+    { source: '/services/:path*', destination: '/fr#tarifs', permanent: true },
+    { source: '/:locale(fr|en)/services/:path*', destination: '/:locale#tarifs', permanent: true },
+    { source: '/methode', destination: '/fr#methode', permanent: true },
+    { source: '/:locale(fr|en)/methode', destination: '/:locale#methode', permanent: true },
+    { source: '/estimation', destination: '/fr#tarifs', permanent: true },
+    { source: '/:locale(fr|en)/estimation', destination: '/:locale#tarifs', permanent: true },
+    { source: '/a-propos', destination: '/fr#manifeste', permanent: true },
+    { source: '/:locale(fr|en)/a-propos', destination: '/:locale#manifeste', permanent: true },
+    { source: '/portfolio/:path*', destination: '/fr#projets', permanent: true },
+    { source: '/:locale(fr|en)/portfolio/:path*', destination: '/:locale#projets', permanent: true },
+    { source: '/contact', destination: '/fr#contact', permanent: true },
+    { source: '/:locale(fr|en)/contact', destination: '/:locale#contact', permanent: true },
+    { source: '/blog/:path*', destination: '/fr#projets', permanent: true },
+    { source: '/:locale(fr|en)/blog/:path*', destination: '/:locale#projets', permanent: true },
+  ],
 };
 
 export default withNextIntl(nextConfig);
