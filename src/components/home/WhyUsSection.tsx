@@ -9,8 +9,8 @@ export default function WhyUsSection({ locale = "fr" }: WhyUsSectionProps) {
 
   return (
     <section
-      id="pourquoi"
-      className="relative py-16 sm:py-24 lg:py-28 bg-[#fafafc] border-b border-black/[0.06] overflow-hidden"
+      id="engagement"
+      className="relative py-16 sm:py-24 lg:py-28 bg-[#fafafc] border-b border-black/[0.06] overflow-hidden scroll-mt-20"
     >
       <div className="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
         {/* ── 1. CARTOUCHE D'ORIGINE & D'ARTISANAT (STYLE DESIGNJOY) ── */}
