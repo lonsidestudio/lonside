@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
+import { siteConfig } from '@/lib/site-config';
 
-const BASE_URL = 'https://lonside.ai';
+const BASE_URL = siteConfig.siteUrl;
 const LOCALES = ['fr', 'en'];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -24,6 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           languages: {
             fr: `${BASE_URL}${path === '/' ? '/fr' : `/fr${path}`}`,
             en: `${BASE_URL}${path === '/' ? '/en' : `/en${path}`}`,
+            'x-default': `${BASE_URL}${path === '/' ? '/fr' : `/fr${path}`}`,
           },
         },
       };

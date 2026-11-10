@@ -1,0 +1,67 @@
+# Lonside Studio — Custom Web & Digital Product Engineering
+
+> Lonside is a high-velocity digital engineering studio specializing in fixed-price 14 and 30-day sprints for founders, startups, and SMBs. 100% source code ownership on private client GitHub, zero technical debt, guaranteed on-time delivery.
+
+## Studio Positioning & Model
+Lonside replaces traditional slow web agencies and risky freelance setups by delivering production-grade web applications with fixed scopes, fixed budgets, and guaranteed deadlines.
+
+- Website: https://lonside.ai
+- Primary Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, Supabase / PostgreSQL (RLS), Stripe Billing, Resend, PostHog.
+- Direct Contact: contact@lonside.ai
+- Founder & Lead Architect: Kevin T.
+
+---
+
+## Flagship Offers & Pricing
+
+### 1. Sprint Launch (14 Business Days)
+- Price: 6 900 € excl. VAT (Fixed price package • Zero budget creep)
+- Target: MVPs, first production release, SaaS launch, client portals.
+- Key Deliverables:
+  - Full-stack responsive web application (mobile-first).
+  - Secure authentication & user session management.
+  - Stripe payments & subscription customer portal.
+  - Essential third-party API and database integrations.
+  - 100% source code transferred to client's private GitHub repository.
+  - 30-day post-launch corrective warranty and support.
+
+### 2. Sprint Scale (30 Business Days)
+- Price: 13 900 € excl. VAT (Fixed price package • 2 milestones)
+- Target: Multi-role platforms, complex operational workflows, dispatch & data platforms.
+- Key Deliverables:
+  - Everything included in Sprint Launch.
+  - Multi-tenant and multi-role portals (e.g., Buyer, Seller, Manager, Admin).
+  - Automated business data processing and computation engines.
+  - Real-time notifications and background job orchestration.
+  - Rigorous automated test suite (Vitest / unit & integration).
+  - Architecture documentation & Loom video code walkthrough.
+  - 45-day post-launch warranty.
+
+### 3. Embedded Squad / Régie d'Immersion (Post-Launch Continuity)
+- Price: From 5 500 € / month (Flexible monthly allocation)
+- Target: Funded startups and scaling platforms requiring continuous engineering.
+- Integration: Senior engineer embedded directly in client Slack and GitHub routines with zero onboarding delay.
+
+---
+
+## Core Guarantees & Standards
+1. Guaranteed Delivery or Penalty: 10% discount refunded per 48 hours of studio delay.
+2. 100% Intellectual Property: All commits, schemas, and design components pushed directly to client GitHub. Zero proprietary lock-in.
+3. No Scope Creep: Fixed and mutually approved roadmap before line one of code is written.
+4. Day-1 Growth Stack: Pre-configured analytics, transactional emails, and Stripe billing.
+
+---
+
+## Featured Case Studies
+- Welqo (PropTech & Luxury Vacation Rental): Real-time multi-channel booking calendar, dynamic event pricing engine, eIDAS paperless mandate signing.
+- Weedin (EventTech & B2B Ticketing): High-conversion ticketing platform with dynamic seat allocation, fraud-proof QR code generation, and multi-tier access control.
+- Bely (Mobilité & Dispatch Temps Réel): High-velocity dispatch engine with sub-second driver matching and automated fleet telemetry.
+- Michi 道 (Supply Chain & Predictive Inventory Forecasting): Enterprise inventory forecasting pipeline computing multi-channel run-rates in under 1 second.
+
+---
+
+## Contact & Booking
+- Scoping Call (15 min): https://lonside.ai/fr#contact
+- Direct Email: contact@lonside.ai
+- Languages: French, English
+

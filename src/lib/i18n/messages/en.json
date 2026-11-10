@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "defaultTitle": "Lonside — High-Velocity Digital Engineering Studio | 14-Day Sprints",
+    "defaultTitle": "Lonside — Custom Web & Digital Product Studio in Fixed Sprints",
     "titleTemplate": "%s | Lonside Studio",
-    "description": "High-velocity software engineering studio. Fixed-price 14 and 30-day sprints, 100% intellectual property transfer on your private GitHub, zero technical debt. Next.js 16, TypeScript, Supabase, Python.",
-    "keywords": "high velocity software studio, MVP 14 day sprint, Next.js 16 engineering, full IP ownership, senior tech squad",
+    "description": "Custom web application and platform engineering in as little as 14 days. Guaranteed fixed scope, zero budget creep, and 100% source code ownership on your private GitHub.",
+    "keywords": "web development studio, custom web application, 14 day MVP sprint, production software, full IP ownership, senior tech squad",
     "mentionsLegales": {
       "title": "Legal Notice — Lonside Studio",
       "description": "Legal disclosures, company publisher and infrastructure hosting for Lonside engineering studio."
@@ -32,7 +32,7 @@
       "sections": [
         {
           "title": "Site Publisher",
-          "content": "<p><span class=\"text-white font-semibold\">Company Name:</span> Lonside Studio</p><p><span class=\"text-white font-semibold\">Status:</span> High-Velocity Digital Engineering Studio</p><p><span class=\"text-white font-semibold\">Headquarters:</span> France</p><p><span class=\"text-white font-semibold\">Direct Email:</span> contact@lonside.ai</p>"
+          "content": "<p><span class=\"text-black font-medium\">Company Name:</span> Lonside Studio</p><p><span class=\"text-black font-medium\">Status:</span> High-Velocity Digital Engineering Studio</p><p><span class=\"text-black font-medium\">Headquarters:</span> France</p><p><span class=\"text-black font-medium\">Direct Email:</span> contact@lonside.ai</p>"
         },
         {
           "title": "Infrastructure & Hosting",

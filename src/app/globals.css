@@ -1,50 +1,48 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #000000;
-  --color-foreground: #ffffff;
-  --color-canvas: #000000;
-  --color-surface: #0a0a0a;
-  --color-surface-elevated: #121212;
-  --color-surface-subtle: #18181b;
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-canvas: #ffffff;
+  --color-surface: #fafafc;
+  --color-surface-elevated: #f4f4f7;
   
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
-  --color-border-strong: rgba(255, 255, 255, 0.20);
+  --color-border-subtle: rgba(0, 0, 0, 0.06);
+  --color-border-medium: rgba(0, 0, 0, 0.12);
+  --color-border-strong: rgba(0, 0, 0, 0.25);
   
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #a1a1aa;
-  --color-text-muted: #71717a;
+  --color-text-primary: #000000;
+  --color-text-secondary: #4b4b53;
+  --color-text-muted: #82828e;
   
-  --color-signal-live: #10b981;
-  --color-signal-live-glow: rgba(16, 185, 129, 0.25);
+  --font-display: var(--font-display), 'Antonio', 'Oswald', -apple-system, sans-serif;
+  --font-sans: var(--font-sans), 'Inter', -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), 'Geist Mono', monospace;
   
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Inter Tight', 'Inter', -apple-system, sans-serif;
+  --animate-marquee: marquee 45s linear infinite;
+  --animate-pulse-slow: pulseSlow 8s ease-in-out infinite;
   
-  --animate-float: float 8s ease-in-out infinite;
-  --animate-marquee: marquee 35s linear infinite;
-  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
+
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 0.03; transform: scale(1); }
+    50% { opacity: 0.07; transform: scale(1.08); }
+  }
 }
 
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
+  --background: #ffffff;
+  --foreground: #000000;
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  background: #000000;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
   overflow-x: hidden;
   font-family: var(--font-sans);
   text-rendering: optimizeLegibility;
@@ -52,86 +50,50 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Scrollbar - Pure Minimalist Dark */
+/* Custom Minimalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.15);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.35);
 }
 
-/* Luxury Monochrome Cards & Panels */
-.luxury-card {
-  background: #0a0a0a;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease;
+/* High-Fashion Display Typography Utility */
+.font-display {
+  font-family: var(--font-display);
 }
 
-.luxury-card:hover {
-  border-color: rgba(255, 255, 255, 0.22);
-  background-color: #0e0e0e;
+/* Studio Light Cards & Tactile Borders (Pure Brutalist 1px Borders, Zero Fuzzy Drop Shadows) */
+.studio-card-light {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-/* Platinum Text Shimmer for High-End Focus */
-.shimmer-platinum {
-  background: linear-gradient(110deg, #ffffff 15%, #a1a1aa 45%, #ffffff 75%);
-  background-size: 250% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shinePlatinum 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+.studio-card-light:hover {
+  border-color: rgba(0, 0, 0, 0.8);
 }
 
-@keyframes shinePlatinum {
-  0% { background-position: 200% 0; }
-  100% { background-position: -50% 0; }
+/* Hairline Grid Accent */
+.hairline-grid {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 5rem 5rem;
 }
 
-/* Studio Pill Tag */
-.studio-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #a1a1aa;
-}
-
-/* Subtle Dark Grid */
-.bg-grid-pattern {
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 4rem 4rem;
-}
-
-/* ── Accessibility: Respect user's reduced-motion preference ── */
+/* ── Accessibility ── */
 @media (prefers-reduced-motion: reduce) {
-  .shimmer-platinum {
-    animation: none;
-    background: #ffffff;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
   *,
   *::before,
   *::after {

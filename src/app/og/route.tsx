@@ -5,16 +5,24 @@ export const runtime = 'edge';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const title = searchParams.get('title') || 'Design & Ingénierie Digitale Augmentés';
-  const description =
-    searchParams.get('description') ||
-    'Sites internet haut de gamme & applications sur-mesure par des experts augmentés par l\'IA.';
+  const locale = searchParams.get('locale') || 'fr';
+  const isEn = locale === 'en';
+
+  const defaultTitle = isEn
+    ? 'Lonside — Custom Web & Digital Product Studio'
+    : 'Lonside — Studio de Développement Web & Produits Digitaux';
+  const defaultDescription = isEn
+    ? 'Custom web applications and platforms in as little as 14 days. Fixed pricing, zero surprises, 100% source code ownership on GitHub.'
+    : 'Applications web et plateformes fiables dès 14 jours. Forfait ferme, zéro dépassement, cession totale GitHub.';
+
+  const title = searchParams.get('title') || defaultTitle;
+  const description = searchParams.get('description') || defaultDescription;
 
   return new ImageResponse(
     (
       <div
         style={{
-          background: '#050505',
+          background: '#000000',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -23,31 +31,20 @@ export async function GET(request: NextRequest) {
           justifyContent: 'flex-end',
           padding: '64px',
           position: 'relative',
-          fontFamily: 'system-ui, sans-serif',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
           overflow: 'hidden',
         }}
       >
-        {/* Purple glow */}
+        {/* Subtle monochrome ambient light */}
         <div
           style={{
             position: 'absolute',
-            top: '-100px',
-            right: '-100px',
-            width: '600px',
-            height: '600px',
+            top: '-150px',
+            right: '-150px',
+            width: '650px',
+            height: '650px',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%)',
-          }}
-        />
-        {/* Bottom gradient bar */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: '4px',
-            background: 'linear-gradient(to right, #7c3aed, #a855f7, #7c3aed)',
+            background: 'radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%)',
           }}
         />
 
@@ -55,18 +52,17 @@ export async function GET(request: NextRequest) {
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '48px' }}>
           <div
             style={{
-              background: 'rgba(124,58,237,0.15)',
-              border: '1px solid rgba(124,58,237,0.4)',
-              width: '52px',
-              height: '52px',
+              background: '#ffffff',
+              width: '48px',
+              height: '48px',
               borderRadius: '12px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               marginRight: '16px',
-              fontSize: '24px',
+              fontSize: '22px',
               fontWeight: '900',
-              color: '#7c3aed',
+              color: '#000000',
               fontFamily: 'monospace',
             }}
           >
@@ -74,7 +70,7 @@ export async function GET(request: NextRequest) {
           </div>
           <span style={{ fontSize: '28px', fontWeight: '800', color: '#ffffff', letterSpacing: '-0.02em' }}>
             lonside
-            <span style={{ color: '#7c3aed' }}>.</span>
+            <span style={{ color: '#71717a' }}>.</span>
           </span>
         </div>
 
@@ -82,11 +78,11 @@ export async function GET(request: NextRequest) {
         <div
           style={{
             color: '#ffffff',
-            fontSize: title.length > 50 ? '44px' : '54px',
+            fontSize: title.length > 50 ? '42px' : '52px',
             fontWeight: '700',
             lineHeight: '1.1',
             marginBottom: '20px',
-            maxWidth: '900px',
+            maxWidth: '920px',
             letterSpacing: '-0.02em',
           }}
         >
@@ -96,9 +92,9 @@ export async function GET(request: NextRequest) {
         {/* Description */}
         <div
           style={{
-            color: '#94a3b8',
+            color: '#a1a1aa',
             fontSize: '22px',
-            maxWidth: '800px',
+            maxWidth: '820px',
             lineHeight: '1.5',
           }}
         >

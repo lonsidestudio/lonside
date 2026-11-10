@@ -3,8 +3,9 @@ import { getMessages, setRequestLocale, getTranslations } from 'next-intl/server
 import { locales } from '@/lib/i18n/config';
 import CookieConsent from '@/components/layout/CookieConsent';
 import LocaleHtmlLang from '@/components/layout/LocaleHtmlLang';
+import { siteConfig } from '@/lib/site-config';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://lonside.ai';
+const SITE_URL = siteConfig.siteUrl;
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       url: SITE_URL,
       images: [
         {
-          url: '/og-image.png',
+          url: `${SITE_URL}/og?locale=${locale}`,
           width: 1200,
           height: 630,
           alt: t('defaultTitle'),
@@ -40,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       card: 'summary_large_image',
       title: t('defaultTitle'),
       description: t('description'),
-      images: ['/og-image.png'],
+      images: [`${SITE_URL}/og?locale=${locale}`],
     },
   };
 }

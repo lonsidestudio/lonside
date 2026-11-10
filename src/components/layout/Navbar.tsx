@@ -1,142 +1,150 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "@/lib/i18n/navigation";
-import { Menu, X, ArrowRight } from "lucide-react";
-
-function LocaleSwitcher() {
-  const locale = useLocale();
-  const pathname = usePathname();
-  const router = useRouter();
-  const alternate = locale === "fr" ? "en" : "fr";
-  const label = alternate === "fr" ? "Passer en français" : "Switch to English";
-
-  return (
-    <button
-      type="button"
-      onClick={() => router.replace(pathname as never, { locale: alternate })}
-      className="text-[11px] font-mono font-medium text-[#a1a1aa] hover:text-white border border-white/10 hover:border-white/25 px-2.5 py-1 rounded transition-colors cursor-pointer"
-      aria-label={label}
-    >
-      {alternate.toUpperCase()}
-    </button>
-  );
-}
+import { useLocale } from "next-intl";
+import { Link, usePathname } from "@/lib/i18n/navigation";
+import { Menu, X } from "lucide-react";
+import LocaleSwitcher from "@/components/layout/LocaleSwitcher";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const locale = useLocale();
+  const pathname = usePathname();
   const isEn = locale === "en";
+  const isHome = pathname === "/";
+
+  const getSectionHref = (id: string) => {
+    const hash = id.startsWith("#") ? id.slice(1) : id;
+    if (isHome) {
+      return `#${hash}`;
+    }
+    return locale === "en" ? `/en#${hash}` : `/#${hash}`;
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isHome) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      if (window.location.hash) {
+        window.history.pushState(null, "", window.location.pathname);
+      }
+    }
+  };
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 20);
+    const onScroll = () => setIsScrolled(window.scrollY > 15);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isMobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileOpen]);
+
   const navLinks = [
-    { label: isEn ? "Work" : "Projets", href: "#projets" },
-    { label: isEn ? "Method" : "Méthode", href: "#methode" },
-    { label: isEn ? "Pricing" : "Tarifs", href: "#tarifs" },
-    { label: isEn ? "F.A.Q." : "F.A.Q.", href: "#faq" },
+    { label: isEn ? "Work" : "Projets", id: "projets" },
+    { label: isEn ? "Method" : "Méthode", id: "methode" },
+    { label: isEn ? "Pricing" : "Tarifs", id: "tarifs" },
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? "py-3 bg-black/85 backdrop-blur-md border-b border-white/10"
-          : "py-5 bg-transparent border-b border-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Logo Studio */}
-          <a
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-white/95 backdrop-blur-md border-b border-black/[0.08] py-3 sm:py-3.5 shadow-[0_1px_3px_rgba(0,0,0,0.02)]"
+            : "bg-transparent border-b border-transparent py-4 sm:py-6"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
+          {/* Logo Minimaliste Haute Couture */}
+          <Link
             href="/"
+            onClick={handleLogoClick}
             aria-label="Lonside Studio"
-            className="flex items-center space-x-3 group"
+            className="flex items-center group py-2 cursor-pointer"
           >
-            <span className="text-base sm:text-lg font-black tracking-[0.25em] text-white uppercase group-hover:text-slate-300 transition-colors">
+            <span className="font-display text-lg sm:text-xl tracking-[0.24em] text-black uppercase group-hover:text-zinc-600 transition-colors">
               LONSIDE
             </span>
-            <div className="hidden sm:flex items-center space-x-1.5 px-2 py-0.5 rounded-full bg-white/5 border border-white/10">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse" />
-              <span className="text-[10px] font-mono tracking-wider text-[#a1a1aa] uppercase">
-                {isEn ? "Studio Active" : "Studio Disponible"}
-              </span>
-            </div>
-          </a>
+          </Link>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Navigation Centrale Épurée Desktop */}
+          <nav className="hidden md:flex items-center space-x-8 lg:space-x-10">
             {navLinks.map((link) => (
               <a
-                key={link.href}
-                href={link.href}
-                className="text-xs font-mono uppercase tracking-widest text-[#a1a1aa] hover:text-white transition-colors duration-200"
+                key={link.id}
+                href={getSectionHref(link.id)}
+                className="text-xs font-mono uppercase tracking-[0.18em] text-zinc-500 hover:text-black transition-colors duration-150 py-2 whitespace-nowrap"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Actions : Locale & CTA */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Actions Desktop */}
+          <div className="hidden md:flex items-center space-x-5 lg:space-x-6">
             <LocaleSwitcher />
             <a
-              href="#contact"
-              className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-white text-black font-semibold text-xs hover:bg-[#eaeaea] transition-all duration-200 cursor-pointer shadow-sm"
+              href={getSectionHref("contact")}
+              className="inline-flex items-center px-6 py-2.5 rounded-xl bg-black text-white text-xs font-mono uppercase tracking-[0.16em] hover:bg-zinc-800 transition-all cursor-pointer min-h-[40px] whitespace-nowrap"
             >
-              <span>{isEn ? "Launch Sprint" : "Lancer un sprint"}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>{isEn ? "Start a project" : "Démarrer un projet"}</span>
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center space-x-3">
+          {/* Navigation Mobile Actions */}
+          <div className="flex md:hidden items-center space-x-1">
             <LocaleSwitcher />
             <button
+              type="button"
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="p-2 rounded-lg border border-white/10 text-slate-300 hover:text-white hover:bg-white/5"
+              className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-xl text-zinc-800 hover:text-black transition-colors cursor-pointer"
               aria-label={isMobileOpen ? "Close menu" : "Open menu"}
             >
               {isMobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile Drawer */}
+      {/* Rideau Mobile Aéré Fond Blanc */}
       {isMobileOpen && (
-        <div className="md:hidden border-b border-white/10 bg-black/95 backdrop-blur-xl px-6 py-6 space-y-5 animate-in slide-in-from-top duration-200">
-          <nav className="flex flex-col space-y-4">
+        <div className="fixed inset-0 z-40 bg-white flex flex-col justify-between p-6 sm:p-8 pt-24 animate-in fade-in duration-200">
+          <nav className="flex flex-col space-y-6 pt-6">
+            <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-zinc-400 mb-2">
+              {isEn ? "NAVIGATION" : "NAVIGATION"}
+            </div>
             {navLinks.map((link) => (
               <a
-                key={link.href}
-                href={link.href}
+                key={link.id}
+                href={getSectionHref(link.id)}
                 onClick={() => setIsMobileOpen(false)}
-                className="text-sm font-mono uppercase tracking-widest text-slate-300 hover:text-white py-1"
+                className="font-display uppercase text-3xl sm:text-4xl text-black hover:text-zinc-600 transition-colors tracking-tight whitespace-nowrap"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          <div className="pt-4 border-t border-white/10">
+          <div className="pt-8 border-t border-black/[0.08] space-y-4">
             <a
-              href="#contact"
+              href={getSectionHref("contact")}
               onClick={() => setIsMobileOpen(false)}
-              className="w-full flex items-center justify-center space-x-2 px-5 py-3 rounded-lg bg-white text-black font-bold text-xs uppercase tracking-wider"
+              className="w-full flex items-center justify-center py-4 rounded-xl bg-black text-white font-mono text-xs uppercase tracking-[0.18em] min-h-[48px] whitespace-nowrap"
             >
-              <span>{isEn ? "Launch Sprint" : "Lancer un sprint"}</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>{isEn ? "Start a project (15 min)" : "Démarrer un projet (15 min)"}</span>
             </a>
+            <p className="text-center text-[11px] font-mono text-zinc-400">
+              © {new Date().getFullYear()} LONSIDE STUDIO
+            </p>
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

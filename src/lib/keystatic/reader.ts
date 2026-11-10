@@ -1,3 +1,6 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'yaml';
 import { createReader } from '@keystatic/core/reader';
 import keystaticConfig from '../../../keystatic.config';
 
@@ -114,25 +117,60 @@ export async function getProjectBySlug(
  * Récupère les questions/réponses de la FAQ ordonnées
  */
 export async function getFaqItems(locale: Locale = 'fr'): Promise<LocalizedFaqItem[]> {
-  const slugs = await reader.collections.faq.list();
+  const isEn = locale === 'en';
+  const faqDir = path.join(process.cwd(), 'content', 'faq');
+
+  let slugs: string[] = [];
+  try {
+    slugs = await reader.collections.faq.list();
+  } catch {
+    if (fs.existsSync(faqDir)) {
+      slugs = fs
+        .readdirSync(faqDir)
+        .filter((f) => f.endsWith('.yaml') || f.endsWith('.yml'))
+        .map((f) => f.replace(/\.ya?ml$/, ''));
+    }
+  }
+
   const rawItems = await Promise.all(
     slugs.map(async (slug) => {
-      const data = await reader.collections.faq.read(slug);
+      let data: Record<string, unknown> | null = null;
+      try {
+        data = (await reader.collections.faq.read(slug)) as Record<string, unknown> | null;
+      } catch {}
+
+      // Si data est incomplet ou que questionFr est nul (problème de slugField Keystatic)
+      if (!data || !data.questionFr) {
+        try {
+          const filePath = path.join(faqDir, `${slug}.yaml`);
+          if (fs.existsSync(filePath)) {
+            const rawContent = fs.readFileSync(filePath, 'utf8');
+            data = yaml.parse(rawContent) as Record<string, unknown>;
+          }
+        } catch {}
+      }
+
       return data ? { slug, data } : null;
     })
   );
 
-  const isEn = locale === 'en';
-
   return rawItems
     .filter((item): item is NonNullable<typeof item> => item !== null)
-    .map(({ slug, data }) => ({
-      slug,
-      order: Number(data.order) || 99,
-      question: (isEn ? data.questionEn : data.questionFr) || data.questionFr || '',
-      answer: (isEn ? data.answerEn : data.answerFr) || data.answerFr || '',
-      category: (data.category as LocalizedFaqItem['category']) || 'pricing',
-    }))
+    .map(({ slug, data }) => {
+      const qFr = String(data.questionFr || '');
+      const qEn = String(data.questionEn || '');
+      const aFr = String(data.answerFr || '');
+      const aEn = String(data.answerEn || '');
+
+      return {
+        slug,
+        order: Number(data.order) || 99,
+        question: (isEn ? qEn : qFr) || qFr || qEn || '',
+        answer: (isEn ? aEn : aFr) || aFr || aEn || '',
+        category: (data.category as LocalizedFaqItem['category']) || 'pricing',
+      };
+    })
+    .filter((item) => Boolean(item.question && item.answer))
     .sort((a, b) => a.order - b.order);
 }
 

@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { GitCommit, ShieldCheck, CheckCircle2, ArrowRight } from "lucide-react";
 
 interface MethodSectionProps {
   locale?: string;
@@ -13,111 +12,117 @@ export default function MethodSection({ locale = "fr" }: MethodSectionProps) {
   const phases = [
     {
       timing: isEn ? "Days 1 — 3" : "Jours 1 — 3",
-      title: isEn ? "Scalpel Scoping & System Architecture" : "Cadrage Scalpel & Architecture Système",
-      deliverable: isEn ? "Technical Specification & Validated UI Prototype" : "Spécification Technique & Maquette Validée",
+      title: isEn ? "Scoping & Interactive Wireframes" : "Cadrage & Maquettes Interactives",
+      deliverable: isEn ? "Validated Prototype & Architecture" : "Prototype Interactif & Socle Validés",
       bullets: isEn
         ? [
-            "Data model design (PostgreSQL / Supabase schemas)",
-            "System boundary definitions and API contracts",
-            "Figma high-fidelity responsive prototype",
-            "Signed acceptance criteria checklist",
+            "Clear definition of your core user journeys",
+            "Interactive high-fidelity clickable prototype",
+            "Data architecture and authentication boundaries",
+            "Firm scope lock-in with guaranteed delivery date",
           ]
         : [
-            "Conception du schéma de données relationnel et migrations",
-            "Définition stricte des contrats d'API et flux d'authentification",
-            "Maquette haute-fidélité validée sur Desktop et Mobile",
-            "Checklist de critères d'acceptation irrévocable",
+            "Définition précise des parcours utilisateurs essentiels",
+            "Prototype interactif haute fidélité testable sur mobile",
+            "Modélisation claire de la base de données et des accès",
+            "Validation conjointe du périmètre et date de fin scellée",
           ],
     },
     {
       timing: isEn ? "Days 4 — 11" : "Jours 4 — 11",
-      title: isEn ? "High-Velocity Engineering Sprint" : "Sprint Intensif d'Ingénierie Pure",
-      deliverable: isEn ? "Fully Functional Software on Staging Environment" : "Logiciel Fonctionnel sur Environnement Staging",
+      title: isEn ? "Active Engineering & Craft" : "Le Développement Actif",
+      deliverable: isEn ? "Live Staging Preview Environment" : "Environnement de Test Accessible en Direct",
       bullets: isEn
         ? [
-            "Next.js 16 App Router & strict TypeScript implementation",
-            "Backend pipelines, third-party APIs & webhooks",
-            "Automated test suites (unit + integration coverage > 80%)",
-            "Continuous branch preview deployments",
+            "Clean frontend and robust business workflows",
+            "Stripe payment setup and external API connections",
+            "Automated test suites ensuring zero regressions",
+            "Continuous live link to test features as they are built",
           ]
         : [
-            "Implémentation Next.js 16 et typage TypeScript strict à zéro compromis",
-            "Intégration des APIs tierces, paiements Stripe et webhooks fiables",
-            "Couverture de tests automatisés (unitaires & intégration > 80%)",
-            "Déploiements continus de prévisualisation à chaque commit",
+            "Développement soigné de l'interface et de la logique métier",
+            "Intégration fluide de Stripe et de vos outils externes",
+            "Batterie de tests automatisés pour éviter toute régression",
+            "Lien de prévisualisation actif pour tester au fil de l'eau",
           ],
     },
     {
       timing: isEn ? "Days 12 — 14" : "Jours 12 — 14",
-      title: isEn ? "Joint Acceptance, Security Audit & Handover" : "Recette Conjointe, Audit & Handover Pack",
-      deliverable: isEn ? "Production Launch + 30-Day Guarantee Activated" : "Mise en Production + Garantie Corrective 30 Jours",
+      title: isEn ? "Launch, Handover & Support" : "Mise en Ligne, Prise en Main & Suivi",
+      deliverable: isEn ? "Live Production + 30-Day Peace of Mind" : "Plateforme en Ligne + 30 Jours d'Assistance",
       bullets: isEn
         ? [
-            "Performance and SEO audit (Lighthouse scores > 95/100)",
-            "Complete source code transfer to your private Git repo",
-            "Comprehensive Loom video walkthrough and handover docs",
-            "30-day bug-fix SLA warranty automatically begins",
+            "Speed, accessibility, and security sanity checks",
+            "Complete source code transfer to your private GitHub",
+            "Personalized Loom video walkthrough of your codebase",
+            "30-day warranty: we remain by your side post-launch",
           ]
         : [
-            "Audit de sécurité et de performances (Lighthouse 100/100)",
-            "Transfert définitif de la propriété du code sur votre GitHub",
-            "Pack de livraison documenté et visite guidée vidéo (Loom)",
-            "Activation immédiate de la garantie corrective 30 jours sans frais",
+            "Vérifications complètes de fluidité, sécurité et responsive",
+            "Transfert intégral du code source sur votre propre GitHub",
+            "Visite guidée personnalisée en vidéo (Loom) de l'architecture",
+            "Garantie 30 jours : nous restons à vos côtés après la mise en ligne",
           ],
     },
   ];
 
   return (
-    <section id="methode" className="relative py-28 bg-[#000000] border-t border-white/10 scroll-mt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* En-tête */}
-        <div className="max-w-3xl mb-16">
-          <div className="studio-pill mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-white" />
-            <span>{isEn ? "The 14-Day Delivery Protocol" : "Le Protocole de Livraison 14 Jours"}</span>
+    <section id="methode" className="relative py-20 sm:py-24 lg:py-28 bg-white border-t border-black/[0.06] scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+        {/* En-tête Aéré & Noble */}
+        <div className="max-w-3xl mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.22em] text-zinc-400 uppercase mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-black" />
+            <span>{isEn ? "HOW WE WORK" : "NOTRE FAÇON DE FAIRE"}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white uppercase">
-            {isEn ? "Clockwork Precision. Zero Deviation." : "Une Précision d'Horlogerie Suisse."}
+          <h2 className="font-display uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight text-black leading-[1.08] font-normal">
+            {isEn ? (
+              <>From first conversation, <br /><span className="text-zinc-500">to live production.</span></>
+            ) : (
+              <>Du premier échange, <br /><span className="text-zinc-500">à la mise en ligne.</span></>
+            )}
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-[#a1a1aa] leading-relaxed">
+          <p className="mt-4 sm:mt-5 text-sm sm:text-base text-zinc-600 font-normal leading-relaxed">
             {isEn
-              ? "Each sprint runs on an immutable schedule. No delays, no scope creep, and zero unexpected surprises."
-              : "Chaque sprint suit une séquence immuable et documentée. Zéro dérive de périmètre, zéro mauvaise surprise."}
+              ? "No obscurity or sudden surprises. Every phase has a clear purpose, and you see your application come to life day after day."
+              : "Pas de jargon obscur ni de mauvaise surprise. Chaque étape a un objectif limpide, et vous suivez l'avancement de votre produit en direct."}
           </p>
         </div>
 
-        {/* Timeline des 3 Phases */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        {/* 3 Phases Précises (Non-cliquables, zéro hover) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {phases.map((phase, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between space-y-6"
+              className="p-6 sm:p-8 rounded-xl bg-zinc-50/40 border border-black/[0.08] flex flex-col justify-between space-y-6"
             >
               <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold px-2.5 py-1 rounded bg-white/10 text-white">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-[10px] sm:text-[11px] font-mono px-3 py-1 rounded-xl bg-black text-white uppercase tracking-wider font-medium whitespace-nowrap shrink-0">
                     {phase.timing}
                   </span>
-                  <span className="text-xs font-mono text-[#71717a]">Phase {idx + 1}</span>
+                  <span className="font-mono text-2xl sm:text-3xl text-zinc-400 font-medium whitespace-nowrap">
+                    0{idx + 1}
+                  </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-white tracking-tight leading-snug">
+                <h3 className="font-display uppercase text-lg sm:text-xl md:text-2xl text-black tracking-tight leading-snug font-medium">
                   {phase.title}
                 </h3>
 
-                <div className="p-3 rounded-lg bg-white/[0.02] border border-white/5">
-                  <span className="text-[10px] font-mono text-[#71717a] uppercase block">
-                    {isEn ? "Key Deliverable" : "Livrable Clé"}
+                <div className="p-3.5 rounded-lg bg-white border border-black/[0.06] space-y-1">
+                  <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest block whitespace-nowrap">
+                    {isEn ? "WHAT YOU RECEIVE" : "CE QUE VOUS RECEVEZ"}
                   </span>
-                  <span className="text-xs font-medium text-slate-200">
+                  <span className="text-xs sm:text-sm font-medium text-black block">
                     {phase.deliverable}
                   </span>
                 </div>
 
-                <ul className="space-y-2.5 pt-2">
+                <ul className="space-y-2 pt-1">
                   {phase.bullets.map((b, i) => (
-                    <li key={i} className="text-xs text-[#a1a1aa] flex items-start space-x-2">
-                      <span className="text-[#10b981] font-bold mt-0.5">•</span>
+                    <li key={i} className="text-xs sm:text-sm text-zinc-600 font-normal flex items-start space-x-2 leading-relaxed">
+                      <span className="text-black font-mono text-xs mt-0.5 shrink-0">/</span>
                       <span>{b}</span>
                     </li>
                   ))}
@@ -130,4 +135,3 @@ export default function MethodSection({ locale = "fr" }: MethodSectionProps) {
     </section>
   );
 }
-

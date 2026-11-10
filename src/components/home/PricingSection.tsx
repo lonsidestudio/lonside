@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Check, ArrowRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 interface PricingSectionProps {
   locale?: string;
@@ -12,139 +12,141 @@ export default function PricingSection({ locale = "fr" }: PricingSectionProps) {
 
   const tiers = [
     {
-      name: isEn ? "Sprint Launch" : "Sprint Launch",
-      tagline: isEn ? "SaaS & Web App MVP Ready to Monetize" : "MVP SaaS & Application Web Prêt à Encaisser",
+      name: "Sprint Launch",
+      tagline: isEn ? "Your first production version, ready for paying users" : "Votre première version en ligne, prête pour vos premiers clients",
       price: "6 900 €",
-      period: isEn ? "fixed price • 14 business days" : "forfait ferme • 14 jours ouvrés",
+      period: isEn ? "fixed package • 14 business days" : "forfait ferme • 14 jours ouvrés",
       popular: false,
       features: isEn
         ? [
-            "Full-stack Next.js 16 + Supabase / PostgreSQL architecture",
-            "Secure authentication & RBAC user roles",
-            "Stripe payment integration (subscriptions or one-off)",
-            "2 business workflow integrations (APIs, webhooks, CRM)",
-            "100% intellectual property transfer on your GitHub",
-            "30-day post-launch warranty with contractual SLA",
+            "Fast, responsive, and intuitive web application",
+            "Secure user accounts and authentication",
+            "Stripe payment integration ready to charge customers",
+            "Connections with your essential tools and APIs",
+            "100% source code ownership on your private GitHub",
+            "30-day post-launch warranty with dedicated support",
           ]
         : [
-            "Architecture full-stack Next.js 16 + Supabase / PostgreSQL",
-            "Authentification sécurisée & gestion des rôles RBAC",
-            "Intégration paiements Stripe (abonnements ou one-shot)",
-            "2 connecteurs de flux métier (APIs, webhooks, CRM)",
-            "Code source 100% cédé sur votre GitHub dès le jour 1",
-            "30 jours de garantie corrective avec SLA contractuel",
+            "Application web fluide, rapide et responsive sur mobile",
+            "Comptes utilisateurs et authentification sécurisée",
+            "Paiements Stripe configurés (abonnements ou achats uniques)",
+            "Connexion avec vos outils métiers et services essentiels",
+            "Code 100% à vous sur votre propre compte GitHub",
+            "30 jours d'assistance et garantie corrective inclus",
           ],
-      cta: isEn ? "Launch in 14 Days" : "Lancer mon Sprint 14j",
+      cta: isEn ? "Choose 14-day sprint" : "Choisir le sprint 14j",
     },
     {
-      name: isEn ? "Sprint Scale" : "Sprint Scale",
-      tagline: isEn ? "Complex Digital Platform & Business Engine" : "Plateforme Métier Complexe & Moteurs Avancés",
+      name: "Sprint Scale",
+      tagline: isEn ? "For multi-role platforms and advanced business workflows" : "Pour les plateformes multi-rôles et flux métier avancés",
       price: "13 900 €",
-      period: isEn ? "fixed price • 30 business days" : "forfait ferme • 30 jours ouvrés",
+      period: isEn ? "fixed package • 30 business days" : "forfait ferme • 30 jours ouvrés",
       popular: true,
       features: isEn
         ? [
             "Everything in Sprint Launch, plus:",
-            "Complex data pipelines & business algorithms (Python / FastAPI)",
-            "Multi-tenant dashboards & enterprise permission systems",
-            "Advanced background queues & event-driven architecture",
-            "Automated test suites (unit + integration coverage > 85%)",
-            "Complete Handover Pack: architecture docs & Loom videos",
+            "Multi-role user portals (e.g. buyer, vendor, admin)",
+            "Automated data workflows and intelligent calculations",
+            "Real-time event processing and notifications",
+            "Comprehensive test coverage ensuring total stability",
+            "Personalized Loom video walkthrough and architecture docs",
           ]
         : [
             "Tout le contenu du Sprint Launch, augmenté de :",
-            "Pipelines de données complexes & algorithmes métier (Python)",
-            "Tableaux de bord multi-rôles & administration granulaire",
-            "Système de files d'attente asynchrones (Redis / Background workers)",
-            "Suite de tests automatisés (couverture > 85%)",
-            "Pack Handover complet : documentation vivante et vidéos Loom",
+            "Espaces multi-rôles (ex: acheteur, vendeur, administrateur)",
+            "Calculs automatisés et traitement intelligent des données",
+            "Notifications en temps réel et flux d'automatisation",
+            "Tests rigoureux pour garantir une stabilité irréprochable",
+            "Visite guidée en vidéo (Loom) et documentation complète",
           ],
-      cta: isEn ? "Start Scale Sprint" : "Lancer mon Sprint 30j",
+      cta: isEn ? "Choose 30-day sprint" : "Choisir le sprint 30j",
     },
     {
-      name: isEn ? "Immersion Squad" : "Régie d'Immersion",
-      tagline: isEn ? "Senior Embedded Engineering Reinforcement" : "Renfort de Squad Senior en Immersion Totale",
+      name: isEn ? "Embedded Squad" : "Régie d'Immersion",
+      tagline: isEn ? "A senior engineer embedded directly alongside your team" : "Un ingénieur senior intégré directement à vos côtés",
       price: isEn ? "From 5 500 €" : "Dès 5 500 €",
       period: isEn ? "/ month • monthly flexibility" : "/ mois • flexibilité sans engagement",
       popular: false,
       features: isEn
         ? [
-            "Dedicated senior lead engineers (1 to 3 engineers)",
-            "Embedded directly into your Slack, GitHub & daily standups",
-            "Extreme feature velocity & technical debt elimination",
-            "Continuous deployment & live code reviews",
-            "5-day initial test trial: cancel anytime without penalty",
-            "Monthly adjustable allocation according to your roadmap",
+            "Dedicated senior engineer (1 to 3 engineers)",
+            "Direct collaboration in your Slack and daily routines",
+            "Rapid feature releases and continuous improvements",
+            "5-day initial trial: cancel anytime without penalty",
+            "Adjust your allocation each month as your roadmap evolves",
           ]
         : [
-            "Squad de 1 à 3 ingénieurs seniors dédiés",
-            "Intégration directe dans votre Slack, GitHub et rituels agiles",
-            "Vélocité de production maximale & élimination de la dette",
-            "Revue de code continue & déploiement continu",
-            "Semaine d'essai de 5 jours : résiliation libre sans pénalité",
-            "Ajustement mensuel du volume selon vos priorités roadmap",
+            "Ingénieur senior dédié (1 à 3 profils selon vos besoins)",
+            "Collaboration directe dans votre Slack et vos rituels",
+            "Sortie rapide de nouvelles fonctionnalités au quotidien",
+            "Semaine d'essai de 5 jours pour tester la collaboration",
+            "Ajustement libre du volume chaque mois selon vos priorités",
           ],
-      cta: isEn ? "Request Squad Scoping" : "Demander une Squad",
+      cta: isEn ? "Discuss squad setup" : "Échanger sur une squad",
     },
   ];
 
   return (
-    <section id="tarifs" className="relative py-28 bg-[#000000] border-t border-white/10 scroll-mt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* En-tête */}
-        <div className="max-w-3xl mb-16">
-          <div className="studio-pill mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-white" />
-            <span>{isEn ? "Transparent Fixed Pricing" : "Engagements & Tarifs Fermes"}</span>
+    <section id="tarifs" className="relative py-20 sm:py-24 lg:py-28 bg-white border-t border-black/[0.06] scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+        {/* En-tête Aéré & Noble */}
+        <div className="max-w-3xl mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.22em] text-zinc-400 uppercase mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-black" />
+            <span>{isEn ? "TRANSPARENT PRICING" : "FORFAITS TRANSPARENTS"}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white uppercase">
-            {isEn ? "Firm Deadlines. Zero Hidden Costs." : "Délais Fermes. Zéro Coût Masqué."}
+          <h2 className="font-display uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight text-black leading-[1.08] font-normal">
+            {isEn ? (
+              <>Fixed packages, <br /><span className="text-zinc-500">zero surprises.</span></>
+            ) : (
+              <>Des forfaits simples, <br /><span className="text-zinc-500">zéro mauvaise surprise.</span></>
+            )}
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-[#a1a1aa] leading-relaxed">
+          <p className="mt-4 sm:mt-5 text-sm sm:text-base text-zinc-600 font-normal leading-relaxed">
             {isEn
-              ? "Every engagement includes our contractual SLA, 30 days of warranty, and 100% intellectual property transfer."
-              : "Chaque formule inclut nos critères d'acceptation stricts, 30 jours de garantie corrective intégrale et le transfert 100% de propriété intellectuelle."}
+              ? "Every engagement includes our firm timeline, 30 days of post-launch assistance, and 100% intellectual property ownership."
+              : "Chaque formule comprend le cadrage complet, le développement soigné, la cession du code sur votre compte et un mois d'assistance sereine."}
           </p>
         </div>
 
-        {/* Grille des Offres */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        {/* Grille des Offres Haute Précision (rounded-xl, boutons rounded-full) */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`relative rounded-2xl bg-[#0a0a0a] border flex flex-col justify-between p-8 sm:p-10 transition-all ${
+              className={`relative rounded-xl bg-white border flex flex-col justify-between p-6 sm:p-8 ${
                 tier.popular
-                  ? "border-white/30 shadow-[0_0_30px_rgba(255,255,255,0.06)] bg-[#0d0d0d]"
-                  : "border-white/10 hover:border-white/20"
+                  ? "border-black/60 bg-zinc-50/30 shadow-[0_1px_8px_rgba(0,0,0,0.03)]"
+                  : "border-black/[0.08]"
               }`}
             >
               {tier.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-white text-black text-[10px] font-mono font-bold tracking-widest uppercase">
-                  {isEn ? "Most Demanded" : "Formule la Plus Demandée"}
+                <div className="absolute -top-3 left-6 px-3 py-1 rounded-xl bg-black text-white text-[9px] font-mono font-medium uppercase tracking-[0.16em] whitespace-nowrap">
+                  {isEn ? "RECOMMENDED" : "RECOMMANDÉ"}
                 </div>
               )}
 
               <div>
-                <div className="space-y-2 mb-8">
-                  <h3 className="text-xl font-bold text-white tracking-tight">{tier.name}</h3>
-                  <p className="text-xs text-[#a1a1aa] leading-relaxed min-h-[36px]">
+                <div className="space-y-1.5 mb-6">
+                  <h3 className="font-display uppercase text-lg sm:text-xl md:text-2xl text-black tracking-tight font-medium">{tier.name}</h3>
+                  <p className="text-xs sm:text-sm text-zinc-600 font-normal leading-relaxed min-h-[36px]">
                     {tier.tagline}
                   </p>
                 </div>
 
-                <div className="mb-8 pb-8 border-b border-white/10">
-                  <span className="text-3xl sm:text-4xl font-mono font-black text-white">
+                <div className="mb-6 pb-5 border-b border-black/[0.06]">
+                  <div className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-black tracking-tight whitespace-nowrap">
                     {tier.price}
-                  </span>
-                  <span className="text-xs font-mono text-[#71717a] block mt-1">
+                  </div>
+                  <span className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider block mt-1.5 whitespace-nowrap">
                     {tier.period}
                   </span>
                 </div>
 
-                <ul className="space-y-3.5 mb-8">
+                <ul className="space-y-2.5 mb-6">
                   {tier.features.map((feature, i) => (
-                    <li key={i} className="text-xs text-[#a1a1aa] flex items-start space-x-2.5">
-                      <span className="text-[#10b981] font-bold mt-0.5 shrink-0">✓</span>
+                    <li key={i} className="text-xs sm:text-sm text-zinc-700 font-normal flex items-start space-x-2 leading-relaxed">
+                      <span className="text-black font-mono text-xs mt-0.5 shrink-0">/</span>
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -154,14 +156,14 @@ export default function PricingSection({ locale = "fr" }: PricingSectionProps) {
               <div>
                 <a
                   href="#contact"
-                  className={`w-full py-3 px-5 rounded-lg text-xs font-bold font-mono uppercase tracking-wider flex items-center justify-center space-x-2 transition-all ${
+                  className={`w-full py-3.5 px-6 rounded-xl text-xs font-mono uppercase tracking-[0.14em] flex items-center justify-center space-x-2 transition-all duration-200 min-h-[46px] whitespace-nowrap cursor-pointer ${
                     tier.popular
-                      ? "bg-white text-black hover:bg-[#eaeaea] shadow-md"
-                      : "bg-white/5 text-white hover:bg-white/10 border border-white/10"
+                      ? "bg-black text-white hover:bg-zinc-800"
+                      : "bg-zinc-100 text-black hover:bg-zinc-200 border border-black/[0.08]"
                   }`}
                 >
-                  <span>{tier.cta}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <span className="whitespace-nowrap">{tier.cta}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
                 </a>
               </div>
             </div>
@@ -171,4 +173,3 @@ export default function PricingSection({ locale = "fr" }: PricingSectionProps) {
     </section>
   );
 }
-

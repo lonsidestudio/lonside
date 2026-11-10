@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "defaultTitle": "Lonside — Studio d'Ingénierie Digitale Haute Vélocité | Sprints 14 Jours",
+    "defaultTitle": "Lonside — Studio de Développement Web & Produits Digitaux en Sprints Fermes",
     "titleTemplate": "%s | Lonside Studio",
-    "description": "Studio d'ingénierie logicielle haute vélocité. Sprints fermes de 14 et 30 jours, 100% de cession de propriété intellectuelle sur votre GitHub, zéro dette technique. Next.js 16, TypeScript, Supabase, Python.",
-    "keywords": "studio ingénierie logicielle, agence web haute vélocité, sprint MVP 14 jours, développement Next.js 16, cession code source, régie tech senior",
+    "description": "Conception et développement d'applications web et plateformes sur-mesure dès 14 jours. Forfait ferme garanti, zéro surprise et 100% du code à vous sur votre propre GitHub.",
+    "keywords": "studio développement web, application web sur-mesure, sprint MVP 14 jours, développement Next.js, cession code source, régie tech senior",
     "mentionsLegales": {
       "title": "Mentions Légales — Lonside Studio",
       "description": "Informations légales, éditeur du site et hébergement du studio d'ingénierie Lonside."
@@ -32,7 +32,7 @@
       "sections": [
         {
           "title": "Éditeur du site",
-          "content": "<p><span class=\"text-white font-semibold\">Raison sociale :</span> Lonside Studio</p><p><span class=\"text-white font-semibold\">Statut :</span> Studio d'Ingénierie Digitale Haute Vélocité</p><p><span class=\"text-white font-semibold\">Siège social :</span> France</p><p><span class=\"text-white font-semibold\">Email direct :</span> contact@lonside.ai</p>"
+          "content": "<p><span class=\"text-black font-medium\">Raison sociale :</span> Lonside Studio</p><p><span class=\"text-black font-medium\">Statut :</span> Studio d'Ingénierie Digitale Haute Vélocité</p><p><span class=\"text-black font-medium\">Siège social :</span> France</p><p><span class=\"text-black font-medium\">Email direct :</span> contact@lonside.ai</p>"
         },
         {
           "title": "Hébergement & Infrastructure",

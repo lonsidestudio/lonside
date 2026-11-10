@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { X, ExternalLink, ShieldCheck, CheckCircle2, ArrowRight } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { X, ExternalLink, ArrowUpRight } from "lucide-react";
 import type { LocalizedProject } from "@/lib/keystatic/reader";
 
 interface DossierDrawerProps {
@@ -12,9 +12,33 @@ interface DossierDrawerProps {
 }
 
 export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" }: DossierDrawerProps) {
-  // Fermer avec Escape et verrouiller le scroll de l'arrière-plan
+  const [mounted, setMounted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeProject, setActiveProject] = useState<LocalizedProject | null>(project);
+
   useEffect(() => {
-    if (!isOpen) return;
+    if (isOpen && project) {
+      setActiveProject(project);
+      setMounted(true);
+      // Double rAF garantit le montage initial hors-écran avant d'animer l'entrée
+      const frame1 = requestAnimationFrame(() => {
+        const frame2 = requestAnimationFrame(() => {
+          setIsVisible(true);
+        });
+        return () => cancelAnimationFrame(frame2);
+      });
+      return () => cancelAnimationFrame(frame1);
+    } else if (!isOpen) {
+      setIsVisible(false);
+      const timer = setTimeout(() => {
+        setMounted(false);
+      }, 350); // Synchronisé avec la durée de transition
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen, project]);
+
+  useEffect(() => {
+    if (!mounted) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -27,9 +51,9 @@ export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" 
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isOpen, onClose]);
+  }, [mounted, onClose]);
 
-  if (!isOpen || !project) return null;
+  if (!mounted || !activeProject) return null;
 
   const isEn = locale === "en";
 
@@ -37,72 +61,91 @@ export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" 
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={`Dossier technique ${project.client}`}
-      className="fixed inset-0 z-50 flex justify-end"
+      aria-label={`Dossier ${activeProject.client}`}
+      className="fixed inset-0 z-50 flex justify-end overflow-hidden"
     >
-      {/* Backdrop sombre avec flou */}
+      {/* Arrière-plan sombre avec fondu progressif */}
       <div
         onClick={onClose}
-        className="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300"
+        aria-hidden="true"
+        className={`fixed inset-0 bg-black/40 backdrop-blur-xs transition-opacity duration-300 ease-out cursor-pointer ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
       />
 
-      {/* Panneau latéral coulissant */}
-      <div className="relative w-full max-w-2xl h-full bg-[#0a0a0a] border-l border-white/10 shadow-2xl flex flex-col z-10 overflow-hidden">
-        {/* En-tête fixe */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-white/10 bg-[#0e0e0e]/80 backdrop-blur-md">
-          <div className="flex items-center space-x-3">
-            <span className="inline-block w-2 h-2 rounded-full bg-[#10b981]" />
+      {/* Panneau latéral : SANS radius gauche (arête droite nette), glissement dynamique */}
+      <div
+        className={`relative w-full max-w-full sm:max-w-lg md:max-w-xl h-full bg-white rounded-none border-l border-black/[0.12] flex flex-col z-10 overflow-hidden shadow-2xl transform transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          isVisible ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Header Sobre & Précis */}
+        <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-black/[0.06] bg-white/95 backdrop-blur-md shrink-0">
+          <div className="flex items-center space-x-2.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-black shrink-0" />
             <div>
-              <p className="text-[10px] font-mono tracking-widest text-[#a1a1aa] uppercase">
-                {project.industry} • {project.deliveryDays} {isEn ? "Days Sprint" : "Jours Ouvrés"}
+              <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
+                {activeProject.industry} • {activeProject.deliveryDays} {isEn ? "days" : "jours"}
               </p>
-              <h2 className="text-lg font-bold text-white tracking-tight">{project.client}</h2>
+              <h2 className="text-base font-medium text-black tracking-tight">{activeProject.client}</h2>
             </div>
           </div>
 
-          <button
-            onClick={onClose}
-            className="p-2 rounded-full border border-white/10 text-slate-400 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-200 cursor-pointer"
-            aria-label={isEn ? "Close drawer" : "Fermer le dossier"}
-          >
-            <X className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-2">
+            {activeProject.liveUrl && (
+              <a
+                href={activeProject.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-black text-white hover:bg-zinc-800 text-[11px] font-mono transition-colors min-h-[32px] whitespace-nowrap"
+                title={isEn ? "Visit client website" : "Visiter le site en ligne"}
+              >
+                <span className="whitespace-nowrap">{isEn ? "Live Site" : "Site en ligne"}</span>
+                <ExternalLink className="w-3 h-3 shrink-0" />
+              </a>
+            )}
+            <button
+              type="button"
+              onClick={onClose}
+              className="min-h-[36px] min-w-[36px] inline-flex items-center justify-center rounded-xl text-zinc-500 hover:text-black hover:bg-zinc-100 transition-colors cursor-pointer"
+              aria-label={isEn ? "Close drawer" : "Fermer le dossier"}
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
         </div>
 
-        {/* Corps défilable */}
-        <div className="flex-1 overflow-y-auto px-6 py-8 space-y-10 text-sm">
-          {/* Accroche & Note de cadrage */}
-          <section className="space-y-4">
-            <h3 className="text-xl font-semibold text-white leading-snug">
-              {project.headline}
+        {/* Content Aéré */}
+        <div className="flex-1 overflow-y-auto px-5 sm:px-6 py-6 space-y-6 text-sm">
+          {/* Titre & Résumé */}
+          <section className="space-y-2.5">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-light text-black leading-snug">
+              {activeProject.headline}
             </h3>
-            {project.studioNote && (
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/10 text-[#a1a1aa] text-xs leading-relaxed space-y-1">
-                <p className="font-mono text-[10px] uppercase text-white/50 tracking-wider">
-                  {isEn ? "Studio Analysis Note" : "Note d'arbitrage Studio"}
-                </p>
-                <p>{project.studioNote}</p>
-              </div>
+            {activeProject.studioNote && (
+              <p className="text-xs text-zinc-600 font-normal leading-relaxed border-l-2 border-black pl-3 py-1 bg-zinc-50 rounded-r-md">
+                {activeProject.studioNote}
+              </p>
             )}
           </section>
 
-          {/* Grille de métriques vérifiées */}
-          {project.metrics && project.metrics.length > 0 && (
-            <section className="space-y-3">
-              <h4 className="text-xs font-mono uppercase tracking-widest text-[#a1a1aa]">
-                {isEn ? "Audited Performance & Impact" : "Impact & Métriques Contrôlées"}
+          {/* Metrics Chiffrées Concrètes (rounded-lg) */}
+          {activeProject.metrics && activeProject.metrics.length > 0 && (
+            <section className="space-y-2.5">
+              <h4 className="text-[11px] font-mono uppercase tracking-wider text-zinc-500">
+                {isEn ? "Key Results" : "Résultats Obtenus"}
               </h4>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {project.metrics.map((m, idx) => (
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
+                {activeProject.metrics.map((m, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl bg-[#111111] border border-white/5 flex flex-col justify-between"
+                    className="p-3 rounded-lg bg-zinc-50/60 border border-black/[0.06] flex flex-col justify-between"
                   >
-                    <span className="text-[11px] text-[#71717a] font-medium">{m.label}</span>
-                    <div className="mt-2">
-                      <span className="text-xl font-bold font-mono text-white">{m.value}</span>
+                    <span className="text-[10px] sm:text-[11px] text-zinc-500 font-mono">{m.label}</span>
+                    <div className="mt-1.5">
+                      <span className="text-base sm:text-xl font-mono font-medium text-black">{m.value}</span>
                       {m.delta && (
-                        <span className="block text-[10px] font-mono text-[#10b981] mt-0.5">
+                        <span className="block text-[10px] font-mono text-zinc-600 mt-0.5">
                           {m.delta}
                         </span>
                       )}
@@ -113,152 +156,69 @@ export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" 
             </section>
           )}
 
-          {/* Défi vs Résolution */}
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-5 rounded-xl bg-[#111111] border border-white/5 space-y-2">
-              <p className="text-[10px] font-mono uppercase tracking-wider text-red-400">
-                {isEn ? "The Core Challenge" : "Le Défi Initial"}
+          {/* Défi & Réalisation Concrète (rounded-lg) */}
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3">
+            <div className="p-3.5 sm:p-4 rounded-lg bg-zinc-50/60 border border-black/[0.04] space-y-1.5">
+              <p className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">
+                {isEn ? "The Context & Need" : "Le Contexte & Le Besoin"}
               </p>
-              <p className="text-xs text-[#a1a1aa] leading-relaxed">{project.challenge}</p>
+              <p className="text-xs sm:text-sm text-zinc-700 font-normal leading-relaxed">{activeProject.challenge}</p>
             </div>
-            <div className="p-5 rounded-xl bg-[#111111] border border-white/5 space-y-2">
-              <p className="text-[10px] font-mono uppercase tracking-wider text-[#10b981]">
-                {isEn ? "Lonside Solution" : "La Réponse Lonside"}
+            <div className="p-3.5 sm:p-4 rounded-lg bg-zinc-50/60 border border-black/[0.04] space-y-1.5">
+              <p className="text-[10px] font-mono uppercase tracking-wider text-black font-semibold">
+                {isEn ? "What We Delivered" : "Ce Que Nous Avons Livré"}
               </p>
-              <p className="text-xs text-[#a1a1aa] leading-relaxed">{project.solution}</p>
+              <p className="text-xs sm:text-sm text-zinc-900 font-normal leading-relaxed">{activeProject.solution}</p>
             </div>
           </section>
 
-          {/* Contraintes & Décisions d'ingénierie */}
-          {project.constraints && project.constraints.length > 0 && (
-            <section className="space-y-4">
-              <h4 className="text-xs font-mono uppercase tracking-widest text-[#a1a1aa]">
-                {isEn ? "Engineering Constraints & Decisions" : "Contraintes Métier & Décisions d'Ingénierie"}
-              </h4>
-              <div className="space-y-3">
-                {project.constraints.map((c, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-xl bg-[#0e0e0e] border border-white/5 space-y-2"
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-white">{c.title}</span>
-                      {c.badge && (
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-[#a1a1aa]">
-                          {c.badge}
-                        </span>
-                      )}
-                    </div>
-                    {c.risk && (
-                      <p className="text-[11px] text-[#71717a]">
-                        <strong className="text-slate-400">{isEn ? "Risk:" : "Risque :"}</strong> {c.risk}
-                      </p>
-                    )}
-                    {c.resolution && (
-                      <p className="text-[11px] text-[#a1a1aa]">
-                        <strong className="text-white">{isEn ? "Arbitration:" : "Arbitrage :"}</strong> {c.resolution}
-                      </p>
-                    )}
-                  </div>
-                ))}
+          {/* Témoignage Client Authentique (rounded-lg) */}
+          {(activeProject.testimonialQuote || activeProject.clientFeedback) && (
+            <section className="p-4 sm:p-5 rounded-lg bg-zinc-50/60 border border-black/[0.06] space-y-2.5">
+              <div className="inline-flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-zinc-400">
+                <span>{isEn ? "CLIENT FEEDBACK" : "RETOUR DU CLIENT"}</span>
               </div>
-            </section>
-          )}
-
-          {/* Stack Technique & Services */}
-          <section className="space-y-4">
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#a1a1aa]">
-              {isEn ? "Delivered Stack & Services" : "Socle Technique & Services Livrés"}
-            </h4>
-            <div className="flex flex-wrap gap-2">
-              {project.techStack.map((tech, idx) => (
-                <span
-                  key={idx}
-                  className="px-3 py-1 text-xs font-mono rounded-lg bg-white/5 border border-white/10 text-slate-300"
-                >
-                  {tech}
-                </span>
-              ))}
-              {project.services.map((svc, idx) => (
-                <span
-                  key={`svc-${idx}`}
-                  className="px-3 py-1 text-xs font-mono rounded-lg bg-white/[0.02] border border-white/5 text-[#71717a]"
-                >
-                  {svc}
-                </span>
-              ))}
-            </div>
-            {project.architectureSummary && (
-              <p className="text-xs text-[#71717a] leading-relaxed italic">
-                {project.architectureSummary}
+              <p className="text-xs sm:text-sm italic text-zinc-800 leading-relaxed font-normal">
+                &ldquo;{activeProject.testimonialQuote || activeProject.clientFeedback}&rdquo;
               </p>
-            )}
-          </section>
-
-          {/* Chronologie du Sprint */}
-          {project.process && project.process.length > 0 && (
-            <section className="space-y-4">
-              <h4 className="text-xs font-mono uppercase tracking-widest text-[#a1a1aa]">
-                {isEn ? "Sprint Cadence & Delivery Process" : "Cadence & Déroulement du Sprint"}
-              </h4>
-              <div className="border-l border-white/10 pl-4 space-y-4">
-                {project.process.map((step, idx) => (
-                  <div key={idx} className="relative space-y-1">
-                    <span className="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-white/30 border-2 border-[#0a0a0a]" />
-                    <div className="flex items-center space-x-2">
-                      <span className="text-[11px] font-mono font-bold text-white">{step.day}</span>
-                      <span className="text-[10px] font-mono text-[#71717a]">• {step.actor}</span>
-                    </div>
-                    <p className="text-xs text-[#a1a1aa] leading-relaxed">{step.action}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Témoignage client */}
-          {project.testimonialQuote && (
-            <section className="p-5 rounded-xl bg-white/[0.02] border border-white/10 space-y-3">
-              <p className="text-xs italic text-slate-200 leading-relaxed">
-                "{project.testimonialQuote}"
-              </p>
-              <div>
-                <p className="text-xs font-bold text-white">{project.testimonialAuthor}</p>
-                <p className="text-[10px] text-[#71717a] font-mono">{project.testimonialRole}</p>
-              </div>
+              {activeProject.testimonialAuthor && (
+                <div className="pt-2 border-t border-black/[0.06]">
+                  <p className="text-xs font-semibold text-black">{activeProject.testimonialAuthor}</p>
+                  <p className="text-[10px] text-zinc-500 font-mono">{activeProject.testimonialRole}</p>
+                </div>
+              )}
             </section>
           )}
         </div>
 
-        {/* Pied de page avec CTA */}
-        <div className="p-6 border-t border-white/10 bg-[#0e0e0e] flex items-center justify-between gap-4">
-          {project.liveUrl ? (
+        {/* Footer avec boutons arrondis (rounded-xl) */}
+        <div className="p-4 sm:p-5 border-t border-black/[0.06] bg-zinc-50 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 shrink-0">
+          {activeProject.liveUrl ? (
             <a
-              href={project.liveUrl}
+              href={activeProject.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 text-xs font-mono text-[#a1a1aa] hover:text-white transition-colors"
+              className="inline-flex items-center justify-center space-x-1.5 px-4 py-2.5 rounded-xl border border-black/[0.12] hover:border-black text-xs font-mono text-black transition-colors font-medium min-h-[42px] whitespace-nowrap"
             >
-              <span>{isEn ? "Live Demo" : "Voir en production"}</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <span className="whitespace-nowrap">{isEn ? "Visit Live Site" : "Visiter le site client"}</span>
+              <ExternalLink className="w-3.5 h-3.5 shrink-0" />
             </a>
           ) : (
-            <span className="text-[10px] font-mono text-[#71717a]">
-              {isEn ? "Proprietary Architecture" : "Architecture Déployée Sous NDA"}
+            <span className="text-[10px] font-mono text-zinc-500 text-center sm:text-left py-1 whitespace-nowrap">
+              {isEn ? "Private platform" : "Plateforme privée"}
             </span>
           )}
 
           <a
             href="#contact"
             onClick={onClose}
-            className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-lg bg-white text-black font-semibold text-xs hover:bg-[#eaeaea] transition-all cursor-pointer shadow-lg"
+            className="inline-flex items-center justify-center space-x-1.5 px-5 py-2.5 rounded-xl bg-black text-white font-medium text-xs hover:bg-zinc-800 transition-all cursor-pointer min-h-[42px] whitespace-nowrap"
           >
-            <span>{isEn ? "Book Similar Sprint" : "Lancer un sprint similaire"}</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span className="whitespace-nowrap">{isEn ? "Discuss a Similar Project" : "Échanger sur votre projet"}</span>
+            <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
           </a>
         </div>
       </div>
     </div>
   );
 }
-

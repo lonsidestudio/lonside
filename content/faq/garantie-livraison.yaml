@@ -2,6 +2,5 @@ order: 4
 questionFr: "Comment fonctionne la garantie de livraison et de conformité ?"
 questionEn: "How does the delivery and conformity guarantee work?"
 answerFr: "Chaque sprint fait l'objet d'un contrat de niveau de service (SLA) avec critères d'acceptation formalisés. À la livraison finale, vous bénéficiez de 30 jours calendaires de garantie corrective intégrale sans frais additionnels pour corriger toute anomalie par rapport au cahier des charges initial. Si un retard imputable au studio survenait, des pénalités journalières contractuelles s'appliquent immédiatement."
-answerEn: "Every sprint is bound by a strict Service Level Agreement (SLA) with unambiguous acceptance criteria. Upon final delivery, you receive 30 calendar days of comprehensive bug-fix warranty at zero extra charge. In the unlikely event of an agency-caused delay, contractually defined daily penalties apply immediately."
+answerEn: "Every sprint is bound by a strict Service Level Agreement (SLA) with unambiguous acceptance criteria. Upon final delivery, you receive 30 calendar days of comprehensive bug-fix warranty at zero extra charge. In the unlikely event of a studio-caused delay, contractually defined daily penalties apply immediately."
 category: "guarantee"
-

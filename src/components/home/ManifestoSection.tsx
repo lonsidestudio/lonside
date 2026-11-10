@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { ShieldCheck, Cpu, Terminal, ArrowRight, XCircle, CheckCircle } from "lucide-react";
 
 interface ManifestoSectionProps {
   locale?: string;
@@ -10,111 +9,81 @@ interface ManifestoSectionProps {
 export default function ManifestoSection({ locale = "fr" }: ManifestoSectionProps) {
   const isEn = locale === "en";
 
-  const comparison = [
-    {
-      agency: isEn ? "Hourly / daily billing (TJM) that rewards slowness" : "Facturation au TJM qui récompense la lenteur et les dépassements",
-      lonside: isEn ? "Fixed-price, guaranteed delivery deadlines (14d or 30d)" : "Forfait ferme, date de livraison garantie (14j ou 30j ouvrés)",
-    },
-    {
-      agency: isEn ? "Junior developers handed off after scoping by seniors" : "Stagiaires et juniors non supervisés affectés en coulisses",
-      lonside: isEn ? "100% senior lead engineers with top-tier architecture experience" : "100% d'ingénieurs seniors rompus aux architectures critiques",
-    },
-    {
-      agency: isEn ? "Proprietary CMS locks, ongoing monthly agency fees" : "Dette technique masquée, CMS propriétaire et rentes captif",
-      lonside: isEn ? "100% intellectual property transfer to your private Git repo" : "Cession intégrale 100% de la propriété intellectuelle sur votre Git",
-    },
-    {
-      agency: isEn ? "Opaque progress, delayed updates, 6-month timelines" : "Manque de visibilité, tunnels de 6 mois sans démo concrète",
-      lonside: isEn ? "Daily commits, preview branch deploys, joint sprint reviews" : "Commits quotidiens, environnements de prévisualisation continus",
-    },
-  ];
-
-  const pillars = [
+  const commitments = [
     {
       num: "01",
-      title: isEn ? "Vectorized & Modern Architecture" : "Architecture Vectorisée & Next.js 16",
+      title: isEn ? "A promise kept on deadlines and budget" : "La parole tenue sur les délais et le prix",
+      subtitle: isEn ? "Fixed scope • Zero hidden fees" : "Forfait ferme • Zéro surcoût surprise",
       desc: isEn
-        ? "Next.js 16 (App Router, Turbopack, React Server Components), PostgreSQL / Supabase, vectorized Python. Zero unnecessary abstractions."
-        : "Next.js 16 (App Router, Turbopack, React Server Components), PostgreSQL / Supabase et Python vectorisé. Zéro surcouche inutile.",
+        ? "Before writing a single line of code, we align together on what truly moves the needle for your business. Once defined, our commitment is absolute: the price does not move by a cent, and the launch date is set in stone. You always know exactly where you are heading."
+        : "Avant de poser la première ligne de code, nous cadrons ensemble ce qui compte réellement pour votre entreprise. Une fois le périmètre validé, notre engagement est total : le prix ne bouge pas d'un centime, et la date de livraison est scellée. Vous savez exactement où vous allez.",
     },
     {
       num: "02",
-      title: isEn ? "Bank-Grade Security & Zero Data Retention" : "Sécurité Bancaire & Zero Data Retention",
+      title: isEn ? "Code that belongs 100% to you, from day one" : "Un code 100% à vous, sans aucune captivité",
+      subtitle: isEn ? "Your GitHub • Full intellectual property" : "Votre compte GitHub • Cession totale",
       desc: isEn
-        ? "Enterprise AI configurations with strict Zero Data Retention policies. End-to-end secret encryption, strict RBAC, OWASP compliance."
-        : "Accélérateurs IA d'entreprise certifiés Zero Data Retention (ZDR). Chiffrement strict des secrets, rôles RBAC étanches et conformité OWASP.",
+        ? "Every commit, database schema, and design component lives directly on your private repository. You are never trapped by proprietary templates or forced subscriptions. You stay completely free to scale with us or hand over to your own team whenever you wish."
+        : "Chaque ligne de code, chaque schéma de base de données et chaque composant d'interface sont poussés directement sur votre propre compte GitHub. Vous n'êtes jamais captif d'un outil propriétaire ni d'un abonnement forcé. Vous restez libre de grandir avec nous ou en totale autonomie.",
     },
     {
       num: "03",
-      title: isEn ? "Absolute IP Ownership" : "Cession Totale de Propriété Intellectuelle",
+      title: isEn ? "Crafted with care, built for real customers" : "Le soin de l'artisan, prêt pour la vraie vie",
+      subtitle: isEn ? "Automated tests • 30-day warranty" : "Tests rigoureux • Garantie 30 jours",
       desc: isEn
-        ? "From the very first commit, all repositories, schemas, and assets are transferred to your organization. Complete freedom, zero vendor lock-in."
-        : "Dès le premier commit, la totalité du code source, des migrations et des actifs vous appartient. Zéro redevance, liberté totale.",
+        ? "We genuinely care about the quality of what we build. Your application is not a fragile prototype: it arrives thoroughly tested, documented, secured, and ready to accept real payments and users. If anything requires fine-tuning, our 30-day warranty has your back."
+        : "Nous aimons sincèrement ce que nous fabriquons. Votre application n'est pas une maquette bancale : elle arrive testée, fluide, documentée, prête à accueillir de vrais utilisateurs et à encaisser des paiements. Et si le moindre ajustement est nécessaire, notre garantie 30 jours prend le relais sans frais.",
     },
   ];
 
   return (
-    <section id="manifeste" className="relative py-28 bg-[#000000] border-t border-white/10 scroll-mt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* En-tête */}
-        <div className="max-w-3xl mb-16">
-          <div className="studio-pill mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-white" />
-            <span>{isEn ? "The Anti-Agency Manifesto" : "Le Manifeste Anti-Agence"}</span>
+    <section id="manifeste" className="relative py-20 sm:py-24 lg:py-28 bg-white border-t border-black/[0.06] scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+        {/* En-tête Chaleureux & Noble */}
+        <div className="max-w-3xl mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.22em] text-zinc-400 uppercase mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-black" />
+            <span>{isEn ? "THE STUDIO PHILOSOPHY" : "NOTRE VISION D'ATELIER"}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white uppercase">
-            {isEn ? "The Old Agency Model Is Broken." : "Le Modèle des Agences Classiques Est Mort."}
+          <h2 className="font-display uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight text-black leading-[1.08] font-normal">
+            {isEn ? (
+              <>Building software, <br /><span className="text-zinc-500">grounded in trust.</span></>
+            ) : (
+              <>Créer du logiciel, <br /><span className="text-zinc-500">dans la confiance.</span></>
+            )}
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-[#a1a1aa] leading-relaxed">
+          <p className="mt-4 sm:mt-5 text-sm sm:text-base text-zinc-600 font-normal leading-relaxed">
             {isEn
-              ? "We rebuilt software engineering services from first principles: no hourly fluff, no bloated meetings, just relentless execution."
-              : "Nous avons repensé l'ingénierie logicielle depuis les premiers principes : fini les devis gonflés, les réunions sans fin et les dépassements chroniques."}
+              ? "Developing a great product should be exciting and clear, not an anxious tunnel of vague estimates and slipping schedules. We built Lonside around three simple, uncompromising commitments."
+              : "Lancer un nouveau produit demande du courage et de l'énergie. Travailler avec nous doit être une expérience stimulante et limpide, pas un tunnel anxiogène de devis flous et de retards répétés. Nous avons fondé Lonside sur trois engagements simples."}
           </p>
         </div>
 
-        {/* Tableau Comparatif Brutaliste */}
-        <div className="rounded-2xl border border-white/10 bg-[#0a0a0a] overflow-hidden mb-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 border-b border-white/10">
-            <div className="p-6 bg-red-950/20 border-b md:border-b-0 md:border-r border-white/10 flex items-center space-x-3">
-              <XCircle className="w-5 h-5 text-red-400 shrink-0" />
-              <h3 className="text-sm font-bold uppercase tracking-wider text-red-200">
-                {isEn ? "Traditional Digital Agencies" : "L'Agence Digitale Traditionnelle"}
-              </h3>
-            </div>
-            <div className="p-6 bg-emerald-950/20 flex items-center space-x-3">
-              <CheckCircle className="w-5 h-5 text-[#10b981] shrink-0" />
-              <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-200">
-                {isEn ? "Lonside High-Velocity Studio" : "Le Studio Commando Lonside"}
-              </h3>
-            </div>
-          </div>
-
-          <div className="divide-y divide-white/5">
-            {comparison.map((item, idx) => (
-              <div key={idx} className="grid grid-cols-1 md:grid-cols-2 text-xs sm:text-sm">
-                <div className="p-6 text-[#71717a] md:border-r border-white/5 flex items-start space-x-3">
-                  <span className="text-red-400 font-mono mt-0.5">✕</span>
-                  <span>{item.agency}</span>
-                </div>
-                <div className="p-6 text-white font-medium bg-white/[0.01] flex items-start space-x-3">
-                  <span className="text-[#10b981] font-mono mt-0.5">✓</span>
-                  <span>{item.lonside}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* 3 Piliers d'Excellence */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {pillars.map((pillar) => (
+        {/* 3 Engagements Précis (Non-cliquables, zéro hover) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+          {commitments.map((item) => (
             <div
-              key={pillar.num}
-              className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/10 space-y-4 hover:border-white/20 transition-colors"
+              key={item.num}
+              className="p-6 sm:p-8 rounded-xl bg-zinc-50/40 border border-black/[0.08] flex flex-col justify-between space-y-6"
             >
-              <span className="text-3xl font-mono font-black text-white/30">{pillar.num}</span>
-              <h4 className="text-lg font-bold text-white tracking-tight">{pillar.title}</h4>
-              <p className="text-xs text-[#a1a1aa] leading-relaxed">{pillar.desc}</p>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between border-b border-black/[0.06] pb-3.5 gap-2">
+                  <span className="font-mono text-2xl sm:text-3xl text-zinc-400 font-medium whitespace-nowrap">
+                    {item.num}
+                  </span>
+                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider whitespace-nowrap">
+                    {item.subtitle}
+                  </span>
+                </div>
+
+                <h3 className="font-display uppercase text-lg sm:text-xl md:text-2xl text-black tracking-tight leading-snug font-medium">
+                  {item.title}
+                </h3>
+
+                <p className="text-sm sm:text-base text-zinc-600 font-normal leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -122,4 +91,3 @@ export default function ManifestoSection({ locale = "fr" }: ManifestoSectionProp
     </section>
   );
 }
-

@@ -1,7 +1,6 @@
 order: 1
-questionFr: "Pourquoi des prix fermes et des délais fixes (14j ou 30j) plutôt qu'un TJM indéterminé ?"
-questionEn: "Why fixed prices and firm delivery deadlines (14d or 30d) instead of open-ended daily billing?"
-answerFr: "Le modèle d'agence traditionnel au TJM incite à la lenteur et aux dépassements de budget. Chez Lonside, nous inversons la responsabilité : nous définissons un périmètre clair en amont, nous nous engageons sur un prix ferme et une date de livraison exacte à 14 ou 30 jours ouvrés. Aucun dépassement possible, aucun coût masqué."
-answerEn: "Traditional daily billing agencies are incentivized to stretch timelines and inflate budgets. At Lonside, we flip the equation: we lock down a precise scope upfront, commit to a firm fixed price, and deliver on an exact date in 14 or 30 business days. Zero scope creep surprises, zero hidden fees."
+questionFr: "Pourquoi des forfaits fermes et des délais garantis plutôt qu'une facturation au temps passé ?"
+questionEn: "Why fixed packages and guaranteed deadlines instead of open-ended hourly billing?"
+answerFr: "Parce que vous devez pouvoir budgétiser et planifier votre lancement avec une certitude absolue. Nous définissons ensemble un périmètre clair en amont, puis nous nous engageons sur un montant fixe et une date de livraison exacte dès 14 jours ouvrés. Aucun dépassement possible, aucun coût masqué : nous prenons l'entière responsabilité de tenir notre parole."
+answerEn: "Because you need total certainty to plan and launch your business with confidence. We align on a precise scope upfront, then commit to a fixed price and an exact delivery date in as little as 14 business days. Zero scope creep surprises, zero hidden fees: we take full responsibility for delivering on our word."
 category: "pricing"
-

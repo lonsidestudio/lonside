@@ -25,7 +25,7 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
     : (t.raw('cookies') as { title: string }).title;
 
   const buttonLabel = entry
-    ? (locale === 'en' ? (entry.buttonLabelEn || entry.buttonLabelFr) : entry.buttonLabelFr)
+    ? (locale === 'en' ? entry.buttonLabelEn : entry.buttonLabelFr)
     : (t.raw('cookies') as { buttonLabel: string }).buttonLabel;
 
   const rawSections = entry
@@ -37,27 +37,34 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
   return (
     <>
       <Navbar />
-      <main className="flex-1 bg-[#050505] text-[#fafafa] pt-32 pb-24 relative overflow-hidden">
-        {/* Subtle mesh background grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f0f13_1px,transparent_1px),linear-gradient(to_bottom,#0f0f13_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none -z-10" />
-
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 relative z-10">
+      <main className="flex-1 bg-white text-black pt-28 sm:pt-36 pb-20 sm:pb-24 relative overflow-hidden">
+        <div className="max-w-3xl mx-auto px-5 sm:px-8 space-y-10 relative z-10">
           <div>
-            <h1 className="text-2xl font-bold text-white mb-2">{title}</h1>
-            <p className="text-xs text-slate-500">{t('lastUpdateLabel')}</p>
+            <h1 className="font-display uppercase text-2xl sm:text-3xl md:text-4xl text-black font-normal tracking-tight mb-2">
+              {title}
+            </h1>
+            <p className="text-xs text-zinc-400 font-mono tracking-wide">{t('lastUpdateLabel')}</p>
           </div>
-          
+
+          <div className="p-5 sm:p-6 rounded-xl bg-zinc-50/70 border border-black/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <p className="text-sm font-medium text-black">Préférences de consentement</p>
+              <p className="text-xs text-zinc-500 mt-0.5">Vous pouvez mettre à jour vos choix à tout moment.</p>
+            </div>
+            <CookiePreferenceButton label={buttonLabel || 'Modifier mes préférences'} />
+          </div>
+
           {sections.map((section, idx) => (
-            <section key={idx} className="space-y-4">
-              <h2 className="text-base font-bold text-slate-200">{section.title}</h2>
+            <section key={idx} className="space-y-3 pt-2">
+              <h2 className="font-display uppercase text-lg sm:text-xl text-black font-normal tracking-tight">
+                {section.title}
+              </h2>
               <div 
-                className="text-xs text-slate-400 leading-relaxed space-y-1"
+                className="text-sm text-zinc-600 leading-relaxed space-y-2"
                 dangerouslySetInnerHTML={{ __html: section.content }}
               />
             </section>
           ))}
-
-          <CookiePreferenceButton label={buttonLabel} />
         </div>
       </main>
       <Footer />
