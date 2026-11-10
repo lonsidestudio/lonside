@@ -74,3 +74,4 @@ export default function FaqSection({ items, locale = "fr" }: FaqSectionProps) {
     </section>
   );
 }
+

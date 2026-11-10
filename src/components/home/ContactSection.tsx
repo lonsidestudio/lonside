@@ -229,3 +229,4 @@ export default function ContactSection({ locale = "fr" }: ContactSectionProps) {
     </section>
   );
 }
+

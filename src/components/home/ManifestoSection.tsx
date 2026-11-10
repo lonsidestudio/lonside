@@ -122,3 +122,4 @@ export default function ManifestoSection({ locale = "fr" }: ManifestoSectionProp
     </section>
   );
 }
+

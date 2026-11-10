@@ -171,3 +171,4 @@ export default function PricingSection({ locale = "fr" }: PricingSectionProps) {
     </section>
   );
 }
+

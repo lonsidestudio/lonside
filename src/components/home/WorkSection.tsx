@@ -135,3 +135,4 @@ export default function WorkSection({ projects, locale = "fr" }: WorkSectionProp
     </section>
   );
 }
+

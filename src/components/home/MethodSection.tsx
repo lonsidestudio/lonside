@@ -130,3 +130,4 @@ export default function MethodSection({ locale = "fr" }: MethodSectionProps) {
     </section>
   );
 }
+
