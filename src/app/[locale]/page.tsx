@@ -195,7 +195,7 @@ export default async function HomePage({ params }: PageProps) {
                 href="#projets"
                 className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-xl bg-transparent border border-black/[0.12] hover:border-black text-black font-mono text-xs uppercase tracking-[0.16em] hover:bg-zinc-50 transition-all duration-200 flex items-center justify-center cursor-pointer min-h-[48px] whitespace-nowrap"
               >
-                <span>{isEn ? "Explore case studies" : "Découvrir nos réalisations"}</span>
+                <span>{isEn ? "Explore our work" : "Découvrir nos réalisations"}</span>
               </a>
             </div>
 

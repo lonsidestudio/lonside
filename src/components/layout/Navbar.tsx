@@ -82,14 +82,6 @@ export default function Navbar() {
     { label: isEn ? "Pricing" : "Tarifs", id: "tarifs" },
   ];
 
-  const mobileNavLinks = [
-    { label: isEn ? "Commitment" : "Engagement", id: "engagement" },
-    { label: isEn ? "Work" : "Projets", id: "projets" },
-    { label: isEn ? "Method" : "Méthode", id: "methode" },
-    { label: isEn ? "Pricing" : "Tarifs", id: "tarifs" },
-    { label: isEn ? "F.A.Q." : "F.A.Q.", id: "faq" },
-  ];
-
   return (
     <>
       <header
@@ -185,7 +177,7 @@ export default function Navbar() {
             <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-zinc-400 mb-1">
               {isEn ? "NAVIGATION" : "NAVIGATION"}
             </div>
-            {mobileNavLinks.map((link) => (
+            {navLinks.map((link) => (
               <a
                 key={link.id}
                 href={getSectionHref(link.id)}

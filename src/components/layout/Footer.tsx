@@ -58,7 +58,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href={getSectionHref("projets")} className="hover:text-black transition-colors py-1 inline-block">
-                  {isEn ? "• Case Studies" : "• Réalisations"}
+                  {isEn ? "• Projects" : "• Réalisations"}
                 </a>
               </li>
               <li>

@@ -124,7 +124,7 @@ process:
 deliveryDays: 35
 coverColor: "#09090b"
 liveUrl: ""
-seoTitleFr: "Bely — Plateforme VTC Corporate & Dispatch Géospatial | Étude de Cas Lonside"
-seoTitleEn: "Bely — Corporate Chauffeur Platform & Geospatial Dispatch | Lonside Case Study"
+seoTitleFr: "Bely — Plateforme VTC Corporate & Dispatch Géospatial | Projet Lonside"
+seoTitleEn: "Bely — Corporate Chauffeur Platform & Geospatial Dispatch | Lonside Project"
 seoDescriptionFr: "Comment Lonside a conçu Bely : dispatch en temps réel sous les 5 ms, portail B2B pour hôtels de luxe, facturation automatisée et zéro latence en 35 jours."
 seoDescriptionEn: "How Lonside engineered Bely: sub-5ms real-time dispatch, luxury hotel corporate portal, automated invoicing, and zero latency in 35 days."

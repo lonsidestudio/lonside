@@ -79,39 +79,47 @@ export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" 
           isVisible ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Header Sobre & Précis */}
-        <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-black/[0.06] bg-white/95 backdrop-blur-md shrink-0">
-          <div className="flex items-center space-x-2.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-black shrink-0" />
-            <div>
-              <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
-                {activeProject.industry} • {activeProject.deliveryDays} {isEn ? "days" : "jours"}
-              </p>
-              <h2 className="text-base font-medium text-black tracking-tight">{activeProject.client}</h2>
+        {/* Header Haute Précision Studio : Deux Niveaux Parfaitement Hiérarchisés */}
+        <div className="border-b border-black/[0.08] bg-white shrink-0">
+          {/* Niveau 1 : Barre d'Utilité & Actions */}
+          <div className="px-5 sm:px-7 py-3 sm:py-3.5 border-b border-black/[0.05] bg-zinc-50/70 flex items-center justify-between gap-3">
+            <span className="text-[10px] sm:text-[11px] font-mono font-medium text-black px-2.5 py-1 rounded-md bg-white border border-black/[0.08] shadow-2xs whitespace-nowrap">
+              {activeProject.deliveryDays} {isEn ? "DAYS" : "JOURS"}
+            </span>
+
+            <div className="flex items-center gap-2 shrink-0">
+              {activeProject.liveUrl && (
+                <a
+                  href={activeProject.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black text-white hover:bg-zinc-800 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider transition-colors min-h-[32px] sm:min-h-[34px] shadow-xs cursor-pointer whitespace-nowrap"
+                  title={isEn ? "Visit client website" : "Visiter le site en ligne"}
+                >
+                  <span>{isEn ? "Live Site" : "Site en ligne"}</span>
+                  <ExternalLink className="w-3 h-3 shrink-0" />
+                </a>
+              )}
+
+              <button
+                type="button"
+                onClick={onClose}
+                className="w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-xl border border-black/[0.08] bg-white hover:bg-zinc-100 text-zinc-500 hover:text-black flex items-center justify-center transition-colors cursor-pointer shadow-2xs"
+                aria-label={isEn ? "Close drawer" : "Fermer le dossier"}
+              >
+                <X className="w-4 h-4" />
+              </button>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
-            {activeProject.liveUrl && (
-              <a
-                href={activeProject.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-black text-white hover:bg-zinc-800 text-[11px] font-mono transition-colors min-h-[32px] whitespace-nowrap"
-                title={isEn ? "Visit client website" : "Visiter le site en ligne"}
-              >
-                <span className="whitespace-nowrap">{isEn ? "Live Site" : "Site en ligne"}</span>
-                <ExternalLink className="w-3 h-3 shrink-0" />
-              </a>
-            )}
-            <button
-              type="button"
-              onClick={onClose}
-              className="min-h-[36px] min-w-[36px] inline-flex items-center justify-center rounded-xl text-zinc-500 hover:text-black hover:bg-zinc-100 transition-colors cursor-pointer"
-              aria-label={isEn ? "Close drawer" : "Fermer le dossier"}
-            >
-              <X className="w-4 h-4" />
-            </button>
+          {/* Niveau 2 : Titre & Industrie (Zéro Texte Tronqué, 100% Lisible) */}
+          <div className="px-5 sm:px-7 py-4 sm:py-5 space-y-1.5">
+            <p className="text-xs sm:text-[13px] font-mono text-zinc-500 uppercase tracking-wider leading-relaxed">
+              {activeProject.industry}
+            </p>
+            <h2 className="font-display uppercase text-3xl sm:text-4xl text-black tracking-tight leading-none">
+              {activeProject.client}
+            </h2>
           </div>
         </div>
 
