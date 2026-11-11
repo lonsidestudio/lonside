@@ -67,8 +67,8 @@ export default function MethodSection({ locale = "fr" }: MethodSectionProps) {
   ];
 
   return (
-    <section id="methode" className="relative py-20 sm:py-24 lg:py-28 bg-white border-t border-black/[0.06] scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <section id="methode" className="relative py-20 sm:py-24 lg:py-28 bg-white border-t border-black/[0.06] scroll-mt-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 w-full">
         {/* En-tête Aéré & Noble */}
         <div className="max-w-3xl mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.22em] text-zinc-400 uppercase mb-3">
@@ -90,11 +90,11 @@ export default function MethodSection({ locale = "fr" }: MethodSectionProps) {
         </div>
 
         {/* 3 Phases Précises (Non-cliquables, zéro hover) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 min-w-0 w-full">
           {phases.map((phase, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-8 rounded-xl bg-zinc-50/40 border border-black/[0.08] flex flex-col justify-between space-y-6"
+              className="p-5 sm:p-8 rounded-xl bg-zinc-50/40 border border-black/[0.08] flex flex-col justify-between space-y-6 min-w-0 w-full overflow-hidden"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between gap-2">

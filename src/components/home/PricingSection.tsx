@@ -87,8 +87,8 @@ export default function PricingSection({ locale = "fr" }: PricingSectionProps) {
   ];
 
   return (
-    <section id="tarifs" className="relative py-20 sm:py-24 lg:py-28 bg-white border-t border-black/[0.06] scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <section id="tarifs" className="relative py-20 sm:py-24 lg:py-28 bg-white border-t border-black/[0.06] scroll-mt-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 w-full">
         {/* En-tête Aéré & Noble */}
         <div className="max-w-3xl mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.22em] text-zinc-400 uppercase mb-3">
@@ -109,12 +109,12 @@ export default function PricingSection({ locale = "fr" }: PricingSectionProps) {
           </p>
         </div>
 
-        {/* Grille des Offres Haute Précision (rounded-xl, boutons rounded-full) */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
+        {/* Grille des Offres Haute Précision (rounded-xl) */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch min-w-0 w-full">
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`relative rounded-xl bg-white border flex flex-col justify-between p-6 sm:p-8 ${
+              className={`relative rounded-xl bg-white border flex flex-col justify-between p-5 sm:p-8 min-w-0 w-full overflow-hidden ${
                 tier.popular
                   ? "border-black/60 bg-zinc-50/30 shadow-[0_1px_8px_rgba(0,0,0,0.03)]"
                   : "border-black/[0.08]"

@@ -12,9 +12,9 @@ export default function WhyUsSection({ locale = "fr" }: WhyUsSectionProps) {
       id="engagement"
       className="relative py-16 sm:py-24 lg:py-28 bg-[#fafafc] border-b border-black/[0.06] overflow-hidden scroll-mt-20"
     >
-      <div className="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-8 lg:px-12 w-full">
         {/* ── 1. CARTOUCHE D'ORIGINE & D'ARTISANAT (STYLE DESIGNJOY) ── */}
-        <div className="rounded-2xl sm:rounded-3xl border border-black/[0.08] bg-white p-7 sm:p-10 lg:p-12 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.04)]">
+        <div className="rounded-2xl sm:rounded-3xl border border-black/[0.08] bg-white p-6 sm:p-10 lg:p-12 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.04)] min-w-0 w-full overflow-hidden">
           <p className="text-zinc-600 text-sm sm:text-base lg:text-lg leading-relaxed text-center font-normal max-w-3xl mx-auto">
             {isEn ? (
               <>
