@@ -52,7 +52,7 @@ def add_callout(doc, title, text, bg="FAFAFA", border="E4E4E7"):
     r_body.font.color.rgb = RGBColor(39, 39, 42)
     doc.add_paragraph().paragraph_format.space_before = Pt(4)
 
-def build_lonside_strategy_docx(output_path):
+def build_lonside_master_strategy_docx(output_path, img_brand, img_road, img_media):
     doc = Document()
 
     for section in doc.sections:
@@ -81,42 +81,40 @@ def build_lonside_strategy_docx(output_path):
     p_title = doc.add_paragraph()
     p_title.paragraph_format.space_before = Pt(0)
     p_title.paragraph_format.space_after = Pt(8)
-    r_t = p_title.add_run("LE MASTER PLAN STRATÉGIQUE\n(2026 — 2028)")
+    r_t = p_title.add_run("LE MASTER PLAN STRATÉGIQUE\n& FEUILLE DE ROUTE OPÉRATIONNELLE\n(2027 — 2029+)")
     r_t.font.name = "Arial"
-    r_t.font.size = Pt(28)
+    r_t.font.size = Pt(24)
     r_t.font.bold = True
     r_t.font.color.rgb = COLOR_BLACK
 
     p_sub = doc.add_paragraph()
     p_sub.paragraph_format.space_before = Pt(0)
-    p_sub.paragraph_format.space_after = Pt(18)
-    r_s = p_sub.add_run("De l'Atelier d'Ingénierie Logicielle au Média d'Influence et à l'Édition de Produits SaaS : Modèle Flywheel, Rationale des Décisions & Roadmap Opérationnelle")
+    p_sub.paragraph_format.space_after = Pt(16)
+    r_s = p_sub.add_run("De l'Atelier d'Ingénierie Logicielle Haute Vélocité au Média d'Influence et à l'Édition de Produits SaaS : Architecture de Marque, Périmètre Détaillé des Services, Rationale des Décisions & Modèle Flywheel")
     r_s.font.name = "Arial"
-    r_s.font.size = Pt(12)
+    r_s.font.size = Pt(11)
     r_s.font.color.rgb = COLOR_MUTED
 
     add_callout(
         doc,
-        "LA THÈSE CENTRALE LONSIDE : L'ALLIANCE DE L'EXÉCUTION TECHNIQUE ET DE LA DISTRIBUTION",
-        "Lonside n'est pas une simple agence de prestations de services, ni un média passif de divertissement tech. "
-        "C'est un écosystème hybride à haute vélocité articulé autour de deux piliers synergiques :\n\n"
-        "1. Lonside Software : Conception, architecture et édition de logiciels, SaaS et plateformes cloud propriétaires.\n"
-        "2. Lonside Studio : Média premium d'interviews, décryptages technologiques, coulisses d'ingénierie et formats originaux (YouTube, Podcasts, Publications).\n\n"
-        "Notre stratégie démarre par la prestation d'ingénierie logicielle haut de gamme (sprints fermes dès 14 jours). "
-        "Cette phase initiale finance l'expansion sur fonds propres (bootstrapped), établit une autorité technique incontestable, "
-        "confronte l'équipe aux besoins réels du terrain et constitue le portefeuille client initial. "
-        "La trésorerie générée est ensuite réinvestie pour déployer le média Lonside Studio, créant ainsi un avantage de distribution asymétrique (CAC = 0 €) "
-        "au service de nos futurs logiciels édités sous la signature « A Product by Lonside »."
+        "LE MANIFESTE STRATÉGIQUE FONDATIONNEL : L'ALLIANCE DU CODE ET DE LA DISTRIBUTION",
+        "Lonside rassemble sous une même bannière souveraine deux forces complémentaires :\n"
+        "• Lonside Software : Conception et édition de logiciels, SaaS et produits numériques propriétaires.\n"
+        "• Lonside Studio : Média tech, interviews de builders, podcasts vidéo et formats d'immersion technique.\n\n"
+        "Notre stratégie opérationnelle démarre en 2027 par l'offre de prestations d'ingénierie logicielle haut de gamme (sprints fermes dès 14 jours). "
+        "Cette phase fondatrice génère le cash-flow nécessaire (autofinancement strict sans dilution prématurée), éprouve notre bibliothèque de composants, "
+        "confronte l'équipe aux besoins réels du marché et bâtit notre clientèle décisionnaire. "
+        "Cette trésorerie est ensuite réinvestie dès 2028 pour déployer le média Lonside Studio (sur YouTube et formats multicanaux), "
+        "créant un avantage d'audience massif permettant d'éditer et de lancer progressivement dès 2029 des logiciels SaaS avec un coût d'acquisition client nul (CAC = 0 €)."
     )
 
-    # Tableau Métadonnées de Couverture
     tbl_meta = doc.add_table(rows=4, cols=2)
     tbl_meta.alignment = WD_TABLE_ALIGNMENT.CENTER
     meta_rows = [
-        [("Marque Mère :", " Lonside (Technology · People · Ideas)"), ("Version :", " 2.0 (Master Strategic Blueprint)")],
-        [("Branches Actives :", " Lonside Software (Édition) & Lonside Studio (Média)"), ("Date d'Effet :", " Avril 2026")],
-        [("Direction & Rédaction :", " Direction Artistique & Opérationnelle (Kevin T.)"), ("Classification :", " Confidentiel Stratégique / Investisseurs")],
-        [("Modèle Économique :", " Services Cash-Flow -> Media Flywheel -> Proprietary SaaS"), ("Horizon de Déploiement :", " 2026 — 2028")]
+        [("Marque Mère :", " lonside. (Technology · People · Ideas)"), ("Version :", " 3.0 (Master Strategic & Operational Blueprint)")],
+        [("Branches Actives :", " Lonside Software (Édition) & Lonside Studio (Média)"), ("Horizon Roadmap :", " Phase 1 (2027) -> Phase 2 (2028) -> Phase 3 (2029+)")],
+        [("Rôles Auteur :", " Direction Artistique & Direction Opérationnelle (Kevin T.)"), ("Classification :", " Confidentiel Stratégique / Direction & Investisseurs")],
+        [("Thèse Économique :", " Services Cash-Flow -> Media Flywheel -> Proprietary SaaS"), ("Modèle d'Exécution :", " Bootstrapped, Marge Nette > 70%, Zero Lock-In")]
     ]
     for r_idx, row_data in enumerate(meta_rows):
         for c_idx, (k, v) in enumerate(row_data):
@@ -140,66 +138,57 @@ def build_lonside_strategy_docx(output_path):
     doc.add_page_break()
 
     # ──────────────────────────────────────────────────────────────────────────
-    # SECTION 1 : L'ORIGINE DES DÉCISIONS STRATÉGIQUES (RETOURS FORUMS & BENCHMARKS MONDIAUX)
+    # SECTION 1 : ARCHITECTURE DE MARQUE & MODÈLE FLYWHEEL
     # ──────────────────────────────────────────────────────────────────────────
     h1 = doc.add_heading(level=1)
-    rh1 = h1.add_run("1. L'ORIGINE DES DÉCISIONS STRATÉGIQUES (ANALYSES & ÉCHANGES MARCHÉ)")
+    rh1 = h1.add_run("1. ARCHITECTURE DE MARQUE & SYNERGIE EN FLYWHEEL")
     rh1.font.name = "Arial"
     rh1.font.size = Pt(14)
     rh1.font.bold = True
     rh1.font.color.rgb = COLOR_BLACK
 
-    add_callout(
-        doc,
-        "BENCHMARKS MONDIAUX : 37SIGNALS (BASECAMP), STRIPE, METALAB & Y COMBINATOR",
-        "Notre modèle n'est pas une théorie abstraite : c'est la synthèse empirique des trajectoires les plus rentables "
-        "observées aux États-Unis et en Europe du Nord, combinée à l'analyse rigoureuse des échecs récurrents partagés "
-        "sur Hacker News, Indie Hackers et les communautés de fondateurs tech."
-    )
-
-    doc.add_heading(level=2).add_run("1.1 Les 4 Pièges Mortels du Marché Évités par Lonside").font.bold = True
-    traps = [
-        ("Le Piège du 'SaaS Sans Trésorerie ni Réseau' (Échec #1 des fondateurs solitaires)", 
-         "Créer un logiciel dans son garage pendant 12 mois sans client, puis découvrir que personne ne l'achète faute de distribution et de trésorerie restante. "
-         "Décision Lonside : Démarrer par les prestations de services à haute marge pour créer immédiatement du cash, un carnet d'adresses décisionnaire et une compréhension intime des besoins payants."),
-        ("Le Piège de 'l'Agence Zombie' (Échec #2 des agences de services classiques)", 
-         "Vendre du temps passé (TJM), recruter massivement des juniors, crouler sous les coûts fixes et ne jamais trouver le temps de développer ses propres produits. "
-         "Décision Lonside : Limiter strictement le nombre de clients simultanés, opérer en forfaits fermes ultra-véloces (14j/30j) et sanctuariser 20% du temps d'équipe sur l'édition de logiciels propriétaires."),
-        ("Le Piège du 'Média Gadget / Micro-Cravate Banal' (Échec #3 des créateurs de contenu)", 
-         "Faire un podcast générique 'motivation / mindset' sans valeur technique, noyé dans la masse, impossible à monétiser. "
-         "Décision Lonside : Un positionnement de niche chirurgical 'Behind the Code' axé sur l'artisanat du logiciel, les choix d'architecture réels, les post-mortems d'échecs et les compromis d'ingénierie que personne ne montre."),
-        ("Le Piège de l'Investissement Prématuré en Studio Physique (Gaspillage de CAPEX)", 
-         "Signer un bail commercial lourd et acheter 50k€ de matériel vidéo avant même d'avoir un format validé. "
-         "Décision Lonside : Approche Lean absolue. Tournages nomades haute précision, location ponctuelle d'espaces inspirants à l'heure, priorité absolue à la valeur conversationnelle et au grain cinématographique feutré.")
-    ]
-    for title, desc in traps:
-        p = doc.add_paragraph()
-        p.paragraph_format.space_before = Pt(3)
-        p.paragraph_format.space_after = Pt(3)
-        rt = p.add_run(f"• {title} :\n")
-        rt.font.bold = True
-        rt.font.size = Pt(9.5)
-        rt.font.color.rgb = COLOR_BLACK
-        rd = p.add_run(desc)
-        rd.font.size = Pt(9.5)
-        rd.font.color.rgb = COLOR_BODY
-
-    doc.add_heading(level=2).add_run("1.2 L'Effet Volant d'Inertie (The Lonside Flywheel)").font.bold = True
     p = doc.add_paragraph()
     p.add_run(
-        "Chaque entité de Lonside nourrit et renforce mécaniquement les deux autres dans un cycle auto-porteur :\n"
-        "1. Lonside Services finance le cash-flow initial, apporte les études de cas concrètes et éprouve les composants techniques.\n"
-        "2. Lonside Studio (Média) documente ces coulisses, interviewe les meilleurs builders, attire une audience qualifiée de fondateurs/CTOs et génère un flux d'opportunités entrantes (Inbound) sans frais publicitaires.\n"
-        "3. Lonside Software (SaaS) résout les frustrations métiers récurrentes observées chez nos clients, bénéficie immédiatement d'une distribution gratuite via le média et génère des revenus récurrents (ARR) hautement valorisables."
-    ).font.size = Pt(9.5)
+        "Lonside structure son organisation en deux branches maîtresses reliées par un volant d'inertie (flywheel) auto-alimenté :"
+    ).font.color.rgb = COLOR_BODY
+
+    # Insertion de l'illustration Schéma d'Architecture
+    if os.path.exists(img_brand):
+        doc.add_paragraph().paragraph_format.space_before = Pt(4)
+        doc.add_picture(img_brand, width=Inches(6.8))
+        p_cap = doc.add_paragraph()
+        p_cap.paragraph_format.space_before = Pt(4)
+        p_cap.paragraph_format.space_after = Pt(12)
+        r_c = p_cap.add_run("Figure 1.1 : Schéma d'Architecture de Marque et Volant d'Inertie Lonside.")
+        r_c.font.size = Pt(8)
+        r_c.font.italic = True
+        r_c.font.color.rgb = COLOR_MUTED
+
+    doc.add_heading(level=2).add_run("1.1 Le Fonctionnement Mécanique du Flywheel").font.bold = True
+    fly_points = [
+        ("Le Flux Prestations alimente la Trésorerie & la Légitimité :", " En exécutant des applications pour des fondateurs exigeants dès 2027, Lonside génère des marges nettes élevées (> 70%), accumule des retours d'expérience bruts et éprouve sa bibliothèque de code propriétaire."),
+        ("Le Média Lonside Studio magnifie l'Expertise & crée l'Audience :", " En invitant des entrepreneurs, CTOs et chercheurs pour analyser leurs décisions et en ouvrant les coulisses de code (Inside the Build), Lonside attire les meilleurs profils et crée un canal d'acquisition direct."),
+        ("Lonside Software transforme les Douleurs Métiers en Actifs SaaS :", " Chaque produit SaaS lancé résout un problème récurrent observé chez nos clients de services. Lancé devant l'audience qualifiée de Lonside Studio, il atteint immédiatement ses premiers abonnés payants sans dépenser 1 € en publicités payantes (CAC = 0 €).")
+    ]
+    for k, v in fly_points:
+        p = doc.add_paragraph()
+        p.paragraph_format.space_before = Pt(2)
+        p.paragraph_format.space_after = Pt(2)
+        rk = p.add_run(f"• {k}")
+        rk.font.bold = True
+        rk.font.size = Pt(9.5)
+        rk.font.color.rgb = COLOR_BLACK
+        rv = p.add_run(v)
+        rv.font.size = Pt(9.5)
+        rv.font.color.rgb = COLOR_BODY
 
     doc.add_page_break()
 
     # ──────────────────────────────────────────────────────────────────────────
-    # SECTION 2 : PHASE 1 — CONSOLIDER LES SERVICES (LE MOTEUR DE CASH INITIAL)
+    # SECTION 2 : ORIGINE DES DÉCISIONS STRATÉGIQUES (BENCHMARKS & FORUMS TECH)
     # ──────────────────────────────────────────────────────────────────────────
     h2 = doc.add_heading(level=1)
-    rh2 = h2.add_run("2. PHASE 1 (MAINTENANT) : CONSOLIDER LES SERVICES & LA TRÉSORERIE")
+    rh2 = h2.add_run("2. ORIGINE DES DÉCISIONS STRATÉGIQUES & BENCHMARKS MONDIAUX")
     rh2.font.name = "Arial"
     rh2.font.size = Pt(14)
     rh2.font.bold = True
@@ -207,66 +196,35 @@ def build_lonside_strategy_docx(output_path):
 
     add_callout(
         doc,
-        "OBJECTIF OPÉRATIONNEL IMMÉDIAT : AUTOFINANCEMENT SOUVERAIN (BOOTSTRAPPED)",
-        "Générer une rentabilité opérationnelle nette supérieure à 65% sur les prestations logicielles. "
-        "Constituer une réserve de trésorerie sanctuarisée de 100 000 € dédiée à l'amorçage de Lonside Studio et Lonside Software sans levée de fonds dilutive prématurée."
+        "BENCHMARKS MONDIAUX : 37SIGNALS, STRIPE PRESS, METALAB (TINY) & VERCEL",
+        "Notre stratégie synthétise les modèles des entreprises technologiques les plus robustes au monde tout en intégrant les enseignements amers tirés des discussions entre pairs sur Hacker News, Indie Hackers et les cercles de fondateurs YC."
     )
 
-    doc.add_heading(level=2).add_run("2.1 Le Portfolio d'Offres & Économie Unitaire").font.bold = True
-    
-    tbl_pricing = doc.add_table(rows=1, cols=4)
-    tbl_pricing.alignment = WD_TABLE_ALIGNMENT.CENTER
-    heads = ["Offre Forfaitaire", "Prix Scellé", "Durée d'Exécution", "Marge Nette Visée"]
-    for idx, text in enumerate(heads):
-        c = tbl_pricing.cell(0, idx)
-        set_cell_background(c, "09090B")
-        set_cell_margins(c, top=80, bottom=80, left=80, right=80)
-        p = c.paragraphs[0]
-        p.paragraph_format.space_after = Pt(0)
-        r = p.add_run(text)
-        r.font.bold = True
-        r.font.size = Pt(8.5)
-        r.font.color.rgb = RGBColor(255, 255, 255)
-
-    p_rows = [
-        ("Sprint Launch (MVP & 1ère version live)", "6 900 €", "14 jours ouvrés", "> 75% (Interlocuteur Senior direct)"),
-        ("Sprint Scale (Plateforme multi-rôles & SaaS)", "13 900 €", "30 jours ouvrés", "> 70% (Ingénierie avancée & QA)"),
-        ("Régie d'Immersion (Squad senior dédiée)", "Dès 5 500 € / m", "Mensuel sans engagement", "> 60% (Revenus récurrents prédictibles)")
+    benchmarks = [
+        ("Modèle 37signals (Basecamp / Jason Fried & DHH) :", " À l'origine, 37signals était une agence de design web d'élite. Face aux besoins de gestion de leurs propres clients, ils ont développé Basecamp en interne, financé par leurs prestations, avant de basculer vers un modèle 100% logiciel générant des centaines de millions de dollars sans levée de fonds dilutive. Lonside applique exactement cette trajectoire."),
+        ("Modèle Stripe Press & Developer Authority :", " Stripe a compris très tôt que l'ingénierie seule ne suffit pas : il faut dominer le champ culturel et intellectuel des entrepreneurs. Avec Stripe Press et leur documentation légendaire, ils inspirent le respect des bâtisseurs. Lonside Studio joue ce rôle d'aimant à talents et de caution d'autorité."),
+        ("Modèle MetaLab / Tiny (Andrew Wilkinson) :", " MetaLab a débuté comme studio d'ingénierie et design haut de gamme (ayant conçu les premières versions de Slack, Uber, Pitch), puis a réinvesti ses profits massifs pour créer et acquérir un portefeuille de logiciels SaaS pérennes. Lonside Software en est l'héritier."),
+        ("Modèle Vercel / Next.js (Guillermo Rauch) :", " Guillermo Rauch a fondé des services et librairies open-source, créé une communauté d'admirateurs via du contenu technique intransigeant, pour en faire le leader mondial du cloud Edge. Lonside s'appuie sur la même rigueur technique pure.")
     ]
-    for o_name, o_price, o_dur, o_mrg in p_rows:
-        row = tbl_pricing.add_row().cells
-        for idx, text in enumerate([o_name, o_price, o_dur, o_mrg]):
-            c = row[idx]
-            set_cell_margins(c, top=60, bottom=60, left=80, right=80)
-            set_cell_border(c, bottom=dict(color="E4E4E7", sz="4"))
-            p = c.paragraphs[0]
-            p.paragraph_format.space_after = Pt(0)
-            r = p.add_run(text)
-            r.font.size = Pt(8.5)
-            if idx == 0:
-                r.font.bold = True
-                r.font.color.rgb = COLOR_BLACK
-            elif idx == 1:
-                r.font.bold = True
-                r.font.color.rgb = COLOR_DARK
-            else:
-                r.font.color.rgb = COLOR_BODY
-
-    doc.add_heading(level=2).add_run("2.2 Le Rôle Stratégique Caché des Missions Clients").font.bold = True
-    p = doc.add_paragraph()
-    p.add_run(
-        "Chaque mission client est exploitée comme un banc d'essai technologique et un détecteur d'opportunités de produit :\n"
-        "• Standardisation de notre bibliothèque de briques propriétaires (auth, facturation Stripe, composants haute couture, webhooks, audit trails).\n"
-        "• Identification directe des douleurs logicielles : si 3 clients demandent un outil sur-mesure pour résoudre le même problème (ex: facturation spécifique, portail partenaire, synchronisation d'inventaire), cela valide l'existence d'un marché pour un futur SaaS Lonside Software."
-    ).font.size = Pt(9.5)
+    for b_title, b_desc in benchmarks:
+        p = doc.add_paragraph()
+        p.paragraph_format.space_before = Pt(3)
+        p.paragraph_format.space_after = Pt(3)
+        rt = p.add_run(f"• {b_title}\n")
+        rt.font.bold = True
+        rt.font.size = Pt(9.5)
+        rt.font.color.rgb = COLOR_BLACK
+        rd = p.add_run(b_desc)
+        rd.font.size = Pt(9.5)
+        rd.font.color.rgb = COLOR_BODY
 
     doc.add_page_break()
 
     # ──────────────────────────────────────────────────────────────────────────
-    # SECTION 3 : PHASE 2 — LONSIDE STUDIO (LE MÉDIA & MOTEUR DE DISTRIBUTION)
+    # SECTION 3 : PHASE 1 (2027) — PÉRIMÈTRE DÉTAILLÉ DE CHAQUE SERVICE
     # ──────────────────────────────────────────────────────────────────────────
     h3 = doc.add_heading(level=1)
-    rh3 = h3.add_run("3. PHASE 2 : LONSIDE STUDIO (LE MÉDIA, PODCAST & INFLUENCE YOUTUBE)")
+    rh3 = h3.add_run("3. PHASE 1 (2027) : PÉRIMÈTRE DÉTAILLÉ DE CHAQUE SERVICE, RÈGLES & RÉSULTATS")
     rh3.font.name = "Arial"
     rh3.font.size = Pt(14)
     rh3.font.bold = True
@@ -274,50 +232,71 @@ def build_lonside_strategy_docx(output_path):
 
     add_callout(
         doc,
-        "BENCHMARK MARCHÉ : STRIPE PRESS, Y COMBINATOR MEDIA & LEX FRIDMAN",
-        "Ne pas faire un simple 'podcast tech bavard'. Lonside Studio produit du contenu documentaire haut de gamme, "
-        "avec une scénarisation rigoureuse, une image cinématographique monochrome et des conversations sans concession sur la fabrication du logiciel."
+        "CADRAGE OPÉRATIONNEL DE LA PHASE 1 (ANNÉE 2027) : LE SOCLE DE PRESTATIONS",
+        "En 2027, la priorité absolue est de consolider l'offre de services, déployer des applications d'exception pour nos premiers clients, "
+        "établir la réputation de vélocité Lonside et générer une trésorerie souveraine. "
+        "Chaque formule répond à des règles strictes et délivre un résultat tangible scellé."
     )
 
-    doc.add_heading(level=2).add_run("3.1 Les 3 Formats Éditoriaux Chirurgicaux").font.bold = True
-    formats = [
-        ("1. Lonside Conversations (Entretiens Long-Format 40 — 60 min)",
-         "Cible : Fondateurs de startups, CTOs, ingénieurs chevronnés, designers de produits emblématiques, chercheurs.\n"
-         "Angle : Déconstruction méthodique d'un parcours : décisions charnières, échecs réels passés sous silence, dilemmes d'architecture logicielle, gestion du capital et pérennité d'entreprise. Zéro langue de bois."),
-        ("2. Inside the Build (Coulisses & Démonstrations Réelles 15 — 25 min)",
-         "Cible : Développeurs, créateurs de SaaS, builders indépendants, passionnés de produit.\n"
-         "Angle : Partage d'écran et tableau blanc : décryptage d'une base de code, post-mortem d'une panne critique en production, architecture d'un SaaS à 1M$ d'ARR, choix de stack technique justifiés par les chiffres."),
-        ("3. The Turning Point (Moments Décisifs 5 — 10 min, Format Punchy)",
-         "Cible : Large audience tech, entrepreneurs en transition, décideurs pressés (adapté YouTube & Shorts/LinkedIn).\n"
-         "Angle : Récit condensé et immersif centré sur une bascule unique : un licenciement transformé en succès, un pivot de produit in extremis, un refus d'investisseur ayant sauvé l'entreprise.")
-    ]
-    for f_title, f_desc in formats:
-        p = doc.add_paragraph()
-        p.paragraph_format.space_before = Pt(4)
-        p.paragraph_format.space_after = Pt(4)
-        rt = p.add_run(f"{f_title} :\n")
-        rt.font.bold = True
-        rt.font.size = Pt(9.5)
-        rt.font.color.rgb = COLOR_BLACK
-        rd = p.add_run(f_desc)
-        rd.font.size = Pt(9.5)
-        rd.font.color.rgb = COLOR_BODY
+    # Tableau comparatif exhaustif des services
+    tbl_serv = doc.add_table(rows=1, cols=5)
+    tbl_serv.alignment = WD_TABLE_ALIGNMENT.CENTER
+    s_heads = ["Service", "Périmètre Fonctionnel Inclus", "Règles d'Exécution", "Livrables Remis", "Résultat Métier Client"]
+    for idx, text in enumerate(s_heads):
+        c = tbl_serv.cell(0, idx)
+        set_cell_background(c, "09090B")
+        set_cell_margins(c, top=80, bottom=80, left=70, right=70)
+        p = c.paragraphs[0]
+        p.paragraph_format.space_after = Pt(0)
+        r = p.add_run(text)
+        r.font.bold = True
+        r.font.size = Pt(8)
+        r.font.color.rgb = RGBColor(255, 255, 255)
 
-    doc.add_heading(level=2).add_run("3.2 Modèle Opérationnel & Économie de Production Lean").font.bold = True
-    p = doc.add_paragraph()
-    p.add_run(
-        "• Zéro studio physique fixe en phase d'amorçage : Tournages dans les bureaux de l'invité ou location ponctuelle d'espaces architecturaux à la demi-journée (ex: Peerspace, WeWork Studio).\n"
-        "• Direction Artistique Monochrome & Cinématographique : Fond épuré, contraste affirmé, micros de référence (Shure SM7B), éclairage feutré à haute précision (Aputure). Le décor reflète le calme et la solidité de la marque.\n"
-        "• La Conversion 'Trojan Horse' : Chaque personnalité invitée au micro devient un ambassadeur naturel de Lonside, un client potentiel pour nos services ou un sponsor/utilisateur de nos futurs logiciels."
-    ).font.size = Pt(9.5)
+    services_data = [
+        ("Sprint Launch\n(6 900 € · 14j)", 
+         "• Cadrage CDC & schéma DB\n• Next.js App Router & Tailwind\n• Authentification sécurisée OAuth\n• Paiements Stripe actifs\n• Connexion APIs (Resend, etc.)", 
+         "• 14 jours ouvrés garantis\n• Forfait ferme (0 dépassement)\n• 1 seul interlocuteur senior\n• Zéro junior, zéro sous-traitance\n• Tests automatisés obligatoires", 
+         "• Dépôt GitHub cédé à 100%\n• App en production Vercel Edge\n• Compte Stripe live configuré\n• Walkthrough vidéo Loom (CTO)\n• Garantie corrective 30 jours", 
+         "Capacité immédiate d'encaisser de vrais clients payants dès J14 sans dette technique."),
+        ("Sprint Scale\n(13 900 € · 30j)", 
+         "• Tout le contenu Sprint Launch\n• Portails multi-rôles (RBAC)\n• Moteur de calculs automatisés\n• Tâches d'arrière-plan (Workers)\n• Notifications temps réel", 
+         "• 30 jours ouvrés garantis\n• Architecture distribuée résiliente\n• Couverture de tests > 80%\n• Démo jalon intermédiaire J15\n• Traçabilité audit trail complète", 
+         "• Dépôt GitHub cédé à 100%\n• Base PostgreSQL normalisée\n• Schémas migrations versionnés\n• Documentation technique runbook\n• Garantie corrective 30 jours", 
+         "Plateforme robuste prête à encaisser des milliers d'utilisateurs et convaincre des investisseurs."),
+        ("Régie d'Immersion\n(Dès 5 500 €/m)", 
+         "• Ingénieur senior dédié (1 à 3)\n• Intégration Slack client direct\n• Daily standups & rituels agiles\n• Expédition continue de features\n• Refactoring & optimisation infra", 
+         "• Semaine d'essai de 5 jours\n• Zéro engagement contraignant\n• Ajustement libre du volume\n• Rétroaction hebdomadaire\n• Disponibilité temps réel", 
+         "• Commits directs sur repo client\n• PRs documentées et revues\n• Rapports de vélocité mensuels\n• Transfert continu de savoir-faire", 
+         "Accélération immédiate de la roadmap produit sans le coût ni le délai d'un recrutement interne.")
+    ]
+
+    for s_name, s_scope, s_rules, s_deliv, s_res in services_data:
+        row = tbl_serv.add_row().cells
+        for idx, text in enumerate([s_name, s_scope, s_rules, s_deliv, s_res]):
+            c = row[idx]
+            set_cell_margins(c, top=60, bottom=60, left=70, right=70)
+            set_cell_border(c, bottom=dict(color="E4E4E7", sz="4"))
+            p = c.paragraphs[0]
+            p.paragraph_format.space_after = Pt(0)
+            r = p.add_run(text)
+            r.font.size = Pt(7.5)
+            if idx == 0:
+                r.font.bold = True
+                r.font.color.rgb = COLOR_BLACK
+            elif idx == 4:
+                r.font.bold = True
+                r.font.color.rgb = COLOR_DARK
+            else:
+                r.font.color.rgb = COLOR_BODY
 
     doc.add_page_break()
 
     # ──────────────────────────────────────────────────────────────────────────
-    # SECTION 4 : PHASE 3 — LONSIDE SOFTWARE (L'ÉDITION DE LOGICIELS SAAS)
+    # SECTION 4 : PHASE 2 (2028) — LONSIDE STUDIO (MÉDIA & CONTENU DE POINTE)
     # ──────────────────────────────────────────────────────────────────────────
     h4 = doc.add_heading(level=1)
-    rh4 = h4.add_run("4. PHASE 3 : LONSIDE SOFTWARE (L'ÉDITION DE LOGICIELS SAAS & CLOUD)")
+    rh4 = h4.add_run("4. PHASE 2 (2028) : LONSIDE STUDIO — GRILLE DES FORMATS & STRATÉGIE MÉDIA")
     rh4.font.name = "Arial"
     rh4.font.size = Pt(14)
     rh4.font.bold = True
@@ -325,56 +304,116 @@ def build_lonside_strategy_docx(output_path):
 
     add_callout(
         doc,
-        "BENCHMARK MARCHÉ : 37SIGNALS (BASECAMP/HEY), METALAB (TINY) & VERCEL",
-        "L'objectif ultime de Lonside est de posséder des actifs logiciels propriétaires récurrents (SaaS). "
-        "Chaque application éditée bénéficie de la signature ombrelle « A Product by Lonside », héritant de l'autorité "
-        "technique du studio et de la force de distribution du média."
+        "DÉPLOIEMENT MÉDIA EN 2028 : L'ATTENTION COMME ACTIF SOUVERAIN",
+        "En 2028, fort des dizaines de projets expédiés en 2027 et de notre réseau de fondateurs satisfaits, "
+        "Lonside active son studio média. L'objectif n'est pas d'amuser, mais de devenir la référence francophone incontournable "
+        "sur la réalité brute de la conception de produits et de l'entrepreneuriat technologique."
     )
 
-    doc.add_heading(level=2).add_run("4.1 La Doctrine de Sélection des Produits SaaS").font.bold = True
-    rules_saas = [
-        ("Résolution d'un Problème Éprouvé 3 Fois en Prestation :", " Interdiction d'inventer des besoins imaginaires. Un produit n'est mis en chantier que s'il répond à un blocage réel récurrent rencontré chez nos clients d'ingénierie."),
-        ("Modèle Économique Direct (B2B SaaS / Micro-SaaS) :", " Aucun modèle publicitaire ou freemium destructeur. Facturation claire (abonnement mensuel/annuel ou licence perpétuelle avec support), orientée ROI mesurable pour l'acheteur."),
-        ("Architecture Haute Densité & Maintenance Faible :", " Des logiciels conçus selon la philosophie 'Boring Tech' (PostgreSQL, TypeScript, Next.js, Edge) permettant à un seul ingénieur senior de maintenir 3 à 5 produits sans burn-out."),
-        ("Signature d'Édition 'A Product by Lonside' :", " Chaque logiciel conserve son nom de marque propre (ex: Welqo, FlowMetrics, Scoper), tout en affichant fièrement le label de qualité de notre atelier.")
+    if os.path.exists(img_media):
+        doc.add_paragraph().paragraph_format.space_before = Pt(4)
+        doc.add_picture(img_media, width=Inches(6.8))
+        p_cap = doc.add_paragraph()
+        p_cap.paragraph_format.space_before = Pt(4)
+        p_cap.paragraph_format.space_after = Pt(12)
+        r_c = p_cap.add_run("Figure 4.1 : Grille des Formats Éditoriaux Lonside Studio pour YouTube et Formats Dérivés.")
+        r_c.font.size = Pt(8)
+        r_c.font.italic = True
+        r_c.font.color.rgb = COLOR_MUTED
+
+    doc.add_heading(level=2).add_run("4.1 Anatomie Opérationnelle des 3 Formats").font.bold = True
+    media_specs = [
+        ("1. Lonside Conversations (40 à 60 minutes) :",
+         "• Invités : Fondateurs de startups ayant franchi le cap des premiers millions d'ARR, CTOs confrontés à des migrations titanesques, designers de produits iconiques, chercheurs en IA.\n"
+         "• Direction : Décor sobre et feutré, cadrage cinéma en plans fixes, micros Shure SM7B visibles, zéro coupure artificielle. On laisse le temps à la réflexion complexe.\n"
+         "• Résultat : Crédibilité institutionnelle maximale et création de relations profondes avec les leaders de l'écosystème."),
+        ("2. Inside the Build (15 à 25 minutes) :",
+         "• Concept : Immersion sans filtre dans le code et les schémas. Le Lead Architect Lonside ou un invité ouvre son IDE, son architecture Cloud ou sa base de données.\n"
+         "• Direction : Partage d'écran 4K épuré, annotations en direct, autopsie d'une décision technique (ex: 'Pourquoi nous avons quitté MongoDB pour PostgreSQL', 'Comment nous encaissons 50k transactions/sec').\n"
+         "• Résultat : Preuve irréfutable de la supériorité technique de Lonside aux yeux des développeurs et CTOs."),
+        ("3. The Turning Point (5 à 10 minutes) :",
+         "• Concept : Récit condensé d'un pivot dramatique ou d'un moment de bascule (un licenciement transformé en boîte florissante, un bug critique ayant failli couler l'entreprise, un refus de rachat).\n"
+         "• Direction : Rythme soutenu, montage cinématographique noir et blanc contrasté, déclinaison en extraits verticaux (Shorts, Reels, LinkedIn Clips).\n"
+         "• Résultat : Forte viralité organique, captation d'audience froide et redirection vers les formats longs et l'atelier.")
     ]
-    for r_title, r_desc in rules_saas:
+    for m_t, m_d in media_specs:
         p = doc.add_paragraph()
         p.paragraph_format.space_before = Pt(3)
         p.paragraph_format.space_after = Pt(3)
-        rt = p.add_run(f"• {r_title} ")
+        rt = p.add_run(f"{m_t}\n")
         rt.font.bold = True
         rt.font.size = Pt(9.5)
         rt.font.color.rgb = COLOR_BLACK
-        rd = p.add_run(r_desc)
+        rd = p.add_run(m_d)
         rd.font.size = Pt(9.5)
         rd.font.color.rgb = COLOR_BODY
-
-    doc.add_heading(level=2).add_run("4.2 Le Cycle d'Incubation Interne").font.bold = True
-    p = doc.add_paragraph()
-    p.add_run(
-        "1. Phase Sprint Interne (14 jours) : Prototypage et assemblage de la V1 par le Lead Architect Lonside.\n"
-        "2. Phase Bêta Privée (30 jours) : Déploiement auprès d'un panel de 20 clients historiques et auditeurs du podcast.\n"
-        "3. Lancement Public & Distribution (Jour 45) : Publication d'un épisode spécial 'Inside the Build' sur Lonside Studio dévoilant l'origine du logiciel, ses choix d'architecture et son modèle de code. Acquisition client sans frais d'ad-words (CAC = 0 €)."
-    ).font.size = Pt(9.5)
 
     doc.add_page_break()
 
     # ──────────────────────────────────────────────────────────────────────────
-    # SECTION 5 : ROADMAP STRATÉGIQUE & JALONS CONCRETS (2026 — 2028)
+    # SECTION 5 : PHASE 3 (2029+) — LONSIDE SOFTWARE (LE STUDIO D'ÉDITION SAAS)
     # ──────────────────────────────────────────────────────────────────────────
     h5 = doc.add_heading(level=1)
-    rh5 = h5.add_run("5. ROADMAP STRATÉGIQUE INTERNE & JALONS D'EXÉCUTION (2026 — 2028)")
+    rh5 = h5.add_run("5. PHASE 3 (2029+) : LONSIDE SOFTWARE — ÉDITION DE PRODUITS SAAS & ACTIFS PÉRENNES")
     rh5.font.name = "Arial"
     rh5.font.size = Pt(14)
     rh5.font.bold = True
     rh5.font.color.rgb = COLOR_BLACK
 
-    tbl_road = doc.add_table(rows=1, cols=4)
-    tbl_road.alignment = WD_TABLE_ALIGNMENT.CENTER
-    r_heads = ["Période Cible", "Focus Opérationnel Principal", "Jalons Clés & Livrables", "Objectif Financier / KPI"]
-    for idx, text in enumerate(r_heads):
-        c = tbl_road.cell(0, idx)
+    add_callout(
+        doc,
+        "LA CAPITALISATION LOGICIELLE DÈS 2029 : « A PRODUCT BY LONSIDE »",
+        "En 2029, Lonside active sa pleine maturité : transformer les opportunités et douleurs récurrentes du marché "
+        "en logiciels SaaS indépendants et hautement valorisables. Lonside devient une Holding de Logiciels Modernes."
+    )
+
+    saas_principles = [
+        ("La Règle des 'Trois Fois' :", " Aucun produit n'est créé sur une intuition. Une idée de SaaS n'est validée en interne que si elle résout un problème que nous avons dû coder manuellement pour au moins trois clients de services différents."),
+        ("Autonomie de Marque & Sceau de Qualité :", " Chaque logiciel possède son identité, son domaine et sa proposition de valeur propre (ex: Welqo, FlowScribe, PulseOps), tout en arborant le label institutionnel 'A Product by Lonside' qui rassure sur la pérennité et la sécurité."),
+        ("Acquisition à Coût Zéro (CAC = 0 €) :", " Le produit est dévoilé dans un épisode dédié d'Inside the Build sur Lonside Studio. L'audience de développeurs et fondateurs accumulée en 2028 devient le vivier immédiat des premiers utilisateurs et abonnés payants."),
+        ("Architecture Haute Densité (Boring Tech) :", " Des bases solides (Next.js, TypeScript, PostgreSQL, Edge) permettant à un seul ingénieur senior de superviser l'infrastructure de plusieurs SaaS sans maintenance complexe.")
+    ]
+    for s_t, s_d in saas_principles:
+        p = doc.add_paragraph()
+        p.paragraph_format.space_before = Pt(3)
+        p.paragraph_format.space_after = Pt(3)
+        rt = p.add_run(f"• {s_t}")
+        rt.font.bold = True
+        rt.font.size = Pt(9.5)
+        rt.font.color.rgb = COLOR_BLACK
+        rd = p.add_run(s_d)
+        rd.font.size = Pt(9.5)
+        rd.font.color.rgb = COLOR_BODY
+
+    doc.add_page_break()
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # SECTION 6 : ROADMAP CHRONOLOGIQUE CONCISE & ALLOCATION DU TEMPS
+    # ──────────────────────────────────────────────────────────────────────────
+    h6 = doc.add_heading(level=1)
+    rh6 = h6.add_run("6. ROADMAP STRATÉGIQUE (2027 — 2029+) & DISCIPLINE D'ALLOCATION DU TEMPS")
+    rh6.font.name = "Arial"
+    rh6.font.size = Pt(14)
+    rh6.font.bold = True
+    rh6.font.color.rgb = COLOR_BLACK
+
+    # Insertion de l'illustration Schéma de la Roadmap
+    if os.path.exists(img_road):
+        doc.add_paragraph().paragraph_format.space_before = Pt(4)
+        doc.add_picture(img_road, width=Inches(6.8))
+        p_cap = doc.add_paragraph()
+        p_cap.paragraph_format.space_before = Pt(4)
+        p_cap.paragraph_format.space_after = Pt(12)
+        r_c = p_cap.add_run("Figure 6.1 : Chronologie d'Exécution en 3 Phases Majeures (2027 — 2029+).")
+        r_c.font.size = Pt(8)
+        r_c.font.italic = True
+        r_c.font.color.rgb = COLOR_MUTED
+
+    tbl_chrono = doc.add_table(rows=1, cols=4)
+    tbl_chrono.alignment = WD_TABLE_ALIGNMENT.CENTER
+    c_heads = ["Année / Phase", "Focus Opérationnel", "Jalons Clés & Actions Concrètes", "Objectif Financier / KPI"]
+    for idx, text in enumerate(c_heads):
+        c = tbl_chrono.cell(0, idx)
         set_cell_background(c, "09090B")
         set_cell_margins(c, top=80, bottom=80, left=80, right=80)
         p = c.paragraphs[0]
@@ -384,24 +423,24 @@ def build_lonside_strategy_docx(output_path):
         r.font.size = Pt(8)
         r.font.color.rgb = RGBColor(255, 255, 255)
 
-    roadmap_data = [
-        ("S1 2026\n(Maintenant)", "Consolidation Prestations\n& Trésorerie Saine", 
-         "• Exécution des sprints fermes (Launch & Scale)\n• Standardisation des livrables et du design system\n• Constitution de 50k€ de trésorerie de réserve", 
-         "25k€ — 40k€ / mois de CA\n100% autofinancé"),
-        ("S2 2026\n(Ensuite)", "Lancement Média\nLonside Studio", 
-         "• Lancement chaîne YouTube & Lonside Conversations\n• Production de 12 épisodes pilotes (setup Lean)\n• Distribution multicanale (YouTube, LinkedIn, X)", 
-         "10 000 abonnés qualifiés\n3 à 5 deals Inbound générés"),
-        ("S1 2027\n(Accélération)", "Incubation du Premier SaaS\nLonside Software", 
-         "• Sélection du problème métier le plus récurrent\n• Développement du SaaS V1 en sprint interne 14j\n• Lancement via un épisode 'Inside the Build'", 
-         "50 premiers clients payants\nARR SaaS initial : 25k€"),
-        ("2027 — 2028\n(Maturité)", "Holding Hybride :\nServices, Média & Produits", 
-         "• 2 à 3 logiciels SaaS rentables en exploitation\n• Média établi comme référence francophone tech\n• Équipe resserrée d'ingénieurs seniors autonomes", 
-         "ARR Produits > CA Services\nValorisation d'actifs pérennes")
+    chrono_rows = [
+        ("2027\n(Phase 1 : Maintenant)", 
+         "Consolider les Services &\nTrésorerie d'Autofinancement", 
+         "• Déploiement des Sprints Launch (14j) & Scale (30j)\n• Constitution d'un carnet de 15 à 25 clients solides\n• Standardisation complète des composants d'atelier\n• Trésorerie de réserve sanctuarisée : 100k€", 
+         "35k€ — 60k€ / mois de CA\nMarge nette > 70%\n0€ de dette, 0 dilution"),
+        ("2028\n(Phase 2 : Ensuite)", 
+         "Déployer le Média\nLonside Studio", 
+         "• Lancement de la chaîne YouTube & formats podcasts\n• Production de 24 épisodes Conversations & Inside the Build\n• Réseau d'ambassadeurs fondateurs & CTOs activé\n• Portée organique multicanale (LinkedIn, X, YouTube)", 
+         "25 000 abonnés qualifiés\nInbound régulier sur les services\nPremiers sponsors institutionnels"),
+        ("2029+\n(Phase 3 : Progressivement)", 
+         "Éditer des Produits SaaS\nLonside Software", 
+         "• Incubation et lancement de 2 SaaS propriétaires B2B\n• Signature ombrelle « A Product by Lonside »\n• Acquisition à 0 € CAC via les épisodes Inside the Build\n• Transition progressive du CA Services vers l'ARR Logiciel", 
+         "ARR Logiciel > 250k€\nRevenus récurrents prédictibles\nValorisation d'actifs pérennes")
     ]
 
-    for p_per, p_foc, p_jal, p_kpi in roadmap_data:
-        row = tbl_road.add_row().cells
-        for idx, text in enumerate([p_per, p_foc, p_jal, p_kpi]):
+    for p_y, p_f, p_j, p_k in chrono_rows:
+        row = tbl_chrono.add_row().cells
+        for idx, text in enumerate([p_y, p_f, p_j, p_k]):
             c = row[idx]
             set_cell_margins(c, top=60, bottom=60, left=80, right=80)
             set_cell_border(c, bottom=dict(color="E4E4E7", sz="4"))
@@ -418,20 +457,13 @@ def build_lonside_strategy_docx(output_path):
             else:
                 r.font.color.rgb = COLOR_BODY
 
-    # ──────────────────────────────────────────────────────────────────────────
-    # SECTION 6 : ALLOCATION DES RESSOURCES & RÈGLE DU 70/20/10
-    # ──────────────────────────────────────────────────────────────────────────
-    doc.add_paragraph().paragraph_format.space_before = Pt(14)
-    h6 = doc.add_heading(level=2)
-    h6.add_run("Gouvernance du Temps : La Règle d'Allocation 70 / 20 / 10").font.bold = True
-    
+    doc.add_heading(level=2).add_run("6.1 La Règle d'Allocation Évolutive du Temps d'Équipe").font.bold = True
     p = doc.add_paragraph()
     p.add_run(
-        "Pour éviter que la prestation de service ne cannibalise la stratégie de marque et le développement de logiciels, Lonside applique une discipline d'allocation du temps strict :\n"
-        "• 70% du temps opérationnel : Dévoué à l'ingénierie client de haute volée (sprints fermes sans dépassement, garantissant la rentabilité immédiate et la réputation).\n"
-        "• 20% du temps opérationnel : Dévoué à Lonside Studio (préparation éditoriale, enregistrement des conversations, tournages Inside the Build et diffusion).\n"
-        "• 10% du temps opérationnel : Dévoué à la R&D interne de Lonside Software (architecture de composants partagés, veille technique, prototypage d'idées SaaS).\n\n"
-        "À mesure que les revenus récurrents des SaaS progressent, cette clé d'allocation évoluera progressivement vers 40% Services / 30% Média / 30% Produits, assurant une transition harmonieuse sans fragilisation du modèle financier."
+        "Pour garantir l'exécution sans dispersion :\n"
+        "• En 2027 (Phase 1) : 80% Prestations Services / 15% Préparation Média / 5% R&D Produit.\n"
+        "• En 2028 (Phase 2) : 60% Prestations Services / 25% Lonside Studio / 15% Prototypage SaaS.\n"
+        "• En 2029+ (Phase 3) : 35% Prestations Services / 25% Lonside Studio / 40% Édition & Scaling SaaS Lonside Software."
     ).font.size = Pt(9.5)
 
     p_close = doc.add_paragraph()
@@ -441,16 +473,22 @@ def build_lonside_strategy_docx(output_path):
     rc1.font.bold = True
     rc1.font.size = Pt(9.5)
     rc1.font.color.rgb = COLOR_BLACK
-    rc2 = p_close.add_run("Document de gouvernance stratégique générale — Validé par la Direction pour exécution — Version 2.0 (Avril 2026)")
+    rc2 = p_close.add_run("Document de gouvernance stratégique générale — Validé par la Direction pour exécution — Version 3.0 (Avril 2026)")
     rc2.font.name = "Arial"
     rc2.font.size = Pt(8.5)
     rc2.font.color.rgb = COLOR_MUTED
 
     doc.save(output_path)
-    print(f"Document Master Plan Stratégique DOCX généré avec succès : {output_path}")
+    print(f"Document Master Plan Stratégique DOCX (avec illustrations) généré avec succès : {output_path}")
 
 if __name__ == "__main__":
-    out_docs = os.path.join(os.path.dirname(__file__), "LONSIDE_MASTER_PLAN_STRATEGIQUE_ET_ROADMAP.docx")
-    out_public = os.path.join(os.path.dirname(os.path.dirname(__file__)), "public", "LONSIDE_MASTER_PLAN_STRATEGIQUE_ET_ROADMAP.docx")
-    build_lonside_strategy_docx(out_docs)
-    build_lonside_strategy_docx(out_public)
+    docs_dir = os.path.dirname(__file__)
+    img_b = os.path.join(docs_dir, "diagram_brand_architecture.png")
+    img_r = os.path.join(docs_dir, "diagram_roadmap_timeline.png")
+    img_m = os.path.join(docs_dir, "diagram_media_formats.png")
+
+    out_docs = os.path.join(docs_dir, "LONSIDE_MASTER_PLAN_STRATEGIQUE_ET_ROADMAP.docx")
+    out_public = os.path.join(os.path.dirname(docs_dir), "public", "LONSIDE_MASTER_PLAN_STRATEGIQUE_ET_ROADMAP.docx")
+
+    build_lonside_master_strategy_docx(out_docs, img_b, img_r, img_m)
+    build_lonside_master_strategy_docx(out_public, img_b, img_r, img_m)
