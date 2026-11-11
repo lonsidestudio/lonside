@@ -2,7 +2,6 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 
 def get_font(size, bold=False):
-    # Essayons Arial ou Segoe UI ou consolas sur Windows
     font_paths = [
         "C:\\Windows\\Fonts\\segoeuib.ttf" if bold else "C:\\Windows\\Fonts\\segoeui.ttf",
         "C:\\Windows\\Fonts\\arialbd.ttf" if bold else "C:\\Windows\\Fonts\\arial.ttf",
@@ -21,7 +20,6 @@ def create_brand_architecture_diagram(out_path):
     img = Image.new("RGB", (width, height), "#ffffff")
     draw = ImageDraw.Draw(img)
 
-    # Couleurs Lonside
     c_black = "#09090b"
     c_dark = "#18181b"
     c_gray = "#71717a"
@@ -62,9 +60,9 @@ def create_brand_architecture_diagram(out_path):
     sb_x = left_x - sb_w // 2
     sb_y = split_y + 40
     draw.rounded_rectangle([sb_x, sb_y, sb_x + sb_w, sb_y + sb_h], radius=20, fill="#fafafa", outline=c_border, width=2)
-    draw.text((sb_x + 30, sb_y + 25), "</> Lonside Software", fill=c_black, font=f_box_h)
-    draw.text((sb_x + 30, sb_y + 65), "ÉDITION DE LOGICIELS SAAS & CLOUD", fill=c_gray, font=f_badge)
-    desc_l = "• Conception & édition de plateformes propriétaires\n• Modèle récurrent B2B (ARR souverain)\n• Produits étiquetés « A Product by Lonside »\n• Briques logicielles issues des besoins terrain"
+    draw.text((sb_x + 30, sb_y + 25), "[ SOFTWARE ]  Lonside Software", fill=c_black, font=f_box_h)
+    draw.text((sb_x + 30, sb_y + 65), "EDITION DE LOGICIELS SAAS & CLOUD", fill=c_gray, font=f_badge)
+    desc_l = "- Conception & edition de plateformes proprietaires\n- Modele recurrent B2B (ARR souverain)\n- Produits etiquetes « A Product by Lonside »\n- Briques logicielles issues des besoins terrain"
     draw.multiline_text((sb_x + 30, sb_y + 98), desc_l, fill=c_dark, font=f_box_sub, spacing=8)
 
     # Branche Droite : Lonside Studio
@@ -73,9 +71,9 @@ def create_brand_architecture_diagram(out_path):
     st_x = right_x - st_w // 2
     st_y = split_y + 40
     draw.rounded_rectangle([st_x, st_y, st_x + st_w, st_y + st_h], radius=20, fill="#fafafa", outline=c_border, width=2)
-    draw.text((st_x + 30, st_y + 25), "🎙️ Lonside Studio", fill=c_black, font=f_box_h)
-    draw.text((st_x + 30, st_y + 65), "MÉDIA TECH, INTERVIEWS & CULTURE BUILDER", fill=c_gray, font=f_badge)
-    desc_r = "• Lonside Conversations (Entretiens 40-60 min)\n• Inside the Build (Coulisses & code en direct)\n• The Turning Point (Moments décisifs & pivots)\n• Moteur d'attention et distribution à 0 € CAC"
+    draw.text((st_x + 30, st_y + 25), "[ STUDIO ]  Lonside Studio", fill=c_black, font=f_box_h)
+    draw.text((st_x + 30, st_y + 65), "MEDIA TECH, INTERVIEWS & CULTURE BUILDER", fill=c_gray, font=f_badge)
+    desc_r = "- Lonside Conversations (Entretiens 40-60 min)\n- Inside the Build (Coulisses & code en direct)\n- The Turning Point (Moments decisifs & pivots)\n- Moteur d'attention et distribution a 0 EUR CAC"
     draw.multiline_text((st_x + 30, st_y + 98), desc_r, fill=c_dark, font=f_box_sub, spacing=8)
 
     # Flywheel liaison bidirectionnelle au bas
@@ -83,10 +81,10 @@ def create_brand_architecture_diagram(out_path):
     draw.line([left_x, sb_y + sb_h, left_x, fy], fill=c_gray, width=1)
     draw.line([right_x, st_y + st_h, right_x, fy], fill=c_gray, width=1)
     draw.line([left_x, fy, right_x, fy], fill=c_black, width=2)
-    draw.text((mid_x - 190, fy - 18), "◄── LE FLYWHEEL SYNERGIQUE LONSIDE ──►", fill=c_black, font=f_badge)
+    draw.text((mid_x - 170, fy - 18), "<-- LE FLYWHEEL SYNERGIQUE LONSIDE -->", fill=c_black, font=f_badge)
 
     img.save(out_path, quality=95)
-    print(f"Schéma Architecture de Marque créé : {out_path}")
+    print(f"Schema Architecture de Marque cree : {out_path}")
 
 def create_roadmap_timeline_diagram(out_path):
     width = 1500
@@ -98,53 +96,50 @@ def create_roadmap_timeline_diagram(out_path):
     c_dark = "#18181b"
     c_gray = "#71717a"
     c_border = "#e4e4e7"
-    c_surface = "#fafafa"
 
-    f_title = get_font(28, bold=True)
+    f_title = get_font(30, bold=True)
+    f_phase_h = get_font(22, bold=True)
+    f_phase_sub = get_font(14, bold=False)
     f_badge = get_font(13, bold=True)
-    f_step_num = get_font(20, bold=True)
-    f_step_h = get_font(19, bold=True)
-    f_desc = get_font(14, bold=False)
 
-    draw.text((60, 40), "ROADMAP STRATÉGIQUE LONSIDE (2027 — 2029+)", fill=c_black, font=f_title)
-    draw.text((60, 80), "PLAN OPÉRATIONNEL ÉCHELONNÉ EN 3 PHASES MAJEURES", fill=c_gray, font=f_badge)
+    draw.text((70, 40), "ROADMAP STRATEGIQUE TRIENNALE LONSIDE", fill=c_black, font=f_title)
+    draw.text((70, 85), "Sequence d'execution progressive : 2027 a 2029+", fill=c_gray, font=f_badge)
 
     col_w = 420
     col_h = 440
-    col_y = 130
-    gap = 40
+    col_y = 140
 
-    phases = [
-        ("01", "2027", "CONSOLIDER LES SERVICES", 
-         "Maintenant · Phase Fondatrice", 
-         "• Développer la clientèle & portfolio\n• Sprints Launch (14j) & Scale (30j)\n• Régie senior d'immersion\n• Financement sur fonds propres\n• Marge nette > 70%\n• R&D terrain : identification des pains"),
-        ("02", "2028", "DÉPLOYER LE MÉDIA", 
-         "Ensuite · Moteur d'Attention", 
-         "• Lonside Conversations (Interviews)\n• Inside the Build (Démos réelles)\n• The Turning Point (Pivots tech)\n• Production Lean (0 studio fixe)\n• Réseau d'influence & Inbound direct\n• Audience qualifiée de décideurs"),
-        ("03", "2029+", "ÉDITER DES PRODUITS", 
-         "Progressivement · SaaS Holding", 
-         "• Logiciels SaaS B2B propriétaires\n• Label « A Product by Lonside »\n• Distribution à 0 € CAC via le média\n• Modèle 'Boring Tech' haute densité\n• Transition ARR > Prestations\n• Actifs numériques valorisables")
-    ]
+    # Phase 1: 2027
+    x1 = 70
+    draw.rounded_rectangle([x1, col_y, x1 + col_w, col_y + col_h], radius=16, fill="#fafafa", outline=c_black, width=2)
+    draw.rounded_rectangle([x1 + 25, col_y + 25, x1 + 175, col_y + 55], radius=8, fill=c_black)
+    draw.text((x1 + 35, col_y + 32), "PHASE 1  ·  2027", fill="#ffffff", font=f_badge)
+    draw.text((x1 + 25, col_y + 75), "Consolider les Services", fill=c_black, font=f_phase_h)
+    desc1 = "FOCUS STRATEGIQUE :\n- Prestations d'ingenierie web haute precision\n- Forfaits fixes (Sprint Launch, Scale, Squad)\n- Remplir la tresorerie (reserve 100k EUR)\n- Constituer le reseau initial de clients\n- Eprouver les composants & standards UI\n\nOBJECTIF : Autonomie financiere totale"
+    draw.multiline_text((x1 + 25, col_y + 120), desc1, fill=c_dark, font=f_phase_sub, spacing=7)
 
-    for idx, (num, year, title, subtitle, details) in enumerate(phases):
-        cx = 60 + idx * (col_w + gap)
-        draw.rounded_rectangle([cx, col_y, cx + col_w, col_y + col_h], radius=16, fill=c_surface, outline=c_border, width=2)
-        
-        # En-tête de carte
-        draw.rounded_rectangle([cx, col_y, cx + col_w, col_y + 70], radius=16, fill=c_black)
-        draw.rectangle([cx, col_y + 40, cx + col_w, col_y + 70], fill=c_black)
-        draw.text((cx + 25, col_y + 22), f"PHASE {num}  //  {year}", fill="#ffffff", font=f_step_num)
+    # Phase 2: 2028
+    x2 = x1 + col_w + 35
+    draw.rounded_rectangle([x2, col_y, x2 + col_w, col_y + col_h], radius=16, fill="#fafafa", outline=c_border, width=2)
+    draw.rounded_rectangle([x2 + 25, col_y + 25, x2 + 175, col_y + 55], radius=8, fill=c_dark)
+    draw.text((x2 + 35, col_y + 32), "PHASE 2  ·  2028", fill="#ffffff", font=f_badge)
+    draw.text((x2 + 25, col_y + 75), "Deployer le Media", fill=c_black, font=f_phase_h)
+    desc2 = "FOCUS STRATEGIQUE :\n- Lancement de la chaine YouTube Lonside Studio\n- Setup nomade ultra-qualitatif (0 EUR de bail)\n- Format long : Lonside Conversations\n- Format immersif : Inside the Build\n- Format court : The Turning Point\n- Bâtir l'audience de decideurs & fondateurs\n\nOBJECTIF : Notoriete & Inbound dealflow"
+    draw.multiline_text((x2 + 25, col_y + 120), desc2, fill=c_dark, font=f_phase_sub, spacing=7)
 
-        draw.text((cx + 25, col_y + 90), title, fill=c_black, font=f_step_h)
-        draw.text((cx + 25, col_y + 120), subtitle, fill=c_gray, font=f_badge)
-
-        draw.line([cx + 25, col_y + 145, cx + col_w - 25, col_y + 145], fill=c_border, width=1)
-        draw.multiline_text((cx + 25, col_y + 165), details, fill=c_dark, font=f_desc, spacing=10)
+    # Phase 3: 2029+
+    x3 = x2 + col_w + 35
+    draw.rounded_rectangle([x3, col_y, x3 + col_w, col_y + col_h], radius=16, fill="#fafafa", outline=c_border, width=2)
+    draw.rounded_rectangle([x3 + 25, col_y + 25, x3 + 175, col_y + 55], radius=8, fill=c_dark)
+    draw.text((x3 + 35, col_y + 32), "PHASE 3  ·  2029+", fill="#ffffff", font=f_badge)
+    draw.text((x3 + 25, col_y + 75), "Editer des Produits", fill=c_black, font=f_phase_h)
+    desc3 = "FOCUS STRATEGIQUE :\n- Transformer les besoins repetitifs en SaaS\n- Produits propres : « A Product by Lonside »\n- Distribution organique via le media (CAC = 0 EUR)\n- Monetisation B2B a revenus recurrents (ARR)\n- Bascule progressive du CA services vers produits\n\nOBJECTIF : Croissance exponentielle & valorisation"
+    draw.multiline_text((x3 + 25, col_y + 120), desc3, fill=c_dark, font=f_phase_sub, spacing=7)
 
     img.save(out_path, quality=95)
-    print(f"Schéma Roadmap Timeline créé : {out_path}")
+    print(f"Schema Roadmap Timeline cree : {out_path}")
 
 if __name__ == "__main__":
-    docs_dir = os.path.dirname(__file__)
-    create_brand_architecture_diagram(os.path.join(docs_dir, "diagram_brand_architecture.png"))
-    create_roadmap_timeline_diagram(os.path.join(docs_dir, "diagram_roadmap_timeline.png"))
+    os.makedirs("docs", exist_ok=True)
+    create_brand_architecture_diagram("docs/diagram_brand_architecture.png")
+    create_roadmap_timeline_diagram("docs/diagram_roadmap_timeline.png")

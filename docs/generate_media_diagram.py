@@ -67,3 +67,4 @@ def create_media_formats_diagram(out_path):
 if __name__ == "__main__":
     docs_dir = os.path.dirname(__file__)
     create_media_formats_diagram(os.path.join(docs_dir, "diagram_media_formats.png"))
+
