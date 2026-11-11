@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTranslations } from "next-intl";
 import { ArrowUpRight } from "lucide-react";
 import type { LocalizedProject } from "@/lib/keystatic/reader";
 import DossierDrawer from "@/components/DossierDrawer";
@@ -13,8 +14,7 @@ interface WorkSectionProps {
 export default function WorkSection({ projects, locale = "fr" }: WorkSectionProps) {
   const [selectedProject, setSelectedProject] = useState<LocalizedProject | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  const isEn = locale === "en";
+  const t = useTranslations("work");
 
   const handleOpenDossier = (proj: LocalizedProject) => {
     setSelectedProject(proj);
@@ -32,19 +32,14 @@ export default function WorkSection({ projects, locale = "fr" }: WorkSectionProp
         <div className="max-w-3xl mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.22em] text-zinc-400 uppercase mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-black" />
-            <span>{isEn ? "SELECTED WORK" : "RÉALISATIONS CHOISIES"}</span>
+            <span>{t("label")}</span>
           </div>
           <h2 className="font-display uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight text-black leading-[1.08] font-normal">
-            {isEn ? (
-              <>Thoughtful products, <br /><span className="text-zinc-500">built to launch and grow.</span></>
-            ) : (
-              <>Des produits bien conçus, <br /><span className="text-zinc-500">faits pour durer.</span></>
-            )}
+            {t("title")} <br />
+            <span className="text-zinc-500">{t("titleHighlight")}</span>
           </h2>
           <p className="mt-4 sm:mt-5 text-sm sm:text-base text-zinc-600 font-normal leading-relaxed">
-            {isEn
-              ? "A selection of web applications and platforms we built alongside their founders. From the first wireframe to live production, every project solves a genuine challenge with clarity and care."
-              : "Voici quelques applications et plateformes que nous avons façonnées aux côtés de leurs fondateurs. De la première maquette jusqu'au lancement officiel, chaque projet résout un vrai besoin métier avec soin et clarté."}
+            {t("description")}
           </p>
         </div>
 
@@ -69,8 +64,8 @@ export default function WorkSection({ projects, locale = "fr" }: WorkSectionProp
                 <span className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider truncate min-w-0">
                   0{index + 1} {"//"} {project.industry}
                 </span>
-                <span className="text-[10px] sm:text-[11px] font-mono px-2.5 sm:px-3 py-1 rounded-xl bg-white border border-black/[0.08] text-black font-medium whitespace-nowrap shrink-0">
-                  {project.deliveryDays} {isEn ? "DAYS" : "JOURS"}
+                <span className="text-[10px] sm:text-[11px] font-mono px-2.5 sm:px-3 py-1 rounded-xl bg-white border border-black/[0.08] text-black font-medium whitespace-nowrap shrink-0 uppercase">
+                  {project.deliveryDays} {t("days")}
                 </span>
               </div>
 
@@ -102,12 +97,12 @@ export default function WorkSection({ projects, locale = "fr" }: WorkSectionProp
                   </div>
                 ) : (
                   <span className="text-zinc-400 uppercase truncate min-w-0">
-                    {isEn ? "Live in production" : "En production"}
+                    {t("liveInProduction")}
                   </span>
                 )}
                 <span className="text-black underline underline-offset-4 font-medium group-hover:text-zinc-600 transition-colors whitespace-nowrap shrink-0 text-xs ml-auto">
-                  <span className="hidden sm:inline">{isEn ? "Project details →" : "Détails du projet →"}</span>
-                  <span className="sm:hidden">{isEn ? "Details →" : "Détails →"}</span>
+                  <span className="hidden sm:inline">{t("projectDetails")}</span>
+                  <span className="sm:hidden">{t("details")}</span>
                 </span>
               </div>
             </article>

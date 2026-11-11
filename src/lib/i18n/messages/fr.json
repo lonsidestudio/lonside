@@ -25,6 +25,263 @@
       "description": "Gestion des traceurs, cookies techniques et mesures d'audience anonymisées."
     }
   },
+  "common": {
+    "days": "jours",
+    "recommended": "Recommandé",
+    "liveSite": "Site en ligne",
+    "visitLiveSite": "Visiter le site en ligne",
+    "visitClientSite": "Visiter le site client",
+    "privatePlatform": "Plateforme privée",
+    "details": "Détails →",
+    "projectDetails": "Détails du projet →",
+    "liveInProduction": "En production",
+    "startProject": "Démarrer un projet",
+    "startProject15min": "Démarrer un projet (15 min)",
+    "close": "Fermer",
+    "closeDrawer": "Fermer le dossier"
+  },
+  "navbar": {
+    "projects": "Projets",
+    "method": "Méthode",
+    "pricing": "Tarifs",
+    "startProject": "Démarrer un projet",
+    "startProject15min": "Démarrer un projet (15 min)",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "navigation": "Navigation",
+    "copyright": "© {year} Lonside Studio"
+  },
+  "hero": {
+    "titleLine": "Votre produit digital en production,",
+    "titleHighlight": "dès 14 jours.",
+    "subtitle": "Nous concevons et développons des applications web et plateformes fiables pour les fondateurs et équipes qui veulent avancer vite.",
+    "ctaDiscuss": "Échanger sur votre projet (15 min)",
+    "ctaExplore": "Découvrir nos réalisations",
+    "metrics": {
+      "sprintDelay": "Dès 14j",
+      "sprintDelayLabel": "Délai garanti",
+      "fixedPrice": "Forfait fixe",
+      "fixedPriceLabel": "Zéro dépassement",
+      "codeOwnership": "100% à vous",
+      "codeOwnershipLabel": "Cession totale GitHub",
+      "warranty": "30 jours",
+      "warrantyLabel": "Garantie corrective"
+    }
+  },
+  "whyUs": {
+    "cartouche": "Lonside a été créé avec une conviction simple : permettre aux fondateurs et aux équipes ambitieuses de déployer des produits digitaux de premier plan à la vitesse de la pensée. Chez Lonside, nous n'employons aucun intermédiaire, aucun commercial et nous ne sous-traitons aucun travail. Chaque plateforme est conçue, architecturée et développée directement par un Lead Architect chevronné, dédié à un nombre strictement limité de clients à la fois.",
+    "label": "Notre engagement",
+    "titlePrefix": "Un modèle tellement plus direct que",
+    "titleQuote": "« vous ne reviendrez jamais en arrière »",
+    "description": "Lonside offre une vélocité sans précédent et une certitude totale : des sprints d'ingénierie au forfait scellé livrés dès 14 jours, avec 100% du code source cédé sur votre propre compte GitHub, exécutés si rapidement et proprement que vous ne voudrez plus concevoir de produit autrement."
+  },
+  "work": {
+    "label": "Réalisations choisies",
+    "title": "Des produits bien conçus,",
+    "titleHighlight": "faits pour durer.",
+    "description": "Voici quelques applications et plateformes que nous avons façonnées aux côtés de leurs fondateurs. De la première maquette jusqu'au lancement officiel, chaque projet résout un vrai besoin métier avec soin et clarté.",
+    "days": "jours",
+    "liveInProduction": "En production",
+    "details": "Détails →",
+    "projectDetails": "Détails du projet →"
+  },
+  "manifesto": {
+    "label": "Notre vision d'atelier",
+    "title": "Créer du logiciel,",
+    "titleHighlight": "dans la confiance.",
+    "description": "Lancer un nouveau produit demande du courage et de l'énergie. Travailler avec nous doit être une expérience stimulante et limpide, pas un tunnel anxiogène de devis flous et de retards répétés. Nous avons fondé Lonside sur trois engagements simples.",
+    "commitments": [
+      {
+        "num": "01",
+        "title": "La parole tenue sur les délais et le prix",
+        "subtitle": "Forfait ferme • Zéro surcoût surprise",
+        "desc": "Avant de poser la première ligne de code, nous cadrons ensemble ce qui compte réellement pour votre entreprise. Une fois le périmètre validé, notre engagement est total : le prix ne bouge pas d'un centime, et la date de livraison est scellée. Vous savez exactement où vous allez."
+      },
+      {
+        "num": "02",
+        "title": "Un code 100% à vous, sans aucune captivité",
+        "subtitle": "Votre compte GitHub • Cession totale",
+        "desc": "Chaque ligne de code, chaque schéma de base de données et chaque composant d'interface sont poussés directement sur votre propre compte GitHub. Vous n'êtes jamais captif d'un outil propriétaire ni d'un abonnement forcé. Vous restez libre de grandir avec nous ou en totale autonomie."
+      },
+      {
+        "num": "03",
+        "title": "Le soin de l'artisan, prêt pour la vraie vie",
+        "subtitle": "Tests rigoureux • Garantie 30 jours",
+        "desc": "Nous aimons sincèrement ce que nous fabriquons. Votre application n'est pas une maquette bancale : elle arrive testée, fluide, documentée, prête à accueillir de vrais utilisateurs et à encaisser des paiements. Et si le moindre ajustement est nécessaire, notre garantie 30 jours prend le relais sans frais."
+      }
+    ]
+  },
+  "method": {
+    "label": "Notre façon de faire",
+    "title": "Du premier échange,",
+    "titleHighlight": "à la mise en ligne.",
+    "description": "Pas de jargon obscur ni de mauvaise surprise. Chaque étape a un objectif limpide, et vous suivez l'avancement de votre produit en direct.",
+    "deliverableLabel": "Ce que vous recevez",
+    "phases": [
+      {
+        "timing": "Jours 1 — 2",
+        "title": "Cadrage, Architecture & Priorités",
+        "deliverable": "Cahier des Charges Scellé & Modèle de Données",
+        "bullets": [
+          "Alignement précis sur vos objectifs et vos utilisateurs cibles",
+          "Modélisation de la base de données et des flux essentiels",
+          "Validation conjointe du périmètre pour éviter tout flou",
+          "Ouverture de votre canal direct Slack ou WhatsApp"
+        ]
+      },
+      {
+        "timing": "Jours 3 — 11",
+        "title": "Sprint d'Ingénierie & Assemblage Continu",
+        "deliverable": "Version Fonctionnelle & Démo Intermédiaire",
+        "bullets": [
+          "Développement soigné de l'interface et de la logique métier",
+          "Intégration fluide de Stripe et de vos outils externes",
+          "Batterie de tests automatisés pour éviter toute régression",
+          "Lien de prévisualisation actif pour tester au fil de l'eau"
+        ]
+      },
+      {
+        "timing": "Jours 12 — 14",
+        "title": "Mise en Ligne, Prise en Main & Suivi",
+        "deliverable": "Plateforme en Ligne + 30 Jours d'Assistance",
+        "bullets": [
+          "Vérifications complètes de fluidité, sécurité et responsive",
+          "Transfert intégral du code source sur votre propre GitHub",
+          "Visite guidée personnalisée en vidéo (Loom) de l'architecture",
+          "Garantie 30 jours : nous restons à vos côtés après la mise en ligne"
+        ]
+      }
+    ]
+  },
+  "pricing": {
+    "label": "Forfaits transparents",
+    "title": "Des forfaits simples,",
+    "titleHighlight": "zéro mauvaise surprise.",
+    "description": "Chaque formule comprend le cadrage complet, le développement soigné, la cession du code sur votre compte et un mois d'assistance sereine.",
+    "recommended": "Recommandé",
+    "tiers": [
+      {
+        "name": "Sprint Launch",
+        "tagline": "Votre première version en ligne, prête pour vos premiers clients",
+        "price": "6 900 €",
+        "period": "forfait ferme • 14 jours ouvrés",
+        "popular": false,
+        "features": [
+          "Application web fluide, rapide et responsive sur mobile",
+          "Comptes utilisateurs et authentification sécurisée",
+          "Paiements Stripe configurés (abonnements ou achats uniques)",
+          "Connexion avec vos outils métiers et services essentiels",
+          "Code 100% à vous sur votre propre compte GitHub",
+          "30 jours d'assistance et garantie corrective inclus"
+        ],
+        "cta": "Choisir le sprint 14j"
+      },
+      {
+        "name": "Sprint Scale",
+        "tagline": "Pour les plateformes multi-rôles et flux métier avancés",
+        "price": "13 900 €",
+        "period": "forfait ferme • 30 jours ouvrés",
+        "popular": true,
+        "features": [
+          "Tout le contenu du Sprint Launch, augmenté de :",
+          "Espaces multi-rôles (ex: acheteur, vendeur, administrateur)",
+          "Calculs automatisés et traitement intelligent des données",
+          "Notifications en temps réel et flux d'automatisation",
+          "Tests rigoureux pour garantir une stabilité irréprochable",
+          "Visite guidée en vidéo (Loom) et documentation complète"
+        ],
+        "cta": "Choisir le sprint 30j"
+      },
+      {
+        "name": "Régie d'Immersion",
+        "tagline": "Un ingénieur senior intégré directement à vos côtés",
+        "price": "Dès 5 500 €",
+        "period": "/ mois • flexibilité sans engagement",
+        "popular": false,
+        "features": [
+          "Ingénieur senior dédié (1 à 3 profils selon vos besoins)",
+          "Collaboration directe dans votre Slack et vos rituels",
+          "Sortie rapide de nouvelles fonctionnalités au quotidien",
+          "Semaine d'essai de 5 jours pour tester la collaboration",
+          "Ajustement libre du volume chaque mois selon vos priorités"
+        ],
+        "cta": "Échanger sur une squad"
+      }
+    ]
+  },
+  "faq": {
+    "label": "Réponses sans détour",
+    "title": "Tout ce que vous devez savoir,",
+    "titleHighlight": "en toute transparence.",
+    "description": "Une question sur notre garantie, nos méthodes de développement ou notre façon de travailler ? Voici les réponses directes."
+  },
+  "contact": {
+    "label": "Parlons de votre projet",
+    "title": "Démarrons votre prochain",
+    "titleHighlight": "produit ensemble.",
+    "description": "Que vous ayez un cahier des charges précis ou une idée à structurer, échangeons en direct avec un Lead Architecte.",
+    "scopingCall": {
+      "title": "Échange de cadrage (15 min)",
+      "host": "Direct avec Kevin T. (Fondateur & Lead Architecte)",
+      "desc": "15 minutes pour évaluer la faisabilité technique de votre projet, définir le format idéal (Launch ou Scale) et sceller votre date cible.",
+      "cta": "Choisir un créneau sur l'agenda →",
+      "benefit1": "Échange direct et sans pression commerciale",
+      "benefit2": "Conseils techniques actionnables dès le premier échange"
+    },
+    "form": {
+      "title": "Ou transmettez votre besoin par écrit",
+      "nameLabel": "Nom ou entreprise *",
+      "namePlaceholder": "ex: Sarah Connor / Cyberdyne",
+      "emailLabel": "Email professionnel *",
+      "emailPlaceholder": "sarah@cyberdyne.com",
+      "projectLabel": "Description du projet & échéance cible *",
+      "projectPlaceholder": "Décrivez votre produit en quelques lignes (utilisateurs cibles, fonctionnalités clés, date de lancement souhaitée...)",
+      "submit": "Transmettre ma demande",
+      "submitting": "Envoi en cours...",
+      "sentTitle": "Demande bien reçue.",
+      "sentDesc": "Un Lead Architecte étudie votre brief et vous répondra sous 24h ouvrées avec un premier avis technique.",
+      "sendAnother": "Envoyer un autre message",
+      "validationError": "Veuillez renseigner correctement tous les champs obligatoires.",
+      "networkError": "Une erreur réseau est survenue. Veuillez réessayer ou nous écrire à {email}."
+    }
+  },
+  "dossier": {
+    "days": "jours",
+    "liveSite": "Site en ligne",
+    "visitLiveSite": "Visiter le site en ligne",
+    "visitClientSite": "Visiter le site client",
+    "close": "Fermer le dossier",
+    "keyResults": "Résultats obtenus",
+    "contextNeed": "Le contexte & le besoin",
+    "whatWeDelivered": "Ce que nous avons livré",
+    "clientFeedback": "Retour du client",
+    "privatePlatform": "Plateforme privée",
+    "discussSimilar": "Échanger sur votre projet"
+  },
+  "footer": {
+    "tagline": "Studio de développement web & produits digitaux. Livraison dès 14 jours, 100% de cession de code source sur votre propre compte GitHub.",
+    "navigation": "Navigation",
+    "commitment": "• Engagement",
+    "projects": "• Réalisations",
+    "philosophy": "• Philosophie",
+    "method": "• Méthode",
+    "pricing": "• Tarifs",
+    "faq": "• F.A.Q.",
+    "contact": "• Contact",
+    "directAccess": "Accès direct",
+    "responseDelay": "Réponse directe par un lead architecte sous 24h ouvrées.",
+    "legalNotice": "Mentions légales",
+    "privacyPolicy": "Confidentialité",
+    "termsOfService": "CGV",
+    "copyright": "Tous droits réservés."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "description": "Cette route n'existe pas dans notre architecture.",
+    "terminalStatus": "statut // erreur",
+    "terminalError": "Segment inexistant",
+    "backHome": "Retour à l'accueil"
+  },
   "legalData": {
     "lastUpdateLabel": "Dernière mise à jour : Avril 2026",
     "mentions": {

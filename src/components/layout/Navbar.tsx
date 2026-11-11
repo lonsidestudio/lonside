@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/lib/i18n/navigation";
 import LocaleSwitcher from "@/components/layout/LocaleSwitcher";
 
@@ -11,8 +11,8 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const locale = useLocale();
+  const t = useTranslations("navbar");
   const pathname = usePathname();
-  const isEn = locale === "en";
   const isHome = pathname === "/";
 
   const getSectionHref = (id: string) => {
@@ -77,9 +77,9 @@ export default function Navbar() {
   }, [mounted]);
 
   const navLinks = [
-    { label: isEn ? "Work" : "Projets", id: "projets" },
-    { label: isEn ? "Method" : "Méthode", id: "methode" },
-    { label: isEn ? "Pricing" : "Tarifs", id: "tarifs" },
+    { label: t("projects"), id: "projets" },
+    { label: t("method"), id: "methode" },
+    { label: t("pricing"), id: "tarifs" },
   ];
 
   return (
@@ -124,7 +124,7 @@ export default function Navbar() {
               href={getSectionHref("contact")}
               className="inline-flex items-center px-6 py-2.5 rounded-xl bg-black text-white text-xs font-mono uppercase tracking-[0.16em] hover:bg-zinc-800 transition-all cursor-pointer min-h-[40px] whitespace-nowrap"
             >
-              <span>{isEn ? "Start a project" : "Démarrer un projet"}</span>
+              <span>{t("startProject")}</span>
             </a>
           </div>
 
@@ -135,7 +135,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setIsMobileOpen((prev) => !prev)}
               className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-xl text-zinc-800 hover:text-black transition-colors cursor-pointer"
-              aria-label={isMobileOpen ? (isEn ? "Close menu" : "Fermer le menu") : (isEn ? "Open menu" : "Ouvrir le menu")}
+              aria-label={isMobileOpen ? t("closeMenu") : t("openMenu")}
               aria-expanded={isMobileOpen}
             >
               <div className="relative w-5 h-3.5 flex flex-col justify-between" aria-hidden="true">
@@ -175,7 +175,7 @@ export default function Navbar() {
             }`}
           >
             <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-zinc-400 mb-1">
-              {isEn ? "NAVIGATION" : "NAVIGATION"}
+              {t("navigation")}
             </div>
             {navLinks.map((link) => (
               <a
@@ -199,10 +199,10 @@ export default function Navbar() {
               onClick={() => setIsMobileOpen(false)}
               className="w-full flex items-center justify-center py-4 rounded-xl bg-black text-white font-mono text-xs uppercase tracking-[0.18em] min-h-[48px] whitespace-nowrap hover:bg-zinc-800 transition-colors"
             >
-              <span>{isEn ? "Start a project (15 min)" : "Démarrer un projet (15 min)"}</span>
+              <span>{t("startProject15min")}</span>
             </a>
-            <p className="text-center text-[11px] font-mono text-zinc-400">
-              © {new Date().getFullYear()} LONSIDE STUDIO
+            <p className="text-center text-[11px] font-mono uppercase text-zinc-400">
+              {t("copyright", { year: new Date().getFullYear() })}
             </p>
           </div>
         </div>

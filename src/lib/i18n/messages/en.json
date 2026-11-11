@@ -25,6 +25,263 @@
       "description": "Information on essential cookies and anonymized privacy-friendly analytics."
     }
   },
+  "common": {
+    "days": "days",
+    "recommended": "Recommended",
+    "liveSite": "Live site",
+    "visitLiveSite": "Visit live site",
+    "visitClientSite": "Visit client site",
+    "privatePlatform": "Private platform",
+    "details": "Details →",
+    "projectDetails": "Project details →",
+    "liveInProduction": "Live in production",
+    "startProject": "Start a project",
+    "startProject15min": "Start a project (15 min)",
+    "close": "Close",
+    "closeDrawer": "Close dossier"
+  },
+  "navbar": {
+    "projects": "Projects",
+    "method": "Method",
+    "pricing": "Pricing",
+    "startProject": "Start a project",
+    "startProject15min": "Start a project (15 min)",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "navigation": "Navigation",
+    "copyright": "© {year} Lonside Studio"
+  },
+  "hero": {
+    "titleLine": "Your digital product live in production,",
+    "titleHighlight": "in as little as 14 days.",
+    "subtitle": "We design and build robust web applications and platforms for ambitious founders and teams who value extreme velocity.",
+    "ctaDiscuss": "Discuss your project (15 min)",
+    "ctaExplore": "Explore our work",
+    "metrics": {
+      "sprintDelay": "From 14d",
+      "sprintDelayLabel": "Guaranteed timeline",
+      "fixedPrice": "Fixed scope",
+      "fixedPriceLabel": "Zero budget creep",
+      "codeOwnership": "100% yours",
+      "codeOwnershipLabel": "Full GitHub transfer",
+      "warranty": "30 days",
+      "warrantyLabel": "Corrective warranty"
+    }
+  },
+  "whyUs": {
+    "cartouche": "Lonside was created with a simple conviction: enable founders and ambitious teams to ship world-class digital products at the speed of thought. At Lonside, we employ zero account managers, zero salespeople, and we outsource no work. Every platform is designed, architected, and built directly by a seasoned Lead Architect dedicated to a strictly limited roster of clients at a time.",
+    "label": "Our commitment",
+    "titlePrefix": "A model so direct that",
+    "titleQuote": "“you will never go back”",
+    "description": "Lonside delivers unprecedented velocity and total certainty: fixed-price engineering sprints shipped in as little as 14 days, with 100% source code transferred to your own GitHub repository, executed so fast and cleanly you won't want to build software any other way."
+  },
+  "work": {
+    "label": "Selected work",
+    "title": "Thoughtfully crafted products,",
+    "titleHighlight": "built to last.",
+    "description": "Here are a few applications and platforms we have engineered alongside their founders. From the first wireframe to the official release, each project solves a concrete business need with precision and clarity.",
+    "days": "days",
+    "liveInProduction": "Live in production",
+    "details": "Details →",
+    "projectDetails": "Project details →"
+  },
+  "manifesto": {
+    "label": "Our studio vision",
+    "title": "Building software,",
+    "titleHighlight": "grounded in trust.",
+    "description": "Launching a new product demands courage and energy. Working with us should feel energizing and crystal clear, not like an anxiety-inducing loop of vague quotes and cascading delays. We founded Lonside on three simple commitments.",
+    "commitments": [
+      {
+        "num": "01",
+        "title": "A promise kept on deadlines and budget",
+        "subtitle": "Fixed price • Zero hidden costs",
+        "desc": "Before typing a single line of code, we thoroughly define what truly moves the needle for your business. Once scope is sealed, our commitment is absolute: the price does not change by a single cent, and the delivery date is locked. You know exactly where you are heading."
+      },
+      {
+        "num": "02",
+        "title": "100% code ownership, zero vendor lock-in",
+        "subtitle": "Your GitHub account • Full transfer",
+        "desc": "Every line of code, database schema, and UI component is committed directly to your private GitHub repository. You are never captive to a proprietary platform or forced subscription. You remain free to scale with us or in total autonomy."
+      },
+      {
+        "num": "03",
+        "title": "Craftsman care, battle-tested for real users",
+        "subtitle": "Rigorous testing • 30-day warranty",
+        "desc": "We genuinely care about the craft. Your application is not a fragile prototype: it arrives tested, responsive, documented, ready to onboard real users and process live payments. And if any fine-tuning is needed, our 30-day corrective warranty has you covered with zero extra fees."
+      }
+    ]
+  },
+  "method": {
+    "label": "Our process",
+    "title": "From initial discovery,",
+    "titleHighlight": "to production launch.",
+    "description": "No obscure jargon or unpleasant surprises. Every phase has a crisp objective, and you follow your product's progress live.",
+    "deliverableLabel": "What you receive",
+    "phases": [
+      {
+        "timing": "Days 1 — 2",
+        "title": "Discovery, Architecture & Priorities",
+        "deliverable": "Sealed Specification & Data Architecture",
+        "bullets": [
+          "Precise alignment on business objectives and core target personas",
+          "Data schema modeling and essential user flow mapping",
+          "Joint scope validation to eliminate all ambiguity",
+          "Direct Slack or WhatsApp channel setup"
+        ]
+      },
+      {
+        "timing": "Days 3 — 11",
+        "title": "Engineering Sprint & Continuous Assembly",
+        "deliverable": "Functional Build & Mid-Sprint Demo",
+        "bullets": [
+          "Pixel-perfect UI and rock-solid business logic development",
+          "Seamless Stripe payments and third-party API integration",
+          "Automated end-to-end testing suite to prevent any regression",
+          "Live staging preview URL updated with every push"
+        ]
+      },
+      {
+        "timing": "Days 12 — 14",
+        "title": "Production Launch, Handover & Support",
+        "deliverable": "Live Platform + 30 Days of Dedicated Support",
+        "bullets": [
+          "Comprehensive checks for performance, security, and responsive layout",
+          "Full source code handover to your private GitHub organization",
+          "Personalized Loom video walkthrough of the codebase and architecture",
+          "30-day warranty: we stay by your side after launch"
+        ]
+      }
+    ]
+  },
+  "pricing": {
+    "label": "Transparent pricing",
+    "title": "Straightforward packages,",
+    "titleHighlight": "zero surprise fees.",
+    "description": "Every package includes end-to-end discovery, polished development, complete code ownership on your account, and one month of post-launch warranty.",
+    "recommended": "Recommended",
+    "tiers": [
+      {
+        "name": "Sprint Launch",
+        "tagline": "Your first production version, ready for paying customers",
+        "price": "€6,900",
+        "period": "fixed fee • 14 business days",
+        "popular": false,
+        "features": [
+          "Polished, lightning-fast web app fully responsive on mobile",
+          "User accounts and secure authentication",
+          "Stripe payment setup (subscriptions or one-off checkout)",
+          "Integration with your core business tools and services",
+          "100% code ownership on your private GitHub repository",
+          "30 days of included bug-fix warranty and support"
+        ],
+        "cta": "Choose 14d sprint"
+      },
+      {
+        "name": "Sprint Scale",
+        "tagline": "For multi-role platforms and advanced business workflows",
+        "price": "€13,900",
+        "period": "fixed fee • 30 business days",
+        "popular": true,
+        "features": [
+          "Everything in Sprint Launch, augmented by:",
+          "Multi-role user spaces (e.g. buyer, vendor, administrator)",
+          "Automated calculations and smart data processing",
+          "Real-time notifications and automated triggers",
+          "Rigorous test suite guaranteeing flawless stability",
+          "Recorded video walkthrough (Loom) and full documentation"
+        ],
+        "cta": "Choose 30d sprint"
+      },
+      {
+        "name": "Immersion Squad",
+        "tagline": "A senior engineer embedded directly alongside your team",
+        "price": "From €5,500",
+        "period": "/ month • cancel anytime",
+        "popular": false,
+        "features": [
+          "Dedicated senior software engineer (1 to 3 depending on needs)",
+          "Direct collaboration in your Slack and daily standups",
+          "Rapid shipping of continuous features day in, day out",
+          "5-day trial week to test fit and team chemistry",
+          "Flexible capacity adjustment every month based on priorities"
+        ],
+        "cta": "Discuss a squad"
+      }
+    ]
+  },
+  "faq": {
+    "label": "Straightforward answers",
+    "title": "Everything you need to know,",
+    "titleHighlight": "with full transparency.",
+    "description": "A question about our warranty, engineering methodology, or communication style? Here are the direct answers."
+  },
+  "contact": {
+    "label": "Let's discuss your project",
+    "title": "Let's build your next",
+    "titleHighlight": "product together.",
+    "description": "Whether you have detailed specifications or an idea to structure, talk directly with a Lead Architect.",
+    "scopingCall": {
+      "title": "Scoping call (15 min)",
+      "host": "Direct with Kevin T. (Founder & Lead Architect)",
+      "desc": "15 minutes to assess technical feasibility, pick the ideal format (Launch or Scale), and lock your target release date.",
+      "cta": "Pick a slot on the calendar →",
+      "benefit1": "Direct conversation, zero sales pitch",
+      "benefit2": "Actionable technical insights right from the call"
+    },
+    "form": {
+      "title": "Or submit your project in writing",
+      "nameLabel": "Name or company *",
+      "namePlaceholder": "e.g. Sarah Connor / Cyberdyne",
+      "emailLabel": "Work email *",
+      "emailPlaceholder": "sarah@cyberdyne.com",
+      "projectLabel": "Project overview & target launch *",
+      "projectPlaceholder": "Describe your product in a few sentences (target users, core features, desired launch date...)",
+      "submit": "Send project request",
+      "submitting": "Sending...",
+      "sentTitle": "Request received.",
+      "sentDesc": "A Lead Architect is reviewing your brief and will respond within 24 business hours with an initial technical assessment.",
+      "sendAnother": "Send another message",
+      "validationError": "Please fill in all required fields properly.",
+      "networkError": "A network error occurred. Please try again or reach out to {email}."
+    }
+  },
+  "dossier": {
+    "days": "days",
+    "liveSite": "Live site",
+    "visitLiveSite": "Visit live site",
+    "visitClientSite": "Visit client site",
+    "close": "Close dossier",
+    "keyResults": "Key results",
+    "contextNeed": "Context & challenge",
+    "whatWeDelivered": "What we delivered",
+    "clientFeedback": "Client feedback",
+    "privatePlatform": "Private platform",
+    "discussSimilar": "Discuss your project"
+  },
+  "footer": {
+    "tagline": "Web & digital product engineering studio. Shipped in as little as 14 days, 100% source code ownership on your own GitHub account.",
+    "navigation": "Navigation",
+    "commitment": "• Commitment",
+    "projects": "• Projects",
+    "philosophy": "• Philosophy",
+    "method": "• Method",
+    "pricing": "• Pricing",
+    "faq": "• F.A.Q.",
+    "contact": "• Contact",
+    "directAccess": "Direct access",
+    "responseDelay": "Direct response from a lead architect within 24 business hours.",
+    "legalNotice": "Legal notice",
+    "privacyPolicy": "Privacy policy",
+    "termsOfService": "Terms of service",
+    "copyright": "All rights reserved."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "This route does not exist in our architecture.",
+    "terminalStatus": "status // error",
+    "terminalError": "Non-existent route segment",
+    "backHome": "Back to home"
+  },
   "legalData": {
     "lastUpdateLabel": "Last updated: April 2026",
     "mentions": {

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { X, ExternalLink, ArrowUpRight } from "lucide-react";
 import type { LocalizedProject } from "@/lib/keystatic/reader";
 
@@ -11,10 +12,11 @@ interface DossierDrawerProps {
   locale?: string;
 }
 
-export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" }: DossierDrawerProps) {
+export default function DossierDrawer({ project, isOpen, onClose }: DossierDrawerProps) {
   const [mounted, setMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [activeProject, setActiveProject] = useState<LocalizedProject | null>(project);
+  const t = useTranslations("dossier");
 
   useEffect(() => {
     if (isOpen && project) {
@@ -55,8 +57,6 @@ export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" 
 
   if (!mounted || !activeProject) return null;
 
-  const isEn = locale === "en";
-
   return (
     <div
       role="dialog"
@@ -83,8 +83,8 @@ export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" 
         <div className="border-b border-black/[0.08] bg-white shrink-0">
           {/* Niveau 1 : Barre d'Utilité & Actions */}
           <div className="px-5 sm:px-7 py-3 sm:py-3.5 border-b border-black/[0.05] bg-zinc-50/70 flex items-center justify-between gap-3">
-            <span className="text-[10px] sm:text-[11px] font-mono font-medium text-black px-2.5 py-1 rounded-md bg-white border border-black/[0.08] shadow-2xs whitespace-nowrap">
-              {activeProject.deliveryDays} {isEn ? "DAYS" : "JOURS"}
+            <span className="text-[10px] sm:text-[11px] font-mono font-medium text-black px-2.5 py-1 rounded-md bg-white border border-black/[0.08] shadow-2xs whitespace-nowrap uppercase">
+              {activeProject.deliveryDays} {t("days")}
             </span>
 
             <div className="flex items-center gap-2 shrink-0">
@@ -94,9 +94,9 @@ export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black text-white hover:bg-zinc-800 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider transition-colors min-h-[32px] sm:min-h-[34px] shadow-xs cursor-pointer whitespace-nowrap"
-                  title={isEn ? "Visit client website" : "Visiter le site en ligne"}
+                  title={t("visitLiveSite")}
                 >
-                  <span>{isEn ? "Live Site" : "Site en ligne"}</span>
+                  <span>{t("liveSite")}</span>
                   <ExternalLink className="w-3 h-3 shrink-0" />
                 </a>
               )}
@@ -105,7 +105,7 @@ export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" 
                 type="button"
                 onClick={onClose}
                 className="w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-xl border border-black/[0.08] bg-white hover:bg-zinc-100 text-zinc-500 hover:text-black flex items-center justify-center transition-colors cursor-pointer shadow-2xs"
-                aria-label={isEn ? "Close drawer" : "Fermer le dossier"}
+                aria-label={t("close")}
               >
                 <X className="w-4 h-4" />
               </button>
@@ -141,7 +141,7 @@ export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" 
           {activeProject.metrics && activeProject.metrics.length > 0 && (
             <section className="space-y-2.5">
               <h4 className="text-[11px] font-mono uppercase tracking-wider text-zinc-500">
-                {isEn ? "Key Results" : "Résultats Obtenus"}
+                {t("keyResults")}
               </h4>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
                 {activeProject.metrics.map((m, idx) => (
@@ -168,13 +168,13 @@ export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" 
           <section className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3">
             <div className="p-3.5 sm:p-4 rounded-lg bg-zinc-50/60 border border-black/[0.04] space-y-1.5">
               <p className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                {isEn ? "The Context & Need" : "Le Contexte & Le Besoin"}
+                {t("contextNeed")}
               </p>
               <p className="text-xs sm:text-sm text-zinc-700 font-normal leading-relaxed">{activeProject.challenge}</p>
             </div>
             <div className="p-3.5 sm:p-4 rounded-lg bg-zinc-50/60 border border-black/[0.04] space-y-1.5">
               <p className="text-[10px] font-mono uppercase tracking-wider text-black font-semibold">
-                {isEn ? "What We Delivered" : "Ce Que Nous Avons Livré"}
+                {t("whatWeDelivered")}
               </p>
               <p className="text-xs sm:text-sm text-zinc-900 font-normal leading-relaxed">{activeProject.solution}</p>
             </div>
@@ -184,7 +184,7 @@ export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" 
           {(activeProject.testimonialQuote || activeProject.clientFeedback) && (
             <section className="p-4 sm:p-5 rounded-lg bg-zinc-50/60 border border-black/[0.06] space-y-2.5">
               <div className="inline-flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-zinc-400">
-                <span>{isEn ? "CLIENT FEEDBACK" : "RETOUR DU CLIENT"}</span>
+                <span>{t("clientFeedback")}</span>
               </div>
               <p className="text-xs sm:text-sm italic text-zinc-800 leading-relaxed font-normal">
                 &ldquo;{activeProject.testimonialQuote || activeProject.clientFeedback}&rdquo;
@@ -208,12 +208,12 @@ export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" 
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center space-x-1.5 px-4 py-2.5 rounded-xl border border-black/[0.12] hover:border-black text-xs font-mono text-black transition-colors font-medium min-h-[42px] whitespace-nowrap"
             >
-              <span className="whitespace-nowrap">{isEn ? "Visit Live Site" : "Visiter le site client"}</span>
+              <span className="whitespace-nowrap">{t("visitClientSite")}</span>
               <ExternalLink className="w-3.5 h-3.5 shrink-0" />
             </a>
           ) : (
             <span className="text-[10px] font-mono text-zinc-500 text-center sm:text-left py-1 whitespace-nowrap">
-              {isEn ? "Private platform" : "Plateforme privée"}
+              {t("privatePlatform")}
             </span>
           )}
 
@@ -222,7 +222,7 @@ export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" 
             onClick={onClose}
             className="inline-flex items-center justify-center space-x-1.5 px-5 py-2.5 rounded-xl bg-black text-white font-medium text-xs hover:bg-zinc-800 transition-all cursor-pointer min-h-[42px] whitespace-nowrap"
           >
-            <span className="whitespace-nowrap">{isEn ? "Discuss a Similar Project" : "Échanger sur votre projet"}</span>
+            <span className="whitespace-nowrap">{t("discussSimilar")}</span>
             <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
           </a>
         </div>

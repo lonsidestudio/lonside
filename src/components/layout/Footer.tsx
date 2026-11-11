@@ -1,14 +1,14 @@
 "use client";
 
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/lib/i18n/navigation";
 import { Mail } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 
 export default function Footer() {
   const locale = useLocale();
+  const t = useTranslations("footer");
   const pathname = usePathname();
-  const isEn = locale === "en";
   const isHome = pathname === "/";
 
   const getSectionHref = (id: string) => {
@@ -39,51 +39,49 @@ export default function Footer() {
               LONSIDE
             </Link>
             <p className="text-xs sm:text-sm text-zinc-500 max-w-sm leading-relaxed font-normal">
-              {isEn
-                ? "Custom Web & Digital Product Studio. Production delivery in as little as 14 days, 100% source code ownership on your private GitHub."
-                : "Studio de Développement Web & Produits Digitaux. Livraison dès 14 jours, 100% de cession de code source sur votre propre compte GitHub."}
+              {t("tagline")}
             </p>
           </div>
 
           {/* Quick links */}
           <div className="space-y-3">
             <p className="text-xs font-mono uppercase tracking-wider text-black font-semibold">
-              {isEn ? "Navigation" : "Navigation"}
+              {t("navigation")}
             </p>
             <ul className="space-y-1.5 text-xs font-mono">
               <li>
                 <a href={getSectionHref("engagement")} className="hover:text-black transition-colors py-1 inline-block">
-                  {isEn ? "• Commitment" : "• Engagement"}
+                  {t("commitment")}
                 </a>
               </li>
               <li>
                 <a href={getSectionHref("projets")} className="hover:text-black transition-colors py-1 inline-block">
-                  {isEn ? "• Projects" : "• Réalisations"}
+                  {t("projects")}
                 </a>
               </li>
               <li>
                 <a href={getSectionHref("manifeste")} className="hover:text-black transition-colors py-1 inline-block">
-                  {isEn ? "• Philosophy" : "• Philosophie"}
+                  {t("philosophy")}
                 </a>
               </li>
               <li>
                 <a href={getSectionHref("methode")} className="hover:text-black transition-colors py-1 inline-block">
-                  {isEn ? "• Method" : "• Méthode"}
+                  {t("method")}
                 </a>
               </li>
               <li>
                 <a href={getSectionHref("tarifs")} className="hover:text-black transition-colors py-1 inline-block">
-                  {isEn ? "• Pricing" : "• Tarifs"}
+                  {t("pricing")}
                 </a>
               </li>
               <li>
                 <a href={getSectionHref("faq")} className="hover:text-black transition-colors py-1 inline-block">
-                  {isEn ? "• F.A.Q." : "• F.A.Q."}
+                  {t("faq")}
                 </a>
               </li>
               <li>
                 <a href={getSectionHref("contact")} className="hover:text-black transition-colors py-1 inline-block">
-                  {isEn ? "• Contact" : "• Contact"}
+                  {t("contact")}
                 </a>
               </li>
             </ul>
@@ -92,13 +90,11 @@ export default function Footer() {
           {/* Direct contact */}
           <div className="space-y-3">
             <p className="text-xs font-mono uppercase tracking-wider text-black font-semibold">
-              {isEn ? "Direct Access" : "Accès Direct"}
+              {t("directAccess")}
             </p>
             <p className="text-xs font-mono text-black font-semibold">{siteConfig.contactEmail}</p>
             <p className="text-xs text-zinc-500 leading-relaxed font-normal">
-              {isEn
-                ? "Senior lead architect response under 24 hours."
-                : "Réponse directe par un lead architecte sous 24h ouvrées."}
+              {t("responseDelay")}
             </p>
             <div className="pt-1 flex items-center space-x-3 text-zinc-500">
               {siteConfig.githubUrl && (
@@ -156,13 +152,13 @@ export default function Footer() {
           <p>© {currentYear} LONSIDE STUDIO.</p>
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <a href={`/${locale}/legal/mentions-legales`} className="hover:text-black transition-colors py-1 whitespace-nowrap">
-              {isEn ? "Legal Notice" : "Mentions Légales"}
+              {t("legalNotice")}
             </a>
             <a href={`/${locale}/legal/politique-confidentialite`} className="hover:text-black transition-colors py-1 whitespace-nowrap">
-              {isEn ? "Privacy Policy" : "Confidentialité"}
+              {t("privacyPolicy")}
             </a>
             <a href={`/${locale}/legal/cgv`} className="hover:text-black transition-colors py-1 whitespace-nowrap">
-              {isEn ? "Terms of Service" : "CGV"}
+              {t("termsOfService")}
             </a>
             <a href={`/${locale}/legal/cookies`} className="hover:text-black transition-colors py-1 whitespace-nowrap">
               Cookies

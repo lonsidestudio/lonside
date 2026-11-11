@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTranslations } from "next-intl";
 import { ArrowUpRight, CheckCircle2, ShieldCheck, Calendar, Loader2 } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 
@@ -8,16 +9,19 @@ interface ContactSectionProps {
   locale?: string;
 }
 
-export default function ContactSection({ locale = "fr" }: ContactSectionProps) {
+export default function ContactSection({ locale }: ContactSectionProps) {
+  void locale;
   const [formData, setFormData] = useState({ name: "", email: "", message: "", _trap: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
-
-  const isEn = locale === "en";
+  const t = useTranslations("contact");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
+    if (!formData.name || !formData.email || !formData.message) {
+      setErrorMessage(t("form.validationError"));
+      return;
+    }
 
     setStatus("loading");
     setErrorMessage("");
@@ -37,14 +41,18 @@ export default function ContactSection({ locale = "fr" }: ContactSectionProps) {
 
       if (!res.ok) {
         const json = await res.json();
-        throw new Error(json.error || "Une erreur est survenue.");
+        throw new Error(json.error || t("form.networkError", { email: siteConfig.contactEmail }));
       }
 
       setStatus("success");
       setFormData({ name: "", email: "", message: "", _trap: "" });
     } catch (err: unknown) {
       setStatus("error");
-      setErrorMessage(err instanceof Error ? err.message : "Erreur de transmission.");
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : t("form.networkError", { email: siteConfig.contactEmail })
+      );
     }
   };
 
@@ -57,19 +65,14 @@ export default function ContactSection({ locale = "fr" }: ContactSectionProps) {
             <div>
               <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.22em] text-zinc-400 uppercase mb-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-black" />
-                <span>{isEn ? "GET IN TOUCH" : "PARLONS DE VOTRE PROJET"}</span>
+                <span>{t("label")}</span>
               </div>
               <h2 className="font-display uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight text-black leading-[1.08] font-normal">
-                {isEn ? (
-                  <>Let&apos;s build, <br /><span className="text-zinc-500">together.</span></>
-                ) : (
-                  <>Donnons vie, <br /><span className="text-zinc-500">à votre produit.</span></>
-                )}
+                {t("title")} <br />
+                <span className="text-zinc-500">{t("titleHighlight")}</span>
               </h2>
               <p className="mt-4 sm:mt-5 text-sm sm:text-base text-zinc-600 font-normal leading-relaxed">
-                {isEn
-                  ? "Whether you already have a detailed specification or just an early concept you'd like honest feedback on, we are always glad to connect and share clear, straightforward advice."
-                  : "Que vous ayez déjà un cahier des charges précis ou simplement une idée sur laquelle vous souhaitez des retours d'expérience sincères, nous prenons le temps d'échanger avec vous simplement et sans jargon."}
+                {t("description")}
               </p>
             </div>
 
@@ -80,14 +83,16 @@ export default function ContactSection({ locale = "fr" }: ContactSectionProps) {
                   <Calendar className="w-4 h-4 text-black" />
                 </div>
                 <div>
-                  <h3 className="font-display uppercase text-base sm:text-lg md:text-xl text-black tracking-tight font-medium">{isEn ? "15-Min Scoping Call" : "Échange de Cadrage (15 min)"}</h3>
-                  <p className="text-[11px] text-zinc-500 font-mono">{isEn ? "Direct with Kevin T. (Founder & Lead Architect)" : "Direct avec Kevin T. (Fondateur & Lead Architecte)"}</p>
+                  <h3 className="font-display uppercase text-base sm:text-lg md:text-xl text-black tracking-tight font-medium">
+                    {t("scopingCall.title")}
+                  </h3>
+                  <p className="text-[11px] text-zinc-500 font-mono">
+                    {t("scopingCall.host")}
+                  </p>
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-zinc-600 font-normal leading-relaxed">
-                {isEn
-                  ? "We evaluate technical feasibility, provide honest architecture feedback, and calculate your exact fixed timeline and cost."
-                  : "Nous regardons ensemble la faisabilité de votre projet, nous vous conseillons sur les choix techniques et nous vous donnons un avis transparent sur le délai et le budget nécessaires."}
+                {t("scopingCall.desc")}
               </p>
               <a
                 href={siteConfig.calendarUrl}
@@ -95,7 +100,7 @@ export default function ContactSection({ locale = "fr" }: ContactSectionProps) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-1.5 text-xs font-mono uppercase tracking-wider text-black underline underline-offset-4 hover:text-zinc-600 transition-colors pt-0.5 font-medium whitespace-nowrap"
               >
-                <span>{isEn ? "Choose a time on the calendar →" : "Choisir un créneau sur l'agenda →"}</span>
+                <span>{t("scopingCall.cta")}</span>
               </a>
             </div>
 
@@ -103,11 +108,11 @@ export default function ContactSection({ locale = "fr" }: ContactSectionProps) {
             <div className="space-y-2.5 pt-1 text-xs sm:text-sm text-zinc-600 font-normal">
               <div className="flex items-center space-x-2.5">
                 <ShieldCheck className="w-4 h-4 text-black shrink-0" />
-                <span>{isEn ? "Direct conversation • Zero sales pressure" : "Échange direct et sans pression commerciale"}</span>
+                <span>{t("scopingCall.benefit1")}</span>
               </div>
               <div className="flex items-center space-x-2.5">
                 <span className="text-black font-mono">/</span>
-                <span>{isEn ? "Actionable technical advice from the first call" : "Conseils techniques actionnables dès le premier échange"}</span>
+                <span>{t("scopingCall.benefit2")}</span>
               </div>
             </div>
           </div>
@@ -120,19 +125,17 @@ export default function ContactSection({ locale = "fr" }: ContactSectionProps) {
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-display uppercase tracking-tight text-black font-medium">
-                  {isEn ? "Brief Received." : "Demande Bien Reçue."}
+                  {t("form.sentTitle")}
                 </h3>
                 <p className="text-xs sm:text-sm text-zinc-600 max-w-sm mx-auto leading-relaxed font-normal">
-                  {isEn
-                    ? "Our lead architect is already reviewing your requirements. Expect an answer under 24 business hours."
-                    : "Votre demande est en cours d'analyse technique. Un lead architecte vous répondra sous 24h ouvrées."}
+                  {t("form.sentDesc")}
                 </p>
                 <button
                   type="button"
                   onClick={() => setStatus("idle")}
                   className="mt-3 text-xs font-mono text-black underline underline-offset-4 cursor-pointer"
                 >
-                  {isEn ? "Send another message" : "Envoyer un autre message"}
+                  {t("form.sendAnother")}
                 </button>
               </div>
             ) : (
@@ -150,7 +153,7 @@ export default function ContactSection({ locale = "fr" }: ContactSectionProps) {
 
                 <div className="space-y-1">
                   <label htmlFor="name" className="text-[11px] font-mono text-zinc-600 uppercase tracking-wider block">
-                    {isEn ? "Name or Organization *" : "Nom ou Entreprise *"}
+                    {t("form.nameLabel")}
                   </label>
                   <input
                     id="name"
@@ -158,14 +161,14 @@ export default function ContactSection({ locale = "fr" }: ContactSectionProps) {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder={isEn ? "e.g. Sarah Connor / Cyberdyne Systems" : "ex: Sarah Connor / Cyberdyne"}
+                    placeholder={t("form.namePlaceholder")}
                     className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50/50 border border-black/[0.08] text-black placeholder:text-zinc-400 text-base sm:text-sm focus:outline-none focus:border-black/60 transition-colors"
                   />
                 </div>
 
                 <div className="space-y-1">
                   <label htmlFor="email" className="text-[11px] font-mono text-zinc-600 uppercase tracking-wider block">
-                    {isEn ? "Corporate Email *" : "Email Professionnel *"}
+                    {t("form.emailLabel")}
                   </label>
                   <input
                     id="email"
@@ -173,14 +176,14 @@ export default function ContactSection({ locale = "fr" }: ContactSectionProps) {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="sarah@company.com"
+                    placeholder={t("form.emailPlaceholder")}
                     className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50/50 border border-black/[0.08] text-black placeholder:text-zinc-400 text-base sm:text-sm focus:outline-none focus:border-black/60 transition-colors"
                   />
                 </div>
 
                 <div className="space-y-1">
                   <label htmlFor="message" className="text-[11px] font-mono text-zinc-600 uppercase tracking-wider block">
-                    {isEn ? "Project Context & Target Window *" : "Description du Projet & Échéance Cible *"}
+                    {t("form.projectLabel")}
                   </label>
                   <textarea
                     id="message"
@@ -188,11 +191,7 @@ export default function ContactSection({ locale = "fr" }: ContactSectionProps) {
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder={
-                      isEn
-                        ? "Briefly describe what you need to build, your current stack, and target launch window (e.g., Sprint Launch in 14 days)..."
-                        : "Décrivez brièvement le produit à développer, vos technologies et votre échéance cible (ex: Sprint Launch 14j)..."
-                    }
+                    placeholder={t("form.projectPlaceholder")}
                     className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50/50 border border-black/[0.08] text-black placeholder:text-zinc-400 text-base sm:text-sm focus:outline-none focus:border-black/60 transition-colors resize-none"
                   />
                 </div>
@@ -211,11 +210,11 @@ export default function ContactSection({ locale = "fr" }: ContactSectionProps) {
                   {status === "loading" ? (
                     <>
                       <Loader2 className="w-3.5 h-3.5 animate-spin shrink-0" />
-                      <span className="whitespace-nowrap">{isEn ? "Sending..." : "Envoi en cours..."}</span>
+                      <span className="whitespace-nowrap">{t("form.submitting")}</span>
                     </>
                   ) : (
                     <>
-                      <span className="whitespace-nowrap">{isEn ? "Send inquiry" : "Transmettre ma demande"}</span>
+                      <span className="whitespace-nowrap">{t("form.submit")}</span>
                       <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
                     </>
                   )}

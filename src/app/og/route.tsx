@@ -1,19 +1,17 @@
 import { ImageResponse } from 'next/og';
 import { NextRequest } from 'next/server';
+import frMessages from '@/lib/i18n/messages/fr.json';
+import enMessages from '@/lib/i18n/messages/en.json';
 
 export const runtime = 'edge';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const locale = searchParams.get('locale') || 'fr';
-  const isEn = locale === 'en';
+  const messages = locale === 'en' ? enMessages : frMessages;
 
-  const defaultTitle = isEn
-    ? 'Lonside — Custom Web & Digital Product Studio'
-    : 'Lonside — Studio de Développement Web & Produits Digitaux';
-  const defaultDescription = isEn
-    ? 'Custom web applications and platforms in as little as 14 days. Fixed pricing, zero surprises, 100% source code ownership on GitHub.'
-    : 'Applications web et plateformes fiables dès 14 jours. Forfait ferme, zéro dépassement, cession totale GitHub.';
+  const defaultTitle = messages.metadata.defaultTitle;
+  const defaultDescription = messages.metadata.description;
 
   const title = searchParams.get('title') || defaultTitle;
   const description = searchParams.get('description') || defaultDescription;

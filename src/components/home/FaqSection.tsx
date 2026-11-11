@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTranslations } from "next-intl";
 import { ChevronDown } from "lucide-react";
 import type { LocalizedFaqItem } from "@/lib/keystatic/reader";
 
@@ -9,9 +10,10 @@ interface FaqSectionProps {
   locale?: string;
 }
 
-export default function FaqSection({ items, locale = "fr" }: FaqSectionProps) {
+export default function FaqSection({ items, locale }: FaqSectionProps) {
+  void locale;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const isEn = locale === "en";
+  const t = useTranslations("faq");
 
   return (
     <section id="faq" className="relative py-20 sm:py-24 lg:py-28 bg-white border-t border-black/[0.06] scroll-mt-20">
@@ -20,19 +22,14 @@ export default function FaqSection({ items, locale = "fr" }: FaqSectionProps) {
         <div className="mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.22em] text-zinc-400 uppercase mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-black" />
-            <span>{isEn ? "DIRECT ANSWERS" : "RÉPONSES SANS DÉTOUR"}</span>
+            <span>{t("label")}</span>
           </div>
           <h2 className="font-display uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight text-black leading-[1.08] font-normal">
-            {isEn ? (
-              <>Frequently asked <br /><span className="text-zinc-500">questions.</span></>
-            ) : (
-              <>Questions <br /><span className="text-zinc-500">fréquentes.</span></>
-            )}
+            {t("title")} <br />
+            <span className="text-zinc-500">{t("titleHighlight")}</span>
           </h2>
           <p className="mt-4 sm:mt-5 text-sm sm:text-base text-zinc-600 font-normal leading-relaxed">
-            {isEn
-              ? "Everything you need to know about our sprint cadence, IP handover, and engineering guarantees."
-              : "Tout ce qu'il faut savoir sur nos engagements, la cession de propriété intellectuelle et nos standards de livraison."}
+            {t("description")}
           </p>
         </div>
 
@@ -53,7 +50,7 @@ export default function FaqSection({ items, locale = "fr" }: FaqSectionProps) {
                 >
                   <div className="space-y-1">
                     <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-zinc-400 block whitespace-nowrap">
-                      0{idx + 1} {"//"} {item.category.toUpperCase()}
+                      0{idx + 1} {"//"} {item.category}
                     </span>
                     <span className="text-sm sm:text-base md:text-lg font-medium text-black tracking-tight block">
                       {item.question}

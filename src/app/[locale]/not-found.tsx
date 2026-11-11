@@ -1,7 +1,12 @@
-import Link from 'next/link';
-import { ArrowLeft, Terminal } from 'lucide-react';
+"use client";
+
+import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { ArrowLeft, Terminal } from "lucide-react";
 
 export default function NotFound() {
+  const t = useTranslations("notFound");
+
   return (
     <div className="relative min-h-screen bg-white text-black flex items-center justify-center overflow-hidden p-6">
       <div className="relative z-10 flex flex-col items-center text-center gap-8 max-w-md w-full">
@@ -17,10 +22,10 @@ export default function NotFound() {
             404
           </p>
           <h1 className="font-display uppercase text-xl sm:text-2xl font-normal text-black tracking-tight">
-            Page introuvable
+            {t("title")}
           </h1>
           <p className="text-xs sm:text-sm text-zinc-500 max-w-xs mx-auto">
-            Cette route n&apos;existe pas dans notre architecture.
+            {t("description")}
           </p>
         </div>
 
@@ -30,7 +35,9 @@ export default function NotFound() {
             <span className="w-2.5 h-2.5 rounded-full bg-zinc-300" />
             <span className="w-2.5 h-2.5 rounded-full bg-zinc-300" />
             <span className="w-2.5 h-2.5 rounded-full bg-zinc-300" />
-            <span className="ml-2 text-zinc-400 text-[10px] uppercase tracking-wider">status // error</span>
+            <span className="ml-2 text-zinc-400 text-[10px] uppercase tracking-wider">
+              {t("terminalStatus")}
+            </span>
           </div>
           <p className="text-zinc-700">
             <span className="text-black font-bold">$ </span>
@@ -38,7 +45,7 @@ export default function NotFound() {
             <span className="text-zinc-500"> /requested-route</span>
           </p>
           <p className="text-zinc-500">
-            <span>→ 404 Not Found (Segment inexistant)</span>
+            <span>→ 404 Not Found ({t("terminalError")})</span>
           </p>
         </div>
 
@@ -48,7 +55,7 @@ export default function NotFound() {
           className="inline-flex items-center gap-2 px-6 py-3 bg-black hover:bg-zinc-800 text-xs font-mono uppercase tracking-[0.14em] text-white rounded-xl transition-colors cursor-pointer whitespace-nowrap shadow-none min-h-[44px]"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Retour à l&apos;accueil</span>
+          <span>{t("backHome")}</span>
         </Link>
 
       </div>

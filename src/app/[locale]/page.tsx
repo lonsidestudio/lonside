@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import StudioAtmosphere from "@/components/StudioAtmosphere";
@@ -19,15 +20,10 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isEn = locale === "en";
+  const t = await getTranslations({ locale, namespace: "metadata" });
 
-  const title = isEn
-    ? "Lonside — Custom Web & Digital Product Studio"
-    : "Lonside — Studio de Développement Web & Produits Digitaux";
-
-  const description = isEn
-    ? "Custom web application and platform engineering in as little as 14 days. Guaranteed fixed scope, zero surprises, and 100% source code ownership on your private GitHub."
-    : "Conception et développement d'applications web et plateformes sur-mesure dès 14 jours. Forfait garanti sans mauvaise surprise, et 100% du code à vous sur votre propre GitHub.";
+  const title = t("defaultTitle");
+  const description = t("description");
 
   return {
     title,
@@ -68,9 +64,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   const currentLocale = (locale as Locale) || "fr";
-  const isEn = currentLocale === "en";
 
-  const [projects, faqItems] = await Promise.all([
+  const [tHero, tMeta, tPricing, projects, faqItems] = await Promise.all([
+    getTranslations({ locale: currentLocale, namespace: "hero" }),
+    getTranslations({ locale: currentLocale, namespace: "metadata" }),
+    getTranslations({ locale: currentLocale, namespace: "pricing" }),
     getPortfolioProjects(currentLocale),
     getFaqItems(currentLocale),
   ]);
@@ -80,6 +78,8 @@ export default async function HomePage({ params }: PageProps) {
     siteConfig.linkedinUrl,
     siteConfig.twitterUrl,
   ].filter(Boolean);
+
+  const pricingTiers = tPricing.raw("tiers") as Array<{ name: string; tagline: string }>;
 
   const organizationJsonLd = {
     "@context": "https://schema.org",
@@ -91,9 +91,7 @@ export default async function HomePage({ params }: PageProps) {
     image: `${siteConfig.siteUrl}/og?locale=${currentLocale}`,
     email: siteConfig.contactEmail,
     sameAs: sameAsProfiles,
-    description: isEn
-      ? "High-velocity custom software & web application engineering studio. Fixed 14 & 30-day sprints, 100% intellectual property transfer on private GitHub."
-      : "Studio d'ingénierie logicielle haute vélocité spécialisé dans les sprints fermes de 14 et 30 jours avec 100% de cession de code source sur votre compte GitHub.",
+    description: tMeta("description"),
     priceRange: "6900€ - 13900€",
     address: {
       "@type": "PostalAddress",
@@ -102,14 +100,12 @@ export default async function HomePage({ params }: PageProps) {
     openingHours: "Mo-Fr 09:00-19:00",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: isEn ? "Engineering Sprints & Subscriptions" : "Sprints d'Ingénierie & Accompagnement",
+      name: tPricing("label"),
       itemListElement: [
         {
           "@type": "Offer",
-          name: "Sprint Launch",
-          description: isEn
-            ? "Complete web application production launch in 14 business days"
-            : "Lancement d'application web clé-en-main en 14 jours ouvrés",
+          name: pricingTiers[0]?.name || "Sprint Launch",
+          description: pricingTiers[0]?.tagline || "",
           price: "6900",
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
@@ -117,10 +113,8 @@ export default async function HomePage({ params }: PageProps) {
         },
         {
           "@type": "Offer",
-          name: "Sprint Scale",
-          description: isEn
-            ? "Multi-role platform and complex workflow engineering in 30 business days"
-            : "Plateforme multi-rôles et flux métier avancés livrés en 30 jours ouvrés",
+          name: pricingTiers[1]?.name || "Sprint Scale",
+          description: pricingTiers[1]?.tagline || "",
           price: "13900",
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
@@ -162,24 +156,13 @@ export default async function HomePage({ params }: PageProps) {
           <div className="max-w-5xl mx-auto w-full text-center relative z-10 flex flex-col items-center">
             {/* Titre Noble & Précis (Standards Linear / Work & Co) */}
             <h1 className="font-display uppercase text-3xl sm:text-4xl md:text-5xl lg:text-[3.75rem] tracking-tight leading-[1.04] text-black font-normal max-w-4xl">
-              {isEn ? (
-                <>
-                  Your digital product in production, <br />
-                  <span className="text-zinc-500">in as little as 14 days.</span>
-                </>
-              ) : (
-                <>
-                  Votre produit digital en production, <br />
-                  <span className="text-zinc-500">dès 14 jours.</span>
-                </>
-              )}
+              {tHero("titleLine")} <br />
+              <span className="text-zinc-500">{tHero("titleHighlight")}</span>
             </h1>
 
             {/* Accroche Humaine, Chaude et Précise */}
             <p className="mt-5 sm:mt-7 max-w-2xl text-base sm:text-lg text-zinc-600 font-normal leading-relaxed px-2">
-              {isEn
-                ? "We design and build reliable web applications and platforms for founders who value clarity and momentum."
-                : "Nous concevons et développons des applications web et plateformes fiables pour les fondateurs et équipes qui veulent avancer vite."}
+              {tHero("subtitle")}
             </p>
 
             {/* Actions Claires & Directes Ergonomiques */}
@@ -188,24 +171,24 @@ export default async function HomePage({ params }: PageProps) {
                 href="#contact"
                 className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-xl bg-black text-white font-mono text-xs uppercase tracking-[0.16em] hover:bg-zinc-800 transition-all duration-200 flex items-center justify-center space-x-2.5 cursor-pointer min-h-[48px] whitespace-nowrap"
               >
-                <span>{isEn ? "Discuss your project (15 min)" : "Échanger sur votre projet (15 min)"}</span>
+                <span>{tHero("ctaDiscuss")}</span>
                 <ArrowUpRight className="w-4 h-4 shrink-0" />
               </a>
               <a
                 href="#projets"
                 className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-xl bg-transparent border border-black/[0.12] hover:border-black text-black font-mono text-xs uppercase tracking-[0.16em] hover:bg-zinc-50 transition-all duration-200 flex items-center justify-center cursor-pointer min-h-[48px] whitespace-nowrap"
               >
-                <span>{isEn ? "Explore our work" : "Découvrir nos réalisations"}</span>
+                <span>{tHero("ctaExplore")}</span>
               </a>
             </div>
 
             {/* Ruban de Métriques Haute Précision (Non-cliquable, zéro hover) */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 pt-12 sm:pt-16 max-w-4xl w-full text-center">
               {[
-                { value: "Dès 14j", label: isEn ? "Guaranteed Sprint" : "Délai Garanti" },
-                { value: "Forfait Fixe", label: isEn ? "Zero Budget Creep" : "Zéro Dépassement" },
-                { value: "100% à Vous", label: isEn ? "Full Code Ownership" : "Cession Totale GitHub" },
-                { value: "30 Jours", label: isEn ? "Warranty Included" : "Garantie Corrective" },
+                { value: tHero("metrics.sprintDelay"), label: tHero("metrics.sprintDelayLabel") },
+                { value: tHero("metrics.fixedPrice"), label: tHero("metrics.fixedPriceLabel") },
+                { value: tHero("metrics.codeOwnership"), label: tHero("metrics.codeOwnershipLabel") },
+                { value: tHero("metrics.warranty"), label: tHero("metrics.warrantyLabel") },
               ].map(({ value, label }) => (
                 <div
                   key={label}
