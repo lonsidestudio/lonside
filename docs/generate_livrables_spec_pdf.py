@@ -218,3 +218,4 @@ if __name__ == "__main__":
     out_public = os.path.join(os.path.dirname(os.path.dirname(__file__)), "public", "LONSIDE_SPECIFICATION_LIVRABLES_ET_STANDARDS_QUALITE.pdf")
     create_livrables_spec_pdf(out_docs)
     create_livrables_spec_pdf(out_public)
+

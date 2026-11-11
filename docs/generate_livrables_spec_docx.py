@@ -600,3 +600,4 @@ if __name__ == "__main__":
     out_public = os.path.join(os.path.dirname(os.path.dirname(__file__)), "public", "LONSIDE_SPECIFICATION_LIVRABLES_ET_STANDARDS_QUALITE.docx")
     build_livrables_spec_docx(out_docs)
     build_livrables_spec_docx(out_public)
+
