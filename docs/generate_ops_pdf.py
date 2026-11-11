@@ -251,3 +251,4 @@ if __name__ == "__main__":
     out_public = os.path.join(os.path.dirname(os.path.dirname(__file__)), "public", "LONSIDE_PLAN_OPERATIONNEL_ET_PACK_LIVRAISON.pdf")
     create_ops_pdf(out_docs)
     create_ops_pdf(out_public)
+

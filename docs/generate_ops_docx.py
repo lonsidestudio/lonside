@@ -496,3 +496,4 @@ if __name__ == "__main__":
     out_public = os.path.join(os.path.dirname(os.path.dirname(__file__)), "public", "LONSIDE_PLAN_OPERATIONNEL_ET_PACK_LIVRAISON.docx")
     build_lonside_ops_docx(out_docs)
     build_lonside_ops_docx(out_public)
+
