@@ -430,3 +430,4 @@ if __name__ == "__main__":
     os.makedirs("public", exist_ok=True)
     create_deck("docs/LONSIDE_OFFRE_SERVICES_CLIENT_DECK.pptx")
     create_deck("public/LONSIDE_OFFRE_SERVICES_CLIENT_DECK.pptx")
+
