@@ -10,7 +10,6 @@ from reportlab.platypus import (
     Table,
     TableStyle,
     PageBreak,
-    KeepTogether,
 )
 from reportlab.pdfgen import canvas
 
@@ -32,7 +31,7 @@ class WhitepaperCanvas(canvas.Canvas):
         super().save()
 
     def draw_decorations(self, num_pages):
-        # On ne met pas de header/footer sur la couverture (page 1)
+        # Pas d'en-tête ni pied de page sur la couverture (page 1)
         if self._pageNumber == 1:
             return
 
@@ -44,12 +43,12 @@ class WhitepaperCanvas(canvas.Canvas):
         self.setStrokeColor(colors.HexColor("#e4e4e7"))
         self.setLineWidth(0.5)
         self.line(20 * mm, 282 * mm, 190 * mm, 282 * mm)
-        self.drawString(20 * mm, 285 * mm, "LONSIDE  //  LIVRE BLANC STRATÉGIQUE & GUIDE D'EXÉCUTION")
-        self.drawRightString(190 * mm, 285 * mm, "L'ART DE L'EXÉCUTION DIGITALE")
+        self.drawString(20 * mm, 285 * mm, "LONSIDE STUDIO  //  LE GUIDE DU STUDIO")
+        self.drawRightString(190 * mm, 285 * mm, "CONCEPTION & DÉVELOPPEMENT DE PRODUITS DIGITAUX")
 
         # Pied de page
         self.line(20 * mm, 15 * mm, 190 * mm, 15 * mm)
-        self.drawString(20 * mm, 10 * mm, "LONSIDE — CONCEPTION & DÉVELOPPEMENT DE PRODUITS NUMÉRIQUES D'EXCEPTION")
+        self.drawString(20 * mm, 10 * mm, "LONSIDE STUDIO — ATELIER D'ARTISANAT LOGICIEL & INGÉNIERIE SUR-MESURE")
         page_str = f"PAGE {self._pageNumber} SUR {num_pages}"
         self.drawRightString(190 * mm, 10 * mm, page_str)
         self.restoreState()
@@ -66,7 +65,7 @@ def build_whitepaper_pdf(output_pdf):
 
     styles = getSampleStyleSheet()
 
-    # Couleurs de la DA Lonside
+    # Palette monochrome haute couture Lonside
     c_black = colors.HexColor("#09090b")
     c_dark = colors.HexColor("#18181b")
     c_gray = colors.HexColor("#71717a")
@@ -75,29 +74,28 @@ def build_whitepaper_pdf(output_pdf):
     c_border = colors.HexColor("#e4e4e7")
     c_white = colors.HexColor("#ffffff")
 
-    # Styles Typographiques Haute Précision
+    # Typographie
     s_cover_tag = ParagraphStyle(
         "CoverTag",
         fontName="Helvetica-Bold",
         fontSize=10,
         leading=14,
         textColor=c_gray,
-        alignment=0,
     )
 
     s_cover_logo = ParagraphStyle(
         "CoverLogo",
         fontName="Helvetica-Bold",
-        fontSize=36,
-        leading=42,
+        fontSize=38,
+        leading=44,
         textColor=c_black,
     )
 
     s_cover_title = ParagraphStyle(
         "CoverTitle",
         fontName="Helvetica-Bold",
-        fontSize=28,
-        leading=34,
+        fontSize=26,
+        leading=32,
         textColor=c_black,
     )
 
@@ -134,7 +132,7 @@ def build_whitepaper_pdf(output_pdf):
     )
 
     s_body = ParagraphStyle(
-        "BodyTextCustom",
+        "BodyCustom",
         fontName="Helvetica",
         fontSize=9.5,
         leading=15,
@@ -152,10 +150,9 @@ def build_whitepaper_pdf(output_pdf):
     s_pullquote = ParagraphStyle(
         "PullQuote",
         fontName="Helvetica-Oblique",
-        fontSize=12,
-        leading=17,
+        fontSize=11,
+        leading=16,
         textColor=c_black,
-        alignment=0,
     )
 
     s_card_tag = ParagraphStyle(
@@ -169,8 +166,8 @@ def build_whitepaper_pdf(output_pdf):
     s_card_h = ParagraphStyle(
         "CardH",
         fontName="Helvetica-Bold",
-        fontSize=14,
-        leading=18,
+        fontSize=13,
+        leading=17,
         textColor=c_black,
     )
 
@@ -185,343 +182,52 @@ def build_whitepaper_pdf(output_pdf):
     story = []
 
     # ==========================================================================
-    # PAGE 1 : COUVERTURE ÉDITORIALE HAUTE COUTURE
+    # PAGE 1 : COUVERTURE DU LIVRE BLANC
     # ==========================================================================
     story.append(Spacer(1, 15 * mm))
-    story.append(Paragraph("LONSIDE  //  LIVRE BLANC EXÉCUTIF", s_cover_tag))
+    story.append(Paragraph("LONSIDE STUDIO  //  LE GUIDE DU STUDIO", s_cover_tag))
     story.append(Spacer(1, 4 * mm))
     story.append(Paragraph("<b>lonside.</b>", s_cover_logo))
-    story.append(Spacer(1, 20 * mm))
+    story.append(Spacer(1, 18 * mm))
 
-    story.append(Paragraph("L'Art de l'Exécution Digitale", s_cover_title))
+    story.append(Paragraph("Votre produit digital en production,<br/>dès 14 jours.", s_cover_title))
     story.append(Spacer(1, 4 * mm))
-    story.append(Paragraph("Comment les entreprises ambitieuses transforment leur vision en produits numériques rentables, sans lenteur ni compromis.", s_cover_subtitle))
-    story.append(Spacer(1, 15 * mm))
+    story.append(Paragraph("Nous concevons et développons des applications web et plateformes fiables pour les fondateurs et équipes qui veulent avancer vite.", s_cover_subtitle))
+    story.append(Spacer(1, 14 * mm))
 
-    # Badge encadré noir sur couverture
-    badge_cover = Paragraph(
-        "<b>LE GUIDE STRATÉGIQUE DES DÉCIDEURS</b><br/>"
-        "<font color='#a1a1aa' size='8'>De la conception à la conquête de marché : méthode, offres d'intervention et retours sur investissement.</font>",
-        ParagraphStyle("CoverBadgeP", fontName="Helvetica", fontSize=9, leading=14, textColor=c_white)
-    )
-    b_table = Table([[badge_cover]], colWidths=[170 * mm])
-    b_table.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), c_black),
-        ("ROUNDEDCORNERS", [6, 6, 6, 6]),
-        ("TOPPADDING", (0, 0), (-1, -1), 6 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 6 * mm),
-        ("LEFTPADDING", (0, 0), (-1, -1), 6 * mm),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 6 * mm),
-    ]))
-    story.append(b_table)
-
-    story.append(Spacer(1, 25 * mm))
-
-    cover_meta = Paragraph(
-        "<b>Édition :</b> 2026 — 2027<br/>"
-        "<b>Auteur :</b> Lonside Studio — Équipe de Direction Produit & Partenariats<br/>"
-        "<b>Destinataires :</b> Fondateurs, Directeurs Généraux, Directeurs Marketing & Responsables Produit",
-        ParagraphStyle("CoverMeta", fontName="Helvetica", fontSize=8.5, leading=13, textColor=c_gray)
-    )
-    story.append(cover_meta)
-
-    # ==========================================================================
-    # PAGE 2 : CHAPITRE 1 — LE PARADOXE DU DIGITAL
-    # ==========================================================================
-    story.append(PageBreak())
-    story.append(Paragraph("01 / DIAGNOSTIC DU MARCHÉ", s_chapter_tag))
-    story.append(Spacer(1, 1 * mm))
-    story.append(Paragraph("Le Coût Invisible de la Médiocrité", s_chapter_title))
-    story.append(Spacer(1, 4 * mm))
-
-    story.append(Paragraph(
-        "Dans l'économie moderne, votre produit digital n'est pas une simple vitrine : <b>c'est le cœur battant de votre entreprise</b>. C'est le premier point de contact où un client décide, en moins de 3 secondes, de vous faire confiance ou de partir chez un concurrent.<br/><br/>"
-        "Pourtant, la majorité des projets de refonte ou de création digitale échouent à générer le moindre impact commercial quantifiable.",
-        s_body
-    ))
-    story.append(Spacer(1, 4 * mm))
-
-    # Pull quote
-    quote_box = Table([[Paragraph(
-        "« 70% des projets digitaux n'atteignent jamais leurs objectifs de rentabilité. Non pas par manque d'idées, mais à cause d'une exécution lente, diluée par les réunions inutiles et polluée par des compromis esthétiques dévastateurs. »",
-        s_pullquote
-    )]], colWidths=[170 * mm])
-    quote_box.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
-        ("LEFTPADDING", (0, 0), (-1, -1), 6 * mm),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 6 * mm),
-        ("TOPPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("LINEBEFORE", (0, 0), (-1, -1), 3, c_black),
-    ]))
-    story.append(quote_box)
-    story.append(Spacer(1, 5 * mm))
-
-    story.append(Paragraph("Les Trois Pièges qui Détruisent la Valeur", s_section_title))
-    story.append(Spacer(1, 2 * mm))
-
-    story.append(Paragraph(
-        "<b>1. Le piège du temps facturé :</b> Les agences conventionnelles sont incitées à faire durer les projets. Chaque semaine supplémentaire de cadrage et de comités de pilotage est une semaine facturée, retardant votre confrontation avec les vrais clients.<br/><br/>"
-        "<b>2. Le piège du design superficiel :</b> Un produit digital ne doit pas seulement être 'joli'. Il doit inspirer une autorité incontestable. Une interface confuse ou générique détruit instantanément la valeur perçue de votre offre et justifie des négociations à la baisse.<br/><br/>"
-        "<b>3. Le piège de la dilution des responsabilités :</b> Des commerciaux qui vendent ce qu'ils ne fabriquent pas, puis délèguent à des exécutants juniors qui ne comprennent rien à vos enjeux business. Vous perdez du temps à réexpliquer votre vision à chaque étape.",
-        s_body
-    ))
-
-    # ==========================================================================
-    # PAGE 3 : CHAPITRE 2 — LA VISION & MÉTHODE LONSIDE
-    # ==========================================================================
-    story.append(PageBreak())
-    story.append(Paragraph("02 / NOTRE POSITIONNEMENT", s_chapter_tag))
-    story.append(Spacer(1, 1 * mm))
-    story.append(Paragraph("L'Élégance comme Multiplicateur Commercial", s_chapter_title))
-    story.append(Spacer(1, 4 * mm))
-
-    story.append(Paragraph(
-        "Chez Lonside, nous abordons la création de logiciels et de plateformes web comme une discipline de haute précision. Inspirés par les entreprises qui dominent leur secteur à l'international (Apple, Stripe, Linear), nous appliquons une règle fondamentale : <b>la simplicité radicale est l'ultime sophistication commerciale.</b>",
-        s_body
-    ))
-    story.append(Spacer(1, 4 * mm))
-
-    # Tableau 3 piliers Lonside
-    c_p1 = [
-        Paragraph("<b>CLARTÉ ABSOLUE</b>", s_card_tag),
-        Spacer(1, 1 * mm),
-        Paragraph("Votre proposition de valeur est comprise en un regard. Chaque élément d'interface guide le visiteur vers l'action sans friction mentale.", s_card_p)
+    # Tableau des 4 repères clés (visibles au premier coup d'œil)
+    metrics_data = [
+        [
+            Paragraph("<b>DÈS 14J</b><br/><font color='#71717a' size='8'>Délai garanti</font>", s_body_bold),
+            Paragraph("<b>FORFAIT FIXE</b><br/><font color='#71717a' size='8'>Zéro dépassement</font>", s_body_bold),
+            Paragraph("<b>100% À VOUS</b><br/><font color='#71717a' size='8'>Cession totale GitHub</font>", s_body_bold),
+            Paragraph("<b>30 JOURS</b><br/><font color='#71717a' size='8'>Garantie corrective</font>", s_body_bold),
+        ]
     ]
-    c_p2 = [
-        Paragraph("<b>VITESSE D'ACTION</b>", s_card_tag),
-        Spacer(1, 1 * mm),
-        Paragraph("Chaque seconde de gagnée sur une expérience client multiplie directement votre taux de conversion. La fluidité crée le désir d'achat.", s_card_p)
-    ]
-    c_p3 = [
-        Paragraph("<b>AUTORITÉ VISUELLE</b>", s_card_tag),
-        Spacer(1, 1 * mm),
-        Paragraph("Une identité monochrome épurée et des finitions impeccables transforment votre statut : vous n'êtes plus une option, vous devenez la référence.", s_card_p)
-    ]
-
-    pillars_table = Table([[c_p1, c_p2, c_p3]], colWidths=[55 * mm, 55 * mm, 55 * mm])
-    pillars_table.setStyle(TableStyle([
+    t_metrics = Table(metrics_data, colWidths=[42.5 * mm, 42.5 * mm, 42.5 * mm, 42.5 * mm])
+    t_metrics.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
         ("BOX", (0, 0), (-1, -1), 0.5, c_border),
         ("INNERGRID", (0, 0), (-1, -1), 0.5, c_border),
         ("ROUNDEDCORNERS", [4, 4, 4, 4]),
-        ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
+        ("TOPPADDING", (0, 0), (-1, -1), 3.5 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 3.5 * mm),
         ("LEFTPADDING", (0, 0), (-1, -1), 3 * mm),
         ("RIGHTPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("ALIGN", (0, 0), (-1, -1), "CENTER"),
+        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
     ]))
-    story.append(pillars_table)
-    story.append(Spacer(1, 6 * mm))
+    story.append(t_metrics)
+    story.append(Spacer(1, 14 * mm))
 
-    story.append(Paragraph("La Méthode Commando : Zéro Bureaucratie", s_section_title))
-    story.append(Spacer(1, 2 * mm))
-    story.append(Paragraph(
-        "Nous avons délibérément supprimé tous les irritants qui ralentissent habituellement les entreprises :<br/>"
-        "• <b>Des forfaits fermes :</b> Vos budgets sont verrouillés au centime près. Zéro surprise, zéro avenant imprévu.<br/>"
-        "• <b>Des délais immuables :</b> 14 jours ou 30 jours. Vos dates de lancement sont sacrées.<br/>"
-        "• <b>Un interlocuteur unique et décisionnaire :</b> Vous dialoguez directement avec les créateurs de votre produit.<br/>"
-        "• <b>Une propriété totale et sans engagement :</b> Vous êtes propriétaire à 100% de votre produit et de vos accès dès le jour de livraison.",
-        s_body
-    ))
-
-    # ==========================================================================
-    # PAGE 4 : CHAPITRE 3 — CATALOGUE OFFRES : SPRINT LAUNCH (14 JOURS)
-    # ==========================================================================
-    story.append(PageBreak())
-    story.append(Paragraph("03 / CATALOGUE D'OFFRES DE SERVICES", s_chapter_tag))
-    story.append(Spacer(1, 1 * mm))
-    story.append(Paragraph("Sprint Launch : De l'Idée au Live en 14 Jours", s_chapter_title))
-    story.append(Spacer(1, 4 * mm))
-
-    story.append(Paragraph(
-        "Le <b>Sprint Launch</b> est conçu pour les entreprises et les fondateurs qui doivent conquérir un marché immédiatement sans s'enliser dans des mois de développement théorique.",
-        s_body
-    ))
-    story.append(Spacer(1, 4 * mm))
-
-    # Carte descriptive Offre 1
-    launch_table_data = [
-        [Paragraph("<b>OBJECTIF STRATÉGIQUE</b>", s_card_tag)],
-        [Paragraph("Lancer une offre commerciale percutante, valider la demande et convertir immédiatement vos premiers clients premium.", s_body_bold)],
-        [Spacer(1, 2 * mm)],
-        [Paragraph("<b>LE PÉRIMÈTRE CLÉ EN MAIN :</b><br/>"
-                   "• Conception sur mesure de 1 à 3 pages stratégiques (Page d'accueil conversion, Présentation de l'offre, Prise de contact / Réservation).<br/>"
-                   "• Rédaction publicitaire et structuration des messages de vente selon les meilleurs standards de persuasion.<br/>"
-                   "• Identité visuelle soignée : contrastes élégants, typographie de prestige et mise en page intuitive.<br/>"
-                   "• Intégration de vos outils de réservation, formulaires de contact et capture de prospects qualifiés.<br/>"
-                   "• Optimisation mobile intégrale (fluidité parfaite sur smartphones et tablettes).<br/>"
-                   "• Mise en ligne complète, sécurisation de votre domaine et accompagnement à la prise en main.", s_body)],
-        [Spacer(1, 2 * mm)],
-        [Paragraph("<b>VOTRE RETOUR SUR INVESTISSEMENT :</b><br/>"
-                   "• <b>Temps de mise sur le marché divisé par 4 :</b> Vous vendez dès le 15ème jour ouvré.<br/>"
-                   "• <b>Taux de transformation supérieur :</b> Une clarté qui augmente le taux de conversion de vos campagnes de +40% à +85%.<br/>"
-                   "• <b>Crédibilité immédiate :</b> Une image de marque qui justifie des prix plus élevés auprès de vos clients.", s_body_bold)]
-    ]
-    launch_table = Table(launch_table_data, colWidths=[170 * mm])
-    launch_table.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
-        ("BOX", (0, 0), (-1, -1), 1, c_border),
-        ("ROUNDEDCORNERS", [5, 5, 5, 5]),
-        ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
-    ]))
-    story.append(launch_table)
-
-    # ==========================================================================
-    # PAGE 5 : CATALOGUE OFFRES : SPRINT SCALE & IMMERSION
-    # ==========================================================================
-    story.append(PageBreak())
-    story.append(Paragraph("03 / CATALOGUE D'OFFRES DE SERVICES (SUITE)", s_chapter_tag))
-    story.append(Spacer(1, 1 * mm))
-    story.append(Paragraph("Sprint Scale & Immersion Dédiée", s_chapter_title))
-    story.append(Spacer(1, 4 * mm))
-
-    # Offre 2 : Sprint Scale
-    scale_data = [
-        [Paragraph("<b>OFFRE #2 : SPRINT SCALE (30 JOURS OUVRÉS)</b>", s_card_tag)],
-        [Paragraph("L'Infrastructure Complète pour Décupler vos Ventes", s_card_h)],
-        [Paragraph(
-            "<b>Pour qui ?</b> Les entreprises en pleine expansion, les plateformes de services et les offres à fort volume de transactions.<br/>"
-            "<b>Le Périmètre :</b> Jusqu'à 7 écrans interactifs complets, intégration du paiement en ligne sécurisé et des abonnements récurrents, espace client privé, tableaux de bord de gestion et support multilingue.<br/>"
-            "<b>Bénéfice Business :</b> Une expérience d'achat sans aucune friction, capable d'absorber des dizaines de milliers de visiteurs sans ralentissement.",
-            s_body
-        )]
-    ]
-    t_scale = Table(scale_data, colWidths=[170 * mm])
-    t_scale.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
-        ("BOX", (0, 0), (-1, -1), 1, c_border),
-        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
-        ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
-    ]))
-    story.append(t_scale)
-    story.append(Spacer(1, 5 * mm))
-
-    # Offre 3 : Immersion Squad
-    squad_data = [
-        [Paragraph("<b>OFFRE #3 : IMMERSION DÉDIÉE (TRIMESTRIEL / SEMESTRIEL)</b>", s_card_tag)],
-        [Paragraph("Une Force de Frappe Senior Intégrée à Votre Équipe", s_card_h)],
-        [Paragraph(
-            "<b>Pour qui ?</b> Les dirigeants qui ont besoin d'une équipe de direction produit et design sans supporter les lenteurs et le coût fixe d'un double recrutement en interne.<br/>"
-            "<b>Le Mode Opératoire :</b> Un binôme senior dédié (Direction Produit + Direction Créative) greffé à votre quotidien. Deux livraisons concrètes par semaine, communication directe et priorisation sur la rentabilité.<br/>"
-            "<b>Bénéfice Business :</b> Vélocité d'exécution multipliée par deux, refonte complète de vos parcours utilisateurs et transmission des meilleures pratiques à vos équipes.",
-            s_body
-        )]
-    ]
-    t_squad = Table(squad_data, colWidths=[170 * mm])
-    t_squad.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
-        ("BOX", (0, 0), (-1, -1), 1, c_border),
-        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
-        ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
-    ]))
-    story.append(t_squad)
-
-    # ==========================================
-    # PAGE 6 : CHAPITRE 4 — ÉTUDES DE CAS & EXEMPLES
-    # ==========================================
-    story.append(PageBreak())
-    story.append(Paragraph("04 / RÉSULTATS & IMPACT CLIENT", s_chapter_tag))
-    story.append(Spacer(1, 1 * mm))
-    story.append(Paragraph("Études de Cas : La Preuve par l'Exemple", s_chapter_title))
-    story.append(Spacer(1, 4 * mm))
-
-    story.append(Paragraph(
-        "Ce qui compte n'est pas le nombre d'heures passées, mais la transformation tangible observée sur votre chiffre d'affaires et votre réputation de marque.",
-        s_body
-    ))
-    story.append(Spacer(1, 4 * mm))
-
-    # Étude de cas 1
-    case1_data = [
-        [Paragraph("<b>CAS #1 : REPOSITIONNEMENT HAUT DE GAMME POUR UNE ENTREPRISE DE CONSEIL</b>", s_card_tag)],
-        [Paragraph("Doublement du panier moyen et suppression des cycles de négociation", s_section_title)],
-        [Paragraph(
-            "<b>Le Défi :</b> Une offre de très haute valeur mais présentée sur un site daté et verbeux, incitant les prospects à négocier les tarifs à la baisse.<br/>"
-            "<b>L'Intervention Lonside (Sprint Launch - 14j) :</b> Clarification chirurgicale de la proposition de valeur, design monochrome inspiré de l'édition d'art, parcours de réservation qualifié.<br/>"
-            "<b>Le Résultat :</b> Taux de conversion des demandes d'entretien en hausse de +110%. Les clients signent sans discuter les honoraires, impressionnés par le professionnalisme de la plateforme.",
-            s_body
-        )]
-    ]
-    t_case1 = Table(case1_data, colWidths=[170 * mm])
-    t_case1.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
-        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
-        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
-        ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
-    ]))
-    story.append(t_case1)
-    story.append(Spacer(1, 4 * mm))
-
-    # Étude de cas 2
-    case2_data = [
-        [Paragraph("<b>CAS #2 : LANCEMENT D'UN SERVICE DIGITAL PAR ABONNEMENT</b>", s_card_tag)],
-        [Paragraph("De l'esquisse sur papier à 500 abonnés payants dès le premier mois", s_section_title)],
-        [Paragraph(
-            "<b>Le Défi :</b> Valider un concept de service sans dépenser 100 000 € en recherche et développement préalable.<br/>"
-            "<b>L'Intervention Lonside (Sprint Scale - 30j) :</b> Création de la plateforme d'accès, intégration des paiements récurrents et parcours d'onboarding fluide en 3 étapes.<br/>"
-            "<b>Le Résultat :</b> Lancement public respecté au jour près. 500 clients payants onboardés sans aucune friction d'assistance, rentabilisant l'investissement dès le deuxième mois.",
-            s_body
-        )]
-    ]
-    t_case2 = Table(case2_data, colWidths=[170 * mm])
-    t_case2.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
-        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
-        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
-        ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
-    ]))
-    story.append(t_case2)
-
-    # ==========================================================================
-    # PAGE 7 : CHAPITRE 5 — PASSER À L'ACTION : DIAGNOSTIC OFFERT
-    # ==========================================================================
-    story.append(PageBreak())
-    story.append(Paragraph("05 / VOTRE PROCHAINE ÉTAPE", s_chapter_tag))
-    story.append(Spacer(1, 1 * mm))
-    story.append(Paragraph("Construisons Votre Succès Commercial", s_chapter_title))
-    story.append(Spacer(1, 4 * mm))
-
-    story.append(Paragraph(
-        "Chaque mois passé avec un produit digital inadapté représente des opportunités perdues, des clients qui s'en vont et une érosion silencieuse de votre réputation.<br/><br/>"
-        "Nous ne prenons que <b>3 nouveaux projets par trimestre</b> afin de garantir une implication totale et une qualité d'exécution irréprochable.",
-        s_body
-    ))
-    story.append(Spacer(1, 5 * mm))
-
-    # Grande boîte noire de Closing
-    closing_box_data = [
-        [Paragraph("<b>VOTRE DIAGNOSTIC STRATÉGIQUE OFFERT (30 MINUTES)</b>", ParagraphStyle("ClTitle", fontName="Helvetica-Bold", fontSize=13, leading=17, textColor=c_white))],
-        [Spacer(1, 2 * mm)],
-        [Paragraph(
-            "Avant tout engagement, nous vous proposons une session privée de 30 minutes avec notre direction produit.<br/><br/>"
-            "<b>Ce que nous analyserons ensemble :</b><br/>"
-            "1. Les blocages majeurs qui freinent vos conversions actuelles.<br/>"
-            "2. Le potentiel d'optimisation de votre image et de vos parcours clients.<br/>"
-            "3. La feuille de route concrète pour lancer votre projet en 14 ou 30 jours.<br/><br/>"
-            "<b>Cette session est entièrement offerte et sans engagement.</b> Nous vous remettrons des recommandations actionnables dès le lendemain.",
-            ParagraphStyle("ClBody", fontName="Helvetica", fontSize=9, leading=14.5, textColor=colors.HexColor("#e4e4e7"))
-        )],
-        [Spacer(1, 4 * mm)],
-        [Paragraph("<b>RÉSERVEZ VOTRE SESSION :</b> contact@lonside.com<br/><font color='#a1a1aa' size='8'>Réponse garantie sous 24 heures ouvrées.</font>", ParagraphStyle("ClContact", fontName="Helvetica-Bold", fontSize=10, leading=15, textColor=c_white))]
-    ]
-    t_closing = Table(closing_box_data, colWidths=[170 * mm])
-    t_closing.setStyle(TableStyle([
+    # Carte noire de promesse
+    card_manifesto_cover = Paragraph(
+        "<b>L'ENGAGEMENT LONSIDE :</b><br/>"
+        "<font color='#e4e4e7' size='9'>Un modèle tellement plus direct que vous ne reviendrez jamais en arrière. Des sprints d'ingénierie au forfait scellé, exécutés avec le soin de l'artisan et livrés sans inertie.</font>",
+        ParagraphStyle("CoverCardText", fontName="Helvetica", fontSize=9.5, leading=14.5, textColor=c_white)
+    )
+    t_cover_box = Table([[card_manifesto_cover]], colWidths=[170 * mm])
+    t_cover_box.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, -1), c_black),
         ("ROUNDEDCORNERS", [6, 6, 6, 6]),
         ("TOPPADDING", (0, 0), (-1, -1), 5 * mm),
@@ -529,17 +235,387 @@ def build_whitepaper_pdf(output_pdf):
         ("LEFTPADDING", (0, 0), (-1, -1), 6 * mm),
         ("RIGHTPADDING", (0, 0), (-1, -1), 6 * mm),
     ]))
-    story.append(t_closing)
-    story.append(Spacer(1, 8 * mm))
+    story.append(t_cover_box)
+    story.append(Spacer(1, 18 * mm))
+
+    meta_footer = Paragraph(
+        "<b>Édition :</b> 2026 — 2027  ·  <b>Atelier :</b> Lonside Studio  ·  <b>Direction :</b> Kevin T. (Fondateur & Lead Architecte)<br/>"
+        "Document d'orientation destiné aux fondateurs, dirigeants et porteurs de projets ambitieux.",
+        ParagraphStyle("MetaFoot", fontName="Helvetica", fontSize=8, leading=12, textColor=c_gray)
+    )
+    story.append(meta_footer)
+
+    # ==========================================================================
+    # PAGE 2 : POURQUOI LONSIDE A ÉTÉ CRÉÉ
+    # ==========================================================================
+    story.append(PageBreak())
+    story.append(Paragraph("01 / LA GENÈSE DE L'ATELIER", s_chapter_tag))
+    story.append(Spacer(1, 1 * mm))
+    story.append(Paragraph("Pourquoi Lonside a été Créé", s_chapter_title))
+    story.append(Spacer(1, 4 * mm))
 
     story.append(Paragraph(
-        "<b>lonside.</b> — Conception et développement de produits numériques d'exception.<br/>"
-        "Tous droits réservés. Document réservé aux dirigeants et décideurs de projets digitaux.",
-        ParagraphStyle("LegalP", fontName="Helvetica", fontSize=8, leading=12, textColor=c_gray, alignment=1)
+        "Lancer un nouveau produit demande du courage, du temps et de l'énergie. Travailler avec nous doit être une expérience stimulante et limpide, pas un tunnel anxiogène de devis flous, d'intermédiaires commerciaux et de retards répétés.",
+        s_body
+    ))
+    story.append(Spacer(1, 4 * mm))
+
+    # Grande citation cartouche
+    cartouche_p = Paragraph(
+        "« Lonside a été créé avec une conviction simple : permettre aux fondateurs et aux équipes ambitieuses de déployer des produits digitaux de premier plan à la vitesse de la pensée.<br/><br/>"
+        "Chez Lonside, nous ne sommes pas une structure conventionnelle : <b>nous sommes un studio de fabrication logicielle et d'artisanat numérique</b>. Nous n'employons aucun commercial et nous ne sous-traitons aucun travail. Chaque plateforme est conçue, architecturée et développée directement par un Lead Architecte chevronné, dédié à un nombre strictement limité de clients à la fois. »",
+        s_pullquote
+    )
+    t_cartouche = Table([[cartouche_p]], colWidths=[170 * mm])
+    t_cartouche.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
+        ("LINEBEFORE", (0, 0), (-1, -1), 3, c_black),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("TOPPADDING", (0, 0), (-1, -1), 4 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 6 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 6 * mm),
+    ]))
+    story.append(t_cartouche)
+    story.append(Spacer(1, 5 * mm))
+
+    story.append(Paragraph("La Rupture avec les Processus Conventionnels", s_section_title))
+    story.append(Spacer(1, 2 * mm))
+    story.append(Paragraph(
+        "Dans la plupart des expériences de développement externes, les clients vivent le même schéma frustrant : des réunions préparatoires interminables, des cahiers des charges qui enflent sans fin, et une mise en ligne sans cesse reportée.<br/><br/>"
+        "Nous avons conçu Lonside comme un <b>antidote à cette inertie</b> :<br/>"
+        "• <b>Zéro intermédiaire :</b> Vous parlez directement à la personne qui construit votre produit.<br/>"
+        "• <b>Des forfaits fermes scellés au départ :</b> Aucune facture de complaisance, aucune renégociation en cours de route.<br/>"
+        "• <b>L'essentiel d'abord :</b> Nous focalisons chaque sprint sur les fonctionnalités qui génèrent de la valeur réelle et valident votre marché.",
+        s_body
+    ))
+
+    # ==========================================================================
+    # PAGE 3 : NOS TROIS ENGAGEMENTS D'ATELIER
+    # ==========================================================================
+    story.append(PageBreak())
+    story.append(Paragraph("02 / NOTRE VISION D'ATELIER", s_chapter_tag))
+    story.append(Spacer(1, 1 * mm))
+    story.append(Paragraph("Créer du Logiciel, dans la Confiance.", s_chapter_title))
+    story.append(Spacer(1, 4 * mm))
+
+    story.append(Paragraph(
+        "Notre collaboration repose sur trois principes immuables. Ils garantissent que chaque euro investi produit un résultat mesurable et pérenne.",
+        s_body
+    ))
+    story.append(Spacer(1, 5 * mm))
+
+    # Engagement 1
+    eng1_data = [
+        [Paragraph("<b>ENGAGEMENT #01</b>  ·  FORFAIT FERME & ZÉRO SURCOÛT SURPRISE", s_card_tag)],
+        [Paragraph("La parole tenue sur les délais et le prix", s_card_h)],
+        [Paragraph("Avant de poser la première ligne de code, nous cadrons ensemble ce qui compte réellement pour votre entreprise. Une fois le périmètre validé, notre engagement est total : le prix ne bouge pas d'un centime, et la date de livraison est scellée. Vous savez exactement où vous allez.", s_card_p)]
+    ]
+    t_eng1 = Table(eng1_data, colWidths=[170 * mm])
+    t_eng1.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
+        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
+    ]))
+    story.append(t_eng1)
+    story.append(Spacer(1, 4 * mm))
+
+    # Engagement 2
+    eng2_data = [
+        [Paragraph("<b>ENGAGEMENT #02</b>  ·  VOTRE COMPTE GITHUB & CESSION TOTALE", s_card_tag)],
+        [Paragraph("Un code 100% à vous, sans aucune captivité", s_card_h)],
+        [Paragraph("Chaque ligne de code, chaque schéma de base de données et chaque composant d'interface sont poussés directement sur votre propre compte GitHub. Vous n'êtes jamais captif d'un outil propriétaire ni d'un abonnement forcé. Vous restez libre de grandir avec nous ou en totale autonomie.", s_card_p)]
+    ]
+    t_eng2 = Table(eng2_data, colWidths=[170 * mm])
+    t_eng2.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
+        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
+    ]))
+    story.append(t_eng2)
+    story.append(Spacer(1, 4 * mm))
+
+    # Engagement 3
+    eng3_data = [
+        [Paragraph("<b>ENGAGEMENT #03</b>  ·  TESTS RIGOUREUX & GARANTIE 30 JOURS", s_card_tag)],
+        [Paragraph("Le soin de l'artisan, prêt pour la vraie vie", s_card_h)],
+        [Paragraph("Nous aimons sincèrement ce que nous fabriquons. Votre application n'est pas une maquette bancale : elle arrive testée, fluide, documentée, prête à accueillir de vrais utilisateurs et à encaisser des paiements. Et si le moindre ajustement est nécessaire, notre garantie 30 jours prend le relais sans frais.", s_card_p)]
+    ]
+    t_eng3 = Table(eng3_data, colWidths=[170 * mm])
+    t_eng3.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
+        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
+    ]))
+    story.append(t_eng3)
+
+    # ==========================================================================
+    # PAGE 4 : CATALOGUE DES 3 OFFRES & TARIFS CLAIRS
+    # ==========================================================================
+    story.append(PageBreak())
+    story.append(Paragraph("03 / NOS FORFAITS TRANSPARENTS", s_chapter_tag))
+    story.append(Spacer(1, 1 * mm))
+    story.append(Paragraph("Des Formules Simples, Zéro Mauvaise Surprise", s_chapter_title))
+    story.append(Spacer(1, 4 * mm))
+
+    story.append(Paragraph(
+        "Chaque formule comprend le cadrage complet, le développement soigné, la cession du code sur votre propre compte et un mois d'assistance sereine.",
+        s_body
+    ))
+    story.append(Spacer(1, 4 * mm))
+
+    # Offre 1 : Sprint Launch
+    o1_box = [
+        [Paragraph("<b>SPRINT LAUNCH</b>  ·  6 900 €  <font color='#71717a' size='8'>(Forfait ferme • 14 jours ouvrés)</font>", s_card_tag)],
+        [Paragraph("Votre première version en ligne, prête pour vos premiers clients.", s_card_h)],
+        [Paragraph(
+            "• Application web fluide, rapide et responsive sur mobile<br/>"
+            "• Comptes utilisateurs et authentification sécurisée<br/>"
+            "• Paiements Stripe configurés (abonnements ou achats uniques)<br/>"
+            "• Connexion avec vos outils métiers et services essentiels<br/>"
+            "• Code 100% à vous sur votre propre compte GitHub<br/>"
+            "• 30 jours d'assistance et garantie corrective inclus",
+            s_card_p
+        )]
+    ]
+    t_o1 = Table(o1_box, colWidths=[170 * mm])
+    t_o1.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
+        ("BOX", (0, 0), (-1, -1), 1, c_border),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("TOPPADDING", (0, 0), (-1, -1), 2.5 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2.5 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
+    ]))
+    story.append(t_o1)
+    story.append(Spacer(1, 3.5 * mm))
+
+    # Offre 2 : Sprint Scale (Recommandé)
+    o2_box = [
+        [Paragraph("<b>SPRINT SCALE (RECOMMANDÉ)</b>  ·  13 900 €  <font color='#71717a' size='8'>(Forfait ferme • 30 jours ouvrés)</font>", s_card_tag)],
+        [Paragraph("Pour les plateformes multi-rôles et flux métier avancés.", s_card_h)],
+        [Paragraph(
+            "• <b>Tout le contenu du Sprint Launch, augmenté de :</b><br/>"
+            "• Espaces multi-rôles (ex: acheteur, vendeur, administrateur)<br/>"
+            "• Calculs automatisés et traitement intelligent des données<br/>"
+            "• Notifications en temps réel et flux d'automatisation<br/>"
+            "• Tests rigoureux pour garantir une stabilité irréprochable<br/>"
+            "• Visite guidée personnalisée en vidéo et documentation complète",
+            s_card_p
+        )]
+    ]
+    t_o2 = Table(o2_box, colWidths=[170 * mm])
+    t_o2.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
+        ("BOX", (0, 0), (-1, -1), 1.5, c_black),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("TOPPADDING", (0, 0), (-1, -1), 2.5 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2.5 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
+    ]))
+    story.append(t_o2)
+    story.append(Spacer(1, 3.5 * mm))
+
+    # Offre 3 : Régie d'Immersion
+    o3_box = [
+        [Paragraph("<b>RÉGIE D'IMMERSION</b>  ·  DÈS 5 500 € / MOIS  <font color='#71717a' size='8'>(Flexibilité sans engagement)</font>", s_card_tag)],
+        [Paragraph("Un ingénieur senior intégré directement à vos côtés.", s_card_h)],
+        [Paragraph(
+            "• Ingénieur senior dédié (1 à 3 profils selon vos besoins)<br/>"
+            "• Collaboration directe dans votre Slack et vos rituels de travail<br/>"
+            "• Sortie rapide de nouvelles fonctionnalités au quotidien<br/>"
+            "• Semaine d'essai de 5 jours pour tester la collaboration<br/>"
+            "• Ajustement libre du volume chaque mois selon vos priorités",
+            s_card_p
+        )]
+    ]
+    t_o3 = Table(o3_box, colWidths=[170 * mm])
+    t_o3.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
+        ("BOX", (0, 0), (-1, -1), 1, c_border),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("TOPPADDING", (0, 0), (-1, -1), 2.5 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2.5 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
+    ]))
+    story.append(t_o3)
+
+    # ==========================================================================
+    # PAGE 5 : NOS RÉALISATIONS RÉELLES (LES 4 PRODUITS DU STUDIO)
+    # ==========================================================================
+    story.append(PageBreak())
+    story.append(Paragraph("04 / NOS RÉALISATIONS CHOISIES", s_chapter_tag))
+    story.append(Spacer(1, 1 * mm))
+    story.append(Paragraph("Des Produits Bien Conçus, Faits pour Durer.", s_chapter_title))
+    story.append(Spacer(1, 3 * mm))
+
+    story.append(Paragraph(
+        "Voici quelques applications que nous avons façonnées aux côtés de leurs fondateurs. De la première maquette jusqu'au lancement officiel, chaque projet résout un vrai besoin métier avec soin et clarté.",
+        s_body
+    ))
+    story.append(Spacer(1, 3 * mm))
+
+    # Cas 1 : Bely
+    cas_bely = [
+        [Paragraph("<b>BELY</b>  ·  MOBILITÉ CORPORATE & TRANSPORT VTC HAUT DE GAMME", s_card_tag)],
+        [Paragraph("La plateforme qui connecte entreprises et chauffeurs avec dispatch en direct.", s_card_h)],
+        [Paragraph(
+            "• <b>Le défi :</b> Supprimer le dispatch artisanal par messagerie et 40h de réconciliation comptable mensuelle pour les grands comptes d'hôtellerie 5 étoiles.<br/>"
+            "• <b>La solution :</b> Moteur de dispatch instantané en moins de 5 millisecondes, portail corporate pour les conciergeries et facturation mensuelle groupée automatisée.<br/>"
+            "• <b>Impact réel :</b> 40 heures de gestion administrative économisées par mois et 99.98% de disponibilité de service.",
+            s_card_p
+        )]
+    ]
+    t_bely = Table(cas_bely, colWidths=[170 * mm])
+    t_bely.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
+        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("TOPPADDING", (0, 0), (-1, -1), 2 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
+    ]))
+    story.append(t_bely)
+    story.append(Spacer(1, 2.5 * mm))
+
+    # Cas 2 : Welqo
+    cas_welqo = [
+        [Paragraph("<b>WELQO</b>  ·  PROPTECH & CONCIERGERIE HAUT DE GAMME", s_card_tag)],
+        [Paragraph("Le tableau de bord qui pilote les réservations et opérations en direct.", s_card_h)],
+        [Paragraph(
+            "• <b>Le défi :</b> Éliminer tout risque de double réservation entre Airbnb et Booking.com, et convaincre les propriétaires de signer des mandats de gestion.<br/>"
+            "• <b>La solution :</b> Simulateur interactif de rentabilité financière pour les investisseurs, synchronisation calendaire sans latence et signature de mandat en ligne en 3 minutes.<br/>"
+            "• <b>Témoignage :</b> <i>« En moins d'un mois, nous sommes passés d'un modèle artisanal à une plateforme digne des leaders mondiaux. Le simulateur signe de nouveaux propriétaires chaque semaine. »</i>",
+            s_card_p
+        )]
+    ]
+    t_welqo = Table(cas_welqo, colWidths=[170 * mm])
+    t_welqo.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
+        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("TOPPADDING", (0, 0), (-1, -1), 2 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
+    ]))
+    story.append(t_welqo)
+    story.append(Spacer(1, 2.5 * mm))
+
+    # Cas 3 : Michi 道
+    cas_michi = [
+        [Paragraph("<b>MICHI 道</b>  ·  E-COMMERCE & INTELLIGENCE SUPPLY CHAIN", s_card_tag)],
+        [Paragraph("L'outil prédictif qui évite les ruptures de stock sans bloquer de trésorerie.", s_card_h)],
+        [Paragraph(
+            "• <b>Le défi :</b> Éviter les ruptures de stock récurrentes sur les produits vedettes et le surstockage coûteux sur les articles à rotation lente.<br/>"
+            "• <b>La solution :</b> Moteur de calcul prédictif intégrant les délais fournisseurs réels (30 à 90 jours) et neutralisant les anomalies de vente ponctuelles.<br/>"
+            "• <b>Impact réel :</b> Protection directe du besoin en fonds de roulement et passage de commandes fournisseurs optimisé.",
+            s_card_p
+        )]
+    ]
+    t_michi = Table(cas_michi, colWidths=[170 * mm])
+    t_michi.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
+        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("TOPPADDING", (0, 0), (-1, -1), 2 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
+    ]))
+    story.append(t_michi)
+    story.append(Spacer(1, 2.5 * mm))
+
+    # Cas 4 : WeedIn
+    cas_weedin = [
+        [Paragraph("<b>WEEDIN</b>  ·  EVENTTECH & EXPÉRIENCE DIGITALE HAUT DE GAMME", s_card_tag)],
+        [Paragraph("L'application qui simplifie la réservation et la billetterie d'événements privés.", s_card_h)],
+        [Paragraph(
+            "• <b>Le défi :</b> Supprimer la papeterie papier internationale coûteuse et fluidifier l'accueil sécurisé de 600 invités sans file d'attente.<br/>"
+            "• <b>La solution :</b> Vitrine interactive élégante, confirmations RSVP par cérémonie et génération de billets électroniques infalsifiables avec QR code vérifié en 250 ms.<br/>"
+            "• <b>Témoignage :</b> <i>« Lonside a sublimé notre événement. Le traiteur a reçu les effectifs exacts deux semaines plus tôt, et nous avons collecté 600 photos de nos proches. Un travail d'orfèvre. »</i>",
+            s_card_p
+        )]
+    ]
+    t_weedin = Table(cas_weedin, colWidths=[170 * mm])
+    t_weedin.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
+        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("TOPPADDING", (0, 0), (-1, -1), 2 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
+    ]))
+    story.append(t_weedin)
+
+    # ==========================================================================
+    # PAGE 6 : DÉMARRONS VOTRE PROCHAIN PRODUIT ENSEMBLE
+    # ==========================================================================
+    story.append(PageBreak())
+    story.append(Paragraph("05 / PARLONS DE VOTRE PROJET", s_chapter_tag))
+    story.append(Spacer(1, 1 * mm))
+    story.append(Paragraph("Démarrons Votre Prochain Produit Ensemble.", s_chapter_title))
+    story.append(Spacer(1, 4 * mm))
+
+    story.append(Paragraph(
+        "Que vous ayez un cahier des charges précis ou une idée à structurer, échangeons en direct avec un Lead Architecte. Nous prenons un nombre strictement limité de projets simultanés pour garantir une attention absolue à chaque détail.",
+        s_body
+    ))
+    story.append(Spacer(1, 5 * mm))
+
+    # Boîte noire d'action
+    contact_box_data = [
+        [Paragraph("<b>ÉCHANGE DE CADRAGE (15 MINUTES)</b>", ParagraphStyle("CBoxT", fontName="Helvetica-Bold", fontSize=13, leading=17, textColor=c_white))],
+        [Paragraph("<font color='#a1a1aa' size='8'>Direct avec Kevin T. (Fondateur & Lead Architecte)</font>", s_card_tag)],
+        [Spacer(1, 2 * mm)],
+        [Paragraph(
+            "15 minutes pour évaluer la faisabilité de votre projet, définir le format idéal (Sprint Launch ou Scale) et sceller votre date cible de livraison.<br/><br/>"
+            "• <b>Échange direct et sans pression commerciale</b><br/>"
+            "• <b>Conseils concrets et actionnables dès le premier échange</b><br/>"
+            "• <b>Chiffrage ferme immédiat sans engagement</b>",
+            ParagraphStyle("CBoxBody", fontName="Helvetica", fontSize=9.5, leading=15, textColor=colors.HexColor("#e4e4e7"))
+        )],
+        [Spacer(1, 4 * mm)],
+        [Paragraph("<b>RÉSERVEZ VOTRE CRÉNEAU :</b> contact@lonside.com", ParagraphStyle("CBoxContact", fontName="Helvetica-Bold", fontSize=11, leading=16, textColor=c_white))],
+        [Paragraph("<font color='#a1a1aa' size='8'>Ou transmettez votre besoin par écrit — Réponse sous 24h ouvrées.</font>", s_card_tag)]
+    ]
+    t_contact_box = Table(contact_box_data, colWidths=[170 * mm])
+    t_contact_box.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_black),
+        ("ROUNDEDCORNERS", [6, 6, 6, 6]),
+        ("TOPPADDING", (0, 0), (-1, -1), 5 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 5 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 6 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 6 * mm),
+    ]))
+    story.append(t_contact_box)
+    story.append(Spacer(1, 10 * mm))
+
+    story.append(Paragraph(
+        "<b>lonside.</b> — Atelier de conception et de développement de produits digitaux d'exception.<br/>"
+        "© 2026 Lonside Studio. Forfaits fermes, délais tenus et cession totale sur votre propre compte GitHub.",
+        ParagraphStyle("LegalFinal", fontName="Helvetica", fontSize=8, leading=12, textColor=c_gray, alignment=1)
     ))
 
     doc.build(story, canvasmaker=WhitepaperCanvas)
-    print(f"PDF Livre Blanc Lonside généré : {output_pdf}")
+    print(f"Livre Blanc Lonside Studio généré avec succès : {output_pdf}")
 
 if __name__ == "__main__":
     os.makedirs("docs", exist_ok=True)
