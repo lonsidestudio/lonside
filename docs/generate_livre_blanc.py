@@ -39,19 +39,34 @@ class WhitepaperCanvas(canvas.Canvas):
         self.setFont("Helvetica", 8)
         self.setFillColor(colors.HexColor("#71717a"))
 
-        # En-tête
+        # En-tête sobre
         self.setStrokeColor(colors.HexColor("#e4e4e7"))
         self.setLineWidth(0.5)
         self.line(20 * mm, 282 * mm, 190 * mm, 282 * mm)
         self.drawString(20 * mm, 285 * mm, "LONSIDE STUDIO  //  LE GUIDE DU STUDIO")
-        self.drawRightString(190 * mm, 285 * mm, "CONCEPTION & DÉVELOPPEMENT DE PRODUITS DIGITAUX")
+        self.drawRightString(190 * mm, 285 * mm, "CONCEPTION & INGÉNIERIE LOGICIELLE")
 
         # Pied de page
         self.line(20 * mm, 15 * mm, 190 * mm, 15 * mm)
-        self.drawString(20 * mm, 10 * mm, "LONSIDE STUDIO — ATELIER D'ARTISANAT LOGICIEL & INGÉNIERIE SUR-MESURE")
+        self.drawString(20 * mm, 10 * mm, "LONSIDE STUDIO — ATELIER INDÉPENDANT D'ARTISANAT LOGICIEL")
         page_str = f"PAGE {self._pageNumber} SUR {num_pages}"
         self.drawRightString(190 * mm, 10 * mm, page_str)
         self.restoreState()
+
+def create_image_placeholder(width_mm, height_mm, label="Emplacement Visuel / Capture d'Écran"):
+    p = Paragraph(
+        f"<font color='#a1a1aa' size='8'><b>[ {label.upper()} ]</b><br/>Déposez votre capture d'interface ici dans Canva</font>",
+        ParagraphStyle("PlaceH", fontName="Helvetica", fontSize=8, leading=11, alignment=1)
+    )
+    t = Table([[p]], colWidths=[width_mm * mm], rowHeights=[height_mm * mm])
+    t.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#fafafa")),
+        ("BOX", (0, 0), (-1, -1), 0.8, colors.HexColor("#e4e4e7")),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+        ("ALIGN", (0, 0), (-1, -1), "CENTER"),
+    ]))
+    return t
 
 def build_whitepaper_pdf(output_pdf):
     doc = SimpleDocTemplate(
@@ -65,7 +80,6 @@ def build_whitepaper_pdf(output_pdf):
 
     styles = getSampleStyleSheet()
 
-    # Palette monochrome haute couture Lonside
     c_black = colors.HexColor("#09090b")
     c_dark = colors.HexColor("#18181b")
     c_gray = colors.HexColor("#71717a")
@@ -74,110 +88,22 @@ def build_whitepaper_pdf(output_pdf):
     c_border = colors.HexColor("#e4e4e7")
     c_white = colors.HexColor("#ffffff")
 
-    # Typographie
-    s_cover_tag = ParagraphStyle(
-        "CoverTag",
-        fontName="Helvetica-Bold",
-        fontSize=10,
-        leading=14,
-        textColor=c_gray,
-    )
+    s_cover_tag = ParagraphStyle("CoverTag", fontName="Helvetica-Bold", fontSize=10, leading=14, textColor=c_gray)
+    s_cover_logo = ParagraphStyle("CoverLogo", fontName="Helvetica-Bold", fontSize=40, leading=46, textColor=c_black)
+    s_cover_title = ParagraphStyle("CoverTitle", fontName="Helvetica-Bold", fontSize=26, leading=32, textColor=c_black)
+    s_cover_subtitle = ParagraphStyle("CoverSubtitle", fontName="Helvetica", fontSize=12.5, leading=18, textColor=c_dark)
 
-    s_cover_logo = ParagraphStyle(
-        "CoverLogo",
-        fontName="Helvetica-Bold",
-        fontSize=38,
-        leading=44,
-        textColor=c_black,
-    )
+    s_chapter_tag = ParagraphStyle("ChapterTag", fontName="Helvetica-Bold", fontSize=8.5, leading=11, textColor=c_gray)
+    s_chapter_title = ParagraphStyle("ChapterTitle", fontName="Helvetica-Bold", fontSize=19, leading=24, textColor=c_black)
+    s_section_title = ParagraphStyle("SectionTitle", fontName="Helvetica-Bold", fontSize=12, leading=16, textColor=c_black)
 
-    s_cover_title = ParagraphStyle(
-        "CoverTitle",
-        fontName="Helvetica-Bold",
-        fontSize=26,
-        leading=32,
-        textColor=c_black,
-    )
+    s_body = ParagraphStyle("BodyCustom", fontName="Helvetica", fontSize=9, leading=14, textColor=c_dark)
+    s_body_bold = ParagraphStyle("BodyBoldCustom", fontName="Helvetica-Bold", fontSize=9, leading=14, textColor=c_black)
+    s_pullquote = ParagraphStyle("PullQuote", fontName="Helvetica-Oblique", fontSize=10.5, leading=15.5, textColor=c_black)
 
-    s_cover_subtitle = ParagraphStyle(
-        "CoverSubtitle",
-        fontName="Helvetica",
-        fontSize=13,
-        leading=19,
-        textColor=c_dark,
-    )
-
-    s_chapter_tag = ParagraphStyle(
-        "ChapterTag",
-        fontName="Helvetica-Bold",
-        fontSize=9,
-        leading=12,
-        textColor=c_gray,
-    )
-
-    s_chapter_title = ParagraphStyle(
-        "ChapterTitle",
-        fontName="Helvetica-Bold",
-        fontSize=20,
-        leading=25,
-        textColor=c_black,
-    )
-
-    s_section_title = ParagraphStyle(
-        "SectionTitle",
-        fontName="Helvetica-Bold",
-        fontSize=13,
-        leading=17,
-        textColor=c_black,
-    )
-
-    s_body = ParagraphStyle(
-        "BodyCustom",
-        fontName="Helvetica",
-        fontSize=9.5,
-        leading=15,
-        textColor=c_dark,
-    )
-
-    s_body_bold = ParagraphStyle(
-        "BodyBoldCustom",
-        fontName="Helvetica-Bold",
-        fontSize=9.5,
-        leading=15,
-        textColor=c_black,
-    )
-
-    s_pullquote = ParagraphStyle(
-        "PullQuote",
-        fontName="Helvetica-Oblique",
-        fontSize=11,
-        leading=16,
-        textColor=c_black,
-    )
-
-    s_card_tag = ParagraphStyle(
-        "CardTag",
-        fontName="Helvetica-Bold",
-        fontSize=8.5,
-        leading=11,
-        textColor=c_gray,
-    )
-
-    s_card_h = ParagraphStyle(
-        "CardH",
-        fontName="Helvetica-Bold",
-        fontSize=13,
-        leading=17,
-        textColor=c_black,
-    )
-
-    s_card_p = ParagraphStyle(
-        "CardP",
-        fontName="Helvetica",
-        fontSize=9,
-        leading=14,
-        textColor=c_dark,
-    )
+    s_card_tag = ParagraphStyle("CardTag", fontName="Helvetica-Bold", fontSize=8, leading=10, textColor=c_gray)
+    s_card_h = ParagraphStyle("CardH", fontName="Helvetica-Bold", fontSize=12, leading=16, textColor=c_black)
+    s_card_p = ParagraphStyle("CardP", fontName="Helvetica", fontSize=8.5, leading=13, textColor=c_dark)
 
     story = []
 
@@ -190,18 +116,18 @@ def build_whitepaper_pdf(output_pdf):
     story.append(Paragraph("<b>lonside.</b>", s_cover_logo))
     story.append(Spacer(1, 18 * mm))
 
-    story.append(Paragraph("Votre produit digital en production,<br/>dès 14 jours.", s_cover_title))
+    story.append(Paragraph("L'Exécution comme Signature :<br/>Votre Produit en Ligne Dès 14 Jours.", s_cover_title))
     story.append(Spacer(1, 4 * mm))
-    story.append(Paragraph("Nous concevons et développons des applications web et plateformes fiables pour les fondateurs et équipes qui veulent avancer vite.", s_cover_subtitle))
+    story.append(Paragraph("Comment nous concevons et développons des applications web fiables pour les fondateurs et équipes qui veulent avancer vite.", s_cover_subtitle))
     story.append(Spacer(1, 14 * mm))
 
-    # Tableau des 4 repères clés (visibles au premier coup d'œil)
+    # Repères clés
     metrics_data = [
         [
-            Paragraph("<b>DÈS 14J</b><br/><font color='#71717a' size='8'>Délai garanti</font>", s_body_bold),
-            Paragraph("<b>FORFAIT FIXE</b><br/><font color='#71717a' size='8'>Zéro dépassement</font>", s_body_bold),
-            Paragraph("<b>100% À VOUS</b><br/><font color='#71717a' size='8'>Cession totale GitHub</font>", s_body_bold),
-            Paragraph("<b>30 JOURS</b><br/><font color='#71717a' size='8'>Garantie corrective</font>", s_body_bold),
+            Paragraph("<b>DÈS 14J</b><br/><font color='#71717a' size='7.5'>Délai garanti</font>", s_body_bold),
+            Paragraph("<b>FORFAIT FIXE</b><br/><font color='#71717a' size='7.5'>Zéro dépassement</font>", s_body_bold),
+            Paragraph("<b>100% À VOUS</b><br/><font color='#71717a' size='7.5'>Cession totale GitHub</font>", s_body_bold),
+            Paragraph("<b>30 JOURS</b><br/><font color='#71717a' size='7.5'>Garantie corrective</font>", s_body_bold),
         ]
     ]
     t_metrics = Table(metrics_data, colWidths=[42.5 * mm, 42.5 * mm, 42.5 * mm, 42.5 * mm])
@@ -220,13 +146,12 @@ def build_whitepaper_pdf(output_pdf):
     story.append(t_metrics)
     story.append(Spacer(1, 14 * mm))
 
-    # Carte noire de promesse
-    card_manifesto_cover = Paragraph(
-        "<b>L'ENGAGEMENT LONSIDE :</b><br/>"
-        "<font color='#e4e4e7' size='9'>Un modèle tellement plus direct que vous ne reviendrez jamais en arrière. Des sprints d'ingénierie au forfait scellé, exécutés avec le soin de l'artisan et livrés sans inertie.</font>",
-        ParagraphStyle("CoverCardText", fontName="Helvetica", fontSize=9.5, leading=14.5, textColor=c_white)
+    card_cover = Paragraph(
+        "<b>L'ENGAGEMENT DE L'ATELIER :</b><br/>"
+        "<font color='#e4e4e7' size='8.5'>Un modèle tellement plus direct que vous ne reviendrez jamais en arrière. Des sprints d'ingénierie au forfait scellé, exécutés avec le soin de l'artisan et livrés sans la moindre inertie commerciale.</font>",
+        ParagraphStyle("CoverCardText", fontName="Helvetica", fontSize=9, leading=14, textColor=c_white)
     )
-    t_cover_box = Table([[card_manifesto_cover]], colWidths=[170 * mm])
+    t_cover_box = Table([[card_cover]], colWidths=[170 * mm])
     t_cover_box.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, -1), c_black),
         ("ROUNDEDCORNERS", [6, 6, 6, 6]),
@@ -236,34 +161,33 @@ def build_whitepaper_pdf(output_pdf):
         ("RIGHTPADDING", (0, 0), (-1, -1), 6 * mm),
     ]))
     story.append(t_cover_box)
-    story.append(Spacer(1, 18 * mm))
+    story.append(Spacer(1, 16 * mm))
 
     meta_footer = Paragraph(
         "<b>Édition :</b> 2026 — 2027  ·  <b>Atelier :</b> Lonside Studio  ·  <b>Direction :</b> Kevin T. (Fondateur & Lead Architecte)<br/>"
-        "Document d'orientation destiné aux fondateurs, dirigeants et porteurs de projets ambitieux.",
+        "Document officiel d'orientation à destination des fondateurs, dirigeants et porteurs de projets.",
         ParagraphStyle("MetaFoot", fontName="Helvetica", fontSize=8, leading=12, textColor=c_gray)
     )
     story.append(meta_footer)
 
     # ==========================================================================
-    # PAGE 2 : POURQUOI LONSIDE A ÉTÉ CRÉÉ
+    # PAGE 2 : GENÈSE DE L'ATELIER & VISION (MUTUALISÉES)
     # ==========================================================================
     story.append(PageBreak())
-    story.append(Paragraph("01 / LA GENÈSE DE L'ATELIER", s_chapter_tag))
+    story.append(Paragraph("01 / L'ESPRIT DU STUDIO", s_chapter_tag))
     story.append(Spacer(1, 1 * mm))
-    story.append(Paragraph("Pourquoi Lonside a été Créé", s_chapter_title))
-    story.append(Spacer(1, 4 * mm))
+    story.append(Paragraph("Genèse & Vision de l'Atelier", s_chapter_title))
+    story.append(Spacer(1, 3.5 * mm))
 
     story.append(Paragraph(
-        "Lancer un nouveau produit demande du courage, du temps et de l'énergie. Travailler avec nous doit être une expérience stimulante et limpide, pas un tunnel anxiogène de devis flous, d'intermédiaires commerciaux et de retards répétés.",
+        "Lonside est né d'un constat sans appel : lancer un produit numérique de haut niveau est devenu inutilement complexe. Trop d'intermédiaires, trop de devis à rallonge, et des semaines perdues en réunions théoriques avant de voir la moindre ébauche concrète.",
         s_body
     ))
-    story.append(Spacer(1, 4 * mm))
+    story.append(Spacer(1, 3 * mm))
 
-    # Grande citation cartouche
     cartouche_p = Paragraph(
         "« Lonside a été créé avec une conviction simple : permettre aux fondateurs et aux équipes ambitieuses de déployer des produits digitaux de premier plan à la vitesse de la pensée.<br/><br/>"
-        "Chez Lonside, nous ne sommes pas une structure conventionnelle : <b>nous sommes un studio de fabrication logicielle et d'artisanat numérique</b>. Nous n'employons aucun commercial et nous ne sous-traitons aucun travail. Chaque plateforme est conçue, architecturée et développée directement par un Lead Architecte chevronné, dédié à un nombre strictement limité de clients à la fois. »",
+        "Nous sommes un atelier indépendant de fabrication logicielle. Nous n'employons aucun commercial et nous ne sous-traitons aucun travail. Chaque plateforme est pensée, dessinée et développée directement par un Lead Architecte chevronné, dédié à un nombre strictement limité de projets à la fois. Vous travaillez avec ceux qui fabriquent. »",
         s_pullquote
     )
     t_cartouche = Table([[cartouche_p]], colWidths=[170 * mm])
@@ -271,127 +195,170 @@ def build_whitepaper_pdf(output_pdf):
         ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
         ("LINEBEFORE", (0, 0), (-1, -1), 3, c_black),
         ("ROUNDEDCORNERS", [4, 4, 4, 4]),
-        ("TOPPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("LEFTPADDING", (0, 0), (-1, -1), 6 * mm),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 6 * mm),
+        ("TOPPADDING", (0, 0), (-1, -1), 3.5 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 3.5 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 5 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 5 * mm),
     ]))
     story.append(t_cartouche)
-    story.append(Spacer(1, 5 * mm))
+    story.append(Spacer(1, 4 * mm))
 
-    story.append(Paragraph("La Rupture avec les Processus Conventionnels", s_section_title))
+    story.append(Paragraph("Nos Trois Principes Inviolables", s_section_title))
     story.append(Spacer(1, 2 * mm))
-    story.append(Paragraph(
-        "Dans la plupart des expériences de développement externes, les clients vivent le même schéma frustrant : des réunions préparatoires interminables, des cahiers des charges qui enflent sans fin, et une mise en ligne sans cesse reportée.<br/><br/>"
-        "Nous avons conçu Lonside comme un <b>antidote à cette inertie</b> :<br/>"
-        "• <b>Zéro intermédiaire :</b> Vous parlez directement à la personne qui construit votre produit.<br/>"
-        "• <b>Des forfaits fermes scellés au départ :</b> Aucune facture de complaisance, aucune renégociation en cours de route.<br/>"
-        "• <b>L'essentiel d'abord :</b> Nous focalisons chaque sprint sur les fonctionnalités qui génèrent de la valeur réelle et valident votre marché.",
-        s_body
-    ))
+
+    c_eng1 = [
+        Paragraph("<b>1. LA PAROLE TENUE</b>", s_card_tag),
+        Spacer(1, 0.5 * mm),
+        Paragraph("Forfaits fermes et délais scellés dès le départ. Zéro mauvaise surprise, zéro renégociation en cours de route. Vous maîtrisez votre budget au centime près.", s_card_p)
+    ]
+    c_eng2 = [
+        Paragraph("<b>2. CESSION TOTALE</b>", s_card_tag),
+        Spacer(1, 0.5 * mm),
+        Paragraph("Chaque ligne de code est livrée directement sur votre propre compte GitHub. Vous n'êtes jamais captif d'un outil propriétaire ni d'un abonnement forcé.", s_card_p)
+    ]
+    c_eng3 = [
+        Paragraph("<b>3. LE SOIN DE L'ARTISAN</b>", s_card_tag),
+        Spacer(1, 0.5 * mm),
+        Paragraph("Votre produit arrive testé, fluide et prêt à encaisser des paiements réels. Notre garantie corrective de 30 jours prend le relais sans frais.", s_card_p)
+    ]
+
+    t_eng_all = Table([[c_eng1, c_eng2, c_eng3]], colWidths=[55 * mm, 55 * mm, 55 * mm])
+    t_eng_all.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
+        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
+        ("INNERGRID", (0, 0), (-1, -1), 0.5, c_border),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 3 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 3 * mm),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+    ]))
+    story.append(t_eng_all)
 
     # ==========================================================================
-    # PAGE 3 : NOS TROIS ENGAGEMENTS D'ATELIER
+    # PAGE 3 : NOTRE FAÇON DE FAIRE (TIMELINE / PROCESSUS)
     # ==========================================================================
     story.append(PageBreak())
-    story.append(Paragraph("02 / NOTRE VISION D'ATELIER", s_chapter_tag))
+    story.append(Paragraph("02 / NOTRE FAÇON DE FAIRE", s_chapter_tag))
     story.append(Spacer(1, 1 * mm))
-    story.append(Paragraph("Créer du Logiciel, dans la Confiance.", s_chapter_title))
-    story.append(Spacer(1, 4 * mm))
+    story.append(Paragraph("Du Premier Échange à la Mise en Ligne", s_chapter_title))
+    story.append(Spacer(1, 3.5 * mm))
 
     story.append(Paragraph(
-        "Notre collaboration repose sur trois principes immuables. Ils garantissent que chaque euro investi produit un résultat mesurable et pérenne.",
-        s_body
-    ))
-    story.append(Spacer(1, 5 * mm))
-
-    # Engagement 1
-    eng1_data = [
-        [Paragraph("<b>ENGAGEMENT #01</b>  ·  FORFAIT FERME & ZÉRO SURCOÛT SURPRISE", s_card_tag)],
-        [Paragraph("La parole tenue sur les délais et le prix", s_card_h)],
-        [Paragraph("Avant de poser la première ligne de code, nous cadrons ensemble ce qui compte réellement pour votre entreprise. Une fois le périmètre validé, notre engagement est total : le prix ne bouge pas d'un centime, et la date de livraison est scellée. Vous savez exactement où vous allez.", s_card_p)]
-    ]
-    t_eng1 = Table(eng1_data, colWidths=[170 * mm])
-    t_eng1.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
-        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
-        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
-        ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
-    ]))
-    story.append(t_eng1)
-    story.append(Spacer(1, 4 * mm))
-
-    # Engagement 2
-    eng2_data = [
-        [Paragraph("<b>ENGAGEMENT #02</b>  ·  VOTRE COMPTE GITHUB & CESSION TOTALE", s_card_tag)],
-        [Paragraph("Un code 100% à vous, sans aucune captivité", s_card_h)],
-        [Paragraph("Chaque ligne de code, chaque schéma de base de données et chaque composant d'interface sont poussés directement sur votre propre compte GitHub. Vous n'êtes jamais captif d'un outil propriétaire ni d'un abonnement forcé. Vous restez libre de grandir avec nous ou en totale autonomie.", s_card_p)]
-    ]
-    t_eng2 = Table(eng2_data, colWidths=[170 * mm])
-    t_eng2.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
-        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
-        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
-        ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
-    ]))
-    story.append(t_eng2)
-    story.append(Spacer(1, 4 * mm))
-
-    # Engagement 3
-    eng3_data = [
-        [Paragraph("<b>ENGAGEMENT #03</b>  ·  TESTS RIGOUREUX & GARANTIE 30 JOURS", s_card_tag)],
-        [Paragraph("Le soin de l'artisan, prêt pour la vraie vie", s_card_h)],
-        [Paragraph("Nous aimons sincèrement ce que nous fabriquons. Votre application n'est pas une maquette bancale : elle arrive testée, fluide, documentée, prête à accueillir de vrais utilisateurs et à encaisser des paiements. Et si le moindre ajustement est nécessaire, notre garantie 30 jours prend le relais sans frais.", s_card_p)]
-    ]
-    t_eng3 = Table(eng3_data, colWidths=[170 * mm])
-    t_eng3.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
-        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
-        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
-        ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
-    ]))
-    story.append(t_eng3)
-
-    # ==========================================================================
-    # PAGE 4 : CATALOGUE DES 3 OFFRES & TARIFS CLAIRS
-    # ==========================================================================
-    story.append(PageBreak())
-    story.append(Paragraph("03 / NOS FORFAITS TRANSPARENTS", s_chapter_tag))
-    story.append(Spacer(1, 1 * mm))
-    story.append(Paragraph("Des Formules Simples, Zéro Mauvaise Surprise", s_chapter_title))
-    story.append(Spacer(1, 4 * mm))
-
-    story.append(Paragraph(
-        "Chaque formule comprend le cadrage complet, le développement soigné, la cession du code sur votre propre compte et un mois d'assistance sereine.",
+        "Pas de bureaucratie, pas de flou artistique. Chaque phase poursuit un but précis, et vous testez l'avancement de votre produit en direct au fil des jours.",
         s_body
     ))
     story.append(Spacer(1, 4 * mm))
 
-    # Offre 1 : Sprint Launch
-    o1_box = [
-        [Paragraph("<b>SPRINT LAUNCH</b>  ·  6 900 €  <font color='#71717a' size='8'>(Forfait ferme • 14 jours ouvrés)</font>", s_card_tag)],
-        [Paragraph("Votre première version en ligne, prête pour vos premiers clients.", s_card_h)],
+    # Étape 1 Timeline
+    step1_data = [
+        [Paragraph("<b>ÉTAPE 01  ·  JOURS 1 À 2</b>  —  CADRAGE, ARCHITECTURE & PRIORITÉS", s_card_tag)],
+        [Paragraph("Le cahier des charges scellé et les fondations posées", s_card_h)],
         [Paragraph(
-            "• Application web fluide, rapide et responsive sur mobile<br/>"
-            "• Comptes utilisateurs et authentification sécurisée<br/>"
-            "• Paiements Stripe configurés (abonnements ou achats uniques)<br/>"
-            "• Connexion avec vos outils métiers et services essentiels<br/>"
-            "• Code 100% à vous sur votre propre compte GitHub<br/>"
-            "• 30 jours d'assistance et garantie corrective inclus",
+            "• Alignement chirurgical sur vos objectifs business et vos utilisateurs cibles.<br/>"
+            "• Modélisation de la base de données et des parcours clés sans dispersion.<br/>"
+            "• Validation conjointe du périmètre strict pour éliminer toute ambiguïté.<br/>"
+            "• <b>Livrable :</b> Cahier des charges verrouillé et ouverture de votre canal direct Slack/WhatsApp.",
             s_card_p
         )]
     ]
-    t_o1 = Table(o1_box, colWidths=[170 * mm])
-    t_o1.setStyle(TableStyle([
+    t_s1 = Table(step1_data, colWidths=[170 * mm])
+    t_s1.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
+        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
+        ("LINEBEFORE", (0, 0), (-1, -1), 3, c_black),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("TOPPADDING", (0, 0), (-1, -1), 2.5 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2.5 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
+    ]))
+    story.append(t_s1)
+    story.append(Spacer(1, 3.5 * mm))
+
+    # Étape 2 Timeline
+    step2_data = [
+        [Paragraph("<b>ÉTAPE 02  ·  JOURS 3 À 11</b>  —  SPRINT D'ASSEMBLAGE & TESTS EN DIRECT", s_card_tag)],
+        [Paragraph("Fabrication soignée et prévisualisation continue", s_card_h)],
+        [Paragraph(
+            "• Conception et développement de l'interface utilisateur et de la logique métier.<br/>"
+            "• Intégration des flux de paiement (Stripe) et de vos outils indispensables.<br/>"
+            "• Lien de prévisualisation actif : vous testez l'application au fil de l'eau.<br/>"
+            "• <b>Livrable :</b> Version fonctionnelle complète et démo intermédiaire interactive.",
+            s_card_p
+        )]
+    ]
+    t_s2 = Table(step2_data, colWidths=[170 * mm])
+    t_s2.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
+        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
+        ("LINEBEFORE", (0, 0), (-1, -1), 3, c_black),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("TOPPADDING", (0, 0), (-1, -1), 2.5 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2.5 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
+    ]))
+    story.append(t_s2)
+    story.append(Spacer(1, 3.5 * mm))
+
+    # Étape 3 Timeline
+    step3_data = [
+        [Paragraph("<b>ÉTAPE 03  ·  JOURS 12 À 14</b>  —  MISE EN LIGNE, TRANSMISSION & SUIVI", s_card_tag)],
+        [Paragraph("Votre produit en production et assistance sereine", s_card_h)],
+        [Paragraph(
+            "• Vérifications finales sur mobile, audits de rapidité et sécurisation du domaine.<br/>"
+            "• Transfert intégral de la propriété du code source sur votre propre compte GitHub.<br/>"
+            "• Visite guidée en vidéo personnalisée (Loom) pour une totale autonomie d'équipe.<br/>"
+            "• <b>Livrable :</b> Plateforme live en production + 30 jours de garantie corrective sans frais.",
+            s_card_p
+        )]
+    ]
+    t_s3 = Table(step3_data, colWidths=[170 * mm])
+    t_s3.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
+        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
+        ("LINEBEFORE", (0, 0), (-1, -1), 3, c_black),
+        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
+        ("TOPPADDING", (0, 0), (-1, -1), 2.5 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2.5 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
+    ]))
+    story.append(t_s3)
+
+    # ==========================================================================
+    # PAGE 4 : CATALOGUE DES 3 OFFRES TRANSPARENTES
+    # ==========================================================================
+    story.append(PageBreak())
+    story.append(Paragraph("03 / NOS FORMULES TRANSPARENTES", s_chapter_tag))
+    story.append(Spacer(1, 1 * mm))
+    story.append(Paragraph("Des Forfaits Simples, Zéro Dépassement", s_chapter_title))
+    story.append(Spacer(1, 3.5 * mm))
+
+    story.append(Paragraph(
+        "Chaque formule comprend le cadrage complet, le développement soigné, la cession du code sur votre compte et un mois d'assistance sereine.",
+        s_body
+    ))
+    story.append(Spacer(1, 4 * mm))
+
+    # Sprint Launch
+    f_launch = [
+        [Paragraph("<b>SPRINT LAUNCH</b>  ·  6 900 €  <font color='#71717a' size='7.5'>• Forfait ferme • 14 jours ouvrés</font>", s_card_tag)],
+        [Paragraph("Votre première version en ligne, prête pour vos premiers clients.", s_card_h)],
+        [Paragraph(
+            "• Application web fluide, rapide et parfaitement adaptée aux smartphones.<br/>"
+            "• Comptes utilisateurs et authentification sécurisée.<br/>"
+            "• Paiements Stripe configurés (abonnements ou achats uniques).<br/>"
+            "• Connexion directe avec vos outils métiers indispensables.<br/>"
+            "• Cession totale du code source sur votre propre compte GitHub.<br/>"
+            "• 30 jours d'assistance et garantie corrective inclus sans surcoût.",
+            s_card_p
+        )]
+    ]
+    t_fl = Table(f_launch, colWidths=[170 * mm])
+    t_fl.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
         ("BOX", (0, 0), (-1, -1), 1, c_border),
         ("ROUNDEDCORNERS", [4, 4, 4, 4]),
@@ -400,25 +367,25 @@ def build_whitepaper_pdf(output_pdf):
         ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
         ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
     ]))
-    story.append(t_o1)
-    story.append(Spacer(1, 3.5 * mm))
+    story.append(t_fl)
+    story.append(Spacer(1, 3 * mm))
 
-    # Offre 2 : Sprint Scale (Recommandé)
-    o2_box = [
-        [Paragraph("<b>SPRINT SCALE (RECOMMANDÉ)</b>  ·  13 900 €  <font color='#71717a' size='8'>(Forfait ferme • 30 jours ouvrés)</font>", s_card_tag)],
+    # Sprint Scale
+    f_scale = [
+        [Paragraph("<b>SPRINT SCALE (LE PLUS RECOMMANDÉ)</b>  ·  13 900 €  <font color='#71717a' size='7.5'>• Forfait ferme • 30 jours ouvrés</font>", s_card_tag)],
         [Paragraph("Pour les plateformes multi-rôles et flux métier avancés.", s_card_h)],
         [Paragraph(
             "• <b>Tout le contenu du Sprint Launch, augmenté de :</b><br/>"
-            "• Espaces multi-rôles (ex: acheteur, vendeur, administrateur)<br/>"
-            "• Calculs automatisés et traitement intelligent des données<br/>"
-            "• Notifications en temps réel et flux d'automatisation<br/>"
-            "• Tests rigoureux pour garantir une stabilité irréprochable<br/>"
-            "• Visite guidée personnalisée en vidéo et documentation complète",
+            "• Espaces multi-utilisateurs (ex: portail acheteur, vendeur, administrateur).<br/>"
+            "• Calculs automatisés et traitement intelligent des données en temps réel.<br/>"
+            "• Notifications automatiques et flux transactionnels sans friction.<br/>"
+            "• Batterie de tests de stabilité garantissant une absorption de la montée en charge.<br/>"
+            "• Visite guidée personnalisée en vidéo et documentation d'utilisation complète.",
             s_card_p
         )]
     ]
-    t_o2 = Table(o2_box, colWidths=[170 * mm])
-    t_o2.setStyle(TableStyle([
+    t_fs = Table(f_scale, colWidths=[170 * mm])
+    t_fs.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
         ("BOX", (0, 0), (-1, -1), 1.5, c_black),
         ("ROUNDEDCORNERS", [4, 4, 4, 4]),
@@ -427,24 +394,23 @@ def build_whitepaper_pdf(output_pdf):
         ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
         ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
     ]))
-    story.append(t_o2)
-    story.append(Spacer(1, 3.5 * mm))
+    story.append(t_fs)
+    story.append(Spacer(1, 3 * mm))
 
-    # Offre 3 : Régie d'Immersion
-    o3_box = [
-        [Paragraph("<b>RÉGIE D'IMMERSION</b>  ·  DÈS 5 500 € / MOIS  <font color='#71717a' size='8'>(Flexibilité sans engagement)</font>", s_card_tag)],
+    # Régie Immersion
+    f_squad = [
+        [Paragraph("<b>RÉGIE D'IMMERSION</b>  ·  DÈS 5 500 € / MOIS  <font color='#71717a' size='7.5'>• Flexibilité sans engagement</font>", s_card_tag)],
         [Paragraph("Un ingénieur senior intégré directement à vos côtés.", s_card_h)],
         [Paragraph(
-            "• Ingénieur senior dédié (1 à 3 profils selon vos besoins)<br/>"
-            "• Collaboration directe dans votre Slack et vos rituels de travail<br/>"
-            "• Sortie rapide de nouvelles fonctionnalités au quotidien<br/>"
-            "• Semaine d'essai de 5 jours pour tester la collaboration<br/>"
-            "• Ajustement libre du volume chaque mois selon vos priorités",
+            "• Collaboration directe dans vos rituels et vos canaux Slack / WhatsApp.<br/>"
+            "• Sortie rapide de nouvelles fonctionnalités semaine après semaine.<br/>"
+            "• Semaine d'essai de 5 jours pour tester la collaboration en situation réelle.<br/>"
+            "• Ajustement libre du volume chaque mois selon vos priorités réelles.",
             s_card_p
         )]
     ]
-    t_o3 = Table(o3_box, colWidths=[170 * mm])
-    t_o3.setStyle(TableStyle([
+    t_fsq = Table(f_squad, colWidths=[170 * mm])
+    t_fsq.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
         ("BOX", (0, 0), (-1, -1), 1, c_border),
         ("ROUNDEDCORNERS", [4, 4, 4, 4]),
@@ -453,120 +419,134 @@ def build_whitepaper_pdf(output_pdf):
         ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
         ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
     ]))
-    story.append(t_o3)
+    story.append(t_fsq)
 
     # ==========================================================================
-    # PAGE 5 : NOS RÉALISATIONS RÉELLES (LES 4 PRODUITS DU STUDIO)
+    # PAGE 5 : PRODUIT 1 — BELY
     # ==========================================================================
     story.append(PageBreak())
-    story.append(Paragraph("04 / NOS RÉALISATIONS CHOISIES", s_chapter_tag))
+    story.append(Paragraph("04 / ÉTUDE DE CAS #1", s_chapter_tag))
     story.append(Spacer(1, 1 * mm))
-    story.append(Paragraph("Des Produits Bien Conçus, Faits pour Durer.", s_chapter_title))
+    story.append(Paragraph("Bely — Mobilité Corporate & Chauffeurs VIP", s_chapter_title))
     story.append(Spacer(1, 3 * mm))
 
-    story.append(Paragraph(
-        "Voici quelques applications que nous avons façonnées aux côtés de leurs fondateurs. De la première maquette jusqu'au lancement officiel, chaque projet résout un vrai besoin métier avec soin et clarté.",
-        s_body
-    ))
+    bely_narrative = (
+        "<b>Le Contexte & Le Défi :</b> Dans l'univers du transport de prestige et de l'hôtellerie 5 étoiles, la moindre minute de retard ou erreur de facturation compromet irrémédiablement la confiance. Bely gérait son activité sur des messageries instantanées sujettes à confusion, sans visibilité cartographique pour les concierges, et subissait 40 heures de cauchemar comptable mensuel pour facturer les grands comptes.<br/><br/>"
+        "<b>La Réalisation de l'Atelier :</b> Conception d'un écosystème sur-mesure unifié : moteur d'attribution de course géolocalisé en moins de 5 millisecondes, portail entreprise dédié aux conciergeries de luxe avec plafonds budgétaires et facturation mensuelle groupée automatisée.<br/><br/>"
+        "<b>Résultats Concrets :</b> <b>-40h</b> de temps administratif mensuel, ponctualité exemplaire et <b>99.98%</b> de disponibilité de service."
+    )
+    story.append(Paragraph(bely_narrative, s_body))
+    story.append(Spacer(1, 5 * mm))
+
+    story.append(Paragraph("<b>APERÇUS DE L'INTERFACE BELY (ESPACE IMAGES CANVA)</b>", s_card_tag))
+    story.append(Spacer(1, 2 * mm))
+
+    # Emplacements Images Bely
+    ph_bely_1 = create_image_placeholder(170, 75, "Bely : Tour de Contrôle & Dispatch Carte Temps Réel")
+    story.append(ph_bely_1)
     story.append(Spacer(1, 3 * mm))
 
-    # Cas 1 : Bely
-    cas_bely = [
-        [Paragraph("<b>BELY</b>  ·  MOBILITÉ CORPORATE & TRANSPORT VTC HAUT DE GAMME", s_card_tag)],
-        [Paragraph("La plateforme qui connecte entreprises et chauffeurs avec dispatch en direct.", s_card_h)],
-        [Paragraph(
-            "• <b>Le défi :</b> Supprimer le dispatch artisanal par messagerie et 40h de réconciliation comptable mensuelle pour les grands comptes d'hôtellerie 5 étoiles.<br/>"
-            "• <b>La solution :</b> Moteur de dispatch instantané en moins de 5 millisecondes, portail corporate pour les conciergeries et facturation mensuelle groupée automatisée.<br/>"
-            "• <b>Impact réel :</b> 40 heures de gestion administrative économisées par mois et 99.98% de disponibilité de service.",
-            s_card_p
-        )]
-    ]
-    t_bely = Table(cas_bely, colWidths=[170 * mm])
-    t_bely.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
-        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
-        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
-        ("TOPPADDING", (0, 0), (-1, -1), 2 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 2 * mm),
-        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
-    ]))
-    story.append(t_bely)
-    story.append(Spacer(1, 2.5 * mm))
-
-    # Cas 2 : Welqo
-    cas_welqo = [
-        [Paragraph("<b>WELQO</b>  ·  PROPTECH & CONCIERGERIE HAUT DE GAMME", s_card_tag)],
-        [Paragraph("Le tableau de bord qui pilote les réservations et opérations en direct.", s_card_h)],
-        [Paragraph(
-            "• <b>Le défi :</b> Éliminer tout risque de double réservation entre Airbnb et Booking.com, et convaincre les propriétaires de signer des mandats de gestion.<br/>"
-            "• <b>La solution :</b> Simulateur interactif de rentabilité financière pour les investisseurs, synchronisation calendaire sans latence et signature de mandat en ligne en 3 minutes.<br/>"
-            "• <b>Témoignage :</b> <i>« En moins d'un mois, nous sommes passés d'un modèle artisanal à une plateforme digne des leaders mondiaux. Le simulateur signe de nouveaux propriétaires chaque semaine. »</i>",
-            s_card_p
-        )]
-    ]
-    t_welqo = Table(cas_welqo, colWidths=[170 * mm])
-    t_welqo.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
-        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
-        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
-        ("TOPPADDING", (0, 0), (-1, -1), 2 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 2 * mm),
-        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
-    ]))
-    story.append(t_welqo)
-    story.append(Spacer(1, 2.5 * mm))
-
-    # Cas 3 : Michi 道
-    cas_michi = [
-        [Paragraph("<b>MICHI 道</b>  ·  E-COMMERCE & INTELLIGENCE SUPPLY CHAIN", s_card_tag)],
-        [Paragraph("L'outil prédictif qui évite les ruptures de stock sans bloquer de trésorerie.", s_card_h)],
-        [Paragraph(
-            "• <b>Le défi :</b> Éviter les ruptures de stock récurrentes sur les produits vedettes et le surstockage coûteux sur les articles à rotation lente.<br/>"
-            "• <b>La solution :</b> Moteur de calcul prédictif intégrant les délais fournisseurs réels (30 à 90 jours) et neutralisant les anomalies de vente ponctuelles.<br/>"
-            "• <b>Impact réel :</b> Protection directe du besoin en fonds de roulement et passage de commandes fournisseurs optimisé.",
-            s_card_p
-        )]
-    ]
-    t_michi = Table(cas_michi, colWidths=[170 * mm])
-    t_michi.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
-        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
-        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
-        ("TOPPADDING", (0, 0), (-1, -1), 2 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 2 * mm),
-        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
-    ]))
-    story.append(t_michi)
-    story.append(Spacer(1, 2.5 * mm))
-
-    # Cas 4 : WeedIn
-    cas_weedin = [
-        [Paragraph("<b>WEEDIN</b>  ·  EVENTTECH & EXPÉRIENCE DIGITALE HAUT DE GAMME", s_card_tag)],
-        [Paragraph("L'application qui simplifie la réservation et la billetterie d'événements privés.", s_card_h)],
-        [Paragraph(
-            "• <b>Le défi :</b> Supprimer la papeterie papier internationale coûteuse et fluidifier l'accueil sécurisé de 600 invités sans file d'attente.<br/>"
-            "• <b>La solution :</b> Vitrine interactive élégante, confirmations RSVP par cérémonie et génération de billets électroniques infalsifiables avec QR code vérifié en 250 ms.<br/>"
-            "• <b>Témoignage :</b> <i>« Lonside a sublimé notre événement. Le traiteur a reçu les effectifs exacts deux semaines plus tôt, et nous avons collecté 600 photos de nos proches. Un travail d'orfèvre. »</i>",
-            s_card_p
-        )]
-    ]
-    t_weedin = Table(cas_weedin, colWidths=[170 * mm])
-    t_weedin.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), c_bg_light),
-        ("BOX", (0, 0), (-1, -1), 0.5, c_border),
-        ("ROUNDEDCORNERS", [4, 4, 4, 4]),
-        ("TOPPADDING", (0, 0), (-1, -1), 2 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 2 * mm),
-        ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
-    ]))
-    story.append(t_weedin)
+    ph_bely_sub1 = create_image_placeholder(83, 50, "Portail Conciergerie Hôtels")
+    ph_bely_sub2 = create_image_placeholder(83, 50, "Facturation Groupée Grands Comptes")
+    t_bely_sub = Table([[ph_bely_sub1, ph_bely_sub2]], colWidths=[85 * mm, 85 * mm])
+    t_bely_sub.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "MIDDLE")]))
+    story.append(t_bely_sub)
 
     # ==========================================================================
-    # PAGE 6 : DÉMARRONS VOTRE PROCHAIN PRODUIT ENSEMBLE
+    # PAGE 6 : PRODUIT 2 — WELQO
+    # ==========================================================================
+    story.append(PageBreak())
+    story.append(Paragraph("04 / ÉTUDE DE CAS #2", s_chapter_tag))
+    story.append(Spacer(1, 1 * mm))
+    story.append(Paragraph("Welqo — Conciergerie Immobilière Haut de Gamme", s_chapter_title))
+    story.append(Spacer(1, 3 * mm))
+
+    welqo_narrative = (
+        "<b>Le Contexte & Le Défi :</b> Sur le marché de la location courte durée d'exception, les risques constants de double réservation entre plateformes (Airbnb, Booking.com) et la lenteur des contrats papier freinaient l'acquisition de nouveaux investisseurs propriétaires.<br/><br/>"
+        "<b>La Réalisation de l'Atelier :</b> Déploiement d'une plateforme d'autorité associant un simulateur interactif de rentabilité financière pour convaincre les propriétaires, une synchronisation calendaire temps réel infaillible et une signature de mandat dématérialisée en 3 minutes.<br/><br/>"
+        "<b>Témoignage Client :</b> <i>« Lonside a propulsé Welqo dans une autre dimension. En moins d'un mois, nous sommes passés d'un modèle artisanal à une plateforme digne des leaders mondiaux. Le simulateur signe de nouveaux propriétaires chaque semaine sans aucune friction. »</i>"
+    )
+    story.append(Paragraph(welqo_narrative, s_body))
+    story.append(Spacer(1, 5 * mm))
+
+    story.append(Paragraph("<b>APERÇUS DE L'INTERFACE WELQO (ESPACE IMAGES CANVA)</b>", s_card_tag))
+    story.append(Spacer(1, 2 * mm))
+
+    # Emplacements Images Welqo
+    ph_welqo_1 = create_image_placeholder(170, 75, "Welqo : Simulateur Interactif de Rendement & Acquisition")
+    story.append(ph_welqo_1)
+    story.append(Spacer(1, 3 * mm))
+
+    ph_welqo_sub1 = create_image_placeholder(83, 50, "Calendrier Multi-Plateformes")
+    ph_welqo_sub2 = create_image_placeholder(83, 50, "Espace Personnel Propriétaires")
+    t_welqo_sub = Table([[ph_welqo_sub1, ph_welqo_sub2]], colWidths=[85 * mm, 85 * mm])
+    t_welqo_sub.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "MIDDLE")]))
+    story.append(t_welqo_sub)
+
+    # ==========================================================================
+    # PAGE 7 : PRODUIT 3 — MICHI 道
+    # ==========================================================================
+    story.append(PageBreak())
+    story.append(Paragraph("04 / ÉTUDE DE CAS #3", s_chapter_tag))
+    story.append(Spacer(1, 1 * mm))
+    story.append(Paragraph("Michi 道 — Intelligence Supply Chain E-commerce", s_chapter_title))
+    story.append(Spacer(1, 3 * mm))
+
+    michi_narrative = (
+        "<b>Le Contexte & Le Défi :</b> Les marques e-commerce en forte accélération subissent un double gouffre financier : des ruptures de stock sur leurs produits vedettes (chiffre d'affaires envolé) et un surstockage coûteux sur les articles à rotation lente qui immobilise des dizaines de milliers d'euros de trésorerie dans les entrepôts.<br/><br/>"
+        "<b>La Réalisation de l'Atelier :</b> Conception d'un tableau de bord de réassort prédictif qui analyse en temps réel les flux de vente, reconstitue la demande réelle masquée par les ruptures, et calcule la date exacte de commande auprès des fabricants en fonction des délais d'usine.<br/><br/>"
+        "<b>Résultats Concrets :</b> Élimination des ruptures chroniques, protection immédiate de la trésorerie et automatisation de 10h hebdomadaires de manipulation de tableurs complexes."
+    )
+    story.append(Paragraph(michi_narrative, s_body))
+    story.append(Spacer(1, 5 * mm))
+
+    story.append(Paragraph("<b>APERÇUS DE L'INTERFACE MICHI (ESPACE IMAGES CANVA)</b>", s_card_tag))
+    story.append(Spacer(1, 2 * mm))
+
+    # Emplacements Images Michi
+    ph_michi_1 = create_image_placeholder(170, 75, "Michi 道 : Tableau de Bord Prédictif & Analyse des Stocks")
+    story.append(ph_michi_1)
+    story.append(Spacer(1, 3 * mm))
+
+    ph_michi_sub1 = create_image_placeholder(83, 50, "Calcul des Délais Fournisseurs")
+    ph_michi_sub2 = create_image_placeholder(83, 50, "Analyse ABC & Rentabilité Marge")
+    t_michi_sub = Table([[ph_michi_sub1, ph_michi_sub2]], colWidths=[85 * mm, 85 * mm])
+    t_michi_sub.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "MIDDLE")]))
+    story.append(t_michi_sub)
+
+    # ==========================================================================
+    # PAGE 8 : PRODUIT 4 — WEEDIN
+    # ==========================================================================
+    story.append(PageBreak())
+    story.append(Paragraph("04 / ÉTUDE DE CAS #4", s_chapter_tag))
+    story.append(Spacer(1, 1 * mm))
+    story.append(Paragraph("WeedIn — Billetterie Événementielle Privée de Prestige", s_chapter_title))
+    story.append(Spacer(1, 3 * mm))
+
+    weedin_narrative = (
+        "<b>Le Contexte & Le Défi :</b> L'organisation de réceptions privées réunissant des centaines de convives internationaux se heurte à des coûts colossaux de papeterie physique, un manque de visibilité sur les présences réelles (20% de gaspillage traiteur) et des risques d'intrusion lors des soirées exclusives.<br/><br/>"
+        "<b>La Réalisation de l'Atelier :</b> Plateforme web sur-mesure combinant storytelling immersif, parcours RSVP fluide par cérémonie et génération instantanée d'e-billets personnalisés de prestige avec QR code d'accès infalsifiable vérifié en moins de 250 millisecondes.<br/><br/>"
+        "<b>Témoignage Client :</b> <i>« Lonside a sublimé notre événement. Le QR code a permis à la sécurité de fluidifier les entrées de 600 invités sans aucune file d'attente. Le traiteur a reçu les effectifs exacts deux semaines plus tôt. Un travail d'orfèvre. »</i>"
+    )
+    story.append(Paragraph(weedin_narrative, s_body))
+    story.append(Spacer(1, 5 * mm))
+
+    story.append(Paragraph("<b>APERÇUS DE L'INTERFACE WEEDIN (ESPACE IMAGES CANVA)</b>", s_card_tag))
+    story.append(Spacer(1, 2 * mm))
+
+    # Emplacements Images WeedIn
+    ph_weedin_1 = create_image_placeholder(170, 75, "WeedIn : Vitrine Immersive & Billetterie Digitale")
+    story.append(ph_weedin_1)
+    story.append(Spacer(1, 3 * mm))
+
+    ph_weedin_sub1 = create_image_placeholder(83, 50, "Billets Personnalisés QR Code")
+    ph_weedin_sub2 = create_image_placeholder(83, 50, "Galerie Collaborative Invités")
+    t_weedin_sub = Table([[ph_weedin_sub1, ph_weedin_sub2]], colWidths=[85 * mm, 85 * mm])
+    t_weedin_sub.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "MIDDLE")]))
+    story.append(t_weedin_sub)
+
+    # ==========================================================================
+    # PAGE 9 : DÉMARRER ENSEMBLE (L'ÉCHANGE DE CADRAGE)
     # ==========================================================================
     story.append(PageBreak())
     story.append(Paragraph("05 / PARLONS DE VOTRE PROJET", s_chapter_tag))
@@ -609,13 +589,13 @@ def build_whitepaper_pdf(output_pdf):
     story.append(Spacer(1, 10 * mm))
 
     story.append(Paragraph(
-        "<b>lonside.</b> — Atelier de conception et de développement de produits digitaux d'exception.<br/>"
+        "<b>lonside.</b> — Atelier indépendant de conception et de développement de produits digitaux d'exception.<br/>"
         "© 2026 Lonside Studio. Forfaits fermes, délais tenus et cession totale sur votre propre compte GitHub.",
         ParagraphStyle("LegalFinal", fontName="Helvetica", fontSize=8, leading=12, textColor=c_gray, alignment=1)
     ))
 
     doc.build(story, canvasmaker=WhitepaperCanvas)
-    print(f"Livre Blanc Lonside Studio généré avec succès : {output_pdf}")
+    print(f"Livre Blanc Lonside Studio 9 pages généré : {output_pdf}")
 
 if __name__ == "__main__":
     os.makedirs("docs", exist_ok=True)
