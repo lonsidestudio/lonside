@@ -209,16 +209,6 @@ export default async function HomePage({ params }: PageProps) {
           <StudioAtmosphere />
 
           <div className="max-w-5xl mx-auto w-full text-center relative z-10 flex flex-col items-center">
-            {/* Tag de Marque & Studio Sémantique (Haute Discrétion & Clarté Entité) */}
-            <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.22em] text-zinc-500 uppercase mb-4 sm:mb-6 select-none">
-              <span className="w-1.5 h-1.5 rounded-full bg-black" />
-              <span>
-                {currentLocale === "en"
-                  ? "Lonside Studio // Digital Engineering & Web Platforms"
-                  : "Lonside Studio // Ingénierie Logicielle & Plateformes Web"}
-              </span>
-            </div>
-
             {/* Titre Noble & Précis (Standards Linear / Work & Co) */}
             <h1 className="font-display uppercase text-3xl sm:text-4xl md:text-5xl lg:text-[3.75rem] tracking-tight leading-[1.04] text-black font-normal max-w-4xl">
               {tHero("titleLine")} <br />
