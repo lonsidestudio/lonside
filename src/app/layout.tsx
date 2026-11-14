@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { Inter, Geist_Mono, Antonio } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import ConsentAnalytics from '@/components/layout/ConsentAnalytics';
 import PostHogAnalytics from '@/components/layout/PostHogAnalytics';
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {children}
         <ConsentAnalytics enabled={process.env.VERCEL_ENV === 'production'} />
         <PostHogAnalytics enabled={process.env.VERCEL_ENV === 'production'} />
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
