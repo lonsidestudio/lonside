@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/lib/i18n/navigation";
 import { ChevronDown, ChevronUp, Check } from "lucide-react";
+import { captureLeadEvent } from "@/lib/posthog";
 
 const LANGUAGES = [
   { code: "fr", label: "Français", short: "FR" },
@@ -46,6 +47,7 @@ export default function LocaleSwitcher() {
 
   const handleSelect = (code: "fr" | "en") => {
     if (code !== locale) {
+      captureLeadEvent("locale_switched", { from: locale, to: code });
       router.replace(pathname as never, { locale: code });
     }
     setIsOpen(false);

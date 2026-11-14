@@ -12,12 +12,29 @@ export default function PostHogAnalytics({ enabled }: { enabled: boolean }) {
     const onClick = (event: MouseEvent) => {
       const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
       if (!link) return;
-      const url = new URL(link.getAttribute('href')!, window.location.href);
-      const channel = url.protocol === 'mailto:' ? 'email'
-        : url.hostname === 'calendly.com' ? 'appointment'
-        : url.origin === window.location.origin && /^\/(?:fr\/|en\/)?contact\/?$/.test(url.pathname) ? 'contact'
-        : null;
-      if (channel) captureLeadEvent('contact_cta_clicked', { channel });
+      const rawHref = link.getAttribute('href');
+      if (!rawHref) return;
+
+      const isContactLink =
+        rawHref === '#contact' ||
+        rawHref === '/#contact' ||
+        rawHref === '/en#contact' ||
+        /^\/(?:fr\/|en\/)?contact\/?$/.test(rawHref);
+
+      if (isContactLink) {
+        captureLeadEvent('contact_cta_clicked', { channel: 'contact_anchor' });
+        return;
+      }
+
+      try {
+        const url = new URL(rawHref, window.location.href);
+        const channel = url.protocol === 'mailto:' ? 'email'
+          : (url.hostname === 'calendly.com' || url.hostname.includes('calendar')) ? 'appointment'
+          : null;
+        if (channel) captureLeadEvent('contact_cta_clicked', { channel });
+      } catch {
+        // Ignorer les URLs non parseables
+      }
     };
     document.addEventListener('click', onClick);
     return () => {

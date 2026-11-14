@@ -193,3 +193,22 @@ test('brand identity integrity: strictly zero occurrences of taboo word "agence"
   assert.deepEqual(hitsInSrc, [], `Forbidden word "agence" found in src files: ${hitsInSrc.join(', ')}`);
   assert.deepEqual(hitsInContent, [], `Forbidden word "agence" found in content files: ${hitsInContent.join(', ')}`);
 });
+
+test('supervision module produces structured service telemetry and status metadata', async () => {
+  const supervisionModule = loadModule('src/lib/supervision.ts');
+  const report = await supervisionModule.getSupervisionReport();
+
+  assert.ok(report.timestamp, 'Report must have a timestamp');
+  assert.ok(Array.isArray(report.services), 'Services must be an array');
+  assert.equal(report.services.length, 4, 'Must monitor 4 core services');
+
+  const names = report.services.map((s) => s.name);
+  assert.ok(names.includes('PostHog Analytics'), 'Must monitor PostHog Analytics');
+  assert.ok(names.includes('Service de Contact (Resend)'), 'Must monitor Resend Messaging');
+  assert.ok(names.includes('Vercel Edge Network & Speed Insights'), 'Must monitor Edge Infrastructure');
+  assert.ok(names.includes('Moteurs de Recherche & Indexation IA'), 'Must monitor SEO & Search Engines');
+
+  const statusPageContent = fs.readFileSync('src/app/[locale]/status/page.tsx', 'utf8');
+  assert.ok(statusPageContent.includes('index: false'), 'Status page must be noindex');
+  assert.ok(statusPageContent.includes('follow: false'), 'Status page must be nofollow');
+});

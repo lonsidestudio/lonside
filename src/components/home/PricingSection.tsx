@@ -3,6 +3,7 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import { ArrowUpRight } from "lucide-react";
+import { captureLeadEvent } from "@/lib/posthog";
 
 interface PricingSectionProps {
   locale?: string;
@@ -87,6 +88,12 @@ export default function PricingSection({ locale }: PricingSectionProps) {
               <div>
                 <a
                   href="#contact"
+                  onClick={() => {
+                    captureLeadEvent("pricing_tier_selected", {
+                      tier: tier.name,
+                      price: tier.price,
+                    });
+                  }}
                   className={`w-full py-3.5 px-6 rounded-xl text-xs font-mono uppercase tracking-[0.14em] flex items-center justify-center space-x-2 transition-all duration-200 min-h-[46px] whitespace-nowrap cursor-pointer ${
                     tier.popular
                       ? "bg-black text-white hover:bg-zinc-800"

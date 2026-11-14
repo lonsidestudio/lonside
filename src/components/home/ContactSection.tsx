@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import { ArrowUpRight, CheckCircle2, ShieldCheck, Calendar, Loader2 } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
+import { captureLeadEvent } from "@/lib/posthog";
 
 interface ContactSectionProps {
   locale?: string;
@@ -12,9 +13,17 @@ interface ContactSectionProps {
 export default function ContactSection({ locale }: ContactSectionProps) {
   void locale;
   const [formData, setFormData] = useState({ name: "", email: "", message: "", _trap: "" });
+  const [hasStartedTyping, setHasStartedTyping] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const t = useTranslations("contact");
+
+  const notifyFormStarted = () => {
+    if (!hasStartedTyping) {
+      setHasStartedTyping(true);
+      captureLeadEvent("contact_form_started");
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,13 +55,16 @@ export default function ContactSection({ locale }: ContactSectionProps) {
 
       setStatus("success");
       setFormData({ name: "", email: "", message: "", _trap: "" });
+      captureLeadEvent("contact_form_submitted");
     } catch (err: unknown) {
+      const reason = err instanceof Error ? err.message : "unknown";
       setStatus("error");
       setErrorMessage(
         err instanceof Error
           ? err.message
           : t("form.networkError", { email: siteConfig.contactEmail })
       );
+      captureLeadEvent("contact_form_failed", { reason });
     }
   };
 
@@ -160,7 +172,11 @@ export default function ContactSection({ locale }: ContactSectionProps) {
                     type="text"
                     required
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onFocus={notifyFormStarted}
+                    onChange={(e) => {
+                      notifyFormStarted();
+                      setFormData({ ...formData, name: e.target.value });
+                    }}
                     placeholder={t("form.namePlaceholder")}
                     className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50/50 border border-black/[0.08] text-black placeholder:text-zinc-400 text-base sm:text-sm focus:outline-none focus:border-black/60 transition-colors"
                   />
@@ -175,7 +191,11 @@ export default function ContactSection({ locale }: ContactSectionProps) {
                     type="email"
                     required
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onFocus={notifyFormStarted}
+                    onChange={(e) => {
+                      notifyFormStarted();
+                      setFormData({ ...formData, email: e.target.value });
+                    }}
                     placeholder={t("form.emailPlaceholder")}
                     className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50/50 border border-black/[0.08] text-black placeholder:text-zinc-400 text-base sm:text-sm focus:outline-none focus:border-black/60 transition-colors"
                   />
@@ -190,7 +210,11 @@ export default function ContactSection({ locale }: ContactSectionProps) {
                     required
                     rows={4}
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onFocus={notifyFormStarted}
+                    onChange={(e) => {
+                      notifyFormStarted();
+                      setFormData({ ...formData, message: e.target.value });
+                    }}
                     placeholder={t("form.projectPlaceholder")}
                     className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50/50 border border-black/[0.08] text-black placeholder:text-zinc-400 text-base sm:text-sm focus:outline-none focus:border-black/60 transition-colors resize-none"
                   />
