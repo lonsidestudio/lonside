@@ -8,27 +8,27 @@ export default function Icon() {
     (
       <div
         style={{
-          background: '#000000',
+          background: '#0a0a0a',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           borderRadius: '8px',
-          border: '1px solid rgba(255,255,255,0.15)',
         }}
       >
         <span
           style={{
             color: '#ffffff',
-            fontSize: '18px',
-            fontWeight: '700',
-            fontFamily: 'monospace',
+            fontSize: '20px',
+            fontWeight: 800,
+            fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
             lineHeight: 1,
             letterSpacing: '-1px',
+            transform: 'translateY(-0.5px)',
           }}
         >
-          L·
+          L.
         </span>
       </div>
     ),

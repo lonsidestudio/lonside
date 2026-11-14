@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <BrandNoise />
         {children}
         <ConsentAnalytics enabled={process.env.VERCEL_ENV === 'production'} />
-        <PostHogAnalytics enabled={process.env.VERCEL_ENV === 'production'} />
+        <PostHogAnalytics enabled={process.env.VERCEL_ENV === 'production' || process.env.NEXT_PUBLIC_POSTHOG_DEBUG === 'true'} />
         <Analytics />
         <SpeedInsights />
       </body>

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { X, ExternalLink, ArrowUpRight } from "lucide-react";
 import type { LocalizedProject } from "@/lib/keystatic/reader";
+import { captureLeadEvent } from "@/lib/posthog";
 
 interface DossierDrawerProps {
   project: LocalizedProject | null;
@@ -22,6 +23,11 @@ export default function DossierDrawer({ project, isOpen, onClose }: DossierDrawe
     if (isOpen && project) {
       setActiveProject(project);
       setMounted(true);
+      captureLeadEvent("dossier_opened", {
+        client: project.client,
+        slug: project.slug,
+        industry: project.industry,
+      });
       // Double rAF garantit le montage initial hors-écran avant d'animer l'entrée
       const frame1 = requestAnimationFrame(() => {
         const frame2 = requestAnimationFrame(() => {
