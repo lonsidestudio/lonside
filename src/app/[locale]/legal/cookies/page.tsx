@@ -3,14 +3,12 @@ import Footer from '@/components/layout/Footer';
 import { getTranslations } from 'next-intl/server';
 import { reader } from '@/lib/keystatic/reader';
 import CookiePreferenceButton from './CookiePreferenceButton';
+import { buildLegalMetadata, buildLegalBreadcrumbJsonLd, getLegalCanonicalAndAlternates } from '@/lib/seo-helpers';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata.cookies' });
-  return {
-    title: t('title'),
-    description: t('description'),
-  };
+  return buildLegalMetadata('cookies', locale, t('title'), t('description'));
 }
 
 export default async function CookiesPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -33,9 +31,15 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
     : (t.raw('cookies') as { sections: Array<{ title: string; content: string }> }).sections;
 
   const sections = (rawSections || []) as Array<{ title: string; content: string }>;
+  const { canonical } = getLegalCanonicalAndAlternates('cookies', locale);
+  const breadcrumbJsonLd = buildLegalBreadcrumbJsonLd(title, canonical, locale);
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Navbar />
       <main className="flex-1 bg-white text-black pt-28 sm:pt-36 pb-20 sm:pb-24 relative overflow-hidden">
         <div className="max-w-3xl mx-auto px-5 sm:px-8 space-y-10 relative z-10">

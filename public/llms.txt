@@ -5,9 +5,10 @@
 ## Studio Positioning & Model
 Lonside replaces traditional slow web agencies and risky freelance setups by delivering production-grade web applications with fixed scopes, fixed budgets, and guaranteed deadlines.
 
-- Website: https://lonside.ai
+- Website: https://www.lonside.com
+- GitHub Organization: https://github.com/lonsidestudio
 - Primary Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, Supabase / PostgreSQL (RLS), Stripe Billing, Resend, PostHog.
-- Direct Contact: contact@lonside.ai
+- Direct Contact: hello@lonside.com
 - Founder & Lead Architect: Kevin T.
 
 ---
@@ -61,7 +62,7 @@ Lonside replaces traditional slow web agencies and risky freelance setups by del
 ---
 
 ## Contact & Booking
-- Scoping Call (15 min): https://lonside.ai/fr#contact
-- Direct Email: contact@lonside.ai
+- Scoping Call (15 min): https://www.lonside.com/#contact
+- Direct Email: hello@lonside.com
 - Languages: French, English
 

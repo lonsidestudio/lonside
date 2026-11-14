@@ -25,21 +25,28 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = t("defaultTitle");
   const description = t("description");
 
+  // In Next.js with next-intl localePrefix: 'as-needed':
+  // French (defaultLocale) is served at /
+  // English is served at /en
+  const canonicalUrl = locale === "en" ? `${siteConfig.siteUrl}/en` : `${siteConfig.siteUrl}/`;
+
   return {
-    title,
+    title: {
+      absolute: title,
+    },
     description,
     alternates: {
-      canonical: `${siteConfig.siteUrl}/${locale}`,
+      canonical: canonicalUrl,
       languages: {
-        fr: `${siteConfig.siteUrl}/fr`,
+        fr: `${siteConfig.siteUrl}/`,
         en: `${siteConfig.siteUrl}/en`,
-        "x-default": `${siteConfig.siteUrl}/fr`,
+        "x-default": `${siteConfig.siteUrl}/`,
       },
     },
     openGraph: {
       title,
       description,
-      url: `${siteConfig.siteUrl}/${locale}`,
+      url: canonicalUrl,
       siteName: "Lonside Studio",
       locale: locale === "en" ? "en_US" : "fr_FR",
       type: "website",
@@ -80,14 +87,33 @@ export default async function HomePage({ params }: PageProps) {
   ].filter(Boolean);
 
   const pricingTiers = tPricing.raw("tiers") as Array<{ name: string; tagline: string }>;
+  const canonicalUrl = currentLocale === "en" ? `${siteConfig.siteUrl}/en` : `${siteConfig.siteUrl}/`;
 
+  // Schema.org WebSite : Clé pour l'identification de l'entité et du nom de marque dans les SERP (Google Site Names)
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteConfig.siteUrl}/#website`,
+    url: `${siteConfig.siteUrl}/`,
+    name: "Lonside",
+    alternateName: ["Lonside Studio", "lonside"],
+    description: tMeta("description"),
+    inLanguage: ["fr-FR", "en-US"],
+    publisher: {
+      "@id": `${siteConfig.siteUrl}/#organization`,
+    },
+  };
+
+  // Schema.org Organization & ProfessionalService : Identité de marque désambiguïsée
   const organizationJsonLd = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "@id": `${siteConfig.siteUrl}#organization`,
-    name: "Lonside Studio",
-    url: `${siteConfig.siteUrl}/${currentLocale}`,
-    logo: `${siteConfig.siteUrl}/icon.png`,
+    "@type": ["Organization", "ProfessionalService"],
+    "@id": `${siteConfig.siteUrl}/#organization`,
+    name: "Lonside",
+    legalName: "Lonside Studio",
+    alternateName: ["Lonside Studio", "lonside"],
+    url: `${siteConfig.siteUrl}/`,
+    logo: `${siteConfig.siteUrl}/og?locale=fr`,
     image: `${siteConfig.siteUrl}/og?locale=${currentLocale}`,
     email: siteConfig.contactEmail,
     sameAs: sameAsProfiles,
@@ -97,7 +123,20 @@ export default async function HomePage({ params }: PageProps) {
       "@type": "PostalAddress",
       addressCountry: "FR",
     },
-    openingHours: "Mo-Fr 09:00-19:00",
+    knowsAbout: [
+      "Software Engineering",
+      "Web Application Development",
+      "Next.js Architecture",
+      "SaaS MVP Sprints",
+      "Full-Stack TypeScript",
+      "Cloud & Data Platforms",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: siteConfig.contactEmail,
+      contactType: "customer service",
+      availableLanguage: ["French", "English"],
+    },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: tPricing("label"),
@@ -109,7 +148,7 @@ export default async function HomePage({ params }: PageProps) {
           price: "6900",
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
-          url: `${siteConfig.siteUrl}/${currentLocale}#tarifs`,
+          url: `${canonicalUrl}#tarifs`,
         },
         {
           "@type": "Offer",
@@ -118,10 +157,26 @@ export default async function HomePage({ params }: PageProps) {
           price: "13900",
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
-          url: `${siteConfig.siteUrl}/${currentLocale}#tarifs`,
+          url: `${canonicalUrl}#tarifs`,
         },
       ],
     },
+  };
+
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: tMeta("defaultTitle"),
+    description: tMeta("description"),
+    isPartOf: {
+      "@id": `${siteConfig.siteUrl}/#website`,
+    },
+    about: {
+      "@id": `${siteConfig.siteUrl}/#organization`,
+    },
+    inLanguage: currentLocale === "en" ? "en-US" : "fr-FR",
   };
 
   const faqJsonLd = {
@@ -137,7 +192,7 @@ export default async function HomePage({ params }: PageProps) {
     })),
   };
 
-  const structuredData = [organizationJsonLd, faqJsonLd];
+  const structuredData = [websiteJsonLd, organizationJsonLd, webPageJsonLd, faqJsonLd];
 
   return (
     <>

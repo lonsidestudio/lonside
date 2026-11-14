@@ -18,16 +18,28 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       template: t('titleTemplate'),
     },
     description: t('description'),
-    keywords: t('keywords'),
-    authors: [{ name: 'lonside', url: SITE_URL }],
+    authors: [{ name: 'Lonside', url: SITE_URL }],
+    creator: 'Lonside',
+    publisher: 'Lonside Studio',
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
     openGraph: {
       title: t('defaultTitle'),
       description: t('description'),
       type: 'website',
       locale: locale === 'fr' ? 'fr_FR' : 'en_US',
       alternateLocale: locale === 'fr' ? ['en_US'] : ['fr_FR'],
-      siteName: 'lonside',
-      url: SITE_URL,
+      siteName: 'Lonside Studio',
+      url: locale === 'fr' ? `${SITE_URL}/` : `${SITE_URL}/en`,
       images: [
         {
           url: `${SITE_URL}/og?locale=${locale}`,

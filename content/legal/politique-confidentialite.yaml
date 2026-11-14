@@ -8,7 +8,7 @@ sectionsFr:
   - title: Conservation des données
     content: "Vos données sont conservées pour une durée maximale de 3 ans à compter de votre dernière interaction avec nous, conformément à la réglementation RGPD."
   - title: Vos droits
-    content: "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement et de portabilité de vos données. Pour exercer ces droits, contactez-nous à hello@lonside.ai."
+    content: "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement et de portabilité de vos données. Pour exercer ces droits, contactez-nous à hello@lonside.com."
   - title: Cookies
     content: "Les statistiques facultatives Vercel et PostHog sont activées uniquement avec votre accord. PostHog utilise le stockage local et de session du navigateur. Vous pouvez retirer votre accord depuis les préférences de cookies."
 sectionsEn:
@@ -19,7 +19,7 @@ sectionsEn:
   - title: Data Retention
     content: "Your data is stored for a maximum period of 3 years from your last interaction with us, in compliance with GDPR guidelines."
   - title: Your Rights
-    content: "Pursuant to GDPR, you have the right to access, rectify, erase, and request portability of your data. To exercise these rights, contact us at hello@lonside.ai."
+    content: "Pursuant to GDPR, you have the right to access, rectify, erase, and request portability of your data. To exercise these rights, contact us at hello@lonside.com."
   - title: Cookies
     content: "This site does not use third-party tracking cookies. Only technical cookies strictly necessary for the operation of the website may be used."
 

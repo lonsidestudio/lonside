@@ -1,5 +1,14 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Terminal } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Page introuvable — Lonside Studio',
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function NotFound() {
   return (
