@@ -8,27 +8,27 @@ export default function AppleIcon() {
     (
       <div
         style={{
-          background: '#000000',
+          background: '#0a0a0a',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          borderRadius: '36px',
-          border: '1px solid rgba(255,255,255,0.12)',
+          borderRadius: '44px',
         }}
       >
         <span
           style={{
             color: '#ffffff',
-            fontSize: '96px',
-            fontWeight: '700',
-            fontFamily: 'monospace',
+            fontSize: '112px',
+            fontWeight: 800,
+            fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
             lineHeight: 1,
-            letterSpacing: '-2px',
+            letterSpacing: '-5px',
+            transform: 'translateY(-2px)',
           }}
         >
-          L·
+          L.
         </span>
       </div>
     ),
