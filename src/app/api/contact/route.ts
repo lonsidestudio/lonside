@@ -30,7 +30,7 @@ const contactSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
-  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'hello@lonside.ai';
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'hello@lonside.com';
 
   const ip =
     request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ??
@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
     from: 'lonside <onboarding@resend.dev>',
     to: [contactEmail],
     replyTo: email,
-    subject: `[lonside.ai] ${subject || `Message de ${name}`}`,
+    subject: `[lonside.com] ${subject || `Message de ${name}`}`,
     html: `
       <div style="font-family:monospace;background:#050505;color:#fafafa;padding:32px;max-width:600px;border-radius:12px">
         <div style="display:flex;align-items:center;margin-bottom:24px">

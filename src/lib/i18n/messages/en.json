@@ -5,23 +5,23 @@
     "description": "Custom web application and platform engineering in as little as 14 days. Guaranteed fixed scope, zero budget creep, and 100% source code ownership on your private GitHub.",
     "keywords": "web development studio, custom web application, 14 day MVP sprint, production software, full IP ownership, senior tech squad",
     "mentionsLegales": {
-      "title": "Legal Notice — Lonside Studio",
+      "title": "Legal Notice",
       "description": "Legal disclosures, company publisher and infrastructure hosting for Lonside engineering studio."
     },
     "politiqueConfidentialite": {
-      "title": "Privacy Policy — Lonside Studio",
+      "title": "Privacy Policy",
       "description": "Personal data protection, GDPR compliance and security protocols at Lonside Studio."
     },
     "privacy": {
-      "title": "Privacy Policy — Lonside Studio",
+      "title": "Privacy Policy",
       "description": "Personal data protection, GDPR compliance and security protocols at Lonside Studio."
     },
     "cgv": {
-      "title": "Terms of Service (ToS) — Lonside Studio",
+      "title": "Terms of Service",
       "description": "Contractual framework, service level agreements (SLA), fixed pricing and delivery warranty."
     },
     "cookies": {
-      "title": "Cookie Policy — Lonside Studio",
+      "title": "Cookie Policy",
       "description": "Information on essential cookies and anonymized privacy-friendly analytics."
     }
   },
@@ -289,7 +289,7 @@
       "sections": [
         {
           "title": "Site Publisher",
-          "content": "<p><span class=\"text-black font-medium\">Company Name:</span> Lonside Studio</p><p><span class=\"text-black font-medium\">Status:</span> High-Velocity Digital Engineering Studio</p><p><span class=\"text-black font-medium\">Headquarters:</span> France</p><p><span class=\"text-black font-medium\">Direct Email:</span> contact@lonside.ai</p>"
+          "content": "<p><span class=\"text-black font-medium\">Company Name:</span> Lonside Studio</p><p><span class=\"text-black font-medium\">Status:</span> High-Velocity Digital Engineering Studio</p><p><span class=\"text-black font-medium\">Headquarters:</span> France</p><p><span class=\"text-black font-medium\">Direct Email:</span> hello@lonside.com</p>"
         },
         {
           "title": "Infrastructure & Hosting",
@@ -347,7 +347,7 @@
         },
         {
           "title": "Your Rights",
-          "content": "Under GDPR regulations, you maintain permanent rights of access, modification, and deletion by contacting contact@lonside.ai."
+          "content": "Under GDPR regulations, you maintain permanent rights of access, modification, and deletion by contacting hello@lonside.com."
         }
       ]
     },
