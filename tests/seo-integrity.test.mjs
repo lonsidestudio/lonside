@@ -212,3 +212,13 @@ test('supervision module produces structured service telemetry and status metada
   assert.ok(statusPageContent.includes('index: false'), 'Status page must be noindex');
   assert.ok(statusPageContent.includes('follow: false'), 'Status page must be nofollow');
 });
+
+test('favicon complies with Google Search multiple-of-48px square requirement', () => {
+  const iconContent = fs.readFileSync('src/app/icon.tsx', 'utf8');
+  assert.ok(iconContent.includes('width: 48'), 'Icon width must be multiple of 48 for Google Search');
+  assert.ok(iconContent.includes('height: 48'), 'Icon height must be multiple of 48 for Google Search');
+
+  assert.ok(fs.existsSync('src/app/favicon.ico'), 'src/app/favicon.ico must exist');
+  assert.ok(fs.existsSync('public/favicon.ico'), 'public/favicon.ico must exist');
+  assert.ok(fs.existsSync('public/icon-48.png'), 'public/icon-48.png must exist');
+});
