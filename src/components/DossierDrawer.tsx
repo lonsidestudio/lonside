@@ -104,7 +104,7 @@ export default function DossierDrawer({ project, isOpen, onClose }: DossierDrawe
               <button
                 type="button"
                 onClick={onClose}
-                className="w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-xl border border-black/[0.08] bg-white hover:bg-zinc-100 text-zinc-500 hover:text-black flex items-center justify-center transition-colors cursor-pointer shadow-2xs"
+                className="w-9 h-9 sm:w-8.5 sm:h-8.5 min-h-[36px] min-w-[36px] rounded-xl border border-black/[0.08] bg-white hover:bg-zinc-100 text-zinc-500 hover:text-black flex items-center justify-center transition-colors cursor-pointer shadow-2xs"
                 aria-label={t("close")}
               >
                 <X className="w-4 h-4" />
@@ -206,7 +206,7 @@ export default function DossierDrawer({ project, isOpen, onClose }: DossierDrawe
               href={activeProject.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center space-x-1.5 px-4 py-2.5 rounded-xl border border-black/[0.12] hover:border-black text-xs font-mono text-black transition-colors font-medium min-h-[42px] whitespace-nowrap"
+              className="inline-flex items-center justify-center space-x-1.5 px-4 py-2.5 rounded-xl border border-black/[0.12] hover:border-black text-xs font-mono text-black transition-colors font-medium min-h-[44px] whitespace-nowrap"
             >
               <span className="whitespace-nowrap">{t("visitClientSite")}</span>
               <ExternalLink className="w-3.5 h-3.5 shrink-0" />
@@ -220,7 +220,7 @@ export default function DossierDrawer({ project, isOpen, onClose }: DossierDrawe
           <a
             href="#contact"
             onClick={onClose}
-            className="inline-flex items-center justify-center space-x-1.5 px-5 py-2.5 rounded-xl bg-black text-white font-medium text-xs hover:bg-zinc-800 transition-all cursor-pointer min-h-[42px] whitespace-nowrap"
+            className="inline-flex items-center justify-center space-x-1.5 px-5 py-2.5 rounded-xl bg-black text-white font-medium text-xs hover:bg-zinc-800 transition-all cursor-pointer min-h-[44px] whitespace-nowrap"
           >
             <span className="whitespace-nowrap">{t("discussSimilar")}</span>
             <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />

@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import path from 'node:path';
 import vm from 'node:vm';
 import test from 'node:test';
 import ts from 'typescript';
@@ -159,4 +160,36 @@ test('legal canonical and breadcrumbs helpers generate valid Schema.org structur
   assert.equal(breadcrumbs.itemListElement.length, 2);
   assert.equal(breadcrumbs.itemListElement[0].item, 'https://www.lonside.com/en');
   assert.equal(breadcrumbs.itemListElement[1].item, canonical);
+});
+
+test('not-found page explicitly defines noindex metadata for search crawlers', () => {
+  const notFoundContent = fs.readFileSync('src/app/not-found.tsx', 'utf8');
+  assert.ok(notFoundContent.includes('index: false'), 'NotFound must declare index: false');
+  assert.ok(notFoundContent.includes('follow: false'), 'NotFound must declare follow: false');
+});
+
+test('brand identity integrity: strictly zero occurrences of taboo word "agence" in src and content', () => {
+  function scan(dir) {
+    const hits = [];
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        if (!['node_modules', '.next', '.git'].includes(entry.name)) {
+          hits.push(...scan(fullPath));
+        }
+      } else if (/\.(tsx|ts|json|yaml|yml)$/.test(entry.name)) {
+        const content = fs.readFileSync(fullPath, 'utf8');
+        if (/\b(agence|agences)\b/i.test(content)) {
+          hits.push(fullPath);
+        }
+      }
+    }
+    return hits;
+  }
+
+  const hitsInSrc = scan('src');
+  const hitsInContent = scan('content');
+  assert.deepEqual(hitsInSrc, [], `Forbidden word "agence" found in src files: ${hitsInSrc.join(', ')}`);
+  assert.deepEqual(hitsInContent, [], `Forbidden word "agence" found in content files: ${hitsInContent.join(', ')}`);
 });
