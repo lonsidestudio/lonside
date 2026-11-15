@@ -63,6 +63,13 @@ export default function DossierDrawer({ project, isOpen, onClose }: DossierDrawe
 
   if (!mounted || !activeProject) return null;
 
+  const handleExternalVisit = (placement: "header" | "footer") => {
+    captureLeadEvent("dossier_external_clicked", {
+      project_slug: activeProject.slug,
+      placement,
+    });
+  };
+
   return (
     <div
       role="dialog"
@@ -97,6 +104,7 @@ export default function DossierDrawer({ project, isOpen, onClose }: DossierDrawe
               {activeProject.liveUrl && (
                 <a
                   href={activeProject.liveUrl}
+                  onClick={() => handleExternalVisit("header")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black text-white hover:bg-zinc-800 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider transition-colors min-h-[32px] sm:min-h-[34px] shadow-xs cursor-pointer whitespace-nowrap"
@@ -210,6 +218,7 @@ export default function DossierDrawer({ project, isOpen, onClose }: DossierDrawe
           {activeProject.liveUrl ? (
             <a
               href={activeProject.liveUrl}
+              onClick={() => handleExternalVisit("footer")}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center space-x-1.5 px-4 py-2.5 rounded-xl border border-black/[0.12] hover:border-black text-xs font-mono text-black transition-colors font-medium min-h-[44px] whitespace-nowrap"

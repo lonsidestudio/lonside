@@ -108,6 +108,7 @@ export default function ContactSection({ locale }: ContactSectionProps) {
               </p>
               <a
                 href={siteConfig.calendarUrl}
+                onClick={() => captureLeadEvent("calendar_cta_clicked")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-1.5 text-xs font-mono uppercase tracking-wider text-black underline underline-offset-4 hover:text-zinc-600 transition-colors pt-0.5 font-medium whitespace-nowrap"

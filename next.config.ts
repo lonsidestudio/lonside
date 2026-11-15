@@ -33,6 +33,7 @@ const securityHeaders = [
       "img-src 'self' data: blob:",
       // API calls: self, Vercel vitals/speed-insights and PostHog EU ingestion/config
       "connect-src 'self' vitals.vercel-insights.com https://vercel.com https://vercel-insights.com https://eu.i.posthog.com https://eu-assets.i.posthog.com",
+      "worker-src 'self' blob: data:",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",

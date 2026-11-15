@@ -1,10 +1,11 @@
 'use client';
 
-import type { PostHog, CaptureResult } from 'posthog-js';
+import posthog, { type CaptureResult } from 'posthog-js';
 import { hasAnalyticsConsent } from './analytics-consent';
 
-let client: PostHog | undefined;
-let loading: Promise<void> | undefined;
+const token = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN;
+const host = process.env.NEXT_PUBLIC_POSTHOG_HOST;
+const isConfigured = Boolean(token && host);
 let enabled = false;
 
 export function isPublicPage(path: string) {
@@ -33,50 +34,20 @@ export function beforeSend(event: CaptureResult | null): CaptureResult | null {
   return { ...event, properties: sanitizeProperties(event.properties) as CaptureResult['properties'] };
 }
 
-export async function syncPostHogConsent(production: boolean): Promise<void> {
-  enabled = production;
-  if (!production || !hasAnalyticsConsent()) {
-    client?.opt_out_capturing();
+export function syncPostHogConsent(production: boolean): void {
+  const wasEnabled = enabled;
+  enabled = production && isConfigured;
+
+  if (!enabled || !hasAnalyticsConsent()) {
+    if (isConfigured) posthog.opt_out_capturing();
     return;
   }
-  if (client) {
-    if (client.has_opted_out_capturing()) {
-      client.opt_in_capturing({ captureEventName: false });
-      if (isPublicPage(window.location.pathname)) client.capture('$pageview');
-    }
-    return;
+
+  const wasOptedOut = posthog.has_opted_out_capturing();
+  if (wasOptedOut) posthog.opt_in_capturing({ captureEventName: false });
+  if ((!wasEnabled || wasOptedOut) && isPublicPage(window.location.pathname)) {
+    posthog.capture('$pageview');
   }
-  const token = process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN;
-  const host = process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com';
-  if (!token || !host) return;
-  if (!loading) {
-    loading = import('posthog-js').then(({ default: posthog }) => {
-      if (!enabled || !hasAnalyticsConsent()) return;
-      client = posthog.init(token, {
-        api_host: host,
-        defaults: '2026-08-30',
-        capture_pageview: 'history_change',
-        capture_pageleave: true,
-        autocapture: false,
-        person_profiles: 'never',
-        persistence: 'localStorage',
-        save_campaign_params: false,
-        disable_session_recording: true,
-        capture_heatmaps: false,
-        disable_surveys: true,
-        capture_exceptions: false,
-        before_send: beforeSend,
-      });
-      // The site's preference is authoritative, including after a previous opt-out.
-      if (client?.has_opted_out_capturing()) {
-        client.opt_in_capturing({ captureEventName: false });
-        if (isPublicPage(window.location.pathname)) client.capture('$pageview');
-      }
-    }).catch(() => {
-      // Analytics must never prevent a visitor from navigating or contacting us.
-    }).finally(() => { loading = undefined; });
-  }
-  await loading;
 }
 
 export type LeadEvent =
@@ -84,6 +55,7 @@ export type LeadEvent =
   | 'contact_form_submitted'
   | 'contact_form_failed'
   | 'contact_cta_clicked'
+  | 'calendar_cta_clicked'
   | 'dossier_opened'
   | 'dossier_external_clicked'
   | 'pricing_tier_selected'
@@ -132,11 +104,11 @@ export function getPostHogStatus(): {
   activeEventsCount: number;
 } {
   return {
-    isInitialized: Boolean(client),
+    isInitialized: isConfigured,
     hasConsent: typeof window !== 'undefined' ? hasAnalyticsConsent() : false,
-    isOptedOut: client ? client.has_opted_out_capturing() : true,
-    host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com',
-    isTokenConfigured: Boolean(process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN),
+    isOptedOut: isConfigured ? posthog.has_opted_out_capturing() : true,
+    host: host ?? '',
+    isTokenConfigured: Boolean(token),
     activeEventsCount: telemetryLogs.length,
   };
 }
@@ -154,13 +126,13 @@ export function captureLeadEvent(event: LeadEvent, properties: Record<string, st
     return false;
   }
 
-  if (!client || !enabled) {
+  if (!isConfigured || !enabled) {
     recordTelemetry(event, properties, 'sdk_unavailable');
     return false;
   }
 
   try {
-    client.capture(event, properties);
+    posthog.capture(event, properties);
     recordTelemetry(event, properties, 'captured');
     return true;
   } catch {
