@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og';
 
-export const size = { width: 32, height: 32 };
+// Google Search Central exige un multiple de 48px carré (48x48, 96x96, etc.)
+export const size = { width: 48, height: 48 };
 export const contentType = 'image/png';
 
 export default function Icon() {
@@ -14,18 +15,18 @@ export default function Icon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          borderRadius: '8px',
+          borderRadius: '11px',
         }}
       >
         <span
           style={{
             color: '#ffffff',
-            fontSize: '20px',
+            fontSize: '30px',
             fontWeight: 800,
             fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
             lineHeight: 1,
-            letterSpacing: '-1px',
-            transform: 'translateY(-0.5px)',
+            letterSpacing: '-1.5px',
+            transform: 'translateY(-1px)',
           }}
         >
           L.

@@ -32,6 +32,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         'max-snippet': -1,
       },
     },
+    icons: {
+      icon: [
+        { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
+        { url: '/icon', sizes: '48x48', type: 'image/png' },
+      ],
+      apple: [
+        { url: '/apple-icon', sizes: '180x180', type: 'image/png' },
+      ],
+    },
     openGraph: {
       title: t('defaultTitle'),
       description: t('description'),
