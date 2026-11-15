@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { after } from 'next/server';
+import { SeverityNumber } from '@opentelemetry/api-logs';
 import { Resend } from 'resend';
 import { z } from 'zod';
-
-
+import { flushPostHogLogs, getPostHogLogger } from '@/instrumentation';
 
 // In-memory rate limiter — 3 requests per IP per minute
 // For multi-instance production, replace with Upstash Redis
@@ -101,9 +102,21 @@ export async function POST(request: NextRequest) {
 
   if (error) {
     console.error('[contact] Resend error:', error);
+    getPostHogLogger()?.emit({
+      body: 'Contact email delivery failed',
+      severityNumber: SeverityNumber.ERROR,
+      attributes: { route: '/api/contact', delivery_provider: 'resend' },
+    });
+    after(flushPostHogLogs);
     return NextResponse.json({ error: 'Erreur lors de l\'envoi.' }, { status: 500 });
   }
 
+  getPostHogLogger()?.emit({
+    body: 'Contact email delivered',
+    severityNumber: SeverityNumber.INFO,
+    attributes: { route: '/api/contact', delivery_provider: 'resend' },
+  });
+  after(flushPostHogLogs);
   return NextResponse.json({ success: true, delivered: true });
 }
 
