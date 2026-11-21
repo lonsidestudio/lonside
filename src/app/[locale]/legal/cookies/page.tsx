@@ -52,10 +52,18 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
 
           <div className="p-5 sm:p-6 rounded-xl bg-zinc-50/70 border border-black/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <p className="text-sm font-medium text-black">Préférences de consentement</p>
-              <p className="text-xs text-zinc-500 mt-0.5">Vous pouvez mettre à jour vos choix à tout moment.</p>
+              <p className="text-sm font-medium text-black">
+                {locale === 'en' ? 'Consent preferences' : 'Préférences de consentement'}
+              </p>
+              <p className="text-xs text-zinc-500 mt-0.5">
+                {locale === 'en'
+                  ? 'You can update your privacy choices at any time.'
+                  : 'Vous pouvez mettre à jour vos choix à tout moment.'}
+              </p>
             </div>
-            <CookiePreferenceButton label={buttonLabel || 'Modifier mes préférences'} />
+            <CookiePreferenceButton
+              label={buttonLabel || (locale === 'en' ? 'Update my preferences' : 'Modifier mes préférences')}
+            />
           </div>
 
           {sections.map((section, idx) => (

@@ -20,9 +20,9 @@ export default function Footer() {
   return (
     <footer className="bg-white border-t border-black/[0.08] pt-16 pb-12 text-zinc-600">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10 mb-12 sm:mb-16">
           {/* Brand */}
-          <div className="space-y-4 sm:col-span-2">
+          <div className="space-y-4 sm:col-span-2 lg:col-span-2">
             <Link
               href="/"
               onClick={(e) => {
@@ -41,6 +41,9 @@ export default function Footer() {
             <p className="text-xs sm:text-sm text-zinc-500 max-w-sm leading-relaxed font-normal">
               {t("tagline")}
             </p>
+            <p className="text-[11px] font-mono text-zinc-500">
+              {siteConfig.legal.addressLocality} ({siteConfig.legal.postalCode}), France · SIRET {siteConfig.legal.siret}
+            </p>
           </div>
 
           {/* Quick links */}
@@ -50,19 +53,19 @@ export default function Footer() {
             </p>
             <ul className="space-y-1.5 text-xs font-mono">
               <li>
-                <a href={getSectionHref("engagement")} className="hover:text-black transition-colors py-1 inline-block">
-                  {t("commitment")}
-                </a>
-              </li>
-              <li>
-                <a href={getSectionHref("projets")} className="hover:text-black transition-colors py-1 inline-block">
+                <Link href="/portfolio" className="hover:text-black transition-colors py-1 inline-block">
                   {t("projects")}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href={getSectionHref("manifeste")} className="hover:text-black transition-colors py-1 inline-block">
-                  {t("philosophy")}
-                </a>
+                <Link href="/a-propos" className="hover:text-black transition-colors py-1 inline-block">
+                  {locale === "en" ? "About" : "À propos"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/estimation" className="hover:text-black transition-colors py-1 inline-block">
+                  {locale === "en" ? "Estimator" : "Simulateur"}
+                </Link>
               </li>
               <li>
                 <a href={getSectionHref("methode")} className="hover:text-black transition-colors py-1 inline-block">
@@ -83,6 +86,35 @@ export default function Footer() {
                 <a href={getSectionHref("contact")} className="hover:text-black transition-colors py-1 inline-block">
                   {t("contact")}
                 </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Expertises SEO */}
+          <div className="space-y-3">
+            <p className="text-xs font-mono uppercase tracking-wider text-black font-semibold">
+              {locale === "en" ? "Capabilities" : "Expertises"}
+            </p>
+            <ul className="space-y-1.5 text-xs font-mono">
+              <li>
+                <Link href="/services/sprint-mvp-14-jours" className="hover:text-black transition-colors py-1 inline-block">
+                  {locale === "en" ? "14-Day MVP Sprint" : "Sprint MVP 14 jours"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/application-web-nextjs" className="hover:text-black transition-colors py-1 inline-block">
+                  {locale === "en" ? "Next.js Web Apps" : "Apps Web Next.js"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/plateforme-saas-sur-mesure" className="hover:text-black transition-colors py-1 inline-block">
+                  {locale === "en" ? "Custom SaaS Platforms" : "Plateformes SaaS"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/regie-tech-senior" className="hover:text-black transition-colors py-1 inline-block">
+                  {locale === "en" ? "Senior Squad" : "Régie Tech Senior"}
+                </Link>
               </li>
             </ul>
           </div>
@@ -136,6 +168,19 @@ export default function Footer() {
                   </svg>
                 </a>
               )}
+              {siteConfig.youtubeUrl && (
+                <a
+                  href={siteConfig.youtubeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-black transition-colors p-1"
+                  aria-label="YouTube"
+                >
+                  <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                </a>
+              )}
               <a
                 href={`mailto:${siteConfig.contactEmail}`}
                 className="hover:text-black transition-colors p-1"
@@ -151,18 +196,18 @@ export default function Footer() {
         <div className="border-t border-black/[0.06] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-zinc-500">
           <p>© {currentYear} LONSIDE STUDIO.</p>
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-            <a href={`/${locale}/legal/mentions-legales`} className="hover:text-black transition-colors py-1 whitespace-nowrap">
+            <Link href="/legal/mentions-legales" className="hover:text-black transition-colors py-2 min-h-[44px] inline-flex items-center whitespace-nowrap">
               {t("legalNotice")}
-            </a>
-            <a href={`/${locale}/legal/politique-confidentialite`} className="hover:text-black transition-colors py-1 whitespace-nowrap">
+            </Link>
+            <Link href="/legal/politique-confidentialite" className="hover:text-black transition-colors py-2 min-h-[44px] inline-flex items-center whitespace-nowrap">
               {t("privacyPolicy")}
-            </a>
-            <a href={`/${locale}/legal/cgv`} className="hover:text-black transition-colors py-1 whitespace-nowrap">
+            </Link>
+            <Link href="/legal/cgv" className="hover:text-black transition-colors py-2 min-h-[44px] inline-flex items-center whitespace-nowrap">
               {t("termsOfService")}
-            </a>
-            <a href={`/${locale}/legal/cookies`} className="hover:text-black transition-colors py-1 whitespace-nowrap">
+            </Link>
+            <Link href="/legal/cookies" className="hover:text-black transition-colors py-2 min-h-[44px] inline-flex items-center whitespace-nowrap">
               Cookies
-            </a>
+            </Link>
           </div>
         </div>
       </div>

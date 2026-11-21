@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { X, ExternalLink, ArrowUpRight } from "lucide-react";
+import { Link } from "@/lib/i18n/navigation";
 import type { LocalizedProject } from "@/lib/keystatic/reader";
 import { captureLeadEvent } from "@/lib/posthog";
 
@@ -13,7 +14,7 @@ interface DossierDrawerProps {
   locale?: string;
 }
 
-export default function DossierDrawer({ project, isOpen, onClose }: DossierDrawerProps) {
+export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" }: DossierDrawerProps) {
   const [mounted, setMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [activeProject, setActiveProject] = useState<LocalizedProject | null>(project);
@@ -94,11 +95,25 @@ export default function DossierDrawer({ project, isOpen, onClose }: DossierDrawe
             </span>
 
             <div className="flex items-center gap-2 shrink-0">
+              <Link
+                href={{ pathname: "/portfolio/[slug]", params: { slug: activeProject.slug } }}
+                onClick={onClose}
+                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl border border-black/[0.1] bg-white hover:border-black text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-black transition-colors min-h-[34px] whitespace-nowrap"
+              >
+                <span>{locale === "en" ? "Full dossier" : "Dossier complet"}</span>
+                <ArrowUpRight className="w-3 h-3 shrink-0" />
+              </Link>
               {activeProject.liveUrl && (
                 <a
                   href={activeProject.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => {
+                    captureLeadEvent("dossier_external_clicked", {
+                      client: activeProject.client,
+                      url: activeProject.liveUrl || "",
+                    });
+                  }}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black text-white hover:bg-zinc-800 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider transition-colors min-h-[32px] sm:min-h-[34px] shadow-xs cursor-pointer whitespace-nowrap"
                   title={t("visitLiveSite")}
                 >
@@ -212,6 +227,12 @@ export default function DossierDrawer({ project, isOpen, onClose }: DossierDrawe
               href={activeProject.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => {
+                captureLeadEvent("dossier_external_clicked", {
+                  client: activeProject.client,
+                  url: activeProject.liveUrl || "",
+                });
+              }}
               className="inline-flex items-center justify-center space-x-1.5 px-4 py-2.5 rounded-xl border border-black/[0.12] hover:border-black text-xs font-mono text-black transition-colors font-medium min-h-[44px] whitespace-nowrap"
             >
               <span className="whitespace-nowrap">{t("visitClientSite")}</span>

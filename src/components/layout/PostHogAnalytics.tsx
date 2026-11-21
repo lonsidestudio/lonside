@@ -29,7 +29,7 @@ export default function PostHogAnalytics({ enabled }: { enabled: boolean }) {
       try {
         const url = new URL(rawHref, window.location.href);
         const channel = url.protocol === 'mailto:' ? 'email'
-          : (url.hostname === 'calendly.com' || url.hostname.includes('calendar')) ? 'appointment'
+          : (url.hostname === 'cal.com' || url.hostname === 'calendly.com' || url.hostname.includes('calendar')) ? 'appointment'
           : null;
         if (channel) captureLeadEvent('contact_cta_clicked', { channel });
       } catch {

@@ -127,7 +127,17 @@ export default function LiveTelemetryConsole({ isEn = false }: LiveTelemetryCons
               {isEn ? 'Token Detected' : 'Clé Détectée'}
             </span>
             <span className="text-xs font-mono font-medium text-black">
-              {status.isTokenConfigured ? (isEn ? 'CONFIGURED' : 'CONFIGURÉE') : (isEn ? 'MISSING' : 'ABSENTE')}
+              {!status.isTokenConfigured
+                ? isEn
+                  ? 'MISSING'
+                  : 'ABSENTE'
+                : status.tokenFormatValid
+                ? isEn
+                  ? 'VALID (phc_)'
+                  : 'VALIDE (phc_)'
+                : isEn
+                ? 'INVALID (phs_/phx_)'
+                : 'INVALIDE (phs_/phx_)'}
             </span>
           </div>
         </div>

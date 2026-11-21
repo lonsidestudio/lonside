@@ -95,3 +95,16 @@ test('withdrawing consent while the SDK loads cancels initialization', async () 
   await pending;
   assert.equal(h.stats().initialized, 0);
 });
+
+test('secret keys (phs_/phx_) are refused and EU host routes via /ingest reverse proxy', () => {
+  const h = harness();
+  assert.equal(h.api.isSecretPostHogKey('phs_secret123'), true);
+  assert.equal(h.api.isSecretPostHogKey('phx_personal123'), true);
+  assert.equal(h.api.isSecretPostHogKey('phc_public123'), false);
+  const eu = h.api.resolvePostHogHosts('https://eu.i.posthog.com');
+  assert.equal(eu.apiHost, '/ingest');
+  assert.equal(eu.uiHost, 'https://eu.posthog.com');
+  const fallback = h.api.resolvePostHogHosts(undefined);
+  assert.equal(fallback.apiHost, '/ingest');
+  assert.equal(fallback.uiHost, 'https://eu.posthog.com');
+});

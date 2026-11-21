@@ -124,6 +124,110 @@ process:
 deliveryDays: 35
 coverColor: "#09090b"
 liveUrl: ""
+youtubeVideoId: ""
+youtubeTitleFr: "Bely : architecture d'une plateforme VTC corporate & dispatch géospatial sous 5 ms"
+youtubeTitleEn: "Bely: Engineering a Sub-5ms Geospatial Dispatch & Corporate Chauffeur Platform"
+youtubeDuration: ""
+storyLeadQuoteFr: "Quand un dirigeant atterrit en jet privé à 22 h 40, le concierge d'un palace n'a pas cinq minutes pour remonter un fil WhatsApp afin de savoir où se trouve le chauffeur."
+storyLeadQuoteEn: "When an executive steps off a private flight at 10:40 PM, a five-star concierge does not have five minutes to scroll through WhatsApp threads to locate the chauffeur."
+storyOpeningFr: |-
+  Dans la mobilité corporate de prestige, la marge d'erreur n'existe pas. Pourtant, derrière les berlines noires et les costumes impeccables, la majorité des opérateurs VTC haut de gamme tournent encore sur un écosystème précaire : des courses attribuées à la voix sur WhatsApp, des fichiers Excel pour vérifier si l'assurance d'un chauffeur expire demain, et quarante heures de pointage manuel chaque fin de mois pour facturer les palaces et directions générales.
+
+  Une seule confusion sur un horaire de vol, un document professionnel expiré lors d'un contrôle ou une facture comportant une erreur de centre de coûts suffit à briser un contrat grands comptes de plusieurs centaines de milliers d'euros. Bely a été conçu pour éliminer définitivement ce risque opérationnel en donnant aux opérateurs de transport privé une tour de contrôle digne de l'aviation d'affaires.
+storyOpeningEn: |-
+  In executive private mobility, there is zero margin for error. Yet behind the polished sedans and tailored suits, most high-end chauffeur operators still run on fragile workflows: rides dispatched in WhatsApp groups, spreadsheets tracking whether a driver's commercial insurance expires tomorrow, and forty hours of manual billing reconciliation every month-end for luxury hotels and corporate boards.
+
+  One missed flight update, one expired license during a roadside check, or one misallocated corporate invoice can terminate a six-figure enterprise account overnight. Bely was engineered to eliminate that operational fragility permanently, giving private mobility operators an executive control tower worthy of private aviation.
+beforeAfter:
+  - dimensionFr: "Affectation des chauffeurs"
+    dimensionEn: "Chauffeur dispatch"
+    beforeFr: "Appels téléphoniques et messages WhatsApp manuels avec risque d'oubli."
+    beforeEn: "Manual phone calls and WhatsApp broadcasts prone to human oversight."
+    afterFr: "Matching géospatial natif en base de données sous les 5 millisecondes."
+    afterEn: "Database-native geospatial matching completed in under 5 milliseconds."
+  - dimensionFr: "Conformité réglementaire flotte"
+    dimensionEn: "Fleet regulatory compliance"
+    beforeFr: "Suivi dispersé sur tableurs exposant à des amendes ou immobilisations."
+    beforeEn: "Fragmented spreadsheet tracking creating legal and insurance exposure."
+    afterFr: "Contrôle continu automatisé avec exclusion instantanée de tout dossier expiré."
+    afterEn: "Automated credential monitoring with instant dispatch lockouts on expiry."
+  - dimensionFr: "Clôture comptable B2B"
+    dimensionEn: "Monthly B2B billing close"
+    beforeFr: "40 heures par mois de réconciliation manuelle et litiges de facturation."
+    beforeEn: "40 hours/month of manual reconciliation and disputed expense lines."
+    afterFr: "Relevés consolidés par département générés automatiquement sans erreur."
+    afterEn: "Department-level consolidated statements generated automatically with zero errors."
+  - dimensionFr: "Confidentialité clients VIP"
+    dimensionEn: "VIP passenger privacy"
+    beforeFr: "Données de trajets partagées dans des outils grand public non cloisonnés."
+    beforeEn: "Itineraries exposed across unpartitioned consumer messaging apps."
+    afterFr: "Cloisonnement multi-tenant hermétique et traçabilité complète par établissement."
+    afterEn: "Hermetic multi-tenant partitioning with immutable per-account audit trails."
+storyTurningPointFr: |-
+  Deux décisions d'architecture ont tout changé sur Bely. Premièrement, nous avons refusé de déléguer le calcul de proximité de la flotte à une API cartographique facturée à la requête : sur des dizaines de véhicules en mouvement continu, la facture cloud explose et la latence dégrade le dispatch. Nous avons écrit le moteur de calcul spatial directement au cœur de PostgreSQL — résultat : moins de 5 millisecondes par recherche, pour un coût marginal nul.
+
+  Deuxièmement, nous avons refusé le modèle « tableau de bord rafraîchi toutes les 30 secondes ». En régie de transport, trente secondes de décalage créent des décisions contradictoires. L'interface de supervision stream les événements en direct sans aucun clignotement, tout en verrouillant hermétiquement les données entre palaces concurrents.
+storyTurningPointEn: |-
+  Two architectural decisions defined Bely. First, we refused to outsource continuous fleet proximity matching to a pay-per-request external routing API—with dozens of live vehicles, external API bills skyrocket and latency degrades dispatch speed. We built spatial ranking directly inside PostgreSQL, achieving sub-5ms matching at near-zero marginal cost.
+
+  Second, we rejected polling dashboards that refresh every thirty seconds. In live fleet operations, a thirty-second lag causes conflicting assignments. Bely's control tower streams state changes instantaneously with zero visual flicker while enforcing hermetic data isolation between competing luxury hotels.
+storyWalkthroughFr: |-
+  Il est 19 h 15 à la conciergerie d'un hôtel 5 étoiles. Un client demande un transfert immédiat vers l'aéroport avec attente personnalisée. Le concierge ouvre son portail Bely, saisit la mission en vingt secondes et sélectionne le centre de coûts de la suite.
+
+  En moins de cinq millisecondes, Bely filtre les chauffeurs 100 % conformes réglementairement, identifie la berline la plus proche disponible et pousse la mission géolocalisée. Le concierge voit immédiatement le véhicule approcher sur sa carte en direct, le passager est pris en charge à la seconde près, et la ligne de facturation s'incrémente proprement dans le relevé mensuel de l'hôtel sans aucune intervention humaine.
+storyWalkthroughEn: |-
+  At 7:15 PM, a five-star hotel concierge receives an urgent VIP airport transfer request. They open their dedicated Bely corporate portal, schedule the ride in twenty seconds, and tag the suite's cost center.
+
+  In under five milliseconds, Bely filters exclusively compliant chauffeurs, selects the nearest available luxury sedan, and dispatches the geofenced mission. The concierge watches the vehicle approach live on map, the passenger steps in right on time, and the ride posts automatically to the hotel's consolidated month-end statement with zero manual accounting.
+storyOutcomeFr: |-
+  Livré en 35 jours ouvrés, Bely a transformé un métier historiquement manuel en plateforme SaaS B2B scalable. Les opérateurs économisent 40 heures de comptabilité mensuelle, garantissent une flotte 100 % conforme devant les assureurs et les grands comptes, et signent des établissements de luxe qui exigent désormais la traçabilité temps réel comme prérequis contractuel.
+storyOutcomeEn: |-
+  Shipped in 35 business days, Bely elevated an historically manual operation into a scalable B2B mobility platform. Operators reclaim 40 monthly accounting hours, guarantee 100% fleet regulatory compliance to insurers and enterprise buyers, and win luxury hospitality accounts that now require live traceability in their RFPs.
+productRoles:
+  - roleFr: "Concierge Hôtel & Entreprise B2B"
+    roleEn: "Hotel Concierge & Corporate Admin"
+    accessLevelFr: "Portail Corporate"
+    accessLevelEn: "Corporate Portal"
+    workflowFr: "Réserve une course VIP en moins de 20 secondes, suit l'approche du chauffeur sur carte en direct, fixe des plafonds par département et télécharge la facture mensuelle consolidée."
+    workflowEn: "Books VIP executive transfers in under 20 seconds, tracks chauffeur arrival live on map, sets departmental budget caps, and downloads consolidated monthly statements."
+  - roleFr: "Régulateur & Dispatch Opérationnel"
+    roleEn: "Operations Dispatcher"
+    accessLevelFr: "Tour de Contrôle Temps Réel"
+    accessLevelEn: "Real-Time Control Tower"
+    workflowFr: "Visualise toute la flotte en direct sans rechargement, valide les affectations automatiques calculées par proximité spatiale et gère les imprévus de vols ou retards."
+    workflowEn: "Supervises the entire fleet live with zero page flickers, monitors automated spatial ride matching, and handles flight delays or VIP schedule shifts."
+  - roleFr: "Chauffeur Privé & Conformité"
+    roleEn: "Executive Chauffeur"
+    accessLevelFr: "Espace Chauffeur"
+    accessLevelEn: "Chauffeur Workspace"
+    workflowFr: "Reçoit ses missions géolocalisées, dépose ses justificatifs réglementaires (carte VTC, assurance, contrôle technique) et suit ses revenus avec transparence."
+    workflowEn: "Receives geofenced mission assignments, uploads regulatory compliance credentials (license, commercial insurance, inspection), and tracks earnings transparently."
+productModules:
+  - tagFr: "Moteur Temps Réel"
+    tagEn: "Real-Time Engine"
+    titleFr: "Dispatch géospatial natif en base de données (< 5 ms)"
+    titleEn: "Database-native geospatial dispatch (< 5ms)"
+    behaviorFr: "Dès qu'une demande de course est validée par un hôtel ou une direction générale, le moteur classe instantanément les chauffeurs disponibles par distance réelle, gamme de véhicule et note qualité."
+    behaviorEn: "As soon as a luxury hotel or corporate firm confirms a transfer, the engine ranks available chauffeurs by real distance, vehicle class, and quality score in milliseconds."
+    businessRuleFr: "Indexation spatiale native évitant les appels API cartographiques coûteux à chaque rafraîchissement, tout en excluant automatiquement tout chauffeur dont un document légal est expiré."
+    businessRuleEn: "Native spatial indexing eliminates expensive continuous third-party map queries while automatically excluding any chauffeur with an expired regulatory credential."
+  - tagFr: "Cloisonnement & Facturation"
+    tagEn: "Isolation & Billing"
+    titleFr: "Portail Grands Comptes & clôture comptable automatisée"
+    titleEn: "Enterprise Portal & automated monthly billing close"
+    behaviorFr: "Chaque établissement dispose de son espace privé avec historiques de courses, centres de coûts, frais d'attente et factures PDF consolidées générées automatiquement en fin de mois."
+    behaviorEn: "Each corporate account accesses an isolated workspace with trip logs, cost centers, waiting fees, and automated month-end consolidated PDF invoices."
+    businessRuleFr: "Isolation multi-tenant stricte garantissant la confidentialité absolue des passagers VIP entre hôtels concurrents, couplée à une réconciliation financière sans saisie manuelle."
+    businessRuleEn: "Strict multi-tenant data partitioning protecting VIP passenger confidentiality across competing hotels, backed by error-free automated accounting reconciliation."
+productFaq:
+  - questionFr: "Comment Bely garantit-il la conformité légale de toute une flotte VTC ?"
+    questionEn: "How does Bely enforce regulatory compliance across an executive fleet?"
+    answerFr: "Chaque chauffeur possède un dossier numérique contrôlant les dates d'expiration (carte professionnelle, assurance transport, contrôle technique). Des alertes anticipées partent automatiquement et un véhicule non conforme est écarté du dispatch."
+    answerEn: "Every chauffeur profile tracks credential expiration dates (license, insurance, inspections) with proactive alerts and automatic dispatch lockouts if a document expires."
+  - questionFr: "Peut-on adapter cette architecture de dispatch à la logistique ou aux interventions terrain ?"
+    questionEn: "Can this geospatial dispatch architecture be adapted to field services or logistics?"
+    answerFr: "Oui. Le socle de géolocalisation temps réel, de cloisonnement multi-comptes et de facturation consolidée s'applique directement à la livraison urbaine, la maintenance terrain ou la conciergerie."
+    answerEn: "Yes. The real-time spatial matching, multi-tenant isolation, and automated B2B billing engine map directly to urban delivery, field service dispatch, and fleet operations."
 seoTitleFr: "Bely — Plateforme VTC Corporate & Dispatch Géospatial | Projet Lonside"
 seoTitleEn: "Bely — Corporate Chauffeur Platform & Geospatial Dispatch | Lonside Project"
 seoDescriptionFr: "Comment Lonside a conçu Bely : dispatch en temps réel sous les 5 ms, portail B2B pour hôtels de luxe, facturation automatisée et zéro latence en 35 jours."

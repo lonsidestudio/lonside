@@ -65,13 +65,19 @@ export default function FaqSection({ items, locale }: FaqSectionProps) {
                   </div>
                 </button>
 
-                {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-1 border-t border-black/[0.04]">
-                    <p className="text-sm text-zinc-600 font-normal leading-relaxed">
-                      {item.answer}
-                    </p>
+                <div
+                  className={`grid transition-[grid-template-rows,opacity] duration-200 ease-out ${
+                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-5 sm:px-6 pb-6 pt-1 border-t border-black/[0.04]">
+                      <p className="text-sm text-zinc-600 font-normal leading-relaxed">
+                        {item.answer}
+                      </p>
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}

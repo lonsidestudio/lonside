@@ -128,6 +128,118 @@ testimonialRoleEn: "Founder & Operations Director, Welqo"
 deliveryDays: 28
 coverColor: "#1e293b"
 liveUrl: "https://welqo.fr"
+youtubeVideoId: ""
+youtubeTitleFr: "Welqo : comment nous avons conçu une plateforme SaaS PropTech & synchro Airbnb en 28 jours"
+youtubeTitleEn: "Welqo: Engineering a Real-Time PropTech & Airbnb Sync SaaS in 28 Days"
+youtubeDuration: ""
+storyLeadQuoteFr: "Dans la conciergerie haut de gamme, une seule double réservation ou un mandat papier qui traîne quatre jours suffit à faire perdre un bien à 45 000 € de revenus annuels."
+storyLeadQuoteEn: "In luxury short-term rentals, a single double-booking or a paper contract dragging across four days is enough to lose a property generating €45,000 a year."
+storyOpeningFr: |-
+  Un vendredi soir de grand match européen, deux voyageurs réservent le même appartement de standing à quatre-vingt-dix secondes d'intervalle — l'un sur Airbnb, l'autre sur Booking.com. La synchronisation manuelle n'a pas encore tourné. L'équipe d'exploitation passe son week-end à reloger un client furieux, encaisse les pénalités de la plateforme et voit sa note chuter.
+
+  À ce moment précis, Welqo faisait face au plafond de verre classique des opérateurs immobiliers indépendants en croissance : une qualité de service irréprochable sur le terrain, mais bridée par un assemblage fragile de tableurs, de PDF signés par email et de grilles tarifaires statiques qui laissaient jusqu'à 40 % de chiffre d'affaires sur la table les soirs d'événements majeurs. Pour convaincre des investisseurs exigeants de confier leur patrimoine immobilier, il fallait remplacer l'artisanat administratif par une infrastructure logicielle digne des leaders internationaux de l'hospitalité.
+storyOpeningEn: |-
+  On the Friday night of a major European stadium fixture, two guests book the exact same luxury apartment ninety seconds apart—one on Airbnb, the other on Booking.com. Manual calendar sync hasn't run yet. The operations team spends the entire weekend re-housing an angry guest, absorbs platform penalties, and watches a five-star listing drop.
+
+  That was Welqo's classic inflection point: immaculate hospitality on the ground, held back by fragile spreadsheets, emailed PDF mandates, and static nightly pricing that left up to 40% of peak event revenue untouched. To win the trust of discerning property investors, Welqo needed to replace manual administration with a software platform worthy of global hospitality leaders.
+beforeAfter:
+  - dimensionFr: "Intégrité des réservations"
+    dimensionEn: "Booking integrity"
+    beforeFr: "Synchronisation manuelle exposée aux doubles réservations lors des pics de demande."
+    beforeEn: "Manual calendar sync exposed to double-bookings during demand surges."
+    afterFr: "Verrouillage temps réel multi-canaux (Airbnb, Booking, Direct) avec 0,0 % de collision."
+    afterEn: "Real-time multi-channel locking (Airbnb, Booking, Direct) with 0.0% collision."
+  - dimensionFr: "Signature de mandat propriétaire"
+    dimensionEn: "Owner mandate onboarding"
+    beforeFr: "3 à 5 jours d'allers-retours PDF, impressions et relances par email."
+    beforeEn: "3–5 days of PDF exchanges, printing, and manual email follow-ups."
+    afterFr: "Parcours mobile certifié eIDAS complété et archivé en moins de 3 minutes."
+    afterEn: "Mobile eIDAS-certified onboarding completed and vaulted in under 3 minutes."
+  - dimensionFr: "Tarification événementielle"
+    dimensionEn: "Event yield pricing"
+    beforeFr: "Grilles fixes ou outils tiers ponctionnant une commission récurrente par nuitée."
+    beforeEn: "Static price sheets or third-party tools taxing every single booked night."
+    afterFr: "Moteur propriétaire à coefficients événementiels générant +42 % de RevPAR en autonomie."
+    afterEn: "Proprietary event-coefficient pricing engine lifting RevPAR by +42% with zero recurring fees."
+  - dimensionFr: "Acquisition de nouveaux biens"
+    dimensionEn: "New property acquisition"
+    beforeFr: "Prospection froide sans preuve chiffrée immédiate de rentabilité."
+    beforeEn: "Cold outreach without immediate financial proof for property owners."
+    afterFr: "Vitrine SEO locale (Lighthouse 98/100) + simulateur de rendement convertissant chaque semaine."
+    afterEn: "Local SEO storefront (Lighthouse 98/100) + yield simulator converting owners weekly."
+storyTurningPointFr: |-
+  Lorsque nous avons cadré Welqo au jour 1, la tentation classique aurait été d'empiler quatre SaaS externes reliés par des automatisations fragiles : un CMS vitrine lent, un outil de tarification dynamique facturé au pourcentage du chiffre d'affaires, un prestataire de signature déconnecté et un portail client générique.
+
+  Nous avons délibérément refusé cette architecture en mille-feuille. Un investisseur qui confie un appartement de 400 000 € juge votre rigueur dès la première seconde de chargement sur son smartphone. Nous avons donc unifié l'acquisition (vitrine SEO locale + simulateur de rentabilité), le juridique (mandat eIDAS natif) et l'exploitation (calendrier verrouillé + moteur de yield) dans un socle unique Next.js / PostgreSQL dont Welqo détient 100 % du code source et zéro redevance par nuitée.
+storyTurningPointEn: |-
+  On Day 1 of scoping Welqo, the easy shortcut would have been stitching together four off-the-shelf SaaS subscriptions with brittle webhooks: a slow marketing theme, a percentage-of-revenue pricing tool, a disconnected signing link, and a generic client portal.
+
+  We deliberately refused that patchwork stack. An investor entrusting a €400,000 property judges your operational rigor in the first two seconds on mobile. Instead, we unified acquisition (local SEO storefront + yield simulator), legal onboarding (native eIDAS signing), and live operations (locked calendar + event yield engine) inside a single Next.js / PostgreSQL platform—100% owned by Welqo, with zero per-night third-party tax.
+storyWalkthroughFr: |-
+  Un propriétaire cherche sur Google comment rentabiliser son T3 pendant ses déplacements. Il tombe sur la page locale de Welqo (chargée en moins de 120 ms), renseigne la surface et le quartier dans le simulateur, et découvre instantanément son revenu net projeté comparé à un bail classique.
+
+  Quarante-huit heures plus tard, après un échange de quinze minutes, il reçoit un lien privé sur son téléphone : son mandat de gestion personnalisé est prêt. En trois minutes, il paraphe électroniquement sous certification eIDAS, son contrat est horodaté et déposé dans son coffre-fort propriétaire. Dès la mise en ligne du bien, chaque réservation synchronise tous les canaux en temps réel tandis que les nuitées des grands événements s'ajustent automatiquement.
+storyWalkthroughEn: |-
+  A property owner searches Google for ways to maximize return on a city-center apartment. They land on Welqo's local SEO page (under 120ms response), enter unit size and neighborhood into the yield simulator, and immediately see projected net income versus a standard lease.
+
+  Forty-eight hours later, after a fifteen-minute call, they receive a private link on their phone: their tailored mandate is ready. Within three minutes, they sign under eIDAS certification, the contract is cryptographically timestamped in their encrypted owner vault, and the moment the listing goes live, every channel locks in sync while major event dates automatically command peak yield.
+storyOutcomeFr: |-
+  En 28 jours ouvrés, Welqo a basculé d'une gestion artisanale plafonnée à une véritable plateforme PropTech propriétaire. Le simulateur de rentabilité transforme désormais le trafic organique local en mandats signés chaque semaine, la synchronisation temps réel a ramené les incidents calendaires à exactement zéro, et l'équipe pilote deux fois plus de biens sans recruter de personnel administratif supplémentaire.
+storyOutcomeEn: |-
+  Within 28 business days, Welqo graduated from spreadsheet-bound operations to a proprietary PropTech platform. The yield simulator now converts local organic search into signed mandates every week, real-time calendar reconciliation has reduced double-bookings to exactly zero, and the team manages twice the inventory without adding administrative headcount.
+productRoles:
+  - roleFr: "Propriétaire Investisseur"
+    roleEn: "Property Investor"
+    accessLevelFr: "Portail Propriétaire"
+    accessLevelEn: "Owner Portal"
+    workflowFr: "Simule son rendement net estimé avant de signer, valide son mandat eIDAS en 3 minutes sur mobile, puis suit ses réservations, ses revenus mensuels et ses justificatifs fiscaux en direct."
+    workflowEn: "Simulates net rental yield prior to onboarding, signs an eIDAS management mandate in 3 minutes on mobile, then tracks live bookings, monthly payouts, and statements."
+  - roleFr: "Équipe Opérations & Conciergerie"
+    roleEn: "Operations & Concierge Team"
+    accessLevelFr: "Console Exploitation"
+    accessLevelEn: "Operations Console"
+    workflowFr: "Supervise un calendrier unifié Airbnb/Booking/Direct sans collision, déclenche les coefficients tarifaires événementiels en un clic et orchestre les check-ins et ménages."
+    workflowEn: "Monitors a unified Airbnb/Booking/Direct calendar with zero conflicts, toggles event-based dynamic pricing multipliers in one click, and orchestrates check-ins and housekeeping."
+  - roleFr: "Prospect Propriétaire (Acquisition)"
+    roleEn: "Prospective Owner (Acquisition)"
+    accessLevelFr: "Vitrine SEO Locale"
+    accessLevelEn: "Local SEO Storefront"
+    workflowFr: "Arrive via une recherche locale par ville, teste la rentabilité de son bien sur le calculateur interactif et réserve directement un rendez-vous d'estimation qualifié."
+    workflowEn: "Lands via city-level organic search, models their property revenue in the interactive yield simulator, and books a qualified onboarding call."
+productModules:
+  - tagFr: "Acquisition & Conversion"
+    tagEn: "Acquisition & Conversion"
+    titleFr: "Simulateur de rentabilité locative & capture de leads qualifiés"
+    titleEn: "Interactive rental yield calculator & qualified lead capture"
+    behaviorFr: "Le propriétaire saisit sa ville, la typologie du bien et son niveau de standing ; le simulateur affiche instantanément le revenu annuel projeté, le taux d'occupation et la comparaison face à une location longue durée."
+    behaviorEn: "Property owners input city, unit size, and tier; the calculator instantly computes projected annual revenue, occupancy rate, and comparison against long-term leasing."
+    businessRuleFr: "Calcul calibré sur les grilles saisonnières locales avec enregistrement structuré du lead et transmission immédiate vers l'équipe commerciale sans ressaisie."
+    businessRuleEn: "Powered by calibrated regional seasonal benchmarks with structured lead capture routed immediately to the onboarding team."
+  - tagFr: "Exploitation Temps Réel"
+    tagEn: "Real-Time Operations"
+    titleFr: "Calendrier multi-canaux & moteur de tarification événementielle"
+    titleEn: "Multi-channel calendar & event-driven yield engine"
+    behaviorFr: "Chaque réservation Airbnb, Booking.com ou directe verrouille immédiatement les dates sur l'ensemble des canaux et recalcule les prix nuitées autour des pics événementiels locaux."
+    behaviorEn: "Every Airbnb, Booking.com, or direct booking locks dates across all channels immediately while adjusting nightly rates around local stadium and festival spikes."
+    businessRuleFr: "Réconciliation idempotente des flux PMS empêchant toute double réservation simultanée, avec règles de séjour minimum et planchers tarifaires protégés."
+    businessRuleEn: "Idempotent PMS reconciliation preventing concurrent double-bookings, enforcing minimum-stay rules and protected rate floors."
+  - tagFr: "Juridique & Onboarding"
+    tagEn: "Legal & Onboarding"
+    titleFr: "Contractualisation eIDAS & coffre-fort propriétaire"
+    titleEn: "eIDAS digital mandate workflow & owner vault"
+    behaviorFr: "Génération automatique du mandat personnalisé, signature électronique qualifiée depuis smartphone et archivage instantané dans l'espace sécurisé du propriétaire."
+    behaviorEn: "Automated mandate generation, smartphone eIDAS signing, and instant encrypted archiving inside the owner's portal."
+    businessRuleFr: "Horodatage probant conforme eIDAS, contrôle d'accès strict par propriétaire (isolation totale des documents) et traçabilité complète des versions signées."
+    businessRuleEn: "Cryptographic eIDAS timestamping, strict per-owner access isolation, and immutable signed-version audit trails."
+productFaq:
+  - questionFr: "Combien de temps faut-il pour lancer une plateforme PropTech similaire à Welqo ?"
+    questionEn: "How long does it take to launch a PropTech platform similar to Welqo?"
+    answerFr: "L'écosystème complet de Welqo (vitrine SEO multi-villes, simulateur de rentabilité, portail propriétaire, synchronisation multi-canaux et mandats eIDAS) a été livré en production en 28 jours ouvrés dans le cadre d'un Sprint Scale."
+    answerEn: "Welqo's complete ecosystem—multi-city SEO storefront, yield simulator, owner portal, multi-channel calendar sync, and eIDAS contracting—was shipped live in 28 business days under a Sprint Scale."
+  - questionFr: "Le moteur de tarification dynamique remplace-t-il des outils payants au pourcentage ?"
+    questionEn: "Does the built-in dynamic pricing engine replace percentage-based third-party tools?"
+    answerFr: "Oui. Intégrer directement les coefficients événementiels dans le portail supprime les commissions récurrentes par nuitée des outils tiers tout en adaptant les règles aux spécificités de chaque ville."
+    answerEn: "Yes. Embedding event multipliers directly inside the platform removes ongoing per-night SaaS fees while tailoring pricing rules to each local market."
 seoTitleFr: "Welqo — Plateforme SaaS PropTech & Conciergerie Airbnb | Projet Lonside"
 seoTitleEn: "Welqo — PropTech SaaS & Vacation Rental Platform | Lonside Project"
 seoDescriptionFr: "Découvrez comment Lonside a propulsé Welqo : vitrine SEO locale, simulateur de rentabilité, synchronisation PMS temps réel et mandats eIDAS en 28 jours."

@@ -36,21 +36,34 @@ export async function getSupervisionReport(): Promise<SupervisionReport> {
   const vercelEnv = process.env.VERCEL_ENV || (isProd ? 'production' : 'development');
 
   // 1. PostHog Telemetry
-  const hasPostHogToken = Boolean(
-    process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN
-  );
+  const postHogToken = (
+    process.env.NEXT_PUBLIC_POSTHOG_KEY ||
+    process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN ||
+    ''
+  ).trim();
+  const hasPostHogToken = Boolean(postHogToken);
+  const isSecretPostHogToken = /^ph[sx]_/i.test(postHogToken);
+  const isPublicPostHogToken = /^phc_/i.test(postHogToken);
   const postHogHost = process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com';
 
   const posthogService: ServiceHealth = {
     name: 'PostHog Analytics',
     category: 'analytics',
-    status: hasPostHogToken ? 'operational' : 'unconfigured',
-    description: hasPostHogToken
-      ? 'Pipeline de télémétrie PostHog actif et sécurisé avec consentement RGPD'
-      : 'Clé PostHog non configurée (NEXT_PUBLIC_POSTHOG_KEY requise pour la collecte)',
+    status: !hasPostHogToken
+      ? 'unconfigured'
+      : isSecretPostHogToken
+      ? 'degraded'
+      : 'operational',
+    description: !hasPostHogToken
+      ? 'Clé PostHog non configurée (NEXT_PUBLIC_POSTHOG_KEY commençant par phc_ requise)'
+      : isSecretPostHogToken
+      ? 'Clé secrète (phs_/phx_) détectée au lieu de la clé publique projet (phc_) — ingestion client rejetée par PostHog'
+      : 'Pipeline de télémétrie PostHog actif via reverse proxy /ingest avec consentement RGPD',
     details: {
       host: postHogHost,
+      proxyPath: '/ingest',
       tokenConfigured: hasPostHogToken,
+      tokenFormatValid: isPublicPostHogToken,
       privacyStrict: true,
       cookieConsentGate: true,
     },
@@ -93,10 +106,10 @@ export async function getSupervisionReport(): Promise<SupervisionReport> {
     name: 'Moteurs de Recherche & Indexation IA',
     category: 'seo',
     status: 'operational',
-    description: '10 routes canoniques 200 OK directes, hreflang bidirectionnel et llms.txt',
+    description: '32 routes canoniques 200 OK directes (accueil, services, simulateur, études de cas, à propos, légal), hreflang bidirectionnel et llms.txt',
     details: {
       canonicalBase: 'https://www.lonside.com',
-      sitemapUrls: 10,
+      sitemapUrls: 32,
       aiCrawlersAllowed: true,
       zeroHopRedirects: true,
     },
@@ -119,8 +132,8 @@ export async function getSupervisionReport(): Promise<SupervisionReport> {
     version: '1.0.0',
     services,
     metrics: {
-      activeRoutesCount: 19,
-      sitemapUrlsCount: 10,
+      activeRoutesCount: 41,
+      sitemapUrlsCount: 32,
       securityHeadersEnforced: true,
       consentCompliant: true,
     },

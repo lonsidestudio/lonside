@@ -33,6 +33,22 @@ export function beforeSend(event: CaptureResult | null): CaptureResult | null {
   return { ...event, properties: sanitizeProperties(event.properties) as CaptureResult['properties'] };
 }
 
+export function isSecretPostHogKey(token?: string): boolean {
+  return Boolean(token && /^ph[sx]_/i.test(token.trim()));
+}
+
+export function resolvePostHogHosts(rawHost?: string): { apiHost: string; uiHost: string } {
+  const configured = (rawHost || '').trim().replace(/\/+$/, '');
+  if (
+    !configured ||
+    configured === 'https://eu.i.posthog.com' ||
+    configured === 'https://eu.posthog.com'
+  ) {
+    return { apiHost: '/ingest', uiHost: 'https://eu.posthog.com' };
+  }
+  return { apiHost: configured, uiHost: configured };
+}
+
 export async function syncPostHogConsent(production: boolean): Promise<void> {
   enabled = production;
   if (!production || !hasAnalyticsConsent()) {
@@ -46,14 +62,19 @@ export async function syncPostHogConsent(production: boolean): Promise<void> {
     }
     return;
   }
-  const token = process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN;
-  const host = process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com';
-  if (!token || !host) return;
+  const token = (process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN || '').trim();
+  const { apiHost, uiHost } = resolvePostHogHosts(process.env.NEXT_PUBLIC_POSTHOG_HOST);
+  if (!token || !apiHost) return;
+  if (isSecretPostHogKey(token)) {
+    // Une clé phs_/phx_ est rejetée par l'endpoint d'ingestion client (401) et ne doit jamais être utilisée côté navigateur.
+    return;
+  }
   if (!loading) {
     loading = import('posthog-js').then(({ default: posthog }) => {
       if (!enabled || !hasAnalyticsConsent()) return;
       client = posthog.init(token, {
-        api_host: host,
+        api_host: apiHost,
+        ui_host: uiHost,
         defaults: '2026-08-30',
         capture_pageview: 'history_change',
         capture_pageleave: true,
@@ -129,14 +150,18 @@ export function getPostHogStatus(): {
   isOptedOut: boolean;
   host: string;
   isTokenConfigured: boolean;
+  tokenFormatValid: boolean;
   activeEventsCount: number;
 } {
+  const token = (process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN || '').trim();
+  const { apiHost } = resolvePostHogHosts(process.env.NEXT_PUBLIC_POSTHOG_HOST);
   return {
     isInitialized: Boolean(client),
     hasConsent: typeof window !== 'undefined' ? hasAnalyticsConsent() : false,
     isOptedOut: client ? client.has_opted_out_capturing() : true,
-    host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com',
-    isTokenConfigured: Boolean(process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN),
+    host: apiHost,
+    isTokenConfigured: Boolean(token),
+    tokenFormatValid: Boolean(token) && !isSecretPostHogKey(token),
     activeEventsCount: telemetryLogs.length,
   };
 }

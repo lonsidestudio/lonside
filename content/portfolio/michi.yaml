@@ -121,6 +121,104 @@ process:
 deliveryDays: 30
 coverColor: "#0f172a"
 liveUrl: ""
+youtubeVideoId: ""
+youtubeTitleFr: "Michi 道 : moteur prédictif de stocks & réassort omnicanal Shopify/Amazon en 30 jours"
+youtubeTitleEn: "Michi: Building a Sub-Second Predictive Inventory Forecasting SaaS in 30 Days"
+youtubeDuration: ""
+storyLeadQuoteFr: "Une marque e-commerce ne meurt pas par manque de ventes : elle meurt avec 60 000 € de trésorerie bloqués dans ses produits lents pendant que son bestseller est en rupture."
+storyLeadQuoteEn: "Fast-growing e-commerce brands rarely die from lack of demand—they suffocate with €60,000 frozen in slow SKUs while their hero bestseller sits out of stock."
+storyOpeningFr: |-
+  C'est le lundi matin redouté par tout fondateur e-commerce qui passe le cap du million d'euros. Les campagnes d'acquisition performent, les commandes Shopify et Amazon accélèrent… jusqu'au moment où le produit phare qui représente 35 % du chiffre d'affaires tombe à zéro en entrepôt. Le prochain conteneur n'arrive que dans quarante-cinq jours. Pendant ce temps, des dizaines de milliers d'euros dorment sur des références secondaires sur-commandées après un pic promotionnel mal interprété.
+
+  Le coupable est presque toujours le même : un fichier Excel tentaculaire maintenu à la main, basé sur de simples moyennes de ventes passées. Or une moyenne naïve commet deux erreurs fatales : elle confond une rupture de stock avec une baisse de demande, et elle prend un Black Friday éphémère pour une tendance permanente. Michi 道 a été bâti pour remplacer l'intuition et les tableurs cassés par une intelligence d'approvisionnement implacable.
+storyOpeningEn: |-
+  It is the Monday morning every scaling e-commerce founder dreads. Paid acquisition is humming, Shopify and Amazon orders are accelerating—until the flagship SKU responsible for 35% of revenue hits zero warehouse units, with the next factory shipment forty-five days away. Meanwhile, tens of thousands of euros sit trapped in slow-moving variants over-ordered after a misread promotional spike.
+
+  The culprit is almost always the same: a sprawling, hand-maintained spreadsheet relying on naive trailing sales averages. Simple averages commit two fatal errors: they mistake stockout zeros for falling customer demand, and they treat a one-week Black Friday surge as permanent run-rate. Michi was built to replace guesswork and broken spreadsheets with disciplined, mathematical replenishment intelligence.
+beforeAfter:
+  - dimensionFr: "Prévision de la demande"
+    dimensionEn: "Demand forecasting"
+    beforeFr: "Moyennes Excel biaisées par les jours de rupture et les pics promo."
+    beforeEn: "Spreadsheet averages distorted by stockout zeros and flash-sale spikes."
+    afterFr: "Imputation mathématique des ventes manquées et lissage statistique automatique."
+    afterEn: "Algorithmic reconstruction of lost stockout demand and automated outlier smoothing."
+  - dimensionFr: "Temps de préparation des réassorts"
+    dimensionEn: "Reorder planning effort"
+    beforeFr: "10 à 15 heures par semaine de croisements manuels Shopify / Amazon."
+    beforeEn: "10–15 weekly hours merging Shopify, Amazon, and supplier CSVs manually."
+    afterFr: "Recalcul complet du catalogue exécuté en moins d'une seconde en un clic."
+    afterEn: "Full-catalog predictive recalculation executed in under one second."
+  - dimensionFr: "Allocation de trésorerie (BFR)"
+    dimensionEn: "Working capital efficiency"
+    beforeFr: "Commandes uniformes immobilisant le cash sur des références peu rentables."
+    beforeEn: "Uniform restocking trapping cash inside low-margin slow movers."
+    afterFr: "Matrice ABC de marge brute orientant le cash sur les SKU à ROI maximal (-42 % de ruptures)."
+    afterEn: "Gross-margin ABC matrix focusing capital on top ROI SKUs (-42% stockouts)."
+storyTurningPointFr: |-
+  Dès le cadrage de Michi 道, nous avons refusé deux pièges classiques des outils Supply Chain. Premier refus : construire une « boîte noire IA » opaque dont les dirigeants financiers refusent de suivre les recommandations parce qu'ils ne peuvent pas vérifier le calcul. Chaque recommandation d'achat dans Michi affiche explicitement la vélocité corrigée, le délai usine, le stock en transit et la marge générée.
+
+  Second refus : laisser les lenteurs d'API externes dicter la vitesse de l'application. Nous avons découplé l'ingestion Shopify/Amazon du cœur de calcul analytique en mémoire. Même avec des dizaines de milliers de lignes de transactions historiques, un directeur des opérations ajuste un délai fournisseur et voit tout son plan de trésorerie se recalculer sous la seconde.
+storyTurningPointEn: |-
+  From day one on Michi, we rejected two classic Supply Chain software traps. First, we refused to ship an opaque "AI black box" that CFOs distrust because they cannot audit the math. Every purchase recommendation in Michi transparently exposes adjusted velocity, supplier lead time, in-transit stock, and gross margin impact.
+
+  Second, we refused to let slow marketplace APIs dictate dashboard responsiveness. We decoupled Shopify/Amazon ingestion from a high-velocity in-memory analytical engine. Even across tens of thousands of historical transactions, an operations lead can tweak a supplier lead time and watch the entire purchasing and cash plan recompute in under a second.
+storyWalkthroughFr: |-
+  Lundi 8 h 30, la directrice supply chain ouvre Michi 道. En un coup d'œil, trois alertes critiques remontent en tête : un produit de catégorie A atteint son point de commande dans quatre jours compte tenu des 55 jours de production et de fret maritime.
+
+  Elle clique sur la référence : la courbe affiche les ventes réelles et, en pointillé, la demande reconstituée pendant les douze jours de rupture du trimestre précédent. Elle vérifie que le pic de la vente flash d'automne a bien été neutralisé, valide la quantité optimale proposée au regard de sa trésorerie disponible et exporte son bon de commande fournisseur en moins de deux minutes.
+storyWalkthroughEn: |-
+  Monday, 8:30 AM: the head of supply chain opens Michi. Three high-priority alerts surface immediately—an A-tier bestseller reaches its reorder trigger in four days given a 55-day manufacturing and ocean freight lead time.
+
+  Clicking the SKU overlays real historical orders against mathematically reconstructed demand from last quarter's twelve-day stockout, confirming that last autumn's flash sale spike was properly filtered out. She verifies working-capital impact against gross margin contribution and exports the supplier purchase order in under two minutes.
+storyOutcomeFr: |-
+  Déployé en 30 jours ouvrés, Michi 道 a ramené les ruptures de stock de -42 % sur les références clés tout en libérant la trésorerie auparavant gelée dans les surstocks. Les équipes e-commerce ne subissent plus leurs approvisionnements : elles pilotent leur croissance omnicanale avec la rigueur financière d'un grand groupe retail.
+storyOutcomeEn: |-
+  Deployed in 30 business days, Michi cut hero-SKU stockouts by 42% while unlocking working capital previously trapped in overstocked slow movers. E-commerce teams stop fighting inventory fires and manage omnichannel growth with enterprise-grade financial precision.
+productRoles:
+  - roleFr: "Directeur Supply Chain & Achats"
+    roleEn: "Head of Supply Chain & Ops"
+    accessLevelFr: "Console Prévision & Réassort"
+    accessLevelEn: "Forecasting & Reorder Console"
+    workflowFr: "Consulte chaque matin la liste priorisée des SKU à commander, ajuste les délais fournisseurs (30 à 90 jours) et génère des bons de commande prêts à l'envoi sans tableur Excel."
+    workflowEn: "Reviews prioritized SKU reorder alerts each morning, tunes supplier lead times (30–90 days), and generates vendor purchase plans with zero spreadsheet manipulation."
+  - roleFr: "Fondateur / Direction Financière (CFO)"
+    roleEn: "Founder / CFO"
+    accessLevelFr: "Pilotage Trésorerie & Marges"
+    accessLevelEn: "Cash Flow & Margin View"
+    workflowFr: "Visualise le cash immobilisé par catégorie ABC, simule l'impact trésorerie d'un réassort avant de valider et alloue le budget sur les 20 % de références qui génèrent 80 % de la marge."
+    workflowEn: "Monitors working capital tied up across ABC tiers, simulates cash impact prior to purchasing, and concentrates capital on the top 20% SKUs driving 80% of gross margin."
+  - roleFr: "Équipe E-commerce Omnicanale"
+    roleEn: "Omnichannel E-commerce Team"
+    accessLevelFr: "Connecteurs Shopify / Amazon"
+    accessLevelEn: "Shopify / Amazon Connectors"
+    workflowFr: "Pilote les niveaux de stock agrégés entre boutiques D2C, Amazon FBA et distributeurs avec alertes proactives avant toute rupture sur un bestseller."
+    workflowEn: "Tracks consolidated inventory across D2C storefronts, Amazon FBA, and wholesale channels with early warnings ahead of bestseller stockouts."
+productModules:
+  - tagFr: "Moteur Prédictif"
+    tagEn: "Predictive Engine"
+    titleFr: "Imputation de demande réelle & lissage des pics promotionnels"
+    titleEn: "True demand imputation & promotional outlier filtering"
+    behaviorFr: "L'écran SKU affiche la courbe de ventes réelles superposée à la demande reconstituée lors des jours de rupture et signale les anomalies promotionnelles (Black Friday, buzz viral)."
+    behaviorEn: "Each SKU view overlays historical sales against reconstructed lost demand during stockout windows while flagging promotional outliers (Black Friday, viral spikes)."
+    businessRuleFr: "Calcul analytique en mémoire exécuté en moins d'une seconde sur l'ensemble du catalogue, neutralisant le biais de rupture qui sous-estime la demande des produits vedettes."
+    businessRuleEn: "Sub-second in-memory forecasting across the full catalog, correcting stockout bias that otherwise starves hero products of inventory."
+  - tagFr: "Décision d'Achat"
+    tagEn: "Purchasing Decision"
+    titleFr: "Calcul automatique du point de commande (Lead Time + Stock Sécurité)"
+    titleEn: "Automated reorder point calculation (Lead Time + Safety Stock)"
+    behaviorFr: "Traduit instantanément la vélocité multi-canaux, le délai usine/fret et le stock en transit en une date exacte de commande et une quantité optimisée."
+    behaviorEn: "Translates multi-channel run-rate, factory/freight lead times, and in-transit units into an exact reorder trigger date and cash-optimized order quantity."
+    businessRuleFr: "Priorisation par matrice ABC de marge brute pour protéger le besoin en fonds de roulement et éviter de bloquer du cash sur les références à faible rotation."
+    businessRuleEn: "ABC gross-margin prioritization protecting working capital and preventing cash from getting trapped in slow-moving SKUs."
+productFaq:
+  - questionFr: "Pourquoi les tableurs Excel échouent-ils sur la prévision de stocks multi-canaux ?"
+    questionEn: "Why do spreadsheets break down for multi-channel inventory forecasting?"
+    answerFr: "Un tableur ne corrige ni les ventes manquées pendant les jours de rupture ni les pics promotionnels ponctuels, et multiplie les erreurs de formules dès qu'on croise Shopify, Amazon et des délais fournisseurs variables."
+    answerEn: "Spreadsheets fail to adjust for lost sales during stockouts or promotional spikes, and introduce silent formula errors once Shopify, Amazon, and varying factory lead times intersect."
+  - questionFr: "Quelle est la vitesse de calcul de Michi 道 sur un catalogue de plusieurs centaines de références ?"
+    questionEn: "How fast does Michi recalculate forecasts across hundreds of SKUs?"
+    answerFr: "Le moteur analytique découplé recalcule l'ensemble de la chaîne prédictive (imputation, lissage, point de commande et classification ABC) en moins d'une seconde."
+    answerEn: "The decoupled analytical engine recomputes the entire forecasting pipeline—imputation, outlier smoothing, reorder triggers, and ABC ranking—in under one second."
 seoTitleFr: "Michi 道 — Plateforme SaaS de Prévision des Ventes & Supply Chain | Projet Lonside"
 seoTitleEn: "Michi — Sales Forecasting & Supply Chain SaaS Platform | Lonside Project"
 seoDescriptionFr: "Découvrez comment Lonside a conçu Michi 道 : IA prédictive des stocks, réapprovisionnement omnicanal Shopify/Amazon et -42% de ruptures de stock en 30 jours."

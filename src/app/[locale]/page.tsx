@@ -84,6 +84,7 @@ export default async function HomePage({ params }: PageProps) {
     siteConfig.githubUrl,
     siteConfig.linkedinUrl,
     siteConfig.twitterUrl,
+    siteConfig.youtubeUrl,
   ].filter(Boolean);
 
   const pricingTiers = tPricing.raw("tiers") as Array<{ name: string; tagline: string }>;
@@ -110,18 +111,39 @@ export default async function HomePage({ params }: PageProps) {
     "@type": ["Organization", "ProfessionalService"],
     "@id": `${siteConfig.siteUrl}/#organization`,
     name: "Lonside",
-    legalName: "Lonside Studio",
-    alternateName: ["Lonside Studio", "lonside"],
+    legalName: siteConfig.legal.tradeName,
+    alternateName: ["Lonside Studio", "Lonside Corp.", "lonside"],
+    identifier: {
+      "@type": "PropertyValue",
+      propertyID: "SIRET",
+      value: siteConfig.legal.siretCompact,
+    },
+    founder: {
+      "@type": "Person",
+      name: siteConfig.legal.founderName,
+      jobTitle: "Founder & Lead Architect",
+      url: `${siteConfig.siteUrl}/a-propos`,
+    },
     url: `${siteConfig.siteUrl}/`,
-    logo: `${siteConfig.siteUrl}/og?locale=fr`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteConfig.siteUrl}/icon-192.png`,
+      width: 192,
+      height: 192,
+    },
     image: `${siteConfig.siteUrl}/og?locale=${currentLocale}`,
     email: siteConfig.contactEmail,
     sameAs: sameAsProfiles,
     description: tMeta("description"),
     priceRange: "6900€ - 13900€",
+    areaServed: ["FR", "EU", "US"],
     address: {
       "@type": "PostalAddress",
-      addressCountry: "FR",
+      streetAddress: siteConfig.legal.streetAddress,
+      postalCode: siteConfig.legal.postalCode,
+      addressLocality: siteConfig.legal.addressLocality,
+      addressRegion: siteConfig.legal.addressRegion,
+      addressCountry: siteConfig.legal.addressCountry,
     },
     knowsAbout: [
       "Software Engineering",

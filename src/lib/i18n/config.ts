@@ -36,6 +36,22 @@ export const pathnames = {
     fr: '/services',
     en: '/services'
   },
+  '/services/sprint-mvp-14-jours': {
+    fr: '/services/sprint-mvp-14-jours',
+    en: '/services/14-day-mvp-sprint'
+  },
+  '/services/application-web-nextjs': {
+    fr: '/services/application-web-nextjs',
+    en: '/services/nextjs-web-application'
+  },
+  '/services/plateforme-saas-sur-mesure': {
+    fr: '/services/plateforme-saas-sur-mesure',
+    en: '/services/custom-saas-platform'
+  },
+  '/services/regie-tech-senior': {
+    fr: '/services/regie-tech-senior',
+    en: '/services/senior-engineering-squad'
+  },
   '/services/site-vitrine': {
     fr: '/services/site-vitrine',
     en: '/services/landing-page'

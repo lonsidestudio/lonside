@@ -31,6 +31,21 @@ export interface LocalizedProject {
   deliveryDays: number;
   coverColor: string;
   liveUrl: string;
+  youtubeVideoId: string;
+  youtubeTitle: string;
+  youtubeDuration: string;
+  storyLeadQuote: string;
+  storyOpening: string;
+  beforeAfter: Array<{ dimension: string; before: string; after: string }>;
+  storyTurningPoint: string;
+  storyWalkthrough: string;
+  storyOutcome: string;
+  productRoles: Array<{ role: string; accessLevel: string; workflow: string }>;
+  productModules: Array<{ tag: string; title: string; behavior: string; businessRule: string }>;
+  screenshots: Array<{ src: string; alt: string; caption: string }>;
+  productFaq: Array<{ question: string; answer: string }>;
+  seoTitle: string;
+  seoDescription: string;
 }
 
 export interface LocalizedFaqItem {
@@ -99,6 +114,43 @@ export async function getPortfolioProjects(locale: Locale = 'fr'): Promise<Local
       deliveryDays: Number(data.deliveryDays) || 14,
       coverColor: data.coverColor || '#0a0a0a',
       liveUrl: data.liveUrl || '',
+      youtubeVideoId: (data.youtubeVideoId || '').trim(),
+      youtubeTitle: (isEn ? data.youtubeTitleEn : data.youtubeTitleFr) || data.youtubeTitleFr || '',
+      youtubeDuration: (data.youtubeDuration || '').trim(),
+      storyLeadQuote: (isEn ? data.storyLeadQuoteEn : data.storyLeadQuoteFr) || data.storyLeadQuoteFr || '',
+      storyOpening: (isEn ? data.storyOpeningEn : data.storyOpeningFr) || data.storyOpeningFr || '',
+      beforeAfter: (data.beforeAfter || []).map((row) => ({
+        dimension: (isEn ? row.dimensionEn : row.dimensionFr) || row.dimensionFr || '',
+        before: (isEn ? row.beforeEn : row.beforeFr) || row.beforeFr || '',
+        after: (isEn ? row.afterEn : row.afterFr) || row.afterFr || '',
+      })),
+      storyTurningPoint: (isEn ? data.storyTurningPointEn : data.storyTurningPointFr) || data.storyTurningPointFr || '',
+      storyWalkthrough: (isEn ? data.storyWalkthroughEn : data.storyWalkthroughFr) || data.storyWalkthroughFr || '',
+      storyOutcome: (isEn ? data.storyOutcomeEn : data.storyOutcomeFr) || data.storyOutcomeFr || '',
+      productRoles: (data.productRoles || []).map((item) => ({
+        role: (isEn ? item.roleEn : item.roleFr) || item.roleFr || '',
+        accessLevel: (isEn ? item.accessLevelEn : item.accessLevelFr) || item.accessLevelFr || '',
+        workflow: (isEn ? item.workflowEn : item.workflowFr) || item.workflowFr || '',
+      })),
+      productModules: (data.productModules || []).map((item) => ({
+        tag: (isEn ? item.tagEn : item.tagFr) || item.tagFr || '',
+        title: (isEn ? item.titleEn : item.titleFr) || item.titleFr || '',
+        behavior: (isEn ? item.behaviorEn : item.behaviorFr) || item.behaviorFr || '',
+        businessRule: (isEn ? item.businessRuleEn : item.businessRuleFr) || item.businessRuleFr || '',
+      })),
+      screenshots: (data.screenshots || [])
+        .filter((s) => Boolean(s.src))
+        .map((s) => ({
+          src: s.src,
+          alt: (isEn ? s.altEn : s.altFr) || s.altFr || '',
+          caption: (isEn ? s.captionEn : s.captionFr) || s.captionFr || '',
+        })),
+      productFaq: (data.productFaq || []).map((f) => ({
+        question: (isEn ? f.questionEn : f.questionFr) || f.questionFr || '',
+        answer: (isEn ? f.answerEn : f.answerFr) || f.answerFr || '',
+      })),
+      seoTitle: (isEn ? data.seoTitleEn : data.seoTitleFr) || data.seoTitleFr || '',
+      seoDescription: (isEn ? data.seoDescriptionEn : data.seoDescriptionFr) || data.seoDescriptionFr || '',
     }));
 }
 

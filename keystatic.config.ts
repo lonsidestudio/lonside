@@ -115,6 +115,74 @@ export default config({
         deliveryDays: fields.number({ label: 'Délai de livraison (jours)' }),
         coverColor: fields.text({ label: 'Couleur de fond CSS (ex: #1a0a3b)' }),
         liveUrl: fields.text({ label: 'URL live du projet' }),
+        youtubeVideoId: fields.text({ label: 'ID vidéo YouTube (optionnel, ex: dQw4w9WgXcQ)' }),
+        youtubeTitleFr: fields.text({ label: 'Titre vidéo YouTube (FR)' }),
+        youtubeTitleEn: fields.text({ label: 'YouTube Video Title (EN)' }),
+        youtubeDuration: fields.text({ label: 'Durée ISO 8601 (ex: PT6M30S)' }),
+        storyLeadQuoteFr: fields.text({ label: 'Storytelling — Phrase d’accroche éditoriale (FR)', multiline: true }),
+        storyLeadQuoteEn: fields.text({ label: 'Storytelling — Editorial Lead Quote (EN)', multiline: true }),
+        storyOpeningFr: fields.text({ label: 'Acte I — Le Point de Rupture (FR)', multiline: true }),
+        storyOpeningEn: fields.text({ label: 'Act I — The Inflection Point (EN)', multiline: true }),
+        beforeAfter: fields.array(
+          fields.object({
+            dimensionFr: fields.text({ label: 'Axe opérationnel (FR)' }),
+            dimensionEn: fields.text({ label: 'Operational Dimension (EN)' }),
+            beforeFr: fields.text({ label: 'Avant Lonside (FR)' }),
+            beforeEn: fields.text({ label: 'Before Lonside (EN)' }),
+            afterFr: fields.text({ label: 'Après déploiement (FR)' }),
+            afterEn: fields.text({ label: 'After Deployment (EN)' }),
+          }),
+          { label: 'Transformation Avant / Après', itemLabel: (p) => p.fields.dimensionFr.value || 'Transformation' }
+        ),
+        storyTurningPointFr: fields.text({ label: 'Acte II — Arbitrage Produit : ce que nous avons refusé de construire (FR)', multiline: true }),
+        storyTurningPointEn: fields.text({ label: 'Act II — Product Thesis: What We Refused to Build (EN)', multiline: true }),
+        storyWalkthroughFr: fields.text({ label: 'Acte III — Le Produit en Action (Scène d’usage réelle) (FR)', multiline: true }),
+        storyWalkthroughEn: fields.text({ label: 'Act III — The Product in Motion (Live Scenario) (EN)', multiline: true }),
+        storyOutcomeFr: fields.text({ label: 'Acte V — Impact Durable & Après-Lancement (FR)', multiline: true }),
+        storyOutcomeEn: fields.text({ label: 'Act V — Lasting Impact & Post-Launch Reality (EN)', multiline: true }),
+        productRoles: fields.array(
+          fields.object({
+            roleFr: fields.text({ label: 'Rôle utilisateur (FR)' }),
+            roleEn: fields.text({ label: 'User Role (EN)' }),
+            accessLevelFr: fields.text({ label: 'Périmètre / Accès (FR)' }),
+            accessLevelEn: fields.text({ label: 'Access Scope (EN)' }),
+            workflowFr: fields.text({ label: 'Parcours & valeur quotidienne (FR)', multiline: true }),
+            workflowEn: fields.text({ label: 'Daily workflow & value (EN)', multiline: true }),
+          }),
+          { label: 'Anatomie Produit — Rôles & Parcours', itemLabel: (p) => p.fields.roleFr.value || 'Rôle' }
+        ),
+        productModules: fields.array(
+          fields.object({
+            tagFr: fields.text({ label: 'Catégorie module (FR)' }),
+            tagEn: fields.text({ label: 'Module Tag (EN)' }),
+            titleFr: fields.text({ label: 'Nom du module produit (FR)' }),
+            titleEn: fields.text({ label: 'Product Module Name (EN)' }),
+            behaviorFr: fields.text({ label: 'Fonctionnement côté utilisateur (FR)', multiline: true }),
+            behaviorEn: fields.text({ label: 'User-facing behavior (EN)', multiline: true }),
+            businessRuleFr: fields.text({ label: 'Règle métier / sécurité / monétisation (FR)', multiline: true }),
+            businessRuleEn: fields.text({ label: 'Business / security / revenue rule (EN)', multiline: true }),
+          }),
+          { label: 'Anatomie Produit — Modules Clés', itemLabel: (p) => p.fields.titleFr.value || 'Module' }
+        ),
+        screenshots: fields.array(
+          fields.object({
+            src: fields.text({ label: 'Chemin image dans /public (ex: /images/portfolio/welqo-1.webp)' }),
+            altFr: fields.text({ label: 'Texte alternatif SEO (FR)' }),
+            altEn: fields.text({ label: 'SEO Alt Text (EN)' }),
+            captionFr: fields.text({ label: 'Légende écran (FR)' }),
+            captionEn: fields.text({ label: 'Screen Caption (EN)' }),
+          }),
+          { label: 'Galerie Captures Produit', itemLabel: (p) => p.fields.captionFr.value || 'Capture' }
+        ),
+        productFaq: fields.array(
+          fields.object({
+            questionFr: fields.text({ label: 'Question produit / secteur (FR)' }),
+            questionEn: fields.text({ label: 'Product / Sector Question (EN)' }),
+            answerFr: fields.text({ label: 'Réponse détaillée (FR)', multiline: true }),
+            answerEn: fields.text({ label: 'Detailed Answer (EN)', multiline: true }),
+          }),
+          { label: 'FAQ Produit & Sectorielle', itemLabel: (p) => p.fields.questionFr.value || 'Question' }
+        ),
         seoTitleFr: fields.text({ label: 'Titre SEO (FR)' }),
         seoTitleEn: fields.text({ label: 'SEO Title (EN)' }),
         seoDescriptionFr: fields.text({ label: 'Meta description SEO (FR)', multiline: true }),
