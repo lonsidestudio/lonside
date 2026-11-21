@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "@/lib/i18n/navigation";
 import type { LocalizedProject } from "@/lib/keystatic/reader";
 import DossierDrawer from "@/components/DossierDrawer";
 
@@ -100,10 +101,14 @@ export default function WorkSection({ projects, locale = "fr" }: WorkSectionProp
                     {t("liveInProduction")}
                   </span>
                 )}
-                <span className="text-black underline underline-offset-4 font-medium group-hover:text-zinc-600 transition-colors whitespace-nowrap shrink-0 text-xs ml-auto">
+                <Link
+                  href={{ pathname: "/portfolio/[slug]", params: { slug: project.slug } }}
+                  onClick={(e) => e.stopPropagation()}
+                  className="text-black underline underline-offset-4 font-medium hover:text-zinc-600 transition-colors whitespace-nowrap shrink-0 text-xs ml-auto py-1"
+                >
                   <span className="hidden sm:inline">{t("projectDetails")}</span>
                   <span className="sm:hidden">{t("details")}</span>
-                </span>
+                </Link>
               </div>
             </article>
           ))}

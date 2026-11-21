@@ -127,6 +127,116 @@ testimonialRoleEn: "The Bride & Groom (#CIntoInfinity)"
 deliveryDays: 20
 coverColor: "#1A2520"
 liveUrl: ""
+youtubeVideoId: ""
+youtubeTitleFr: "WeedIn : billetterie événementielle privée, QR codes temps réel et galerie live en 20 jours"
+youtubeTitleEn: "WeedIn: Private Luxury Event Ticketing, Real-Time QR Access & Live Gallery in 20 Days"
+youtubeDuration: ""
+storyLeadQuoteFr: "À quatre heures de l'ouverture des portes d'un gala international de 300 invités, deux tables changent : une billetterie statique crée le chaos à l'accueil ; une architecture découplée absorbe le changement en silence."
+storyLeadQuoteEn: "Four hours before doors open on a 300-guest international gala, two seating tables shift: static tickets trigger chaos at the door; a decoupled architecture absorbs the change silently."
+storyOpeningFr: |-
+  Organiser une célébration privée de prestige réunissant des centaines d'invités répartis entre l'Europe, l'Afrique et l'Amérique du Nord est un véritable projet logistique sous haute pression émotionnelle. Les cartons d'invitation papier coûtent plusieurs milliers d'euros et mettent des semaines à franchir les frontières sans garantie de livraison. Pire : sans confirmation fiable par temps fort, le traiteur facture 20 à 30 % de couverts inutiles, tandis que la gestion des entrées VIP et des plans de table de dernière minute vire vite au stress permanent.
+
+  WeedIn est né d'une exigence simple : offrir aux événements privés et galas haut de gamme la fluidité technologique d'une billetterie de grand festival, habillée d'une direction artistique haute couture irréprochable sur smartphone.
+storyOpeningEn: |-
+  Orchestrating a multi-venue luxury celebration for hundreds of guests traveling across Europe, Africa, and North America is a high-stakes logistical operation. Luxury paper invitations consume thousands of euros and stall in international mail without delivery proof. Worse, unreliable per-ceremony RSVPs cause 20–30% catering waste, while last-minute seating changes and VIP access control create intense day-of friction.
+
+  WeedIn was conceived around one uncompromising standard: deliver the operational speed of modern enterprise event ticketing dressed in haute couture mobile art direction.
+beforeAfter:
+  - dimensionFr: "Invitations & confirmations RSVP"
+    dimensionEn: "Invitations & RSVP tracking"
+    beforeFr: "Papeterie coûteuse, délais postaux internationaux et 20–30 % de perte traiteur."
+    beforeEn: "Costly print runs, international postage delays, and 20–30% catering waste."
+    afterFr: "Parcours digital instantané mondial avec effectifs exacts par cérémonie et régimes."
+    afterEn: "Instant worldwide digital RSVP with exact per-ceremony headcounts and dietary specs."
+  - dimensionFr: "Modifications de plan de table"
+    dimensionEn: "Last-minute seating changes"
+    beforeFr: "Billets figés imposant réimpressions d'urgence ou confusion à l'entrée."
+    beforeEn: "Hardcoded seat numbers forcing emergency re-issuance and door bottlenecks."
+    afterFr: "Scan QR temps réel restituant le placement actualisé jusqu'à H-1 sans réémission."
+    afterEn: "Live QR check-in resolving updated table numbers up to H-1 with zero re-issuance."
+  - dimensionFr: "Contrôle d'accès VIP le jour J"
+    dimensionEn: "Day-of VIP access control"
+    beforeFr: "Listes papier lentes et risques d'intrusion aux entrées."
+    beforeEn: "Slow paper guestlists and gatecrashing risks."
+    afterFr: "E-billets nominatifs infalsifiables vérifiés en une fraction de seconde (zéro file)."
+    afterEn: "Tamper-proof personalized QR passes verified in fractions of a second (zero queues)."
+  - dimensionFr: "Souvenirs photo des invités"
+    dimensionEn: "Guest photo collection"
+    beforeFr: "Photos compressées et éparpillées sur des groupes de messagerie."
+    beforeEn: "Compressed images scattered across messaging chats."
+    afterFr: "Galerie cloud privée HD avec modération live ayant collecté plus de 600 clichés."
+    afterEn: "Private high-res cloud gallery with live moderation collecting 600+ pristine shots."
+storyTurningPointFr: |-
+  Le choix d'architecture qui a sauvé le jour J s'est joué avant même d'écrire la billetterie : nous avons refusé d'imprimer les numéros de table en dur dans l'image du billet PDF. Dans tout événement réel, les tables bougent jusqu'au dernier matin. En découplant l'e-billet graphique (généré en moins de 250 ms avec un QR code cryptographiquement signé) de la base de placement temps réel, les organisateurs ont gardé une liberté totale jusqu'à l'ouverture des portes sans jamais perturber les invités.
+
+  De même, pour la galerie photo collaborative, nous avons refusé de faire transiter les fichiers HD par le serveur applicatif : les smartphones envoient directement leurs clichés vers un stockage cloud chiffré, garantissant zéro saturation pendant la soirée et un score mobile Lighthouse de 94/100 malgré l'ambiance sonore et typographique riche.
+storyTurningPointEn: |-
+  The architectural decision that saved event day happened before a single ticket was designed: we refused to hardcode table numbers onto static pass artwork. In every real celebration, seating shifts until the final morning. By decoupling personalized visual e-passes (rendered in under 250ms with cryptographically signed QR tokens) from live seating lookups, organizers kept total flexibility until doors opened without ever re-emailing guests.
+
+  Similarly, for the live collaborative photo gallery, we bypassed the application server entirely using direct-to-cloud encrypted uploads—absorbing concurrent smartphone photo spikes effortlessly while maintaining a 94/100 mobile Lighthouse score.
+storyWalkthroughFr: |-
+  Trois semaines avant l'événement, un invité à New York ouvre son lien privé sur mobile. Il parcourt l'histoire de l'événement, confirme sa présence au dîner de gala et indique son régime alimentaire. Moins d'une seconde plus tard, son e-billet nominatif haute fidélité arrive dans sa boîte mail.
+
+  Le soir du gala, il présente son QR code à l'équipe d'accueil : un scan d'une demi-seconde confirme son identité, l'enregistre présent et affiche immédiatement sa table actualisée. Durant la soirée, il dépose ses photos en haute résolution sur la galerie privée modérée en direct — sans créer de compte ni perdre un pixel de qualité.
+storyWalkthroughEn: |-
+  Three weeks before the celebration, a guest in New York opens their private link on mobile, explores the multi-venue itinerary, submits their gala RSVP with dietary notes, and receives a bespoke personalized e-pass in under one second.
+
+  On gala night, they flash their QR code at reception: a half-second scan validates authenticity, marks attendance, and surfaces their up-to-the-minute table number. Throughout the evening, they upload full-resolution memories straight into the live moderated gallery—with zero account friction and zero image compression.
+storyOutcomeFr: |-
+  Livré en 20 jours ouvrés, WeedIn a supprimé les coûts de papeterie internationale, fourni les effectifs exacts au traiteur deux semaines avant l'échéance, fluidifié l'accueil VIP sans la moindre attente et centralisé plus de 600 photographies haute résolution dans un écrin privé pérenne.
+storyOutcomeEn: |-
+  Delivered in 20 business days, WeedIn eliminated international print overhead, handed exact headcounts to the caterer two weeks ahead of schedule, kept VIP check-in completely queue-free, and preserved over 600 high-resolution guest photographs inside an enduring private showcase.
+productRoles:
+  - roleFr: "Invité International"
+    roleEn: "International Guest"
+    accessLevelFr: "Expérience Mobile Invité"
+    accessLevelEn: "Guest Mobile Experience"
+    workflowFr: "Découvre le programme multi-lieux, confirme sa présence par cérémonie avec ses contraintes alimentaires, reçoit instantanément son e-billet nominatif par email et partage ses photos HD pendant la soirée."
+    workflowEn: "Explores multi-venue schedules, submits per-ceremony RSVPs with dietary preferences, receives an instant personalized e-pass via email, and uploads high-res photos live."
+  - roleFr: "Organisateur & Wedding Planner"
+    roleEn: "Host & Event Organizer"
+    accessLevelFr: "Console Pilotage & Plan de Table"
+    accessLevelEn: "Admin & Seating Console"
+    workflowFr: "Suit les effectifs exacts par temps fort pour le traiteur, ajuste le plan de table jusqu'à la dernière minute sans renvoyer les billets et modère la galerie photo en direct."
+    workflowEn: "Monitors exact catering headcounts per ceremony, refines table assignments up to the final hour without reissuing passes, and moderates the live photo stream."
+  - roleFr: "Équipe Accueil & Sécurité J-J"
+    roleEn: "Door Check-In & Security Team"
+    accessLevelFr: "Interface Scan QR Rapide"
+    accessLevelEn: "Instant QR Check-In Interface"
+    workflowFr: "Scanne le QR code sur smartphone en une fraction de seconde, vérifie l'authenticité du billet et affiche instantanément le numéro de table actualisé de l'invité."
+    workflowEn: "Scans guest QR passes in fractions of a second, validates pass authenticity, and displays up-to-the-minute table assignments on screen."
+productModules:
+  - tagFr: "Billetterie & Accès"
+    tagEn: "Ticketing & Access"
+    titleFr: "Moteur d'e-billets personnalisés (< 250 ms) & placement dynamique"
+    titleEn: "Sub-250ms luxury e-pass generator & dynamic seating lookup"
+    behaviorFr: "Dès la validation du formulaire RSVP, l'invité reçoit un billet graphique nominatif avec QR code unique ; à l'entrée, le scan renvoie l'affectation de table la plus récente en temps réel."
+    behaviorEn: "Upon RSVP confirmation, guests receive a personalized visual e-pass with a unique QR code; scanning at the door resolves their live table assignment in real time."
+    businessRuleFr: "Signature cryptographique anti-duplication sur chaque QR code et découplage complet entre le fichier billet et le plan de table pour permettre des ajustements jusqu'à H-1."
+    businessRuleEn: "Tamper-proof cryptographic QR tokens decoupled from static pass artwork so organizers can adjust seating up to one hour before doors open."
+  - tagFr: "Médias Temps Réel"
+    tagEn: "Live Media"
+    titleFr: "Galerie photo collaborative HD & modération instantanée"
+    titleEn: "High-resolution collaborative photo gallery & live moderation"
+    behaviorFr: "Les invités déposent leurs clichés originaux depuis leur smartphone sans créer de compte ; les photos validées apparaissent en direct dans une galerie privée élégante."
+    behaviorEn: "Guests upload full-resolution smartphone photos with zero account friction; approved shots stream live into a private high-resolution gallery."
+    businessRuleFr: "Upload direct vers stockage cloud chiffré absorbant les pics de téléversement simultanés sans saturer le serveur applicatif ni compresser destructivement les souvenirs."
+    businessRuleEn: "Direct-to-cloud encrypted uploads absorbing concurrent reception spikes without bottlenecking the app server or degrading image quality."
+screenshots:
+  - src: "/images/architecture/weedin.png"
+    altFr: "Schéma d'architecture système WeedIn : parcours RSVP mobile, moteur d'e-billets QR code cryptographiques sous 250 ms et galerie cloud HD"
+    altEn: "WeedIn system architecture blueprint: mobile RSVP showcase, sub-250ms cryptographic QR e-pass engine, and direct HD cloud gallery"
+    captionFr: "Blueprint d’architecture WeedIn — Billetterie QR code cryptographique, placement dynamique J-J et galerie cloud HD."
+    captionEn: "WeedIn Architecture Blueprint — Cryptographic QR e-passes, live day-of seating lookup, and zero-compression cloud gallery."
+productFaq:
+  - questionFr: "Ce socle de billetterie QR code fonctionne-t-il aussi pour des événements corporate ou B2B ?"
+    questionEn: "Does this QR ticketing and RSVP platform also fit corporate galas and B2B summits?"
+    answerFr: "Tout à fait. L'architecture multi-sessions, le contrôle d'accès antifraude par QR code, la gestion dynamique des places et le suivi des effectifs répondent aussi bien aux sommets B2B, lancements de marque et soirées VIP qu'aux célébrations privées."
+    answerEn: "Yes. Multi-session RSVP flows, fraud-proof QR access control, dynamic seating lookups, and real-time headcount exports fit B2B summits, brand launches, and private VIP galas equally well."
+  - questionFr: "En combien de jours une plateforme événementielle sur-mesure peut-elle être mise en ligne ?"
+    questionEn: "How fast can a bespoke private event platform be launched?"
+    answerFr: "WeedIn a été conçu, testé et déployé en production en 20 jours ouvrés avec un score mobile Lighthouse de 94/100 et zéro file d'attente le jour J."
+    answerEn: "WeedIn was engineered, tested, and launched live in 20 business days, achieving a 94/100 mobile Lighthouse score and zero door bottlenecks on event day."
 seoTitleFr: "WeedIn — Plateforme Événementielle Privée & Billetterie Luxe | Projet Lonside"
 seoTitleEn: "WeedIn — Luxury Private Event Platform & Ticketing | Lonside Project"
 seoDescriptionFr: "Découvrez comment Lonside a conçu WeedIn : billetterie privée avec QR code d'accès, gestion RSVP multi-cérémonies et galerie live en 20 jours."

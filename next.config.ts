@@ -30,9 +30,10 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline'",
       // next/font self-hosts fonts — no external font CDN needed
       "font-src 'self'",
-      "img-src 'self' data: blob:",
+      "img-src 'self' data: blob: https://i.ytimg.com",
       // API calls: self, Vercel vitals/speed-insights and PostHog EU ingestion/config
       "connect-src 'self' vitals.vercel-insights.com https://vercel.com https://vercel-insights.com https://eu.i.posthog.com https://eu-assets.i.posthog.com",
+      "frame-src 'self' https://www.youtube-nocookie.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
@@ -54,29 +55,42 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
-  // 301 Permanent Redirects consolidating legacy routes to high-converting root anchors with 0 redirect hops
+  // Requis pour le reverse proxy PostHog (/ingest/e/) ; les trailing slashes publics sont normalisés dans src/proxy.ts
+  skipTrailingSlashRedirect: true,
+  // Reverse proxy PostHog EU pour fiabiliser la collecte face aux bloqueurs tiers
+  rewrites: async () => [
+    {
+      source: '/ingest/static/:path*',
+      destination: 'https://eu-assets.i.posthog.com/static/:path*',
+    },
+    {
+      source: '/ingest/:path*',
+      destination: 'https://eu.i.posthog.com/:path*',
+    },
+  ],
+  // 301 Permanent Redirects consolidating legacy routes with 0 redirect hops
   redirects: async () => [
-    { source: '/services/:path*', destination: '/#tarifs', permanent: true },
+    { source: '/services', destination: '/#tarifs', permanent: true },
+    { source: '/fr/services', destination: '/#tarifs', permanent: true },
+    { source: '/en/services', destination: '/en#tarifs', permanent: true },
+    { source: '/services/site-vitrine', destination: '/services/sprint-mvp-14-jours', permanent: true },
+    { source: '/services/automatisation', destination: '/services/plateforme-saas-sur-mesure', permanent: true },
+    { source: '/services/design', destination: '/services/application-web-nextjs', permanent: true },
+    { source: '/services/application-web', destination: '/services/application-web-nextjs', permanent: true },
+    { source: '/services/regie', destination: '/services/regie-tech-senior', permanent: true },
     { source: '/fr/services/:path*', destination: '/#tarifs', permanent: true },
-    { source: '/en/services/:path*', destination: '/en#tarifs', permanent: true },
-    { source: '/methode', destination: '/#methode', permanent: true },
-    { source: '/fr/methode', destination: '/#methode', permanent: true },
-    { source: '/en/methode', destination: '/en#methode', permanent: true },
-    { source: '/estimation', destination: '/#tarifs', permanent: true },
-    { source: '/fr/estimation', destination: '/#tarifs', permanent: true },
-    { source: '/en/estimation', destination: '/en#tarifs', permanent: true },
-    { source: '/a-propos', destination: '/#manifeste', permanent: true },
-    { source: '/fr/a-propos', destination: '/#manifeste', permanent: true },
-    { source: '/en/a-propos', destination: '/en#manifeste', permanent: true },
-    { source: '/portfolio/:path*', destination: '/#projets', permanent: true },
-    { source: '/fr/portfolio/:path*', destination: '/#projets', permanent: true },
-    { source: '/en/portfolio/:path*', destination: '/en#projets', permanent: true },
+    { source: '/fr/methode', destination: '/methode', permanent: true },
+    { source: '/en/methode', destination: '/en/method', permanent: true },
+    { source: '/fr/estimation', destination: '/estimation', permanent: true },
+    { source: '/en/estimation', destination: '/en/estimate', permanent: true },
+    { source: '/fr/a-propos', destination: '/a-propos', permanent: true },
+    { source: '/en/a-propos', destination: '/en/about', permanent: true },
     { source: '/contact', destination: '/#contact', permanent: true },
     { source: '/fr/contact', destination: '/#contact', permanent: true },
     { source: '/en/contact', destination: '/en#contact', permanent: true },
-    { source: '/blog/:path*', destination: '/#projets', permanent: true },
-    { source: '/fr/blog/:path*', destination: '/#projets', permanent: true },
-    { source: '/en/blog/:path*', destination: '/en#projets', permanent: true },
+    { source: '/blog/:path*', destination: '/portfolio', permanent: true },
+    { source: '/fr/blog/:path*', destination: '/portfolio', permanent: true },
+    { source: '/en/blog/:path*', destination: '/en/portfolio', permanent: true },
   ],
 };
 

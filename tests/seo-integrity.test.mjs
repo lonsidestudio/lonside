@@ -20,6 +20,7 @@ function loadModule(filePath, mockModules = {}) {
     module: { exports },
     process,
     Date,
+    URL,
     require: (moduleName) => {
       if (mockModules[moduleName]) {
         return mockModules[moduleName];
@@ -44,6 +45,8 @@ const seoHelpers = loadModule('src/lib/seo-helpers.ts', {
 
 // 3. Charger sitemap
 const sitemapModule = loadModule('src/app/sitemap.ts', {
+  'node:fs': { default: fs, ...fs },
+  'node:path': { default: path, ...path },
   '@/lib/site-config': siteConfigModule,
 });
 const sitemap = sitemapModule.default;
@@ -57,6 +60,7 @@ const robots = robotsModule.default;
 // 5. Charger proxy
 const proxyModule = loadModule('src/proxy.ts', {
   'next-intl/middleware': { default: () => () => {} },
+  'next/server': { NextResponse: { redirect: () => {} } },
   './lib/i18n/config': {
     locales: ['fr', 'en'],
     defaultLocale: 'fr',
@@ -65,19 +69,45 @@ const proxyModule = loadModule('src/proxy.ts', {
 });
 const proxyConfig = proxyModule.config;
 
-test('siteConfig points to official Lonside domain, email and GitHub organisation', () => {
+test('siteConfig points to official Lonside domain, email, calendar, SIRET and GitHub organisation', () => {
   assert.equal(siteConfig.siteUrl, 'https://www.lonside.com');
   assert.equal(siteConfig.contactEmail, 'hello@lonside.com');
+  assert.equal(siteConfig.calendarUrl, 'https://cal.com/lonsidestudio');
   assert.equal(siteConfig.githubUrl, 'https://github.com/lonsidestudio');
+  assert.equal(siteConfig.legal.siretCompact, '99991217300013');
 });
 
 test('sitemap generates strictly 200 OK canonical URLs with valid hreflang', async () => {
   const entries = await sitemap();
-  assert.equal(entries.length, 10, 'Sitemap must contain exactly 10 URLs (5 FR, 5 EN)');
+  assert.equal(entries.length, 34, 'Sitemap must contain exactly 34 URLs (17 FR, 17 EN)');
 
   const expectedUrls = [
     'https://www.lonside.com/',
     'https://www.lonside.com/en',
+    'https://www.lonside.com/services/sprint-mvp-14-jours',
+    'https://www.lonside.com/en/services/14-day-mvp-sprint',
+    'https://www.lonside.com/services/application-web-nextjs',
+    'https://www.lonside.com/en/services/nextjs-web-application',
+    'https://www.lonside.com/services/plateforme-saas-sur-mesure',
+    'https://www.lonside.com/en/services/custom-saas-platform',
+    'https://www.lonside.com/services/regie-tech-senior',
+    'https://www.lonside.com/en/services/senior-engineering-squad',
+    'https://www.lonside.com/estimation',
+    'https://www.lonside.com/en/estimate',
+    'https://www.lonside.com/portfolio',
+    'https://www.lonside.com/en/portfolio',
+    'https://www.lonside.com/methode',
+    'https://www.lonside.com/en/method',
+    'https://www.lonside.com/a-propos',
+    'https://www.lonside.com/en/about',
+    'https://www.lonside.com/portfolio/bely',
+    'https://www.lonside.com/en/portfolio/bely',
+    'https://www.lonside.com/portfolio/michi',
+    'https://www.lonside.com/en/portfolio/michi',
+    'https://www.lonside.com/portfolio/weedin',
+    'https://www.lonside.com/en/portfolio/weedin',
+    'https://www.lonside.com/portfolio/welqo',
+    'https://www.lonside.com/en/portfolio/welqo',
     'https://www.lonside.com/legal/mentions-legales',
     'https://www.lonside.com/en/legal/legal-notice',
     'https://www.lonside.com/legal/politique-confidentialite',
@@ -97,12 +127,17 @@ test('sitemap generates strictly 200 OK canonical URLs with valid hreflang', asy
     assert.ok(match.lastModified instanceof Date, `lastModified must be a valid Date on ${expected}`);
   }
 
-  // Ensure NO redirected URLs (e.g. non-www or unlocalized slugs)
+  // Ensure NO redirected URLs (e.g. non-www or unlocalized slugs) and valid x-default per route
   for (const entry of entries) {
     assert.ok(entry.url.startsWith('https://www.lonside.com'), `All URLs must use www.lonside.com: ${entry.url}`);
     assert.ok(!entry.url.includes('/fr/legal/'), `URL must not contain /fr/ prefix on legal pages: ${entry.url}`);
     assert.ok(!entry.url.includes('/en/legal/cgv'), `English CGV must use localized slug /terms-of-sale: ${entry.url}`);
     assert.ok(!entry.url.includes('/en/legal/mentions-legales'), `English mentions must use /legal-notice: ${entry.url}`);
+    assert.equal(
+      entry.alternates.languages['x-default'],
+      entry.alternates.languages.fr,
+      `x-default must match the French canonical URL of the same route on ${entry.url}`
+    );
   }
 });
 
@@ -129,6 +164,8 @@ test('proxy middleware matcher excludes dynamic asset routes to prevent 404', ()
     '/icon',
     '/apple-icon',
     '/og',
+    '/ingest/e/',
+    '/ingest/static/array.js',
     '/api/contact',
     '/sitemap.xml',
     '/robots.txt',
@@ -221,4 +258,81 @@ test('favicon complies with Google Search multiple-of-48px square requirement', 
   assert.ok(fs.existsSync('src/app/favicon.ico'), 'src/app/favicon.ico must exist');
   assert.ok(fs.existsSync('public/favicon.ico'), 'public/favicon.ico must exist');
   assert.ok(fs.existsSync('public/icon-48.png'), 'public/icon-48.png must exist');
+});
+
+test('footer legal links use localized next-intl Link and never hardcode /{locale}/legal/', () => {
+  const footerContent = fs.readFileSync('src/components/layout/Footer.tsx', 'utf8');
+  assert.ok(!footerContent.includes('/${locale}/legal/'), 'Footer must never emit hardcoded /${locale}/legal/ links');
+  assert.ok(footerContent.includes('<Link href="/legal/mentions-legales"'), 'Footer must use localized Link for legal notice');
+  assert.ok(footerContent.includes('<Link href="/legal/cookies"'), 'Footer must use localized Link for cookies');
+});
+
+test('public directory exposes no internal strategy documents or starter SVGs', () => {
+  const publicFiles = fs.readdirSync('public');
+  const forbidden = publicFiles.filter((f) => /^LONSIDE_|^(vercel|next|window|file|globe)\.svg$/i.test(f));
+  assert.deepEqual(forbidden, [], `Unexpected public files found: ${forbidden.join(', ')}`);
+});
+
+test('siteConfig normalizes apex domain and generic social homepages', () => {
+  const originalSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const originalLinkedin = process.env.NEXT_PUBLIC_LINKEDIN_URL;
+  const originalTwitter = process.env.NEXT_PUBLIC_TWITTER_URL;
+  try {
+    process.env.NEXT_PUBLIC_SITE_URL = 'https://lonside.com';
+    process.env.NEXT_PUBLIC_LINKEDIN_URL = 'https://linkedin.com';
+    process.env.NEXT_PUBLIC_TWITTER_URL = 'https://twitter.com/';
+    const reloaded = loadModule('src/lib/site-config.ts').siteConfig;
+    assert.equal(reloaded.siteUrl, 'https://www.lonside.com');
+    assert.equal(reloaded.linkedinUrl, '');
+    assert.equal(reloaded.twitterUrl, '');
+  } finally {
+    if (originalSiteUrl === undefined) delete process.env.NEXT_PUBLIC_SITE_URL;
+    else process.env.NEXT_PUBLIC_SITE_URL = originalSiteUrl;
+    if (originalLinkedin === undefined) delete process.env.NEXT_PUBLIC_LINKEDIN_URL;
+    else process.env.NEXT_PUBLIC_LINKEDIN_URL = originalLinkedin;
+    if (originalTwitter === undefined) delete process.env.NEXT_PUBLIC_TWITTER_URL;
+    else process.env.NEXT_PUBLIC_TWITTER_URL = originalTwitter;
+  }
+});
+
+test('i18n message dictionaries (fr.json & en.json) have 100% key parity', () => {
+  const fr = JSON.parse(fs.readFileSync('src/lib/i18n/messages/fr.json', 'utf8'));
+  const en = JSON.parse(fs.readFileSync('src/lib/i18n/messages/en.json', 'utf8'));
+
+  function flattenKeys(obj, prefix = '') {
+    const keys = [];
+    for (const [k, v] of Object.entries(obj)) {
+      const next = prefix ? `${prefix}.${k}` : k;
+      if (v && typeof v === 'object' && !Array.isArray(v)) {
+        keys.push(...flattenKeys(v, next));
+      } else {
+        keys.push(next);
+      }
+    }
+    return keys.sort();
+  }
+
+  assert.deepEqual(flattenKeys(fr), flattenKeys(en), 'fr.json and en.json keys must match 100%');
+});
+
+test('zero hardcoded UI bilingual ternaries remain in localized pages and components', () => {
+  const offenders = [];
+  function scanUi(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) scanUi(full);
+      else if (entry.name.endsWith('.tsx')) {
+        const lines = fs.readFileSync(full, 'utf8').split(/\r?\n/);
+        lines.forEach((line, idx) => {
+          // Allow URL/locale/Keystatic field selection, disallow UI string ternaries like isEn ? 'Text' : 'Texte'
+          if (/\b(?:isEn|locale\s*===\s*['"]en['"])\s*\?\s*['"`][A-ZÀ-ÿ][^'"`]*['"`]\s*:\s*['"`]/.test(line)) {
+            offenders.push(`${full}:${idx + 1}: ${line.trim()}`);
+          }
+        });
+      }
+    }
+  }
+  scanUi('src/app/[locale]');
+  scanUi('src/components');
+  assert.deepEqual(offenders, [], `Hardcoded UI bilingual ternaries found:\n${offenders.join('\n')}`);
 });

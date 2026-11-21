@@ -173,7 +173,7 @@ export default function CookieConsent() {
                 type="button"
                 onClick={() => setAnalyticsConsent(!analyticsConsent)}
                 className={`w-9 h-5 rounded-full transition-colors relative flex items-center px-1 cursor-pointer focus:outline-none ${analyticsConsent ? 'bg-black' : 'bg-zinc-200'}`}
-                aria-label="Toggle Analytics cookies"
+                aria-label={t('toggleAnalyticsAria')}
               >
                 <span className={`w-3.5 h-3.5 rounded-full bg-white transition-transform block ${analyticsConsent ? 'translate-x-3.5' : 'translate-x-0'}`}></span>
               </button>
@@ -202,7 +202,7 @@ export default function CookieConsent() {
                 type="button"
                 onClick={() => setMarketingConsent(!marketingConsent)}
                 className={`w-9 h-5 rounded-full transition-colors relative flex items-center px-1 cursor-pointer focus:outline-none ${marketingConsent ? 'bg-black' : 'bg-zinc-200'}`}
-                aria-label="Toggle Marketing cookies"
+                aria-label={t('toggleMarketingAria')}
               >
                 <span className={`w-3.5 h-3.5 rounded-full bg-white transition-transform block ${marketingConsent ? 'translate-x-3.5' : 'translate-x-0'}`}></span>
               </button>

@@ -3,7 +3,7 @@ titleEn: Legal Notices
 sectionsFr:
   - title: Éditeur du site
     content: |-
-      <p><span class="text-black font-medium">Dénomination :</span> Lonside Studio</p><p><span class="text-black font-medium">Activité :</span> Studio d'Ingénierie Logicielle & Développement Web Haute Vélocité</p><p><span class="text-black font-medium">Siège social :</span> France</p><p><span class="text-black font-medium">Email direct :</span> hello@lonside.com</p>
+      <p><span class="text-black font-medium">Dénomination :</span> Lonside Studio (Nom commercial : Lonside Corp.)</p><p><span class="text-black font-medium">Activité :</span> Studio indépendant d'Ingénierie Logicielle & Développement Web Haute Vélocité</p><p><span class="text-black font-medium">SIRET :</span> 999 912 173 00013 (SIREN : 999 912 173 — Code APE : 6820A)</p><p><span class="text-black font-medium">Établissement principal :</span> 1 Allée Silvestre, 33270 Bouliac, Gironde, France</p><p><span class="text-black font-medium">Directeur de publication :</span> Kevin T. — Fondateur & Lead Architect</p><p><span class="text-black font-medium">Email direct :</span> hello@lonside.com</p>
   - title: Hébergement
     content: Ce site est hébergé par Vercel Inc., 340 Pine Street, Suite 900, San Francisco, CA 94104, USA.
   - title: Propriété intellectuelle
@@ -13,7 +13,7 @@ sectionsFr:
 sectionsEn:
   - title: Website Publisher
     content: |-
-      <p><span class="text-black font-medium">Name:</span> Lonside Studio</p><p><span class="text-black font-medium">Activity:</span> High-Velocity Custom Software & Web Engineering Studio</p><p><span class="text-black font-medium">Headquarters:</span> France</p><p><span class="text-black font-medium">Direct Email:</span> hello@lonside.com</p>
+      <p><span class="text-black font-medium">Name:</span> Lonside Studio (Trade name: Lonside Corp.)</p><p><span class="text-black font-medium">Activity:</span> Independent High-Velocity Custom Software & Web Engineering Studio</p><p><span class="text-black font-medium">SIRET:</span> 999 912 173 00013 (SIREN: 999 912 173 — APE Code: 6820A)</p><p><span class="text-black font-medium">Principal Office:</span> 1 Allée Silvestre, 33270 Bouliac, Gironde, France</p><p><span class="text-black font-medium">Publication Director:</span> Kevin T. — Founder & Lead Architect</p><p><span class="text-black font-medium">Direct Email:</span> hello@lonside.com</p>
   - title: Hosting Provider
     content: This website is hosted by Vercel Inc., 340 Pine Street, Suite 900, San Francisco, CA 94104, USA.
   - title: Intellectual Property

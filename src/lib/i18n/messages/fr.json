@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "defaultTitle": "Lonside — Studio de Développement Web & Produits Digitaux en Sprints Fermes",
+    "defaultTitle": "Lonside — Studio de Développement Web & Produits Digitaux",
     "titleTemplate": "%s | Lonside Studio",
-    "description": "Conception et développement d'applications web et plateformes sur-mesure dès 14 jours. Forfait ferme garanti, zéro surprise et 100% du code à vous sur votre propre GitHub.",
+    "description": "Applications web et plateformes sur-mesure livrées dès 14 jours. Forfait ferme garanti, zéro surprise et 100% du code source sur votre GitHub.",
     "keywords": "studio développement web, application web sur-mesure, sprint MVP 14 jours, développement Next.js, cession code source, régie tech senior",
     "mentionsLegales": {
       "title": "Mentions Légales",
@@ -38,7 +38,13 @@
     "startProject": "Démarrer un projet",
     "startProject15min": "Démarrer un projet (15 min)",
     "close": "Fermer",
-    "closeDrawer": "Fermer le dossier"
+    "closeDrawer": "Fermer le dossier",
+    "home": "Accueil",
+    "studio": "Studio",
+    "backToStudio": "Retour au studio",
+    "breadcrumbAria": "Fil d’Ariane",
+    "bookScoping15min": "Réserver un cadrage (15 min)",
+    "book15min": "Réserver 15 min"
   },
   "navbar": {
     "projects": "Projets",
@@ -242,7 +248,8 @@
       "sentDesc": "Un Lead Architecte étudie votre brief et vous répondra sous 24h ouvrées avec un premier avis technique.",
       "sendAnother": "Envoyer un autre message",
       "validationError": "Veuillez renseigner correctement tous les champs obligatoires.",
-      "networkError": "Une erreur réseau est survenue. Veuillez réessayer ou nous écrire à {email}."
+      "networkError": "Une erreur réseau est survenue. Veuillez réessayer ou nous écrire à {email}.",
+      "defaultSubject": "Demande de cadrage d'ingénierie (Studio Lonside)"
     }
   },
   "dossier": {
@@ -256,7 +263,9 @@
     "whatWeDelivered": "Ce que nous avons livré",
     "clientFeedback": "Retour du client",
     "privatePlatform": "Plateforme privée",
-    "discussSimilar": "Échanger sur votre projet"
+    "discussSimilar": "Échanger sur votre projet",
+    "fullDossier": "Dossier complet",
+    "dialogAria": "Dossier {client}"
   },
   "footer": {
     "tagline": "Studio de développement web & produits digitaux. Livraison dès 14 jours, 100% de cession de code source sur votre propre compte GitHub.",
@@ -273,7 +282,23 @@
     "legalNotice": "Mentions légales",
     "privacyPolicy": "Confidentialité",
     "termsOfService": "CGV",
-    "copyright": "Tous droits réservés."
+    "copyright": "Tous droits réservés.",
+    "about": "• À propos",
+    "estimator": "• Simulateur",
+    "capabilities": "Expertises",
+    "mvpSprint": "Sprint MVP 14 jours",
+    "nextjsApps": "Apps Web Next.js",
+    "saasPlatforms": "Plateformes SaaS",
+    "seniorSquad": "Régie Tech Senior",
+    "cookies": "Cookies",
+    "headquartersLine": "{locality} ({postalCode}), France · SIRET {siret}",
+    "socialAria": {
+      "github": "GitHub Lonside Studio",
+      "linkedin": "LinkedIn Lonside Studio",
+      "twitter": "X (Twitter) Lonside Studio",
+      "youtube": "YouTube Lonside Studio",
+      "email": "Contacter par email"
+    }
   },
   "notFound": {
     "title": "Page introuvable",
@@ -379,6 +404,633 @@
     "analyticsDesc": "Statistiques anonymisées pour mesurer la performance du site (Vercel Analytics & PostHog EU).",
     "marketingTitle": "Marketing",
     "marketingDesc": "Aucun cookie marketing ou publicitaire n'est utilisé par Lonside Studio.",
-    "close": "Fermer"
+    "close": "Fermer",
+    "toggleAnalyticsAria": "Activer ou désactiver la mesure d’audience anonyme",
+    "toggleMarketingAria": "Activer ou désactiver les cookies marketing"
+  },
+  "localeSwitcher": {
+    "ariaLabel": "Langue actuelle : {language}. Cliquez pour changer."
+  },
+  "legalCookies": {
+    "boxTitle": "Préférences de consentement",
+    "boxDescription": "Vous pouvez mettre à jour vos choix de confidentialité à tout moment.",
+    "fallbackButton": "Modifier mes préférences"
+  },
+  "about": {
+    "metaTitle": "À Propos de Lonside Studio — Ingénierie Logicielle Indépendante (Bordeaux)",
+    "metaDescription": "Découvrez Lonside Studio (Lonside Corp., SIRET 999 912 173 00013, Bouliac / Bordeaux). Studio indépendant d’ingénierie logicielle Next.js & SaaS au forfait ferme.",
+    "schemaName": "À Propos de Lonside Studio",
+    "breadcrumbLabel": "À propos",
+    "eyebrow": "Studio Indépendant d’Ingénierie",
+    "h1Prefix": "L’ingénierie logicielle,",
+    "h1Highlight": "sans aucun intermédiaire.",
+    "intro": "Établi à Bouliac (métropole de Bordeaux, France), Lonside Studio conçoit et déploie des applications web et plateformes SaaS en production pour les fondateurs et équipes exigeantes en France et à l’international — au forfait scellé, à délai contractuel et avec cession intégrale du code source.",
+    "leadershipLabel": "Direction Technique",
+    "leadershipTitle": "{founder} — Fondateur & Lead Architect",
+    "leadershipBio": "Chaque plateforme livrée par Lonside est architecturée, développée et revue directement à niveau Lead Architect. Nous limitons volontairement le nombre de sprints simultanés pour garantir zéro sous-traitance, zéro couche commerciale et une exécution irréprochable.",
+    "legalLabel": "Identité Légale Vérifiée",
+    "siretLabel": "SIRET",
+    "sirenApeLabel": "SIREN / APE",
+    "officeLabel": "Siège",
+    "emailLabel": "Email",
+    "standardsTitle": "Nos standards d’ingénierie non-négociables",
+    "standards": [
+      {
+        "num": "01",
+        "title": "Délai contractuel & forfait fixe",
+        "desc": "Le périmètre est verrouillé avant la première ligne de code. Le budget ne bouge jamais et tout retard imputable au studio déclenche 10 % de pénalité par 48 h."
+      },
+      {
+        "num": "02",
+        "title": "Cession 100 % sur votre GitHub",
+        "desc": "Chaque commit, schéma SQL et composant d’interface est poussé dès le premier jour sur votre propre dépôt GitHub privé. Zéro dépendance."
+      },
+      {
+        "num": "03",
+        "title": "Sécurité, SEO & Core Web Vitals",
+        "desc": "TypeScript strict, PostgreSQL RLS, en-têtes CSP/HSTS, télémétrie RGPD et SEO technique intégrés nativement dans chaque livraison."
+      }
+    ],
+    "ctaTitle": "Échangez directement avec le Lead Architect",
+    "ctaDescription": "15 minutes pour cadrer l’architecture de votre produit, valider le délai et confirmer le forfait ferme.",
+    "ctaCaseStudies": "Études de cas"
+  },
+  "estimation": {
+    "metaTitle": "Simulateur de Prix & Délai MVP / Application Web — Lonside Studio",
+    "metaDescription": "Estimez le forfait ferme (6 900 € à 13 900 € HT) et le délai garanti (14 à 30 jours) de votre MVP SaaS ou application web Next.js en 30 secondes.",
+    "schemaName": "Simulateur de Périmètre & Forfait Lonside",
+    "breadcrumbLabel": "Estimation",
+    "eyebrow": "Simulateur de Périmètre & Forfait",
+    "h1Prefix": "Estimez votre sprint,",
+    "h1Highlight": "en 30 secondes.",
+    "intro": "Sélectionnez votre type de produit et les briques techniques nécessaires pour identifier le forfait ferme Lonside et le délai garanti adaptés.",
+    "step1Label": "01 // Sélectionnez votre objectif principal",
+    "step2Label": "02 // Briques techniques souhaitées",
+    "recommendedLabel": "Format recommandé",
+    "deliveryLabel": "Délai",
+    "warrantyLabel": "Garantie",
+    "ipLabel": "Propriété code",
+    "ipValue": "100 % GitHub",
+    "lockScopeCta": "Valider ce périmètre (15 min)",
+    "writtenBriefCta": "Envoyer mon brief écrit",
+    "projectOptions": {
+      "mvp": {
+        "title": "MVP SaaS / Première V1",
+        "subtitle": "Lancer vite et encaisser les premiers clients"
+      },
+      "webapp": {
+        "title": "Application Web Next.js",
+        "subtitle": "Portail client, marketplace ou outil métier"
+      },
+      "saas": {
+        "title": "Plateforme SaaS Multi-Rôles",
+        "subtitle": "Workflows avancés, data & multi-tenancy"
+      },
+      "squad": {
+        "title": "Régie Tech Senior",
+        "subtitle": "Renfort senior continu sur votre roadmap"
+      }
+    },
+    "moduleOptions": {
+      "auth": "Authentification & rôles sécurisés (RLS)",
+      "stripe": "Paiements & abonnements Stripe",
+      "api": "API tierces, webhooks & automatisations IA",
+      "seo": "SEO multi-langue & télémétrie PostHog"
+    },
+    "recommendations": {
+      "launch": {
+        "tier": "Sprint Launch",
+        "price": "6 900 € HT (Forfait ferme)",
+        "timeline": "14 jours ouvrés garantis",
+        "warranty": "Garantie corrective 30 jours",
+        "summary": "Application web ou MVP SaaS complet en production avec authentification, Stripe, SEO technique et 100 % du code sur votre GitHub privé."
+      },
+      "scale": {
+        "tier": "Sprint Scale",
+        "price": "13 900 € HT (Forfait ferme)",
+        "timeline": "30 jours ouvrés (2 jalons)",
+        "warranty": "Garantie corrective 45 jours",
+        "summary": "Plateforme multi-rôles, PostgreSQL RLS multi-tenant, moteurs métier & API temps réel, tests automatisés et cession 100 % GitHub."
+      },
+      "squad": {
+        "tier": "Régie d’Immersion",
+        "price": "Dès 5 500 € HT / mois",
+        "timeline": "Démarrage sous 5 jours ouvrés",
+        "warranty": "Allocation mensuelle flexible",
+        "summary": "Un Lead Architect / ingénieur senior intégré directement dans votre Slack et GitHub pour accélérer votre roadmap."
+      }
+    }
+  },
+  "portfolio": {
+    "hubMetaTitle": "Études de Cas & Produits Livrés — Lonside Studio",
+    "hubMetaDescription": "Applications web, plateformes SaaS et moteurs temps réel livrés en production par Lonside Studio en sprints fermes de 14 à 35 jours avec cession totale du code.",
+    "breadcrumbLabel": "Études de cas",
+    "eyebrow": "Dossiers d’Ingénierie",
+    "h1Prefix": "Études de cas en production,",
+    "h1Highlight": "conçues pour durer.",
+    "intro": "Retours d’architecture détaillés de plateformes SaaS, moteurs de dispatch temps réel et applications web sur-mesure livrées en sprints fermes avec cession intégrale du code.",
+    "readDossier": "Lire le dossier →",
+    "ctaTitle": "Un produit à livrer en 14 à 30 jours ?",
+    "ctaDescription": "Forfait ferme, délai de livraison garanti et 100 % du code source cédé sur votre dépôt GitHub privé.",
+    "ctaButton": "Échanger sur votre projet (15 min)",
+    "detail": {
+      "notFoundTitle": "Étude de cas introuvable — Lonside Studio",
+      "fallbackTitle": "{client} — Étude de cas {industry}",
+      "allDossiers": "Tous les dossiers",
+      "shippedInDays": "Livré en {days} jours",
+      "proprietaryBadge": "Produit Propriétaire Lonside",
+      "visitLive": "Visiter la plateforme",
+      "buildSimilar": "Concevoir un produit similaire",
+      "videoHeading": "Démo Produit & Visite d’Architecture",
+      "videoTag": "Démo Produit YouTube",
+      "videoPlayAria": "Lancer la vidéo : {title}",
+      "screenshotsTitle": "Architecture & interfaces en production",
+      "metricsHeading": "Impact Mesuré en Production",
+      "act1Eyebrow": "Acte I // Le Point de Rupture",
+      "beforeAfterHeaders": {
+        "dimension": "Réalité Opérationnelle",
+        "before": "Avant Lonside",
+        "after": "Après Déploiement"
+      },
+      "act2Eyebrow": "Acte II // Thèse Produit & Choix Stratégiques",
+      "act2Title": "Ce que nous avons délibérément refusé de construire",
+      "act3Eyebrow": "Acte III // Le Produit en Action",
+      "act3Title": "Soixante secondes dans le produit en production",
+      "contextTitle": "01 // Contexte & Enjeu Métier",
+      "solutionTitle": "02 // Solution d’Ingénierie Livrée",
+      "rolesEyebrow": "Anatomie Produit // Rôles & Parcours",
+      "rolesTitle": "Comment chaque rôle utilise le produit au quotidien",
+      "modulesEyebrow": "Anatomie Produit // Modules & Règles Métier",
+      "modulesTitle": "Sous le capot des écrans et règles métier",
+      "moduleFlowLabel": "Expérience & Parcours Écran",
+      "moduleRuleLabel": "Règle Métier & Sécurité",
+      "needsEyebrow": "Exigences Produit",
+      "needsTitle": "Objectifs métier adressés",
+      "constraintsEyebrow": "Arbitrages d’Architecture",
+      "constraintsTitle": "Contraintes techniques & résolutions",
+      "constraintRiskLabel": "Contrainte & Risque",
+      "constraintResolutionLabel": "Arbitrage Lonside",
+      "archEyebrow": "Architecture Système & Stack",
+      "archTitle": "Socle technique déployé",
+      "processTitle": "Chronologie d’exécution du sprint",
+      "act5Eyebrow": "Acte V // L’Après-Lancement & L’Avantage Durable",
+      "act5Title": "Ce qui a changé dès la mise en production",
+      "act5Cta": "Cadrer un sprint similaire (15 min)",
+      "verdictLabel": "Retour Client",
+      "faqEyebrow": "FAQ Produit & Secteur",
+      "faqTitle": "Questions fréquentes autour de {client}",
+      "otherDossiersTitle": "Autres dossiers d’ingénierie"
+    }
+  },
+  "services": {
+    "ui": {
+      "estimateLink": "Estimer mon périmètre →",
+      "fixedInvestmentLabel": "Forfait Transparent",
+      "timelineLabel": "Délai Engagé",
+      "warrantyLabel": "Garantie",
+      "simulateCta": "Simuler périmètre & budget",
+      "idealForHeading": "Conçu spécifiquement pour",
+      "comparisonTitle": "Studio Lonside face aux alternatives",
+      "comparisonHeaders": {
+        "criterion": "Critère",
+        "lonside": "Lonside Studio",
+        "freelance": "Freelance isolé",
+        "traditional": "ESN / Prestataire classique"
+      },
+      "proofTitle": "Preuves livrées en production",
+      "allDossiers": "Tous les dossiers →",
+      "readArchDossier": "Lire le dossier d’architecture →",
+      "faqTitle": "Questions fréquentes",
+      "otherCapabilities": "Autres expertises du studio Lonside"
+    },
+    "items": {
+      "sprint-mvp-14-jours": {
+        "metaTitle": "Sprint MVP 14 Jours au Forfait Fixe — Lonside Studio",
+        "metaDescription": "Lancez votre MVP SaaS ou application web en production dès 14 jours ouvrés. Forfait ferme à 6 900 € HT, 100 % du code cédé sur votre GitHub, garantie 30 jours.",
+        "eyebrow": "Sprint Launch // 14 Jours Ouvrés",
+        "h1": "Votre MVP SaaS en production,",
+        "h1Muted": "livré en 14 jours fermes.",
+        "intro": "Passez d’une idée validée à une application web réelle, sécurisée et prête à encaisser vos premiers clients Stripe en deux semaines. Zéro intermédiaire, zéro dépassement budgétaire, propriété intellectuelle intégrale dès le premier commit.",
+        "priceLabel": "6 900 € HT",
+        "timelineLabel": "14 jours ouvrés garantis",
+        "warrantyLabel": "30 jours de garantie corrective",
+        "idealFor": [
+          "Fondateurs qui veulent valider un marché avec un vrai produit, pas une maquette jetable",
+          "Startups pré-seed / seed préparant une démo investisseurs ou leurs 50 premiers clients payants",
+          "PME lançant un portail client ou un outil métier sans subir 6 mois de cycle classique"
+        ],
+        "deliverablesTitle": "Ce qui est livré clé en main en 14 jours",
+        "deliverables": [
+          {
+            "title": "Application web full-stack responsive",
+            "desc": "Interface Haute Horlogerie mobile-first en Next.js 16 + TypeScript strict, optimisée Core Web Vitals et SEO technique dès le premier jour."
+          },
+          {
+            "title": "Authentification, sessions & base de données sécurisée",
+            "desc": "Schéma PostgreSQL / Supabase avec politiques Row Level Security (RLS), gestion des comptes et cloisonnement strict des données utilisateurs."
+          },
+          {
+            "title": "Monétisation Stripe & emails transactionnels",
+            "desc": "Checkout Stripe, abonnements récurrents, portail de facturation client et emails automatisés Resend prêts à encaisser dès la mise en ligne."
+          },
+          {
+            "title": "Cession 100 % GitHub & Pack Handover",
+            "desc": "Tout le code est poussé directement sur votre dépôt privé GitHub avec documentation technique, variables chiffrées et visite guidée vidéo."
+          }
+        ],
+        "comparisonRows": [
+          {
+            "criterion": "Délai de mise en production",
+            "lonside": "14 jours ouvrés contractuels",
+            "freelance": "4 à 10 semaines aléatoires",
+            "traditional": "3 à 6 mois (cycles lourds)"
+          },
+          {
+            "criterion": "Budget",
+            "lonside": "6 900 € HT ferme et scellé",
+            "freelance": "TJM variable, risque de dérive",
+            "traditional": "25 000 € à 60 000 €+ HT"
+          },
+          {
+            "criterion": "Propriété du code source",
+            "lonside": "100 % sur votre GitHub dès J1",
+            "freelance": "Souvent livré en fin de mission",
+            "traditional": "Dépendance fréquente ou clauses lourdes"
+          },
+          {
+            "criterion": "Interlocuteur technique",
+            "lonside": "Directement le Lead Architect",
+            "freelance": "Profil parfois mono-compétence",
+            "traditional": "Commerciaux & chefs de projet intermédiaires"
+          }
+        ],
+        "faq": [
+          {
+            "q": "Est-ce vraiment possible de livrer un MVP solide en 14 jours sans dette technique ?",
+            "a": "Oui, parce que nous ne perdons aucun jour en réunions inutiles ni en réinvention de brique standard. Notre socle Next.js 16 / TypeScript / PostgreSQL / Stripe est industrialisé, ce qui concentre 100 % du sprint sur votre logique métier différenciante."
+          },
+          {
+            "q": "Que se passe-t-il si le studio accuse du retard sur la date scellée ?",
+            "a": "Nos délais sont contractuels : une pénalité de 10 % est déduite par tranche de 48 heures de retard imputable au studio. En pratique, le cadrage amont verrouille le périmètre pour livrer à l’heure."
+          },
+          {
+            "q": "Pourrai-je faire évoluer le MVP avec mon propre développeur après le sprint ?",
+            "a": "Absolument. Le dépôt GitHub vous appartient à 100 %, sans framework propriétaire. N’importe quel ingénieur TypeScript / React senior peut reprendre la base de code en moins d’une heure grâce au Pack Handover."
+          }
+        ]
+      },
+      "application-web-nextjs": {
+        "metaTitle": "Développement Application Web Next.js & TypeScript — Lonside Studio",
+        "metaDescription": "Studio indépendant spécialisé Next.js 16, React et TypeScript. Applications web sur-mesure ultra-rapides, Core Web Vitals > 95, SEO technique et 100 % du code à vous.",
+        "eyebrow": "Ingénierie Frontend & Full-Stack // Next.js 16",
+        "h1": "Applications web Next.js,",
+        "h1Muted": "taillées pour la vitesse.",
+        "intro": "Nous concevons et développons des applications web sur-mesure sur Next.js 16 (App Router, Server Components, TypeScript strict). Des interfaces instantanées, parfaitement indexables par Google et maintenables par toute équipe d’ingénierie senior.",
+        "priceLabel": "Dès 6 900 € HT",
+        "timelineLabel": "14 à 30 jours ouvrés",
+        "warrantyLabel": "Score Lighthouse & SLA inclus",
+        "idealFor": [
+          "Entreprises dont le produit web doit performer autant en acquisition SEO qu’en fluidité applicative",
+          "Équipes souhaitant migrer un frontend lent ou une stack vieillissante vers Next.js 16 & TypeScript",
+          "Portails clients, marketplaces, simulateurs financiers et plateformes métier à fort trafic"
+        ],
+        "deliverablesTitle": "Standards d’ingénierie Next.js Lonside",
+        "deliverables": [
+          {
+            "title": "Architecture App Router, SSR & SSG hybride",
+            "desc": "Découpage chirurgical entre Server Components et interactivité client pour des temps de réponse sous les 120 ms et un HTML 100 % crawlable."
+          },
+          {
+            "title": "TypeScript strict & validation bout en bout",
+            "desc": "Contrats de données typés de la base PostgreSQL jusqu’aux formulaires Zod, réduisant drastiquement les régressions en production."
+          },
+          {
+            "title": "SEO technique, i18n & données structurées natifs",
+            "desc": "Canoniques propres, hreflang multi-langues, Schema.org JSON-LD, sitemaps dynamiques et Core Web Vitals au sommet dès le déploiement."
+          },
+          {
+            "title": "Sécurité HTTP & observabilité production",
+            "desc": "En-têtes CSP, HSTS, rate limiting sur les routes API, télémétrie PostHog conforme RGPD et suite de tests automatisés."
+          }
+        ],
+        "comparisonRows": [
+          {
+            "criterion": "Performance mobile (LCP)",
+            "lonside": "Architecture RSC / Edge optimisée",
+            "freelance": "Souvent SPA lourde côté client",
+            "traditional": "Surcouches lourdes et plugins empilés"
+          },
+          {
+            "criterion": "Qualité du code TypeScript",
+            "lonside": "Mode strict + CI + revue Lead Architect",
+            "freelance": "Dépend fortement de l’individu",
+            "traditional": "Hétérogène selon les profils juniors assignés"
+          },
+          {
+            "criterion": "SEO & Indexation Google",
+            "lonside": "Intégré dès l’architecture (SSG/SSR)",
+            "freelance": "Souvent ajouté après coup",
+            "traditional": "Facturé en prestation SEO séparée"
+          },
+          {
+            "criterion": "Livraison & prévisibilité",
+            "lonside": "Sprints fermes de 14 à 30 jours",
+            "freelance": "Planning glissant",
+            "traditional": "Cycles trimestriels coûteux"
+          }
+        ],
+        "faq": [
+          {
+            "q": "Pourquoi Lonside choisit Next.js 16 et TypeScript comme socle principal ?",
+            "a": "Next.js réunit le meilleur du rendu serveur (SEO, vitesse de premier affichage, sécurité des appels API) et de l’interactivité React moderne, tout en constituant le standard le plus facile à recruter et maintenir sur la durée."
+          },
+          {
+            "q": "Pouvez-vous reprendre ou migrer une application existante vers Next.js ?",
+            "a": "Oui. Nous réalisons des refontes progressives ou complètes (depuis SPA React, PHP/WordPress, no-code ou legacy) en sécurisant vos redirections 301 SEO et votre base de données."
+          },
+          {
+            "q": "L’hébergement est-il verrouillé chez Lonside ?",
+            "a": "Jamais. Nous déployons directement sur votre propre compte Vercel, AWS, Scaleway ou infrastructure Docker selon vos contraintes de souveraineté."
+          }
+        ]
+      },
+      "plateforme-saas-sur-mesure": {
+        "metaTitle": "Développement Plateforme SaaS Sur-Mesure (30 Jours) — Lonside Studio",
+        "metaDescription": "Plateformes SaaS B2B multi-rôles, portails multi-tenants, moteurs de calcul temps réel et facturation Stripe livrés en 30 jours au forfait ferme de 13 900 € HT.",
+        "eyebrow": "Sprint Scale // 30 Jours Ouvrés",
+        "h1": "Plateformes SaaS B2B,",
+        "h1Muted": "architecturées pour scaler.",
+        "intro": "Pour les produits ambitieux qui dépassent le simple MVP : portails multi-rôles (Admin, Client, Opérateur), isolation multi-tenant stricte, moteurs de calcul métier, synchronisation API temps réel et facturation automatisée, livrés en 30 jours ouvrés.",
+        "priceLabel": "13 900 € HT",
+        "timelineLabel": "30 jours ouvrés (2 jalons)",
+        "warrantyLabel": "45 jours de garantie corrective",
+        "idealFor": [
+          "Fondateurs B2B bâtissant un SaaS vertical (PropTech, Supply Chain, Mobilité, EventTech, FinTech)",
+          "Entreprises remplaçant des workflows Excel / no-code saturés par une plateforme propriétaire robuste",
+          "Équipes exigeant multi-tenancy étanche, rôles granulaires, webhooks temps réel et tests automatisés"
+        ],
+        "deliverablesTitle": "Architecture complète du Sprint Scale (30 jours)",
+        "deliverables": [
+          {
+            "title": "Multi-tenancy étanche & contrôle d’accès (RBAC)",
+            "desc": "Cloisonnement hermétique des organisations clientes via PostgreSQL RLS, rôles granulaires (Admin, Manager, Client) et journaux d’audit."
+          },
+          {
+            "title": "Moteurs métier, synchronisation API & tâches de fond",
+            "desc": "Pipelines de calcul prédictif, dispatch géospatial, webhooks idempotents, files de jobs asynchrones et notifications temps réel."
+          },
+          {
+            "title": "Facturation B2B Stripe & conformité documentaire",
+            "desc": "Plans par paliers, facturation consolidée, Stripe Connect ou signature électronique certifiée eIDAS intégrée au parcours."
+          },
+          {
+            "title": "Suite de tests automatisés & documentation complète",
+            "desc": "Tests unitaires et d’intégration sur les flux critiques, schémas d’architecture et passation vidéo complète sur votre dépôt GitHub."
+          }
+        ],
+        "comparisonRows": [
+          {
+            "criterion": "Isolation sécurité multi-tenant",
+            "lonside": "PostgreSQL RLS + RBAC natifs",
+            "freelance": "Souvent filtrage applicatif fragile",
+            "traditional": "Long à spécifier et auditer"
+          },
+          {
+            "criterion": "Coût total d’une V1 complète",
+            "lonside": "13 900 € HT ferme (2 jalons)",
+            "freelance": "20 000 € à 40 000 € étalés",
+            "traditional": "60 000 € à 150 000 € HT"
+          },
+          {
+            "criterion": "Tests & maintenabilité",
+            "lonside": "Tests automatisés + Pack Handover",
+            "freelance": "Rarement couverts par défaut",
+            "traditional": "Souvent coupés en fin de budget"
+          },
+          {
+            "criterion": "Garantie post-lancement",
+            "lonside": "45 jours de garantie corrective incluse",
+            "freelance": "Facturation au temps passé",
+            "traditional": "Contrat TMA mensuel obligatoire"
+          }
+        ],
+        "faq": [
+          {
+            "q": "Comment est découpé un Sprint Scale de 30 jours ?",
+            "a": "Le sprint s’articule en deux jalons clairs : Jalon 1 (J1–J15) sur l’architecture de données, l’authentification multi-rôles et le cœur métier ; Jalon 2 (J16–J30) sur les automatisations, intégrations tierces, paiements, tests et mise en production."
+          },
+          {
+            "q": "Pouvez-vous intégrer des moteurs de calcul Python ou de l’IA prédictive ?",
+            "a": "Oui. Lorsque le métier l’exige (comme sur Michi 道 en prévision des stocks ou Bely en dispatch), nous couplons Next.js à des services PostgreSQL / Python FastAPI rapides et auditables."
+          },
+          {
+            "q": "Quelles preuves concrètes avez-vous sur des plateformes complexes ?",
+            "a": "Consultez nos dossiers d’ingénierie détaillés sur Welqo (PropTech temps réel + eIDAS), Bely (dispatch VTC < 5 ms) et Michi 道 (prévision supply chain omnicanale)."
+          }
+        ]
+      },
+      "regie-tech-senior": {
+        "metaTitle": "Régie Tech Senior & Squad d’Immersion Next.js — Lonside Studio",
+        "metaDescription": "Intégrez un Lead Architect / ingénieur senior full-stack TypeScript & Next.js dans votre Slack et GitHub dès 5 500 €/mois. Zéro délai d’onboarding, sans engagement long terme.",
+        "eyebrow": "Régie d’Immersion // Continuité Produit",
+        "h1": "Un ingénieur senior intégré,",
+        "h1Muted": "opérationnel dès le jour 1.",
+        "intro": "Accélérez votre roadmap produit sans subir 4 mois de recrutement ni le coût caché d’un mauvais profil. Un ingénieur senior Lonside rejoint directement votre Slack, votre Linear et votre GitHub avec un niveau d’exigence d’architecte.",
+        "priceLabel": "Dès 5 500 € HT / mois",
+        "timelineLabel": "Allocation mensuelle flexible",
+        "warrantyLabel": "Sans engagement long terme",
+        "idealFor": [
+          "Startups financées (Seed / Série A) devant accélérer la livraison de features critiques",
+          "Clients post-sprint Launch ou Scale souhaitant itérer chaque semaine sur les retours utilisateurs",
+          "CTO et dirigeants cherchant un renfort senior autonome capable de cadrer, coder et déployer en production"
+        ],
+        "deliverablesTitle": "Comment fonctionne la Régie d’Immersion",
+        "deliverables": [
+          {
+            "title": "Intégration directe dans vos rituels (Slack, GitHub, Linear)",
+            "desc": "Zéro couche de gestion intermédiaire. Pull requests quotidiennes, revues de code rigoureuses et déploiements continus dans votre CI."
+          },
+          {
+            "title": "Autonomie produit & architecture complète",
+            "desc": "Capacité à transformer un besoin business en spécification technique, schéma de données, interface soignée et tests en production."
+          },
+          {
+            "title": "Performance, SEO technique & dette zéro",
+            "desc": "Réduction progressive de votre dette technique, optimisation Core Web Vitals, sécurisation API et instrumentation PostHog."
+          },
+          {
+            "title": "Flexibilité mensuelle transparente",
+            "desc": "Forfait mensuel clair, renouvelable ou ajustable sans préavis punitif, avec transfert continu de connaissance vers votre équipe interne."
+          }
+        ],
+        "comparisonRows": [
+          {
+            "criterion": "Délai de démarrage",
+            "lonside": "Immédiat (sous 5 jours)",
+            "freelance": "2 à 4 semaines de sourcing",
+            "traditional": "3 à 6 mois (recrutement CDI)"
+          },
+          {
+            "criterion": "Séniorité garantie",
+            "lonside": "Profil Lead Architect / Senior vérifié",
+            "freelance": "Qualité très variable",
+            "traditional": "Risque de profil junior placé"
+          },
+          {
+            "criterion": "Coût mensuel chargé",
+            "lonside": "Dès 5 500 € HT / mois",
+            "freelance": "10 000 € à 16 000 € / mois (TJM)",
+            "traditional": "7 500 €–10 000 €/mois + recrutement"
+          },
+          {
+            "criterion": "Engagement contractuel",
+            "lonside": "Mensuel flexible, zéro lock-in",
+            "freelance": "Souvent minimum 3 mois",
+            "traditional": "Contrat long terme / CDI rigide"
+          }
+        ],
+        "faq": [
+          {
+            "q": "Quelle est la différence avec une ESN classique ?",
+            "a": "Aucune sous-traitance, aucun commercial, aucun remplacement par un profil junior en cours de route. Vous travaillez en direct avec l’ingénieur senior qui conçoit et pousse le code sur votre dépôt."
+          },
+          {
+            "q": "Peut-on démarrer la Régie d’Immersion sans avoir fait de Sprint Launch avant ?",
+            "a": "Oui, à condition que votre stack soit alignée (TypeScript, React / Next.js, Node.js, PostgreSQL / Supabase). Nous commençons par un audit rapide de votre dépôt lors de la première semaine."
+          },
+          {
+            "q": "Comment suivez-vous la vélocité chaque semaine ?",
+            "a": "Via vos propres outils (Linear, Jira, GitHub PRs) complétés par un point asynchrone hebdomadaire résumant ce qui est en production et les priorités de la semaine suivante."
+          }
+        ]
+      }
+    }
+  },
+  "methodPage": {
+    "metaTitle": "Méthode Sprint 14–30 Jours, SLA & Cession GitHub — Lonside Studio",
+    "metaDescription": "Découvrez le protocole d’ingénierie Lonside : sprints fermes dès 14 jours, pénalités de retard contractuelles, 100 % propriété GitHub et comparatif Studio vs Freelance vs ESN.",
+    "breadcrumbLabel": "Méthode & SLA",
+    "eyebrow": "Protocole d’Ingénierie & Garanties",
+    "h1Prefix": "La méthode qui rend la livraison",
+    "h1Highlight": "mathématiquement prévisible.",
+    "intro": "La plupart des projets logiciels dérivent parce que le périmètre reste flou, les intermédiaires se multiplient et le code reste opaque jusqu’à la fin. Notre protocole d’atelier élimine structurellement chaque cause d’échec.",
+    "guaranteesTitle": "Quatre clauses contractuelles écrites noir sur blanc",
+    "guarantees": [
+      {
+        "num": "01",
+        "title": "Pénalités de retard 10 % / 48 h",
+        "desc": "Chaque date de livraison est scellée par SLA. Si le studio accuse un retard imputable à son exécution, une réduction immédiate de 10 % s’applique par tranche de 48 heures."
+      },
+      {
+        "num": "02",
+        "title": "Cession totale sur votre GitHub dès J1",
+        "desc": "Nous poussons chaque commit, migration PostgreSQL et test directement sur votre organisation GitHub privée. Vous ne dépendez jamais d’un outil propriétaire."
+      },
+      {
+        "num": "03",
+        "title": "Sécurité Zero Data Retention (ZDR)",
+        "desc": "Architecture PostgreSQL RLS, en-têtes CSP/HSTS stricts et gouvernance IA Zero Data Retention garantissant que votre code et vos données métier ne fuient jamais."
+      },
+      {
+        "num": "04",
+        "title": "Garantie corrective 30 à 45 jours",
+        "desc": "Après mise en production, toute anomalie vis-à-vis du périmètre validé est corrigée sans frais additionnels, accompagnée d’un Pack Handover complet et vidéo Loom."
+      }
+    ],
+    "protocolTitle": "Déroulement jour par jour d’un sprint Lonside",
+    "protocolSteps": [
+      {
+        "window": "Jours 1–2",
+        "title": "Cadrage d’architecture & verrouillage du périmètre",
+        "desc": "Validation des parcours critiques, du modèle de données PostgreSQL RLS, des règles métier et des critères d’acceptation. Le forfait et la date de livraison sont définitivement scellés."
+      },
+      {
+        "window": "Jours 3–11",
+        "title": "Assemblage continu en production preview",
+        "desc": "Commits quotidiens sur votre dépôt GitHub et prévisualisations live sur URL privée. Vous testez l’application réelle chaque 48 heures au lieu d’attendre la fin du mois."
+      },
+      {
+        "window": "Jours 12–14+",
+        "title": "Tests, sécurité HTTP, SEO technique & passation",
+        "desc": "Suite de tests automatisés, audit Core Web Vitals, en-têtes de sécurité, déploiement sur votre infrastructure, documentation d’architecture et passation vidéo complète."
+      }
+    ],
+    "comparisonTitle": "Comparatif chiffré : Studio Indépendant vs Freelance vs ESN",
+    "comparisonHeaders": {
+      "criterion": "Critère décisif",
+      "lonside": "Lonside Studio",
+      "freelance": "Freelance isolé",
+      "esn": "ESN / Prestataire classique"
+    },
+    "comparisonRows": [
+      {
+        "criterion": "Prévisibilité budgétaire",
+        "lonside": "Forfait ferme scellé (6 900 € – 13 900 € HT)",
+        "freelance": "TJM ouvert, dérive fréquente +30 % à +80 %",
+        "esn": "Devis lourds + avenants de changement"
+      },
+      {
+        "criterion": "Vitesse vers les premiers revenus",
+        "lonside": "14 à 30 jours ouvrés contractuels",
+        "freelance": "1 à 3 mois selon disponibilité",
+        "esn": "4 à 9 mois (cycles de validation)"
+      },
+      {
+        "criterion": "Couverture Design + Produit + Infra",
+        "lonside": "Unifiée par un Lead Architect full-stack",
+        "freelance": "Souvent spécialisé front ou back uniquement",
+        "esn": "Silos multi-équipes et perte de contexte"
+      },
+      {
+        "criterion": "Propriété & portabilité GitHub",
+        "lonside": "100 % sur votre dépôt dès le premier commit",
+        "freelance": "Transfert tardif ou documentation absente",
+        "esn": "Dépendance fréquente pour la maintenance"
+      }
+    ],
+    "ctaTitle": "Prêt à cadrer votre sprint en 15 minutes ?",
+    "ctaDescription": "Discutez directement avec le Lead Architect pour valider votre architecture et obtenir un forfait ferme.",
+    "ctaEstimator": "Estimer mon sprint"
+  },
+  "status": {
+    "metaTitle": "Supervision & Télémétrie — Lonside Studio",
+    "metaDescription": "Tableau de bord de télémétrie, santé des services critiques et intégrité PostHog.",
+    "backToStudio": "Retour au Studio",
+    "liveBadge": "Supervision en Direct",
+    "eyebrow": "Télémétrie & Santé Système",
+    "titlePrefix": "Systèmes",
+    "statusOperational": "Opérationnels",
+    "statusAttention": "Attention Requise",
+    "environmentLabel": "Environnement :",
+    "snapshotLabel": "Instantané :",
+    "globalStateLabel": "État Global",
+    "globalHealthy": "100% HEALTHY",
+    "globalActionNeeded": "ACTION NEEDED",
+    "coreServicesHeading": "Services Essentiels de la Plateforme",
+    "footerLeft": "Lonside Studio // Télémétrie & Observabilité",
+    "footerRight": "Version {version} · Next.js 16 SSG · PostHog EU",
+    "console": {
+      "heading": "Banc de Test & Télémétrie PostHog en Direct",
+      "subtitle": "Vérifiez que les interactions utilisateurs et événements métiers sont fidèlement transmis à PostHog.",
+      "refresh": "Actualiser",
+      "emitTest": "Émettre un Événement",
+      "dispatchSuccess": "Événement expédié avec succès à PostHog !",
+      "dispatchBlocked": "Événement bloqué ou mis en attente (vérifier consentement ou clé phc_)",
+      "clientLabel": "Client PostHog",
+      "clientActive": "ACTIF",
+      "clientStandby": "EN ATTENTE",
+      "consentLabel": "Consentement",
+      "consentGranted": "ACCORDÉ",
+      "consentDenied": "NON ACCORDÉ",
+      "hostLabel": "Hôte Cible",
+      "tokenLabel": "Clé Détectée",
+      "tokenMissing": "ABSENTE",
+      "tokenValid": "VALIDE (phc_)",
+      "tokenInvalid": "INVALIDE (phs_/phx_)",
+      "streamTitle": "Flux Télémétrique de Session",
+      "openCloud": "Ouvrir PostHog Cloud",
+      "emptyTitle": "Aucun événement télémétrique enregistré pour le moment dans cette session.",
+      "emptyHint": "Cliquez sur « Émettre un Événement » ou naviguez sur le site pour voir les déclenchements."
+    }
   }
 }

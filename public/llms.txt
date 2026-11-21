@@ -6,10 +6,23 @@
 Lonside replaces traditional slow web agencies and risky freelance setups by delivering production-grade web applications with fixed scopes, fixed budgets, and guaranteed deadlines.
 
 - Website: https://www.lonside.com
+- Legal Trade Name: Lonside Corp. (SIRET: 999 912 173 00013 — Bouliac / Bordeaux, France)
 - GitHub Organization: https://github.com/lonsidestudio
 - Primary Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, Supabase / PostgreSQL (RLS), Stripe Billing, Resend, PostHog.
 - Direct Contact: hello@lonside.com
+- Booking Calendar (15 min): https://cal.com/lonsidestudio
 - Founder & Lead Architect: Kevin T.
+
+## Key Public URLs
+- Home (FR / EN): https://www.lonside.com/ | https://www.lonside.com/en
+- About & E-E-A-T: https://www.lonside.com/a-propos | https://www.lonside.com/en/about
+- Interactive Scope Estimator: https://www.lonside.com/estimation | https://www.lonside.com/en/estimate
+- Case Studies Hub: https://www.lonside.com/portfolio | https://www.lonside.com/en/portfolio
+- Engineering Method & SLA: https://www.lonside.com/methode | https://www.lonside.com/en/method
+- 14-Day MVP Sprint: https://www.lonside.com/services/sprint-mvp-14-jours | https://www.lonside.com/en/services/14-day-mvp-sprint
+- Next.js Web Applications: https://www.lonside.com/services/application-web-nextjs | https://www.lonside.com/en/services/nextjs-web-application
+- Custom SaaS Platforms: https://www.lonside.com/services/plateforme-saas-sur-mesure | https://www.lonside.com/en/services/custom-saas-platform
+- Senior Engineering Squad: https://www.lonside.com/services/regie-tech-senior | https://www.lonside.com/en/services/senior-engineering-squad
 
 ---
 
