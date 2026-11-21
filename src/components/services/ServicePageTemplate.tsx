@@ -126,28 +126,31 @@ export default async function ServicePageTemplate({ serviceKey, locale }: Servic
               {copy.intro}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              <div className="p-4 sm:p-5 rounded-xl border border-black/[0.08] bg-zinc-50/50">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">
-                  {tServices('ui.fixedInvestmentLabel')}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              <div className="p-5 sm:p-6 rounded-xl border border-black/[0.1] bg-zinc-50/50 flex flex-col justify-start gap-2.5">
+                <span className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.18em] text-zinc-500">
+                  <span className="w-1.5 h-1.5 rounded-full bg-black shrink-0" />
+                  <span>{tServices('ui.fixedInvestmentLabel')}</span>
                 </span>
-                <span className="font-display uppercase text-2xl sm:text-3xl text-black font-medium mt-1 block">
+                <span className="font-display uppercase text-xl sm:text-[1.45rem] leading-[1.15] text-black tracking-tight font-medium">
                   {copy.priceLabel}
                 </span>
               </div>
-              <div className="p-4 sm:p-5 rounded-xl border border-black/[0.08] bg-zinc-50/50">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">
-                  {tServices('ui.timelineLabel')}
+              <div className="p-5 sm:p-6 rounded-xl border border-black/[0.1] bg-zinc-50/50 flex flex-col justify-start gap-2.5">
+                <span className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.18em] text-zinc-500">
+                  <span className="w-1.5 h-1.5 rounded-full bg-black shrink-0" />
+                  <span>{tServices('ui.timelineLabel')}</span>
                 </span>
-                <span className="font-display uppercase text-2xl sm:text-3xl text-black font-medium mt-1 block">
+                <span className="font-display uppercase text-xl sm:text-[1.45rem] leading-[1.15] text-black tracking-tight font-medium">
                   {copy.timelineLabel}
                 </span>
               </div>
-              <div className="p-4 sm:p-5 rounded-xl border border-black/[0.08] bg-zinc-50/50">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">
-                  {tServices('ui.warrantyLabel')}
+              <div className="p-5 sm:p-6 rounded-xl border border-black/[0.1] bg-zinc-50/50 flex flex-col justify-start gap-2.5">
+                <span className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.18em] text-zinc-500">
+                  <span className="w-1.5 h-1.5 rounded-full bg-black shrink-0" />
+                  <span>{tServices('ui.warrantyLabel')}</span>
                 </span>
-                <span className="font-display uppercase text-2xl sm:text-3xl text-black font-medium mt-1 block">
+                <span className="font-display uppercase text-xl sm:text-[1.45rem] leading-[1.15] text-black tracking-tight font-medium">
                   {copy.warrantyLabel}
                 </span>
               </div>
@@ -191,17 +194,22 @@ export default async function ServicePageTemplate({ serviceKey, locale }: Servic
             <h2 className="font-display uppercase text-2xl sm:text-4xl tracking-tight text-black font-normal">
               {copy.deliverablesTitle}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
               {copy.deliverables.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-xl border border-black/[0.08] bg-white space-y-2.5"
+                  className="p-6 sm:p-7 rounded-xl border border-black/[0.1] bg-zinc-50/30 flex flex-col justify-start gap-4"
                 >
-                  <span className="text-[11px] font-mono text-zinc-500">0{idx + 1}</span>
-                  <h3 className="font-display uppercase text-xl text-black tracking-tight font-medium">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-zinc-600 leading-relaxed">{item.desc}</p>
+                  <div className="flex items-center justify-between border-b border-black/[0.06] pb-3">
+                    <span className="font-mono text-xl text-zinc-400 font-medium">0{idx + 1}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-black/30" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-display uppercase text-xl text-black tracking-tight leading-snug font-medium">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-zinc-600 leading-relaxed">{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -259,26 +267,26 @@ export default async function ServicePageTemplate({ serviceKey, locale }: Servic
                   {tServices('ui.allDossiers')}
                 </Link>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                 {featuredProjects.map((project) => (
                   <Link
                     key={project.slug}
                     href={{ pathname: '/portfolio/[slug]', params: { slug: project.slug } }}
-                    className="group p-6 rounded-xl border border-black/[0.08] hover:border-black/40 bg-zinc-50/40 hover:bg-white transition-all flex flex-col justify-between space-y-4"
+                    className="group p-6 sm:p-7 rounded-xl border border-black/[0.1] hover:border-black/50 bg-zinc-50/40 hover:bg-white transition-all flex flex-col justify-start gap-5"
                   >
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between gap-2 text-[11px] font-mono text-zinc-500 uppercase">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between gap-2 text-[11px] font-mono text-zinc-500 uppercase border-b border-black/[0.06] pb-3">
                         <span className="truncate">{project.industry}</span>
                         <span className="shrink-0 text-black font-medium">
                           {project.deliveryDays} {tCommon('days')}
                         </span>
                       </div>
-                      <h3 className="font-display uppercase text-2xl text-black tracking-tight group-hover:text-zinc-600">
+                      <h3 className="font-display uppercase text-2xl text-black tracking-tight group-hover:text-zinc-600 transition-colors">
                         {project.client}
                       </h3>
                       <p className="text-sm text-zinc-600 leading-relaxed">{project.headline}</p>
                     </div>
-                    <span className="text-xs font-mono text-black underline underline-offset-4">
+                    <span className="mt-auto pt-4 border-t border-black/[0.06] text-xs font-mono text-black underline underline-offset-4">
                       {tServices('ui.readArchDossier')}
                     </span>
                   </Link>
@@ -308,16 +316,26 @@ export default async function ServicePageTemplate({ serviceKey, locale }: Servic
             <h2 className="text-xs font-mono uppercase tracking-[0.18em] text-zinc-500">
               {tServices('ui.otherCapabilities')}
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {otherServices.map(({ def: other, copy: otherCopy }) => (
                 <Link
                   key={other.key}
                   href={other.frPath}
-                  className="p-4 rounded-xl border border-black/[0.08] hover:border-black/40 bg-white transition-colors flex flex-col justify-between gap-2 min-h-[88px]"
+                  className="group p-5 sm:p-6 rounded-xl border border-black/[0.1] hover:border-black/50 bg-zinc-50/40 hover:bg-white transition-all flex flex-col justify-start gap-4"
                 >
-                  <span className="text-xs font-mono text-zinc-500">{otherCopy.priceLabel}</span>
-                  <span className="font-display uppercase text-base text-black tracking-tight">
+                  <div className="flex items-center justify-between gap-2 border-b border-black/[0.06] pb-3">
+                    <span className="text-[11px] font-mono uppercase tracking-[0.12em] text-zinc-500">
+                      {otherCopy.priceLabel}
+                    </span>
+                    <span className="w-7 h-7 rounded-lg border border-black/[0.1] bg-white group-hover:bg-black group-hover:text-white group-hover:border-black text-black flex items-center justify-center transition-colors shrink-0">
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                  <span className="font-display uppercase text-lg text-black tracking-tight leading-[1.18] group-hover:text-zinc-700 transition-colors">
                     {otherCopy.metaTitle.replace(/\s*—\s*Lonside Studio$/, '')}
+                  </span>
+                  <span className="mt-auto pt-3 border-t border-black/[0.06] text-[11px] font-mono text-zinc-500">
+                    {otherCopy.timelineLabel}
                   </span>
                 </Link>
               ))}

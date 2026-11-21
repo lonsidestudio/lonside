@@ -297,16 +297,19 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 {project.metrics.map((metric, idx) => (
                   <div
                     key={idx}
-                    className="p-5 sm:p-6 rounded-xl bg-zinc-50/50 border border-black/[0.08] flex flex-col justify-between space-y-2"
+                    className="p-5 sm:p-6 rounded-xl bg-zinc-50/50 border border-black/[0.1] flex flex-col justify-start gap-2.5"
                   >
-                    <span className="text-xs font-mono text-zinc-500 uppercase tracking-wider">
-                      {metric.label}
+                    <span className="inline-flex items-center gap-2 text-[10px] font-mono text-zinc-500 uppercase tracking-[0.16em]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-black shrink-0" />
+                      <span>{metric.label}</span>
                     </span>
-                    <div className="font-display text-3xl sm:text-4xl text-black tracking-tight font-medium">
+                    <div className="font-display text-3xl sm:text-4xl text-black tracking-tight leading-none font-medium">
                       {metric.value}
                     </div>
                     {metric.delta && (
-                      <span className="text-xs font-mono text-zinc-600">{metric.delta}</span>
+                      <span className="mt-auto pt-2.5 border-t border-black/[0.06] text-xs font-mono text-zinc-600">
+                        {metric.delta}
+                      </span>
                     )}
                   </div>
                 ))}
@@ -418,16 +421,16 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           )}
 
           <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 sm:p-8 rounded-xl bg-zinc-50/50 border border-black/[0.08] space-y-3">
-              <h2 className="text-xs font-mono uppercase tracking-[0.18em] text-zinc-500">
+            <div className="p-6 sm:p-8 rounded-xl bg-zinc-50/50 border border-black/[0.1] flex flex-col justify-start gap-3">
+              <h2 className="text-xs font-mono uppercase tracking-[0.18em] text-zinc-500 border-b border-black/[0.06] pb-3">
                 {t('contextTitle')}
               </h2>
               <p className="text-sm sm:text-base text-zinc-700 leading-relaxed font-normal">
                 {project.challenge}
               </p>
             </div>
-            <div className="p-6 sm:p-8 rounded-xl bg-white border border-black/[0.12] space-y-3">
-              <h2 className="text-xs font-mono uppercase tracking-[0.18em] text-black font-semibold">
+            <div className="p-6 sm:p-8 rounded-xl bg-white border border-black/[0.14] flex flex-col justify-start gap-3">
+              <h2 className="text-xs font-mono uppercase tracking-[0.18em] text-black font-semibold border-b border-black/[0.06] pb-3">
                 {t('solutionTitle')}
               </h2>
               <p className="text-sm sm:text-base text-zinc-800 leading-relaxed font-normal">
@@ -451,17 +454,17 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 {project.productRoles.map((item, idx) => (
                   <div
                     key={idx}
-                    className="p-5 sm:p-6 rounded-xl border border-black/[0.08] bg-zinc-50/40 flex flex-col justify-between space-y-4"
+                    className="p-5 sm:p-6 rounded-xl border border-black/[0.1] bg-zinc-50/40 flex flex-col justify-start gap-3"
                   >
-                    <div className="space-y-2">
+                    <div className="border-b border-black/[0.06] pb-3">
                       <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-lg bg-white border border-black/[0.08] text-zinc-600 inline-block">
                         {item.accessLevel}
                       </span>
-                      <h3 className="font-display uppercase text-xl text-black tracking-tight font-medium">
-                        {item.role}
-                      </h3>
-                      <p className="text-sm text-zinc-600 leading-relaxed">{item.workflow}</p>
                     </div>
+                    <h3 className="font-display uppercase text-xl text-black tracking-tight leading-snug font-medium">
+                      {item.role}
+                    </h3>
+                    <p className="text-sm text-zinc-600 leading-relaxed">{item.workflow}</p>
                   </div>
                 ))}
               </div>
@@ -526,13 +529,19 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                   {t('needsTitle')}
                 </h2>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                 {project.clientNeeds.map((need, idx) => (
                   <div
                     key={idx}
-                    className="p-5 sm:p-6 rounded-xl bg-zinc-50/40 border border-black/[0.08] space-y-2"
+                    className="p-5 sm:p-6 rounded-xl bg-zinc-50/40 border border-black/[0.1] flex flex-col justify-start gap-3"
                   >
-                    <h3 className="font-display uppercase text-lg text-black tracking-tight font-medium">
+                    <div className="flex items-center justify-between border-b border-black/[0.06] pb-2.5">
+                      <span className="font-mono text-base text-zinc-400 font-medium">
+                        {String(idx + 1).padStart(2, '0')}
+                      </span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-black/30" />
+                    </div>
+                    <h3 className="font-display uppercase text-lg text-black tracking-tight leading-snug font-medium">
                       {need.title}
                     </h3>
                     <p className="text-sm text-zinc-600 leading-relaxed">{need.desc}</p>
@@ -736,20 +745,20 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                   <Link
                     key={other.slug}
                     href={{ pathname: '/portfolio/[slug]', params: { slug: other.slug } }}
-                    className="group p-5 rounded-xl border border-black/[0.08] hover:border-black/40 bg-zinc-50/40 hover:bg-white transition-all flex flex-col justify-between space-y-3"
+                    className="group p-5 sm:p-6 rounded-xl border border-black/[0.1] hover:border-black/50 bg-zinc-50/40 hover:bg-white transition-all flex flex-col justify-start gap-4"
                   >
-                    <div className="space-y-1.5">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block truncate">
+                    <div className="space-y-2">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block truncate border-b border-black/[0.06] pb-2.5">
                         {other.industry}
                       </span>
-                      <h3 className="font-display uppercase text-xl text-black tracking-tight group-hover:text-zinc-600 transition-colors">
+                      <h3 className="font-display uppercase text-xl text-black tracking-tight group-hover:text-zinc-600 transition-colors pt-1">
                         {other.client}
                       </h3>
                       <p className="text-xs text-zinc-600 line-clamp-2 leading-relaxed">
                         {other.headline}
                       </p>
                     </div>
-                    <span className="text-xs font-mono text-black underline underline-offset-4">
+                    <span className="mt-auto pt-3 border-t border-black/[0.06] text-xs font-mono text-black underline underline-offset-4">
                       {tHub('readDossier')}
                     </span>
                   </Link>

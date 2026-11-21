@@ -140,10 +140,10 @@ export default async function PortfolioPage({ params }: PortfolioHubProps) {
               <Link
                 key={project.slug}
                 href={{ pathname: '/portfolio/[slug]', params: { slug: project.slug } }}
-                className="group rounded-xl bg-zinc-50/40 hover:bg-white border border-black/[0.08] hover:border-black/40 p-6 sm:p-8 transition-all duration-200 flex flex-col justify-between space-y-6"
+                className="group rounded-xl bg-zinc-50/40 hover:bg-white border border-black/[0.1] hover:border-black/50 p-6 sm:p-8 transition-all duration-200 flex flex-col justify-start gap-6"
               >
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center justify-between gap-3 border-b border-black/[0.06] pb-4">
                     <span className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider truncate">
                       0{index + 1} {'//'} {project.industry}
                     </span>
@@ -153,10 +153,10 @@ export default async function PortfolioPage({ params }: PortfolioHubProps) {
                   </div>
 
                   <div className="flex items-start justify-between gap-3">
-                    <h2 className="font-display uppercase text-2xl sm:text-3xl text-black tracking-tight group-hover:text-zinc-600 transition-colors font-medium">
+                    <h2 className="font-display uppercase text-2xl sm:text-3xl text-black tracking-tight leading-[1.12] group-hover:text-zinc-600 transition-colors font-medium">
                       {project.client}
                     </h2>
-                    <span className="w-8 h-8 rounded-xl bg-black text-white flex items-center justify-center shrink-0">
+                    <span className="w-8 h-8 rounded-xl bg-black text-white flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
@@ -179,7 +179,7 @@ export default async function PortfolioPage({ params }: PortfolioHubProps) {
                   )}
                 </div>
 
-                <div className="pt-5 border-t border-black/[0.06] flex items-center justify-between gap-3 text-xs font-mono">
+                <div className="mt-auto pt-5 border-t border-black/[0.06] flex items-center justify-between gap-3 text-xs font-mono">
                   {project.metrics[0] ? (
                     <div className="flex items-center gap-1.5 min-w-0 truncate">
                       <span className="text-black font-semibold whitespace-nowrap">

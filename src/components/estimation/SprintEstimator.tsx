@@ -61,16 +61,16 @@ export default function SprintEstimator() {
                   key={id}
                   type="button"
                   onClick={() => setProjectType(id)}
-                  className={`p-4 sm:p-5 rounded-xl border text-left transition-all cursor-pointer min-h-[84px] ${
+                  className={`p-4 sm:p-5 rounded-xl border text-left transition-all cursor-pointer min-h-[88px] flex flex-col justify-start gap-1.5 ${
                     active
                       ? 'border-black bg-black text-white'
-                      : 'border-black/[0.08] bg-zinc-50/40 hover:border-black/40 text-black'
+                      : 'border-black/[0.1] bg-zinc-50/40 hover:border-black/50 hover:bg-white text-black'
                   }`}
                 >
-                  <span className="font-display uppercase text-lg tracking-tight block font-medium">
+                  <span className="font-display uppercase text-lg tracking-tight leading-snug block font-medium">
                     {t(`projectOptions.${id}.title`)}
                   </span>
-                  <span className={`text-xs mt-1 block ${active ? 'text-zinc-300' : 'text-zinc-600'}`}>
+                  <span className={`text-xs leading-relaxed block ${active ? 'text-zinc-300' : 'text-zinc-600'}`}>
                     {t(`projectOptions.${id}.subtitle`)}
                   </span>
                 </button>

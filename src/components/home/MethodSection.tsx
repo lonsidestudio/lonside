@@ -41,10 +41,10 @@ export default function MethodSection({ locale }: MethodSectionProps) {
           {phases.map((phase, idx) => (
             <div
               key={idx}
-              className="p-5 sm:p-8 rounded-xl bg-zinc-50/40 border border-black/[0.08] flex flex-col justify-between space-y-6 min-w-0 w-full overflow-hidden"
+              className="p-5 sm:p-8 rounded-xl bg-zinc-50/40 border border-black/[0.1] flex flex-col justify-start min-w-0 w-full overflow-hidden"
             >
               <div className="space-y-4">
-                <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center justify-between gap-2 border-b border-black/[0.06] pb-3.5">
                   <span className="text-[10px] sm:text-[11px] font-mono px-3 py-1 rounded-xl bg-black text-white uppercase tracking-wider font-medium whitespace-nowrap shrink-0">
                     {phase.timing}
                   </span>

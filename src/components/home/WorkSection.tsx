@@ -58,11 +58,11 @@ export default function WorkSection({ projects, locale = "fr" }: WorkSectionProp
                   handleOpenDossier(project);
                 }
               }}
-              className="group relative rounded-xl bg-zinc-50/40 hover:bg-white border border-black/[0.08] hover:border-black/40 p-5 sm:p-8 transition-all duration-200 flex flex-col justify-between cursor-pointer space-y-5 sm:space-y-6 min-h-[250px] sm:min-h-[260px] focus:outline-none focus:ring-1 focus:ring-black min-w-0 w-full max-w-full overflow-hidden"
+              className="group relative rounded-xl bg-zinc-50/40 hover:bg-white border border-black/[0.1] hover:border-black/50 p-5 sm:p-8 transition-all duration-200 flex flex-col justify-start gap-5 sm:gap-6 cursor-pointer min-h-[250px] sm:min-h-[260px] focus:outline-none focus:ring-1 focus:ring-black min-w-0 w-full max-w-full overflow-hidden"
             >
               {/* Ligne d'en-tête discrète */}
-              <div className="flex items-center justify-between gap-3 sm:gap-4 min-w-0 w-full">
-                <span className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider truncate min-w-0">
+              <div className="flex items-center justify-between gap-3 sm:gap-4 border-b border-black/[0.06] pb-3.5 min-w-0 w-full">
+                <span className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider truncate min-w-0">
                   0{index + 1} {"//"} {project.industry}
                 </span>
                 <span className="text-[10px] sm:text-[11px] font-mono px-2.5 sm:px-3 py-1 rounded-xl bg-white border border-black/[0.08] text-black font-medium whitespace-nowrap shrink-0 uppercase">
@@ -73,7 +73,7 @@ export default function WorkSection({ projects, locale = "fr" }: WorkSectionProp
               {/* Titre & Descriptif Succinct */}
               <div className="space-y-2.5 min-w-0 w-full">
                 <div className="flex items-start justify-between gap-3 min-w-0 w-full">
-                  <h3 className="font-display uppercase text-xl sm:text-2xl md:text-3xl text-black tracking-tight group-hover:text-zinc-600 transition-colors font-medium truncate min-w-0">
+                  <h3 className="font-display uppercase text-xl sm:text-2xl md:text-3xl text-black tracking-tight leading-[1.12] group-hover:text-zinc-600 transition-colors font-medium truncate min-w-0">
                     {project.client}
                   </h3>
                   <div className="w-8 h-8 rounded-xl bg-black text-white flex items-center justify-center group-hover:scale-105 transition-transform shrink-0 mt-0.5">
@@ -86,7 +86,7 @@ export default function WorkSection({ projects, locale = "fr" }: WorkSectionProp
               </div>
 
               {/* Pied de Carte Épuré */}
-              <div className="pt-4 sm:pt-5 border-t border-black/[0.06] flex items-center justify-between text-xs font-mono gap-3 min-w-0 w-full">
+              <div className="mt-auto pt-4 sm:pt-5 border-t border-black/[0.06] flex items-center justify-between text-xs font-mono gap-3 min-w-0 w-full">
                 {project.metrics && project.metrics[0] ? (
                   <div className="flex items-center gap-1.5 min-w-0 truncate text-xs">
                     <span className="text-black font-semibold whitespace-nowrap shrink-0">

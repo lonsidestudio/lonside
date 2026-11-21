@@ -46,10 +46,10 @@ export default function PricingSection({ locale }: PricingSectionProps) {
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`relative rounded-xl bg-white border flex flex-col justify-between p-5 sm:p-8 min-w-0 w-full ${
+              className={`relative rounded-xl bg-white border flex flex-col justify-start p-5 sm:p-8 min-w-0 w-full ${
                 tier.popular
                   ? "border-black/60 bg-zinc-50/30 shadow-[0_1px_8px_rgba(0,0,0,0.03)]"
-                  : "border-black/[0.08]"
+                  : "border-black/[0.1]"
               }`}
             >
               {tier.popular && (
@@ -61,7 +61,7 @@ export default function PricingSection({ locale }: PricingSectionProps) {
               <div>
                 <div className="space-y-1.5 mb-6">
                   <h3 className="font-display uppercase text-lg sm:text-xl md:text-2xl text-black tracking-tight font-medium">{tier.name}</h3>
-                  <p className="text-xs sm:text-sm text-zinc-600 font-normal leading-relaxed min-h-[36px]">
+                  <p className="text-xs sm:text-sm text-zinc-600 font-normal leading-relaxed sm:min-h-[44px]">
                     {tier.tagline}
                   </p>
                 </div>
@@ -85,7 +85,7 @@ export default function PricingSection({ locale }: PricingSectionProps) {
                 </ul>
               </div>
 
-              <div>
+              <div className="mt-auto">
                 <a
                   href="#contact"
                   onClick={() => {
