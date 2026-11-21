@@ -222,12 +222,6 @@ productModules:
     behaviorEn: "Guests upload full-resolution smartphone photos with zero account friction; approved shots stream live into a private high-resolution gallery."
     businessRuleFr: "Upload direct vers stockage cloud chiffré absorbant les pics de téléversement simultanés sans saturer le serveur applicatif ni compresser destructivement les souvenirs."
     businessRuleEn: "Direct-to-cloud encrypted uploads absorbing concurrent reception spikes without bottlenecking the app server or degrading image quality."
-screenshots:
-  - src: "/images/architecture/weedin.png"
-    altFr: "Schéma d'architecture système WeedIn : parcours RSVP mobile, moteur d'e-billets QR code cryptographiques sous 250 ms et galerie cloud HD"
-    altEn: "WeedIn system architecture blueprint: mobile RSVP showcase, sub-250ms cryptographic QR e-pass engine, and direct HD cloud gallery"
-    captionFr: "Blueprint d’architecture WeedIn — Billetterie QR code cryptographique, placement dynamique J-J et galerie cloud HD."
-    captionEn: "WeedIn Architecture Blueprint — Cryptographic QR e-passes, live day-of seating lookup, and zero-compression cloud gallery."
 productFaq:
   - questionFr: "Ce socle de billetterie QR code fonctionne-t-il aussi pour des événements corporate ou B2B ?"
     questionEn: "Does this QR ticketing and RSVP platform also fit corporate galas and B2B summits?"

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ArrowLeft, ArrowUpRight, ExternalLink, Layers, ShieldCheck, Cpu, Users, LayoutGrid, HelpCircle } from 'lucide-react';
@@ -110,9 +109,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const portfolioUrl = currentLocale === 'en' ? `${siteConfig.siteUrl}/en/portfolio` : `${siteConfig.siteUrl}/portfolio`;
   const canonicalUrl = `${portfolioUrl}/${project.slug}`;
   const contactHref = currentLocale === 'en' ? '/en#contact' : '/#contact';
-  const primaryImage = project.screenshots[0]?.src
-    ? `${siteConfig.siteUrl}${project.screenshots[0].src}`
-    : `${siteConfig.siteUrl}/og?locale=${currentLocale}&title=${encodeURIComponent(project.client)}`;
+  const primaryImage = `${siteConfig.siteUrl}/og?locale=${currentLocale}&title=${encodeURIComponent(project.client)}`;
 
   const webPageJsonLd = {
     '@context': 'https://schema.org',
@@ -288,37 +285,6 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 videoId={project.youtubeVideoId}
                 title={project.youtubeTitle || `${project.client} — ${project.headline}`}
               />
-            </section>
-          )}
-
-          {project.screenshots.length > 0 && (
-            <section className="space-y-6">
-              <h2 className="font-display uppercase text-2xl sm:text-3xl tracking-tight text-black font-normal">
-                {t('screenshotsTitle')}
-              </h2>
-              <div className={`grid grid-cols-1 ${project.screenshots.length > 1 ? 'md:grid-cols-2' : ''} gap-6`}>
-                {project.screenshots.map((shot, idx) => (
-                  <figure
-                    key={idx}
-                    className="rounded-xl overflow-hidden border border-black/[0.08] bg-zinc-50/40 flex flex-col"
-                  >
-                    <div className="relative aspect-[16/10] w-full bg-zinc-100">
-                      <Image
-                        src={shot.src}
-                        alt={shot.alt || shot.caption || project.client}
-                        fill
-                        sizes={project.screenshots.length > 1 ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 1024px) 100vw, 960px'}
-                        className="object-cover"
-                      />
-                    </div>
-                    {shot.caption && (
-                      <figcaption className="px-4 py-3 text-xs font-mono text-zinc-600 border-t border-black/[0.06]">
-                        {shot.caption}
-                      </figcaption>
-                    )}
-                  </figure>
-                ))}
-              </div>
             </section>
           )}
 
