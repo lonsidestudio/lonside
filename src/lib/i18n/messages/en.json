@@ -123,6 +123,7 @@
     "titleHighlight": "to production launch.",
     "description": "No obscure jargon or unpleasant surprises. Every phase has a crisp objective, and you follow your product's progress live.",
     "deliverableLabel": "What you receive",
+    "fullProtocolLink": "Explore our full engineering protocol, SLA guarantees & comparison →",
     "phases": [
       {
         "timing": "Days 1 — 2",
@@ -165,6 +166,9 @@
     "titleHighlight": "zero surprise fees.",
     "description": "Every package includes end-to-end discovery, polished development, complete code ownership on your account, and one month of post-launch warranty.",
     "recommended": "Recommended",
+    "tierDetailLink": "View full package details →",
+    "nextjsLink": "Need a custom Next.js & TypeScript web application? Explore our capability →",
+    "estimatorLink": "Estimate your scope & timeline in 30 seconds →",
     "tiers": [
       {
         "name": "Sprint Launch",
@@ -314,7 +318,7 @@
       "sections": [
         {
           "title": "Site Publisher",
-          "content": "<p><span class=\"text-black font-medium\">Company Name:</span> Lonside Studio</p><p><span class=\"text-black font-medium\">Status:</span> High-Velocity Digital Engineering Studio</p><p><span class=\"text-black font-medium\">Headquarters:</span> France</p><p><span class=\"text-black font-medium\">Direct Email:</span> hello@lonside.com</p>"
+          "content": "<p><span class=\"text-black font-medium\">Company Name:</span> Lonside Studio (Trade name: Lonside Corp.)</p><p><span class=\"text-black font-medium\">SIRET:</span> 999 912 173 00013 (SIREN: 999 912 173)</p><p><span class=\"text-black font-medium\">Headquarters:</span> 1 Allée Silvestre, 33270 Bouliac (Bordeaux), France</p><p><span class=\"text-black font-medium\">Direct Email:</span> hello@lonside.com</p>"
         },
         {
           "title": "Infrastructure & Hosting",
@@ -351,7 +355,7 @@
         },
         {
           "title": "Applicable Law",
-          "content": "All commercial agreements are governed by French law with exclusive jurisdiction granted to Paris commercial courts."
+          "content": "All commercial agreements are governed by French law with exclusive jurisdiction granted to Bordeaux commercial courts."
         }
       ]
     },
@@ -430,7 +434,7 @@
     "leadershipBio": "Every client platform at Lonside is architected, coded, and reviewed directly at Lead Architect level. We intentionally cap concurrent sprints so your product receives senior-only engineering, zero delegation, and direct Slack/GitHub communication.",
     "legalLabel": "Verified Legal Identity",
     "siretLabel": "SIRET",
-    "sirenApeLabel": "SIREN / APE",
+    "sirenLabel": "SIREN",
     "officeLabel": "Office",
     "emailLabel": "Email",
     "standardsTitle": "Non-negotiable engineering standards",

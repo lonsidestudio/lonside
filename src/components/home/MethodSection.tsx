@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/lib/i18n/navigation";
 
 interface MethodSectionProps {
   locale?: string;
@@ -77,6 +78,15 @@ export default function MethodSection({ locale }: MethodSectionProps) {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-8 pt-6 border-t border-black/[0.06] flex justify-start">
+          <Link
+            href="/methode"
+            className="text-xs font-mono text-black hover:text-zinc-600 underline underline-offset-4 font-medium transition-colors py-2 min-h-[44px] inline-flex items-center"
+          >
+            {t("fullProtocolLink")}
+          </Link>
         </div>
       </div>
     </section>

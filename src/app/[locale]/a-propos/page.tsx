@@ -168,10 +168,8 @@ export default async function AboutPage({ params }: AboutPageProps) {
                   <dd className="text-black font-medium">{siteConfig.legal.siret}</dd>
                 </div>
                 <div className="flex justify-between gap-4 py-1 border-b border-black/[0.05]">
-                  <dt className="text-zinc-500">{t('sirenApeLabel')}</dt>
-                  <dd className="text-black font-medium">
-                    {siteConfig.legal.siren} · {siteConfig.legal.apeCode}
-                  </dd>
+                  <dt className="text-zinc-500">{t('sirenLabel')}</dt>
+                  <dd className="text-black font-medium">{siteConfig.legal.siren}</dd>
                 </div>
                 <div className="flex justify-between gap-4 py-1 border-b border-black/[0.05]">
                   <dt className="text-zinc-500 flex items-center gap-1">
