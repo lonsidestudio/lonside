@@ -26,14 +26,14 @@ const securityHeaders = [
     value: [
       "default-src 'self'",
       // Next.js needs unsafe-inline for styles; unsafe-eval only in dev
-      `script-src 'self' 'unsafe-inline' https://eu-assets.i.posthog.com${isDev ? " 'unsafe-eval'" : ''}`,
+      `script-src 'self' 'unsafe-inline' https://eu-assets.i.posthog.com https://www.googletagmanager.com${isDev ? " 'unsafe-eval'" : ''}`,
       "style-src 'self' 'unsafe-inline'",
       // next/font self-hosts fonts — no external font CDN needed
       "font-src 'self'",
-      "img-src 'self' data: blob: https://i.ytimg.com",
-      // API calls: self, Vercel vitals/speed-insights and PostHog EU ingestion/config
-      "connect-src 'self' vitals.vercel-insights.com https://vercel.com https://vercel-insights.com https://eu.i.posthog.com https://eu-assets.i.posthog.com",
-      "frame-src 'self' https://www.youtube-nocookie.com",
+      "img-src 'self' data: blob: https://i.ytimg.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com",
+      // API calls: self, Vercel vitals/speed-insights, PostHog EU and Google Analytics / GTM
+      "connect-src 'self' vitals.vercel-insights.com https://vercel.com https://vercel-insights.com https://eu.i.posthog.com https://eu-assets.i.posthog.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",
+      "frame-src 'self' https://www.youtube-nocookie.com https://www.googletagmanager.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",

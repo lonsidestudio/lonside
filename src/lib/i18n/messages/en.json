@@ -368,7 +368,7 @@
         },
         {
           "title": "Privacy-Respecting Analytics",
-          "content": "Subject to your explicit consent, we track anonymized traffic trends with Vercel Web Analytics and PostHog EU. No personal identity is ever recorded."
+          "content": "Subject to your explicit consent, we track anonymized traffic trends with Vercel Web Analytics, PostHog EU, and Google Tag Manager / Google Analytics (Consent Mode v2). No personal identity is ever recorded."
         },
         {
           "title": "Your Rights",
@@ -401,7 +401,7 @@
     "essentialTitle": "Strictly Necessary",
     "essentialDesc": "Required for website operation (session, security, locale). Cannot be disabled.",
     "analyticsTitle": "Anonymous Analytics",
-    "analyticsDesc": "Anonymized metrics to assess website velocity and performance (Vercel & PostHog EU).",
+    "analyticsDesc": "Anonymized metrics to assess website velocity and performance (Vercel, PostHog EU & Google Analytics via GTM).",
     "marketingTitle": "Marketing",
     "marketingDesc": "No marketing or advertising cookies are utilized by Lonside Studio.",
     "close": "Close",

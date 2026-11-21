@@ -6,6 +6,7 @@ import { locales } from '@/lib/i18n/config';
 import BrandNoise from '@/components/BrandNoise';
 import ConsentAnalytics from '@/components/layout/ConsentAnalytics';
 import CookieConsent from '@/components/layout/CookieConsent';
+import GoogleTagManager from '@/components/layout/GoogleTagManager';
 import LocaleHtmlLang from '@/components/layout/LocaleHtmlLang';
 import PostHogAnalytics from '@/components/layout/PostHogAnalytics';
 import { siteConfig } from '@/lib/site-config';
@@ -123,6 +124,7 @@ export default async function LocaleLayout({
         </NextIntlClientProvider>
         <ConsentAnalytics enabled={process.env.VERCEL_ENV === 'production'} />
         <PostHogAnalytics enabled={process.env.VERCEL_ENV === 'production' || process.env.NEXT_PUBLIC_POSTHOG_DEBUG === 'true'} />
+        <GoogleTagManager enabled={process.env.VERCEL_ENV === 'production' || process.env.NEXT_PUBLIC_GTM_DEBUG === 'true'} />
         <SpeedInsights />
       </body>
     </html>

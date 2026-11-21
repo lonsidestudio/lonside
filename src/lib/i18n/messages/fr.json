@@ -368,7 +368,7 @@
         },
         {
           "title": "Mesure d'audience respectueuse",
-          "content": "Sous réserve de votre accord explicite, nous mesurons l'audience anonymisée avec Vercel Analytics et PostHog EU. Aucun identifiant nominatif n'est transmis."
+          "content": "Sous réserve de votre accord explicite, nous mesurons l'audience anonymisée avec Vercel Analytics, PostHog EU et Google Tag Manager / Google Analytics (Consent Mode v2). Aucun identifiant nominatif n'est transmis."
         },
         {
           "title": "Exercice de vos droits",
@@ -401,7 +401,7 @@
     "essentialTitle": "Strictement nécessaires",
     "essentialDesc": "Indispensables au fonctionnement du site (session, sécurité, langue). Ne peuvent pas être désactivés.",
     "analyticsTitle": "Mesure d'audience anonyme",
-    "analyticsDesc": "Statistiques anonymisées pour mesurer la performance du site (Vercel Analytics & PostHog EU).",
+    "analyticsDesc": "Statistiques anonymisées pour mesurer la performance du site (Vercel Analytics, PostHog EU & Google Analytics via GTM).",
     "marketingTitle": "Marketing",
     "marketingDesc": "Aucun cookie marketing ou publicitaire n'est utilisé par Lonside Studio.",
     "close": "Fermer",
