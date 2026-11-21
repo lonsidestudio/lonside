@@ -13,7 +13,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function CookiesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'legalData' });
+  const [t, tCookiesBox] = await Promise.all([
+    getTranslations({ locale, namespace: 'legalData' }),
+    getTranslations({ locale, namespace: 'legalCookies' }),
+  ]);
 
   // Read from Keystatic singleton and fallback to messages if not found
   const entry = await reader.singletons.cookies.read();
@@ -52,17 +55,11 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
 
           <div className="p-5 sm:p-6 rounded-xl bg-zinc-50/70 border border-black/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <p className="text-sm font-medium text-black">
-                {locale === 'en' ? 'Consent preferences' : 'Préférences de consentement'}
-              </p>
-              <p className="text-xs text-zinc-500 mt-0.5">
-                {locale === 'en'
-                  ? 'You can update your privacy choices at any time.'
-                  : 'Vous pouvez mettre à jour vos choix à tout moment.'}
-              </p>
+              <p className="text-sm font-medium text-black">{tCookiesBox('boxTitle')}</p>
+              <p className="text-xs text-zinc-500 mt-0.5">{tCookiesBox('boxDescription')}</p>
             </div>
             <CookiePreferenceButton
-              label={buttonLabel || (locale === 'en' ? 'Update my preferences' : 'Modifier mes préférences')}
+              label={buttonLabel || tCookiesBox('fallbackButton')}
             />
           </div>
 

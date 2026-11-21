@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { Link, usePathname } from "@/lib/i18n/navigation";
 import { ChevronDown, ChevronUp, Check } from "lucide-react";
@@ -15,6 +15,7 @@ const LANGUAGES = [
 export default function LocaleSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
   const locale = useLocale();
+  const t = useTranslations("localeSwitcher");
   const pathname = usePathname();
   const params = useParams();
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -67,7 +68,7 @@ export default function LocaleSwitcher() {
         onClick={() => setIsOpen(!isOpen)}
         aria-haspopup="true"
         aria-expanded={isOpen}
-        aria-label={`Langue actuelle : ${activeLang.label}. Cliquez pour changer.`}
+        aria-label={t("ariaLabel", { language: activeLang.label })}
         className="px-3 py-1.5 rounded-xl border border-black/[0.08] hover:border-black/30 bg-zinc-50/80 hover:bg-zinc-100 flex items-center gap-1.5 transition-colors duration-150 cursor-pointer min-h-[44px] text-xs font-mono font-medium text-black select-none outline-none focus:outline-none focus:ring-0"
       >
         <span className="font-semibold tracking-wide">{activeLang.short}</span>

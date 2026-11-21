@@ -43,7 +43,7 @@ export default function ContactSection({ locale }: ContactSectionProps) {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          subject: "Demande de cadrage d'ingénierie (Studio Lonside)",
+          subject: t("form.defaultSubject"),
           _trap: formData._trap,
         }),
       });

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ArrowLeft, Activity, ShieldCheck, Cpu, Database, Radio } from 'lucide-react';
+import { Link } from '@/lib/i18n/navigation';
 import { getSupervisionReport } from '@/lib/supervision';
 import LiveTelemetryConsole from '@/components/supervision/LiveTelemetryConsole';
 
@@ -8,89 +9,86 @@ interface StatusPageProps {
   params: Promise<{ locale: string }>;
 }
 
-export const metadata: Metadata = {
-  title: 'Supervision & Télémétrie — Lonside Studio',
-  description: 'Tableau de bord de télémétrie, santé des services critiques et intégrité PostHog.',
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
+export async function generateMetadata({ params }: StatusPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'status' });
+  return {
+    title: { absolute: t('metaTitle') },
+    description: t('metaDescription'),
+    robots: {
+      index: false,
+      follow: false,
+    },
+  };
+}
 
 export default async function StatusPage({ params }: StatusPageProps) {
   const { locale } = await params;
-  const isEn = locale === 'en';
-  const report = await getSupervisionReport();
+  setRequestLocale(locale);
+  const [t, report] = await Promise.all([
+    getTranslations({ locale, namespace: 'status' }),
+    getSupervisionReport(),
+  ]);
 
   const isAllGood = report.overallStatus === 'all_systems_operational';
 
   return (
     <div className="min-h-screen bg-white text-black flex flex-col justify-between selection:bg-black selection:text-white">
-      {/* Barre de navigation haute */}
       <header className="border-b border-black/[0.08] bg-white sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
           <Link
-            href={isEn ? '/en' : '/'}
+            href="/"
             className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.16em] text-zinc-500 hover:text-black transition-colors min-h-[44px]"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>{isEn ? 'Back to Studio' : 'Retour au Studio'}</span>
+            <span>{t('backToStudio')}</span>
           </Link>
 
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-[11px] font-mono uppercase tracking-wider text-black font-medium">
-              {isEn ? 'Supervision Live' : 'Supervision en Direct'}
+              {t('liveBadge')}
             </span>
           </div>
         </div>
       </header>
 
-      {/* Contenu Principal */}
       <main className="flex-1 max-w-6xl mx-auto px-5 sm:px-8 py-10 sm:py-16 w-full space-y-12">
-        {/* En-tête statut général */}
         <section className="space-y-4">
           <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.22em] text-zinc-400 uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-black" />
-            <span>{isEn ? 'System Telemetry & Health' : 'Télémétrie & Santé Système'}</span>
+            <span>{t('eyebrow')}</span>
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-black/[0.08] pb-8">
             <div>
               <h1 className="font-display uppercase text-3xl sm:text-4xl md:text-5xl tracking-tight text-black font-normal">
-                {isEn ? 'Systems' : 'Systèmes'}{' '}
+                {t('titlePrefix')}{' '}
                 <span className={isAllGood ? 'text-black' : 'text-amber-600'}>
-                  {isAllGood
-                    ? isEn
-                      ? 'Operational'
-                      : 'Opérationnels'
-                    : isEn
-                    ? 'Attention Required'
-                    : 'Attention Requise'}
+                  {isAllGood ? t('statusOperational') : t('statusAttention')}
                 </span>
               </h1>
               <p className="text-xs sm:text-sm font-mono text-zinc-500 mt-2">
-                {isEn ? 'Environment:' : 'Environnement :'} {report.environment.toUpperCase()} ·{' '}
-                {isEn ? 'Snapshot:' : 'Instantané :'} {new Date(report.timestamp).toLocaleTimeString()}
+                {t('environmentLabel')} {report.environment.toUpperCase()} ·{' '}
+                {t('snapshotLabel')} {new Date(report.timestamp).toLocaleTimeString()}
               </p>
             </div>
 
             <div className="p-4 rounded-xl border border-black/[0.08] bg-zinc-50 flex items-center gap-3 self-start sm:self-auto">
               <Activity className="w-5 h-5 text-black" />
               <div className="text-left font-mono">
-                <p className="text-[10px] text-zinc-500 uppercase">{isEn ? 'Status' : 'État Global'}</p>
+                <p className="text-[10px] text-zinc-500 uppercase">{t('globalStateLabel')}</p>
                 <p className="text-xs font-semibold text-black uppercase">
-                  {isAllGood ? '100% HEALTHY' : 'ACTION NEEDED'}
+                  {isAllGood ? t('globalHealthy') : t('globalActionNeeded')}
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Grille des services audités */}
         <section className="space-y-4">
           <h2 className="text-xs font-mono uppercase tracking-[0.18em] text-zinc-400">
-            {isEn ? 'Core Platform Services' : 'Services Essentiels de la Plateforme'}
+            {t('coreServicesHeading')}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -141,15 +139,13 @@ export default async function StatusPage({ params }: StatusPageProps) {
           </div>
         </section>
 
-        {/* Console Interactive de Télémétrie PostHog en direct */}
-        <LiveTelemetryConsole isEn={isEn} />
+        <LiveTelemetryConsole />
       </main>
 
-      {/* Footer */}
       <footer className="border-t border-black/[0.08] bg-zinc-50/50 py-6">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-zinc-500">
-          <span>Lonside Studio // Telemetry & Observability</span>
-          <span>Version {report.version} · Next.js 16 SSG · PostHog EU</span>
+          <span>{t('footerLeft')}</span>
+          <span>{t('footerRight', { version: report.version })}</span>
         </div>
       </footer>
     </div>

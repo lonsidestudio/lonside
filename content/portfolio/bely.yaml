@@ -219,6 +219,12 @@ productModules:
     behaviorEn: "Each corporate account accesses an isolated workspace with trip logs, cost centers, waiting fees, and automated month-end consolidated PDF invoices."
     businessRuleFr: "Isolation multi-tenant stricte garantissant la confidentialité absolue des passagers VIP entre hôtels concurrents, couplée à une réconciliation financière sans saisie manuelle."
     businessRuleEn: "Strict multi-tenant data partitioning protecting VIP passenger confidentiality across competing hotels, backed by error-free automated accounting reconciliation."
+screenshots:
+  - src: "/images/architecture/bely.png"
+    altFr: "Schéma d'architecture système Bely : portail corporate hôtels, moteur de dispatch géospatial PostgreSQL sous 5 ms et facturation consolidée"
+    altEn: "Bely system architecture blueprint: luxury hotel corporate portal, sub-5ms PostgreSQL geospatial dispatch, and automated B2B billing"
+    captionFr: "Blueprint d’architecture Bely — Portail grands comptes, matching géospatial natif < 5 ms et clôture comptable automatisée."
+    captionEn: "Bely Architecture Blueprint — Corporate portal, native sub-5ms spatial dispatch, and automated monthly invoicing."
 productFaq:
   - questionFr: "Comment Bely garantit-il la conformité légale de toute une flotte VTC ?"
     questionEn: "How does Bely enforce regulatory compliance across an executive fleet?"

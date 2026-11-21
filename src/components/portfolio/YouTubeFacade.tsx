@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Play } from 'lucide-react';
 
 interface YouTubeFacadeProps {
   videoId: string;
   title: string;
-  isEn: boolean;
 }
 
 /**
@@ -14,7 +14,8 @@ interface YouTubeFacadeProps {
  * 0 octet de scripts YouTube chargé au rendu initial (zéro impact LCP/CWV),
  * l'iframe n'est montée qu'après un clic explicite du visiteur.
  */
-export default function YouTubeFacade({ videoId, title, isEn }: YouTubeFacadeProps) {
+export default function YouTubeFacade({ videoId, title }: YouTubeFacadeProps) {
+  const t = useTranslations('portfolio.detail');
   const [activated, setActivated] = useState(false);
 
   if (activated) {
@@ -35,7 +36,7 @@ export default function YouTubeFacade({ videoId, title, isEn }: YouTubeFacadePro
     <button
       type="button"
       onClick={() => setActivated(true)}
-      aria-label={isEn ? `Play video: ${title}` : `Lancer la vidéo : ${title}`}
+      aria-label={t('videoPlayAria', { title })}
       className="group relative aspect-video w-full overflow-hidden rounded-2xl border border-black/[0.1] bg-zinc-950 text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -48,7 +49,7 @@ export default function YouTubeFacade({ videoId, title, isEn }: YouTubeFacadePro
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-between p-5 sm:p-8">
         <span className="inline-flex items-center gap-2 self-start px-3 py-1 rounded-xl bg-black/70 border border-white/15 text-[10px] font-mono uppercase tracking-[0.18em] text-white">
-          {isEn ? 'YouTube Product Walkthrough' : 'Démo Produit YouTube'}
+          {t('videoTag')}
         </span>
         <div className="flex items-end justify-between gap-4">
           <p className="font-display uppercase text-lg sm:text-2xl text-white tracking-tight max-w-xl">

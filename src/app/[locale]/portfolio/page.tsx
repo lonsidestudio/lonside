@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -13,16 +13,12 @@ interface PortfolioHubProps {
 
 export async function generateMetadata({ params }: PortfolioHubProps): Promise<Metadata> {
   const { locale } = await params;
-  const isEn = locale === 'en';
-  const title = isEn
-    ? 'Case Studies & Shipped Products — Lonside Studio'
-    : 'Études de Cas & Produits Livrés — Lonside Studio';
-  const description = isEn
-    ? 'Production web applications, SaaS platforms, and data engines engineered by Lonside Studio in fixed 14 to 35-day sprints with 100% GitHub code ownership.'
-    : 'Applications web, plateformes SaaS et moteurs temps réel livrés en production par Lonside Studio en sprints fermes de 14 à 35 jours avec cession totale du code.';
+  const t = await getTranslations({ locale, namespace: 'portfolio' });
+  const title = t('hubMetaTitle');
+  const description = t('hubMetaDescription');
   const frUrl = `${siteConfig.siteUrl}/portfolio`;
   const enUrl = `${siteConfig.siteUrl}/en/portfolio`;
-  const canonical = isEn ? enUrl : frUrl;
+  const canonical = locale === 'en' ? enUrl : frUrl;
 
   return {
     title: { absolute: title },
@@ -40,7 +36,7 @@ export async function generateMetadata({ params }: PortfolioHubProps): Promise<M
       description,
       url: canonical,
       siteName: 'Lonside Studio',
-      locale: isEn ? 'en_US' : 'fr_FR',
+      locale: locale === 'en' ? 'en_US' : 'fr_FR',
       type: 'website',
       images: [
         {
@@ -64,28 +60,33 @@ export default async function PortfolioPage({ params }: PortfolioHubProps) {
   const { locale } = await params;
   const currentLocale: Locale = locale === 'en' ? 'en' : 'fr';
   setRequestLocale(currentLocale);
-  const isEn = currentLocale === 'en';
-  const projects = await getPortfolioProjects(currentLocale);
 
-  const canonicalUrl = isEn ? `${siteConfig.siteUrl}/en/portfolio` : `${siteConfig.siteUrl}/portfolio`;
-  const homeUrl = isEn ? `${siteConfig.siteUrl}/en` : `${siteConfig.siteUrl}/`;
+  const [t, tCommon, projects] = await Promise.all([
+    getTranslations({ locale: currentLocale, namespace: 'portfolio' }),
+    getTranslations({ locale: currentLocale, namespace: 'common' }),
+    getPortfolioProjects(currentLocale),
+  ]);
+
+  const canonicalUrl = currentLocale === 'en' ? `${siteConfig.siteUrl}/en/portfolio` : `${siteConfig.siteUrl}/portfolio`;
+  const homeUrl = currentLocale === 'en' ? `${siteConfig.siteUrl}/en` : `${siteConfig.siteUrl}/`;
+  const contactHref = currentLocale === 'en' ? '/en#contact' : '/#contact';
 
   const collectionJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     '@id': `${canonicalUrl}#webpage`,
     url: canonicalUrl,
-    name: isEn ? 'Case Studies & Shipped Products — Lonside Studio' : 'Études de Cas & Produits Livrés — Lonside Studio',
+    name: t('hubMetaTitle'),
     isPartOf: { '@id': `${siteConfig.siteUrl}/#website` },
     about: { '@id': `${siteConfig.siteUrl}/#organization` },
-    inLanguage: isEn ? 'en-US' : 'fr-FR',
+    inLanguage: currentLocale === 'en' ? 'en-US' : 'fr-FR',
     mainEntity: {
       '@type': 'ItemList',
       itemListElement: projects.map((project, index) => ({
         '@type': 'ListItem',
         position: index + 1,
         name: project.client,
-        url: isEn
+        url: currentLocale === 'en'
           ? `${siteConfig.siteUrl}/en/portfolio/${project.slug}`
           : `${siteConfig.siteUrl}/portfolio/${project.slug}`,
       })),
@@ -96,18 +97,8 @@ export default async function PortfolioPage({ params }: PortfolioHubProps) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: isEn ? 'Home' : 'Accueil',
-        item: homeUrl,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: isEn ? 'Case Studies' : 'Études de cas',
-        item: canonicalUrl,
-      },
+      { '@type': 'ListItem', position: 1, name: tCommon('home'), item: homeUrl },
+      { '@type': 'ListItem', position: 2, name: t('breadcrumbLabel'), item: canonicalUrl },
     ],
   };
 
@@ -126,24 +117,20 @@ export default async function PortfolioPage({ params }: PortfolioHubProps) {
               className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.16em] text-zinc-500 hover:text-black transition-colors min-h-[44px]"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>{isEn ? 'Back to studio' : 'Retour au studio'}</span>
+              <span>{tCommon('backToStudio')}</span>
             </Link>
 
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.22em] text-zinc-500 uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-black" />
-                <span>{isEn ? 'Engineering Dossiers' : 'Dossiers d’Ingénierie'}</span>
+                <span>{t('eyebrow')}</span>
               </div>
               <h1 className="font-display uppercase text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.04] text-black font-normal">
-                {isEn ? 'Production case studies,' : 'Études de cas en production,'}{' '}
-                <span className="text-zinc-500">
-                  {isEn ? 'engineered to scale.' : 'conçues pour durer.'}
-                </span>
+                {t('h1Prefix')}{' '}
+                <span className="text-zinc-500">{t('h1Highlight')}</span>
               </h1>
               <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal">
-                {isEn
-                  ? 'Detailed technical breakdowns of SaaS platforms, real-time dispatch engines, and custom web applications delivered in fixed sprints with 100% source code ownership.'
-                  : 'Retours d’architecture détaillés de plateformes SaaS, moteurs de dispatch temps réel et applications web sur-mesure livrées en sprints fermes avec cession intégrale du code.'}
+                {t('intro')}
               </p>
             </div>
           </div>
@@ -161,7 +148,7 @@ export default async function PortfolioPage({ params }: PortfolioHubProps) {
                       0{index + 1} {'//'} {project.industry}
                     </span>
                     <span className="text-[11px] font-mono px-3 py-1 rounded-xl bg-white border border-black/[0.08] text-black font-medium whitespace-nowrap uppercase">
-                      {project.deliveryDays} {isEn ? 'days' : 'jours'}
+                      {project.deliveryDays} {tCommon('days')}
                     </span>
                   </div>
 
@@ -202,11 +189,11 @@ export default async function PortfolioPage({ params }: PortfolioHubProps) {
                     </div>
                   ) : (
                     <span className="text-zinc-500 uppercase">
-                      {isEn ? 'Live in production' : 'En production'}
+                      {tCommon('liveInProduction')}
                     </span>
                   )}
                   <span className="text-black underline underline-offset-4 font-medium whitespace-nowrap">
-                    {isEn ? 'Read full dossier →' : 'Lire le dossier →'}
+                    {t('readDossier')}
                   </span>
                 </div>
               </Link>
@@ -216,19 +203,17 @@ export default async function PortfolioPage({ params }: PortfolioHubProps) {
           <section className="rounded-2xl border border-black/[0.08] bg-zinc-50/50 p-6 sm:p-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="space-y-2 max-w-xl">
               <h2 className="font-display uppercase text-2xl sm:text-3xl tracking-tight text-black font-normal">
-                {isEn ? 'Have a product to ship in 14–30 days?' : 'Un produit à livrer en 14 à 30 jours ?'}
+                {t('ctaTitle')}
               </h2>
               <p className="text-sm text-zinc-600 leading-relaxed">
-                {isEn
-                  ? 'Fixed scope, guaranteed delivery timeline, and 100% source code ownership on your private GitHub.'
-                  : 'Forfait ferme, délai de livraison garanti et 100 % du code source cédé sur votre dépôt GitHub privé.'}
+                {t('ctaDescription')}
               </p>
             </div>
             <a
-              href={isEn ? '/en#contact' : '/#contact'}
+              href={contactHref}
               className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-black text-white hover:bg-zinc-800 font-mono text-xs uppercase tracking-[0.16em] transition-colors min-h-[48px] whitespace-nowrap shrink-0"
             >
-              <span>{isEn ? 'Discuss your project (15 min)' : 'Échanger sur votre projet (15 min)'}</span>
+              <span>{t('ctaButton')}</span>
               <ArrowUpRight className="w-4 h-4 shrink-0" />
             </a>
           </section>

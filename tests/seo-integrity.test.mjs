@@ -79,7 +79,7 @@ test('siteConfig points to official Lonside domain, email, calendar, SIRET and G
 
 test('sitemap generates strictly 200 OK canonical URLs with valid hreflang', async () => {
   const entries = await sitemap();
-  assert.equal(entries.length, 32, 'Sitemap must contain exactly 32 URLs (16 FR, 16 EN)');
+  assert.equal(entries.length, 34, 'Sitemap must contain exactly 34 URLs (17 FR, 17 EN)');
 
   const expectedUrls = [
     'https://www.lonside.com/',
@@ -96,6 +96,8 @@ test('sitemap generates strictly 200 OK canonical URLs with valid hreflang', asy
     'https://www.lonside.com/en/estimate',
     'https://www.lonside.com/portfolio',
     'https://www.lonside.com/en/portfolio',
+    'https://www.lonside.com/methode',
+    'https://www.lonside.com/en/method',
     'https://www.lonside.com/a-propos',
     'https://www.lonside.com/en/about',
     'https://www.lonside.com/portfolio/bely',
@@ -291,4 +293,46 @@ test('siteConfig normalizes apex domain and generic social homepages', () => {
     if (originalTwitter === undefined) delete process.env.NEXT_PUBLIC_TWITTER_URL;
     else process.env.NEXT_PUBLIC_TWITTER_URL = originalTwitter;
   }
+});
+
+test('i18n message dictionaries (fr.json & en.json) have 100% key parity', () => {
+  const fr = JSON.parse(fs.readFileSync('src/lib/i18n/messages/fr.json', 'utf8'));
+  const en = JSON.parse(fs.readFileSync('src/lib/i18n/messages/en.json', 'utf8'));
+
+  function flattenKeys(obj, prefix = '') {
+    const keys = [];
+    for (const [k, v] of Object.entries(obj)) {
+      const next = prefix ? `${prefix}.${k}` : k;
+      if (v && typeof v === 'object' && !Array.isArray(v)) {
+        keys.push(...flattenKeys(v, next));
+      } else {
+        keys.push(next);
+      }
+    }
+    return keys.sort();
+  }
+
+  assert.deepEqual(flattenKeys(fr), flattenKeys(en), 'fr.json and en.json keys must match 100%');
+});
+
+test('zero hardcoded UI bilingual ternaries remain in localized pages and components', () => {
+  const offenders = [];
+  function scanUi(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) scanUi(full);
+      else if (entry.name.endsWith('.tsx')) {
+        const lines = fs.readFileSync(full, 'utf8').split(/\r?\n/);
+        lines.forEach((line, idx) => {
+          // Allow URL/locale/Keystatic field selection, disallow UI string ternaries like isEn ? 'Text' : 'Texte'
+          if (/\b(?:isEn|locale\s*===\s*['"]en['"])\s*\?\s*['"`][A-ZÀ-ÿ][^'"`]*['"`]\s*:\s*['"`]/.test(line)) {
+            offenders.push(`${full}:${idx + 1}: ${line.trim()}`);
+          }
+        });
+      }
+    }
+  }
+  scanUi('src/app/[locale]');
+  scanUi('src/components');
+  assert.deepEqual(offenders, [], `Hardcoded UI bilingual ternaries found:\n${offenders.join('\n')}`);
 });

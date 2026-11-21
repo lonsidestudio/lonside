@@ -18,6 +18,7 @@ Lonside replaces traditional slow web agencies and risky freelance setups by del
 - About & E-E-A-T: https://www.lonside.com/a-propos | https://www.lonside.com/en/about
 - Interactive Scope Estimator: https://www.lonside.com/estimation | https://www.lonside.com/en/estimate
 - Case Studies Hub: https://www.lonside.com/portfolio | https://www.lonside.com/en/portfolio
+- Engineering Method & SLA: https://www.lonside.com/methode | https://www.lonside.com/en/method
 - 14-Day MVP Sprint: https://www.lonside.com/services/sprint-mvp-14-jours | https://www.lonside.com/en/services/14-day-mvp-sprint
 - Next.js Web Applications: https://www.lonside.com/services/application-web-nextjs | https://www.lonside.com/en/services/nextjs-web-application
 - Custom SaaS Platforms: https://www.lonside.com/services/plateforme-saas-sur-mesure | https://www.lonside.com/en/services/custom-saas-platform

@@ -210,6 +210,12 @@ productModules:
     behaviorEn: "Translates multi-channel run-rate, factory/freight lead times, and in-transit units into an exact reorder trigger date and cash-optimized order quantity."
     businessRuleFr: "Priorisation par matrice ABC de marge brute pour protéger le besoin en fonds de roulement et éviter de bloquer du cash sur les références à faible rotation."
     businessRuleEn: "ABC gross-margin prioritization protecting working capital and preventing cash from getting trapped in slow-moving SKUs."
+screenshots:
+  - src: "/images/architecture/michi.png"
+    altFr: "Schéma d'architecture système Michi : connecteurs Shopify et Amazon, moteur prédictif en mémoire sous la seconde et matrice ABC de trésorerie"
+    altEn: "Michi system architecture blueprint: Shopify and Amazon connectors, sub-second in-memory forecasting core, and ABC working-capital matrix"
+    captionFr: "Blueprint d’architecture Michi 道 — Connecteurs omnicanaux, imputation prédictive des ruptures < 1 s et pilotage BFR."
+    captionEn: "Michi Architecture Blueprint — Omnichannel connectors, sub-second stockout imputation, and ABC working-capital control."
 productFaq:
   - questionFr: "Pourquoi les tableurs Excel échouent-ils sur la prévision de stocks multi-canaux ?"
     questionEn: "Why do spreadsheets break down for multi-channel inventory forecasting?"

@@ -13,6 +13,7 @@ interface SitemapRouteDef {
   en: string;
   priority: number;
   changeFrequency: 'weekly' | 'monthly' | 'yearly';
+  images?: string[];
 }
 
 const ROUTES: SitemapRouteDef[] = [
@@ -55,6 +56,12 @@ const ROUTES: SitemapRouteDef[] = [
   {
     fr: '/portfolio',
     en: '/en/portfolio',
+    priority: 0.8,
+    changeFrequency: 'monthly',
+  },
+  {
+    fr: '/methode',
+    en: '/en/method',
     priority: 0.8,
     changeFrequency: 'monthly',
   },
@@ -102,12 +109,19 @@ function getPortfolioSlugs(): string[] {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
-  const portfolioRoutes: SitemapRouteDef[] = getPortfolioSlugs().map((slug) => ({
-    fr: `/portfolio/${slug}`,
-    en: `/en/portfolio/${slug}`,
-    priority: 0.8,
-    changeFrequency: 'monthly',
-  }));
+  const portfolioRoutes: SitemapRouteDef[] = getPortfolioSlugs().map((slug) => {
+    const blueprintPath = path.join(process.cwd(), 'public', 'images', 'architecture', `${slug}.png`);
+    const images = fs.existsSync(blueprintPath)
+      ? [`${BASE_URL}/images/architecture/${slug}.png`]
+      : undefined;
+    return {
+      fr: `/portfolio/${slug}`,
+      en: `/en/portfolio/${slug}`,
+      priority: 0.8,
+      changeFrequency: 'monthly',
+      images,
+    };
+  });
 
   for (const route of [...ROUTES, ...portfolioRoutes]) {
     const frUrl = route.fr === '/' ? `${BASE_URL}/` : `${BASE_URL}${route.fr}`;
@@ -120,6 +134,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: LAST_MODIFIED,
       changeFrequency: route.changeFrequency,
       priority: route.priority,
+      ...(route.images ? { images: route.images } : {}),
       alternates: {
         languages: {
           fr: frUrl,
@@ -135,6 +150,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: LAST_MODIFIED,
       changeFrequency: route.changeFrequency,
       priority: route.priority,
+      ...(route.images ? { images: route.images } : {}),
       alternates: {
         languages: {
           fr: frUrl || `${BASE_URL}/`,

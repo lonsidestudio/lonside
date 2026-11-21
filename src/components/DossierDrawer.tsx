@@ -14,7 +14,7 @@ interface DossierDrawerProps {
   locale?: string;
 }
 
-export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" }: DossierDrawerProps) {
+export default function DossierDrawer({ project, isOpen, onClose }: DossierDrawerProps) {
   const [mounted, setMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [activeProject, setActiveProject] = useState<LocalizedProject | null>(project);
@@ -68,7 +68,7 @@ export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" 
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={`Dossier ${activeProject.client}`}
+      aria-label={t("dialogAria", { client: activeProject.client })}
       className="fixed inset-0 z-50 flex justify-end overflow-hidden"
     >
       {/* Arrière-plan sombre avec fondu progressif */}
@@ -100,7 +100,7 @@ export default function DossierDrawer({ project, isOpen, onClose, locale = "fr" 
                 onClick={onClose}
                 className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl border border-black/[0.1] bg-white hover:border-black text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-black transition-colors min-h-[34px] whitespace-nowrap"
               >
-                <span>{locale === "en" ? "Full dossier" : "Dossier complet"}</span>
+                <span>{t("fullDossier")}</span>
                 <ArrowUpRight className="w-3 h-3 shrink-0" />
               </Link>
               {activeProject.liveUrl && (

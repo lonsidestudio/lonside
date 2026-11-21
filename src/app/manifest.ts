@@ -1,10 +1,11 @@
 import { MetadataRoute } from 'next';
+import frMessages from '@/lib/i18n/messages/fr.json';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Lonside — Studio de Développement Web & Produits Digitaux',
+    name: frMessages.metadata.defaultTitle,
     short_name: 'Lonside',
-    description: "Conception et développement d'applications web et plateformes sur-mesure dès 14 jours.",
+    description: frMessages.metadata.description,
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',

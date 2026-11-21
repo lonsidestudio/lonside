@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ArrowLeft, ArrowUpRight, ExternalLink, Layers, ShieldCheck, Cpu, Users, LayoutGrid, HelpCircle } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -28,26 +28,26 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: CaseStudyPageProps): Promise<Metadata> {
   const { locale, slug } = await params;
   const currentLocale: Locale = locale === 'en' ? 'en' : 'fr';
-  const isEn = currentLocale === 'en';
-  const project = await getProjectBySlug(slug, currentLocale);
+  const [t, project] = await Promise.all([
+    getTranslations({ locale: currentLocale, namespace: 'portfolio.detail' }),
+    getProjectBySlug(slug, currentLocale),
+  ]);
 
   if (!project) {
     return {
-      title: isEn ? 'Case study not found — Lonside Studio' : 'Étude de cas introuvable — Lonside Studio',
+      title: t('notFoundTitle'),
       robots: { index: false, follow: false },
     };
   }
 
   const rawTitle =
     project.seoTitle ||
-    (isEn
-      ? `${project.client} — ${project.industry} Case Study`
-      : `${project.client} — Étude de cas ${project.industry}`);
+    t('fallbackTitle', { client: project.client, industry: project.industry });
   const title = rawTitle.replace(/\s*\|\s*(Projet Lonside|Lonside Project)$/i, ' — Lonside Studio');
   const description = (project.seoDescription || project.headline).slice(0, 160);
   const frUrl = `${siteConfig.siteUrl}/portfolio/${project.slug}`;
   const enUrl = `${siteConfig.siteUrl}/en/portfolio/${project.slug}`;
-  const canonical = isEn ? enUrl : frUrl;
+  const canonical = currentLocale === 'en' ? enUrl : frUrl;
   const ogImage = `${siteConfig.siteUrl}/og?locale=${currentLocale}&title=${encodeURIComponent(
     `${project.client} — ${project.industry}`
   )}&description=${encodeURIComponent(project.headline)}`;
@@ -68,7 +68,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
       description,
       url: canonical,
       siteName: 'Lonside Studio',
-      locale: isEn ? 'en_US' : 'fr_FR',
+      locale: currentLocale === 'en' ? 'en_US' : 'fr_FR',
       type: 'article',
       images: [
         {
@@ -92,9 +92,11 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const { locale, slug } = await params;
   const currentLocale: Locale = locale === 'en' ? 'en' : 'fr';
   setRequestLocale(currentLocale);
-  const isEn = currentLocale === 'en';
 
-  const [project, allProjects] = await Promise.all([
+  const [tHub, t, tCommon, project, allProjects] = await Promise.all([
+    getTranslations({ locale: currentLocale, namespace: 'portfolio' }),
+    getTranslations({ locale: currentLocale, namespace: 'portfolio.detail' }),
+    getTranslations({ locale: currentLocale, namespace: 'common' }),
     getProjectBySlug(slug, currentLocale),
     getPortfolioProjects(currentLocale),
   ]);
@@ -104,9 +106,13 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   }
 
   const otherProjects = allProjects.filter((p) => p.slug !== project.slug);
-  const homeUrl = isEn ? `${siteConfig.siteUrl}/en` : `${siteConfig.siteUrl}/`;
-  const portfolioUrl = isEn ? `${siteConfig.siteUrl}/en/portfolio` : `${siteConfig.siteUrl}/portfolio`;
+  const homeUrl = currentLocale === 'en' ? `${siteConfig.siteUrl}/en` : `${siteConfig.siteUrl}/`;
+  const portfolioUrl = currentLocale === 'en' ? `${siteConfig.siteUrl}/en/portfolio` : `${siteConfig.siteUrl}/portfolio`;
   const canonicalUrl = `${portfolioUrl}/${project.slug}`;
+  const contactHref = currentLocale === 'en' ? '/en#contact' : '/#contact';
+  const primaryImage = project.screenshots[0]?.src
+    ? `${siteConfig.siteUrl}${project.screenshots[0].src}`
+    : `${siteConfig.siteUrl}/og?locale=${currentLocale}&title=${encodeURIComponent(project.client)}`;
 
   const webPageJsonLd = {
     '@context': 'https://schema.org',
@@ -117,7 +123,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     description: project.seoDescription || project.headline,
     isPartOf: { '@id': `${siteConfig.siteUrl}/#website` },
     about: { '@id': `${siteConfig.siteUrl}/#organization` },
-    inLanguage: isEn ? 'en-US' : 'fr-FR',
+    inLanguage: currentLocale === 'en' ? 'en-US' : 'fr-FR',
   };
 
   const articleJsonLd = {
@@ -126,8 +132,8 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     headline: `${project.client} — ${project.headline}`,
     description: project.seoDescription || project.headline,
     url: canonicalUrl,
-    inLanguage: isEn ? 'en-US' : 'fr-FR',
-    image: `${siteConfig.siteUrl}/og?locale=${currentLocale}&title=${encodeURIComponent(project.client)}`,
+    inLanguage: currentLocale === 'en' ? 'en-US' : 'fr-FR',
+    image: primaryImage,
     author: { '@id': `${siteConfig.siteUrl}/#organization` },
     publisher: { '@id': `${siteConfig.siteUrl}/#organization` },
     about: [project.industry, ...project.techStack],
@@ -138,8 +144,8 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: isEn ? 'Home' : 'Accueil', item: homeUrl },
-      { '@type': 'ListItem', position: 2, name: isEn ? 'Case Studies' : 'Études de cas', item: portfolioUrl },
+      { '@type': 'ListItem', position: 1, name: tCommon('home'), item: homeUrl },
+      { '@type': 'ListItem', position: 2, name: tHub('breadcrumbLabel'), item: portfolioUrl },
       { '@type': 'ListItem', position: 3, name: project.client, item: canonicalUrl },
     ],
   };
@@ -196,18 +202,17 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       <Navbar />
       <main className="flex-1 bg-white text-black pt-28 sm:pt-36 pb-20 sm:pb-28">
         <article className="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12 space-y-14 sm:space-y-16">
-          {/* Navigation fil d'Ariane */}
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center justify-between gap-4">
+          <nav aria-label={tCommon('breadcrumbAria')} className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-xs font-mono text-zinc-500">
               <Link href="/" className="hover:text-black transition-colors py-2 min-h-[44px] inline-flex items-center">
-                {isEn ? 'Studio' : 'Accueil'}
+                {tCommon('home')}
               </Link>
               <span>/</span>
               <Link
                 href="/portfolio"
                 className="hover:text-black transition-colors py-2 min-h-[44px] inline-flex items-center"
               >
-                {isEn ? 'Case Studies' : 'Études de cas'}
+                {tHub('breadcrumbLabel')}
               </Link>
               <span>/</span>
               <span className="text-black font-medium">{project.client}</span>
@@ -218,11 +223,10 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.14em] text-zinc-500 hover:text-black transition-colors min-h-[44px]"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>{isEn ? 'All dossiers' : 'Tous les dossiers'}</span>
+              <span>{t('allDossiers')}</span>
             </Link>
           </nav>
 
-          {/* En-tête du dossier */}
           <header className="space-y-6 border-b border-black/[0.08] pb-10">
             <div className="flex flex-wrap items-center gap-2.5">
               <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-zinc-500">
@@ -230,11 +234,11 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               </span>
               <span className="text-zinc-300">·</span>
               <span className="text-[11px] font-mono px-3 py-1 rounded-xl bg-zinc-50 border border-black/[0.08] text-black uppercase font-medium">
-                {isEn ? `Shipped in ${project.deliveryDays} days` : `Livré en ${project.deliveryDays} jours`}
+                {t('shippedInDays', { days: project.deliveryDays })}
               </span>
               {project.isProprietary && (
                 <span className="text-[11px] font-mono px-3 py-1 rounded-xl bg-black text-white uppercase font-medium">
-                  {isEn ? 'Lonside Studio Venture' : 'Produit Propriétaire Lonside'}
+                  {t('proprietaryBadge')}
                 </span>
               )}
             </div>
@@ -261,41 +265,38 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-black/[0.15] hover:border-black text-xs font-mono uppercase tracking-[0.14em] text-black transition-colors min-h-[44px]"
                 >
-                  <span>{isEn ? 'Visit live platform' : 'Visiter la plateforme'}</span>
+                  <span>{t('visitLive')}</span>
                   <ExternalLink className="w-3.5 h-3.5 shrink-0" />
                 </a>
               )}
               <a
-                href={isEn ? '/en#contact' : '/#contact'}
+                href={contactHref}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-black hover:bg-zinc-800 text-xs font-mono uppercase tracking-[0.14em] text-white transition-colors min-h-[44px]"
               >
-                <span>{isEn ? 'Build a similar product' : 'Concevoir un produit similaire'}</span>
+                <span>{t('buildSimilar')}</span>
                 <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
               </a>
             </div>
           </header>
 
-          {/* Démo vidéo YouTube (zéro impact LCP, activée automatiquement dès qu'un ID est renseigné) */}
           {project.youtubeVideoId && (
             <section className="space-y-4">
               <h2 className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-500">
-                {isEn ? 'Product Walkthrough & Architecture Teardown' : 'Démo Produit & Visite d’Architecture'}
+                {t('videoHeading')}
               </h2>
               <YouTubeFacade
                 videoId={project.youtubeVideoId}
                 title={project.youtubeTitle || `${project.client} — ${project.headline}`}
-                isEn={isEn}
               />
             </section>
           )}
 
-          {/* Galerie captures produit (activée dès que des visuels sont ajoutés dans Keystatic) */}
           {project.screenshots.length > 0 && (
             <section className="space-y-6">
               <h2 className="font-display uppercase text-2xl sm:text-3xl tracking-tight text-black font-normal">
-                {isEn ? 'Product interfaces in production' : 'Interfaces produit en production'}
+                {t('screenshotsTitle')}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className={`grid grid-cols-1 ${project.screenshots.length > 1 ? 'md:grid-cols-2' : ''} gap-6`}>
                 {project.screenshots.map((shot, idx) => (
                   <figure
                     key={idx}
@@ -306,7 +307,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                         src={shot.src}
                         alt={shot.alt || shot.caption || project.client}
                         fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                        sizes={project.screenshots.length > 1 ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 1024px) 100vw, 960px'}
                         className="object-cover"
                       />
                     </div>
@@ -321,11 +322,10 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </section>
           )}
 
-          {/* Résultats chiffrés */}
           {project.metrics.length > 0 && (
             <section className="space-y-4">
               <h2 className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-500">
-                {isEn ? 'Measured Production Impact' : 'Impact Mesuré en Production'}
+                {t('metricsHeading')}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {project.metrics.map((metric, idx) => (
@@ -348,12 +348,11 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </section>
           )}
 
-          {/* Acte I : Récit d'ouverture — Le Point de Rupture (Storytelling éditorial) */}
           {(project.storyOpening || project.storyLeadQuote) && (
             <section className="space-y-8 border-b border-black/[0.08] pb-14">
               <div className="space-y-3 max-w-3xl">
                 <span className="text-[11px] font-mono uppercase tracking-[0.22em] text-zinc-500 block">
-                  {isEn ? 'Act I // The Inflection Point' : 'Acte I // Le Point de Rupture'}
+                  {t('act1Eyebrow')}
                 </span>
                 {project.storyLeadQuote && (
                   <p className="font-serif italic text-xl sm:text-2xl md:text-[1.65rem] text-black leading-[1.45] border-l-2 border-black pl-5 py-1">
@@ -375,17 +374,16 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 </div>
               )}
 
-              {/* Registre Avant / Après (Transformation Opérationnelle Mesurable) */}
               {project.beforeAfter.length > 0 && (
                 <div className="pt-2">
                   <div className="overflow-x-auto rounded-xl border border-black/[0.08]">
                     <table className="w-full text-left border-collapse text-xs sm:text-sm">
                       <thead>
                         <tr className="border-b border-black/[0.08] bg-zinc-50 font-mono uppercase text-[10px] sm:text-[11px] text-zinc-500 tracking-wider">
-                          <th className="p-4">{isEn ? 'Operational Reality' : 'Réalité Opérationnelle'}</th>
-                          <th className="p-4">{isEn ? 'Before Lonside' : 'Avant Lonside'}</th>
+                          <th className="p-4">{t('beforeAfterHeaders.dimension')}</th>
+                          <th className="p-4">{t('beforeAfterHeaders.before')}</th>
                           <th className="p-4 text-black font-semibold">
-                            {isEn ? 'After Production Launch' : 'Après Déploiement'}
+                            {t('beforeAfterHeaders.after')}
                           </th>
                         </tr>
                       </thead>
@@ -409,15 +407,14 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </section>
           )}
 
-          {/* Acte II : Arbitrage Produit — Ce que nous avons refusé de construire */}
           {project.storyTurningPoint && (
             <section className="p-6 sm:p-10 rounded-2xl border border-black/[0.1] bg-zinc-50/40 space-y-5">
               <div className="space-y-2 max-w-3xl">
                 <span className="text-[11px] font-mono uppercase tracking-[0.22em] text-zinc-500 block">
-                  {isEn ? 'Act II // Product Thesis & Strategic Refusals' : 'Acte II // Thèse Produit & Choix Stratégiques'}
+                  {t('act2Eyebrow')}
                 </span>
                 <h2 className="font-display uppercase text-2xl sm:text-3xl tracking-tight text-black font-normal">
-                  {isEn ? 'What we deliberately refused to build' : 'Ce que nous avons délibérément refusé de construire'}
+                  {t('act2Title')}
                 </h2>
               </div>
               <div className="max-w-3xl space-y-4">
@@ -433,14 +430,13 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </section>
           )}
 
-          {/* Acte III : Le Produit en Scène (Scénario d'usage réel) */}
           {project.storyWalkthrough && (
             <section className="space-y-5 max-w-3xl">
               <span className="text-[11px] font-mono uppercase tracking-[0.22em] text-zinc-500 block">
-                {isEn ? 'Act III // The Product in Motion' : 'Acte III // Le Produit en Action'}
+                {t('act3Eyebrow')}
               </span>
               <h2 className="font-display uppercase text-2xl sm:text-3xl tracking-tight text-black font-normal">
-                {isEn ? 'Sixty seconds inside the live product' : 'Soixante secondes dans le produit en production'}
+                {t('act3Title')}
               </h2>
               <div className="space-y-4">
                 {project.storyWalkthrough.split('\n\n').map((paragraph, idx) => (
@@ -455,11 +451,10 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </section>
           )}
 
-          {/* Défi métier vs Solution livrée */}
           <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-6 sm:p-8 rounded-xl bg-zinc-50/50 border border-black/[0.08] space-y-3">
               <h2 className="text-xs font-mono uppercase tracking-[0.18em] text-zinc-500">
-                {isEn ? '01 // Context & Business Challenge' : '01 // Contexte & Enjeu Métier'}
+                {t('contextTitle')}
               </h2>
               <p className="text-sm sm:text-base text-zinc-700 leading-relaxed font-normal">
                 {project.challenge}
@@ -467,7 +462,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </div>
             <div className="p-6 sm:p-8 rounded-xl bg-white border border-black/[0.12] space-y-3">
               <h2 className="text-xs font-mono uppercase tracking-[0.18em] text-black font-semibold">
-                {isEn ? '02 // Engineered Solution' : '02 // Solution d’Ingénierie Livrée'}
+                {t('solutionTitle')}
               </h2>
               <p className="text-sm sm:text-base text-zinc-800 leading-relaxed font-normal">
                 {project.solution}
@@ -475,16 +470,15 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </div>
           </section>
 
-          {/* Anatomie Produit : Rôles & Parcours Utilisateurs */}
           {project.productRoles.length > 0 && (
             <section className="space-y-6">
               <div className="space-y-2">
                 <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.2em] text-zinc-500 uppercase">
                   <Users className="w-3.5 h-3.5 text-black" />
-                  <span>{isEn ? 'Product Anatomy // User Roles' : 'Anatomie Produit // Rôles & Parcours'}</span>
+                  <span>{t('rolesEyebrow')}</span>
                 </div>
                 <h2 className="font-display uppercase text-2xl sm:text-3xl tracking-tight text-black font-normal">
-                  {isEn ? 'How each persona operates the platform' : 'Comment chaque rôle utilise le produit au quotidien'}
+                  {t('rolesTitle')}
                 </h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -508,16 +502,15 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </section>
           )}
 
-          {/* Anatomie Produit : Modules Clés & Règles Métier */}
           {project.productModules.length > 0 && (
             <section className="space-y-6">
               <div className="space-y-2">
                 <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.2em] text-zinc-500 uppercase">
                   <LayoutGrid className="w-3.5 h-3.5 text-black" />
-                  <span>{isEn ? 'Product Deep-Dive // Core Modules' : 'Anatomie Produit // Modules & Règles Métier'}</span>
+                  <span>{t('modulesEyebrow')}</span>
                 </div>
                 <h2 className="font-display uppercase text-2xl sm:text-3xl tracking-tight text-black font-normal">
-                  {isEn ? 'Inside the product mechanics' : 'Sous le capot des écrans et règles métier'}
+                  {t('modulesTitle')}
                 </h2>
               </div>
               <div className="space-y-4">
@@ -539,13 +532,13 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="p-4 rounded-lg bg-zinc-50/70 border border-black/[0.05] space-y-1.5">
                         <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">
-                          {isEn ? 'User Experience & Flow' : 'Expérience & Parcours Écran'}
+                          {t('moduleFlowLabel')}
                         </span>
                         <p className="text-sm text-zinc-700 leading-relaxed">{mod.behavior}</p>
                       </div>
                       <div className="p-4 rounded-lg bg-zinc-50/70 border border-black/[0.08] space-y-1.5">
                         <span className="text-[10px] font-mono uppercase tracking-wider text-black font-semibold block">
-                          {isEn ? 'Business & Guardrail Logic' : 'Règle Métier & Sécurité'}
+                          {t('moduleRuleLabel')}
                         </span>
                         <p className="text-sm text-zinc-800 leading-relaxed">{mod.businessRule}</p>
                       </div>
@@ -556,16 +549,15 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </section>
           )}
 
-          {/* Besoins stratégiques */}
           {project.clientNeeds.length > 0 && (
             <section className="space-y-6">
               <div className="space-y-2">
                 <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.2em] text-zinc-500 uppercase">
                   <Layers className="w-3.5 h-3.5 text-black" />
-                  <span>{isEn ? 'Product Requirements' : 'Exigences Produit'}</span>
+                  <span>{t('needsEyebrow')}</span>
                 </div>
                 <h2 className="font-display uppercase text-2xl sm:text-3xl tracking-tight text-black font-normal">
-                  {isEn ? 'Key business objectives' : 'Objectifs métier adressés'}
+                  {t('needsTitle')}
                 </h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -584,16 +576,15 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </section>
           )}
 
-          {/* Contraintes techniques & Arbitrages d'architecture */}
           {project.constraints.length > 0 && (
             <section className="space-y-6">
               <div className="space-y-2">
                 <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.2em] text-zinc-500 uppercase">
                   <ShieldCheck className="w-3.5 h-3.5 text-black" />
-                  <span>{isEn ? 'Engineering Trade-offs' : 'Arbitrages d’Architecture'}</span>
+                  <span>{t('constraintsEyebrow')}</span>
                 </div>
                 <h2 className="font-display uppercase text-2xl sm:text-3xl tracking-tight text-black font-normal">
-                  {isEn ? 'Technical constraints & resolutions' : 'Contraintes techniques & résolutions'}
+                  {t('constraintsTitle')}
                 </h2>
               </div>
               <div className="space-y-4">
@@ -615,13 +606,13 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
                       <div className="p-4 rounded-lg bg-zinc-50/70 border border-black/[0.05] space-y-1.5">
                         <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">
-                          {isEn ? 'Risk & Friction' : 'Contrainte & Risque'}
+                          {t('constraintRiskLabel')}
                         </span>
                         <p className="text-sm text-zinc-600 leading-relaxed">{constraint.risk}</p>
                       </div>
                       <div className="p-4 rounded-lg bg-zinc-50/70 border border-black/[0.08] space-y-1.5">
                         <span className="text-[10px] font-mono uppercase tracking-wider text-black font-semibold block">
-                          {isEn ? 'Lonside Resolution' : 'Arbitrage Lonside'}
+                          {t('constraintResolutionLabel')}
                         </span>
                         <p className="text-sm text-zinc-800 leading-relaxed">{constraint.resolution}</p>
                       </div>
@@ -632,16 +623,15 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </section>
           )}
 
-          {/* Synthèse d'architecture & Stack */}
           {(project.architectureSummary || project.techStack.length > 0) && (
             <section className="p-6 sm:p-8 rounded-2xl border border-black/[0.08] bg-zinc-50/40 space-y-6">
               <div className="space-y-2">
                 <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.2em] text-zinc-500 uppercase">
                   <Cpu className="w-3.5 h-3.5 text-black" />
-                  <span>{isEn ? 'System Architecture & Stack' : 'Architecture Système & Stack'}</span>
+                  <span>{t('archEyebrow')}</span>
                 </div>
                 <h2 className="font-display uppercase text-2xl sm:text-3xl tracking-tight text-black font-normal">
-                  {isEn ? 'Technical blueprint' : 'Socle technique déployé'}
+                  {t('archTitle')}
                 </h2>
               </div>
 
@@ -666,11 +656,10 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </section>
           )}
 
-          {/* Chronologie d'exécution du sprint */}
           {project.process.length > 0 && (
             <section className="space-y-6">
               <h2 className="font-display uppercase text-2xl sm:text-3xl tracking-tight text-black font-normal">
-                {isEn ? 'Sprint execution timeline' : 'Chronologie d’exécution du sprint'}
+                {t('processTitle')}
               </h2>
               <ol className="space-y-3">
                 {project.process.map((step, idx) => (
@@ -693,15 +682,14 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </section>
           )}
 
-          {/* Acte V : Impact Durable & Après-Lancement */}
           {project.storyOutcome && (
             <section className="p-6 sm:p-10 rounded-2xl border border-black/[0.12] bg-white space-y-5">
               <div className="space-y-2 max-w-3xl">
                 <span className="text-[11px] font-mono uppercase tracking-[0.22em] text-zinc-500 block">
-                  {isEn ? 'Act V // Production Reality & Lasting Edge' : 'Acte V // L’Après-Lancement & L’Avantage Durable'}
+                  {t('act5Eyebrow')}
                 </span>
                 <h2 className="font-display uppercase text-2xl sm:text-3xl tracking-tight text-black font-normal">
-                  {isEn ? 'What changed once the platform went live' : 'Ce qui a changé dès la mise en production'}
+                  {t('act5Title')}
                 </h2>
               </div>
               <div className="max-w-3xl space-y-4">
@@ -721,18 +709,17 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-black hover:bg-zinc-800 text-xs font-mono uppercase tracking-[0.14em] text-white transition-colors min-h-[46px]"
                 >
-                  <span>{isEn ? 'Scope a similar sprint (15 min)' : 'Cadrer un sprint similaire (15 min)'}</span>
+                  <span>{t('act5Cta')}</span>
                   <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
                 </a>
               </div>
             </section>
           )}
 
-          {/* Témoignage client */}
           {(project.testimonialQuote || project.clientFeedback) && (
             <section className="p-6 sm:p-10 rounded-2xl border border-black/[0.1] bg-zinc-50/60 space-y-4">
               <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 block">
-                {isEn ? 'Client Verdict' : 'Retour Client'}
+                {t('verdictLabel')}
               </span>
               <blockquote className="text-base sm:text-lg italic text-zinc-900 leading-relaxed font-normal">
                 &ldquo;{project.testimonialQuote || project.clientFeedback}&rdquo;
@@ -748,16 +735,15 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </section>
           )}
 
-          {/* FAQ Produit & Sectorielle (rendue 100% SSR + FAQPage JSON-LD) */}
           {project.productFaq.length > 0 && (
             <section className="space-y-6">
               <div className="space-y-2">
                 <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.2em] text-zinc-500 uppercase">
                   <HelpCircle className="w-3.5 h-3.5 text-black" />
-                  <span>{isEn ? 'Product & Industry FAQ' : 'FAQ Produit & Secteur'}</span>
+                  <span>{t('faqEyebrow')}</span>
                 </div>
                 <h2 className="font-display uppercase text-2xl sm:text-3xl tracking-tight text-black font-normal">
-                  {isEn ? `Key questions on ${project.client}` : `Questions fréquentes autour de ${project.client}`}
+                  {t('faqTitle', { client: project.client })}
                 </h2>
               </div>
               <div className="space-y-3">
@@ -774,11 +760,10 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </section>
           )}
 
-          {/* Maillage interne vers les autres études de cas */}
           {otherProjects.length > 0 && (
             <section className="space-y-6 pt-6 border-t border-black/[0.08]">
               <h2 className="font-display uppercase text-2xl sm:text-3xl tracking-tight text-black font-normal">
-                {isEn ? 'Other engineering dossiers' : 'Autres dossiers d’ingénierie'}
+                {t('otherDossiersTitle')}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {otherProjects.map((other) => (
@@ -799,7 +784,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                       </p>
                     </div>
                     <span className="text-xs font-mono text-black underline underline-offset-4">
-                      {isEn ? 'Open dossier →' : 'Lire le dossier →'}
+                      {tHub('readDossier')}
                     </span>
                   </Link>
                 ))}
