@@ -149,14 +149,22 @@ export default async function MethodPage({ params }: MethodPageProps) {
             <h2 className="font-display uppercase text-2xl sm:text-4xl tracking-tight text-black font-normal">
               {t('guaranteesTitle')}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
               {guarantees.map((item) => (
-                <div key={item.num} className="p-6 rounded-xl border border-black/[0.08] bg-zinc-50/40 space-y-3">
-                  <span className="font-mono text-2xl text-zinc-400 block">{item.num}</span>
-                  <h3 className="font-display uppercase text-xl text-black tracking-tight font-medium">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-zinc-600 leading-relaxed">{item.desc}</p>
+                <div
+                  key={item.num}
+                  className="p-6 sm:p-7 rounded-xl border border-black/[0.1] bg-zinc-50/40 flex flex-col justify-start gap-4"
+                >
+                  <div className="flex items-center justify-between border-b border-black/[0.06] pb-3">
+                    <span className="font-mono text-xl text-zinc-400 font-medium">{item.num}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-black/30" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-display uppercase text-xl text-black tracking-tight leading-snug font-medium">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-zinc-600 leading-relaxed">{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>

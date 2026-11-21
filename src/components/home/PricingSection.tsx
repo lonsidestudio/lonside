@@ -3,7 +3,14 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "@/lib/i18n/navigation";
 import { captureLeadEvent } from "@/lib/posthog";
+
+const TIER_SERVICE_PATHS = [
+  "/services/sprint-mvp-14-jours",
+  "/services/plateforme-saas-sur-mesure",
+  "/services/regie-tech-senior",
+] as const;
 
 interface PricingSectionProps {
   locale?: string;
@@ -43,13 +50,13 @@ export default function PricingSection({ locale }: PricingSectionProps) {
 
         {/* Grille des Offres Haute Précision (rounded-xl) */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch min-w-0 w-full pt-4">
-          {tiers.map((tier) => (
+          {tiers.map((tier, idx) => (
             <div
               key={tier.name}
-              className={`relative rounded-xl bg-white border flex flex-col justify-between p-5 sm:p-8 min-w-0 w-full ${
+              className={`relative rounded-xl bg-white border flex flex-col justify-start p-5 sm:p-8 min-w-0 w-full ${
                 tier.popular
                   ? "border-black/60 bg-zinc-50/30 shadow-[0_1px_8px_rgba(0,0,0,0.03)]"
-                  : "border-black/[0.08]"
+                  : "border-black/[0.1]"
               }`}
             >
               {tier.popular && (
@@ -61,7 +68,7 @@ export default function PricingSection({ locale }: PricingSectionProps) {
               <div>
                 <div className="space-y-1.5 mb-6">
                   <h3 className="font-display uppercase text-lg sm:text-xl md:text-2xl text-black tracking-tight font-medium">{tier.name}</h3>
-                  <p className="text-xs sm:text-sm text-zinc-600 font-normal leading-relaxed min-h-[36px]">
+                  <p className="text-xs sm:text-sm text-zinc-600 font-normal leading-relaxed sm:min-h-[44px]">
                     {tier.tagline}
                   </p>
                 </div>
@@ -85,7 +92,7 @@ export default function PricingSection({ locale }: PricingSectionProps) {
                 </ul>
               </div>
 
-              <div>
+              <div className="mt-auto space-y-2">
                 <a
                   href="#contact"
                   onClick={() => {
@@ -103,9 +110,32 @@ export default function PricingSection({ locale }: PricingSectionProps) {
                   <span>{tier.cta}</span>
                   <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
                 </a>
+                {TIER_SERVICE_PATHS[idx] && (
+                  <Link
+                    href={TIER_SERVICE_PATHS[idx]}
+                    className="w-full inline-flex items-center justify-center gap-1.5 text-[11px] font-mono uppercase tracking-[0.14em] text-zinc-500 hover:text-black transition-colors min-h-[44px]"
+                  >
+                    <span>{t("tierDetailLink")}</span>
+                  </Link>
+                )}
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-8 pt-6 border-t border-black/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono">
+          <Link
+            href="/services/application-web-nextjs"
+            className="text-zinc-600 hover:text-black underline underline-offset-4 transition-colors py-2 min-h-[44px] inline-flex items-center"
+          >
+            {t("nextjsLink")}
+          </Link>
+          <Link
+            href="/estimation"
+            className="text-black hover:text-zinc-600 underline underline-offset-4 font-medium transition-colors py-2 min-h-[44px] inline-flex items-center"
+          >
+            {t("estimatorLink")}
+          </Link>
         </div>
       </div>
     </section>

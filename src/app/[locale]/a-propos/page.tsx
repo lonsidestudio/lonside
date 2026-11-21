@@ -141,12 +141,12 @@ export default async function AboutPage({ params }: AboutPageProps) {
           </header>
 
           <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 sm:p-8 rounded-2xl border border-black/[0.08] bg-zinc-50/50 space-y-4">
-              <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-zinc-500">
+            <div className="p-6 sm:p-8 rounded-2xl border border-black/[0.1] bg-zinc-50/50 flex flex-col justify-start gap-4">
+              <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-zinc-500 border-b border-black/[0.06] pb-3">
                 <Code2 className="w-3.5 h-3.5 text-black" />
                 <span>{t('leadershipLabel')}</span>
               </div>
-              <h2 className="font-display uppercase text-2xl sm:text-3xl text-black tracking-tight font-normal">
+              <h2 className="font-display uppercase text-2xl sm:text-3xl text-black tracking-tight leading-[1.12] font-normal">
                 {t('leadershipTitle', { founder: siteConfig.legal.founderName })}
               </h2>
               <p className="text-sm text-zinc-600 leading-relaxed">
@@ -154,12 +154,12 @@ export default async function AboutPage({ params }: AboutPageProps) {
               </p>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-2xl border border-black/[0.08] bg-white space-y-4">
-              <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-zinc-500">
+            <div className="p-6 sm:p-8 rounded-2xl border border-black/[0.1] bg-white flex flex-col justify-start gap-4">
+              <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-zinc-500 border-b border-black/[0.06] pb-3">
                 <ShieldCheck className="w-3.5 h-3.5 text-black" />
                 <span>{t('legalLabel')}</span>
               </div>
-              <h2 className="font-display uppercase text-2xl sm:text-3xl text-black tracking-tight font-normal">
+              <h2 className="font-display uppercase text-2xl sm:text-3xl text-black tracking-tight leading-[1.12] font-normal">
                 {siteConfig.legal.tradeName}
               </h2>
               <dl className="space-y-2 text-xs sm:text-sm font-mono text-zinc-600">
@@ -168,10 +168,8 @@ export default async function AboutPage({ params }: AboutPageProps) {
                   <dd className="text-black font-medium">{siteConfig.legal.siret}</dd>
                 </div>
                 <div className="flex justify-between gap-4 py-1 border-b border-black/[0.05]">
-                  <dt className="text-zinc-500">{t('sirenApeLabel')}</dt>
-                  <dd className="text-black font-medium">
-                    {siteConfig.legal.siren} · {siteConfig.legal.apeCode}
-                  </dd>
+                  <dt className="text-zinc-500">{t('sirenLabel')}</dt>
+                  <dd className="text-black font-medium">{siteConfig.legal.siren}</dd>
                 </div>
                 <div className="flex justify-between gap-4 py-1 border-b border-black/[0.05]">
                   <dt className="text-zinc-500 flex items-center gap-1">
@@ -194,14 +192,22 @@ export default async function AboutPage({ params }: AboutPageProps) {
             <h2 className="font-display uppercase text-2xl sm:text-4xl tracking-tight text-black font-normal">
               {t('standardsTitle')}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
               {standards.map((pillar) => (
-                <div key={pillar.num} className="p-6 rounded-xl border border-black/[0.08] bg-zinc-50/40 space-y-3">
-                  <span className="font-mono text-2xl text-zinc-400 block">{pillar.num}</span>
-                  <h3 className="font-display uppercase text-xl text-black tracking-tight font-medium">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-sm text-zinc-600 leading-relaxed">{pillar.desc}</p>
+                <div
+                  key={pillar.num}
+                  className="p-6 sm:p-7 rounded-xl border border-black/[0.1] bg-zinc-50/40 flex flex-col justify-start gap-4"
+                >
+                  <div className="flex items-center justify-between border-b border-black/[0.06] pb-3">
+                    <span className="font-mono text-xl text-zinc-400 font-medium">{pillar.num}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-black/30" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-display uppercase text-xl text-black tracking-tight leading-snug font-medium">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-sm text-zinc-600 leading-relaxed">{pillar.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>

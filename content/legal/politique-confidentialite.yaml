@@ -4,7 +4,7 @@ sectionsFr:
   - title: Données collectées
     content: "Lonside collecte les données que vous nous transmettez volontairement via le formulaire de contact : nom, email, et message. Ces données sont utilisées exclusivement pour répondre à vos demandes."
   - title: Mesure d’audience
-    content: "Avec votre accord, nous utilisons Vercel Web Analytics pour mesurer les visites et les pages consultées sur le site de production. Les données de navigation sont transmises à Vercel pour fournir ces statistiques. Nous utilisons aussi PostHog (collecte européenne) pour analyser les pages consultées et les étapes du formulaire de contact, uniquement avec votre accord. Les noms, emails et messages du formulaire ne sont pas transmis à PostHog. Les relectures de sessions sont désactivées. Les paramètres des URL et les fragments sont supprimés avant envoi. Vercel ne dépose pas de cookie de mesure d’audience ; PostHog utilise le stockage local du navigateur pour reconnaître les visites, ainsi que le stockage de session. Vous pouvez refuser ou retirer votre accord dans les préférences de cookies ; les nouveaux envois sont alors bloqués."
+    content: "Avec votre accord, nous utilisons Vercel Web Analytics, PostHog (collecte européenne) et Google Tag Manager / Google Analytics (Consent Mode v2) pour mesurer les visites, les pages consultées et la performance du site de production. Les noms, emails et messages du formulaire ne sont jamais transmis. Les relectures de sessions sont désactivées. Vous pouvez refuser ou retirer votre accord à tout moment dans les préférences de cookies ; les nouveaux envois sont alors immédiatement bloqués."
   - title: Conservation des données
     content: "Vos données sont conservées pour une durée maximale de 3 ans à compter de votre dernière interaction avec nous, conformément à la réglementation RGPD."
   - title: Vos droits
@@ -15,7 +15,7 @@ sectionsEn:
   - title: Data Collected
     content: "Lonside collects data that you voluntarily transmit via the contact form: name, email, and message. This data is used exclusively to respond to your inquiries."
   - title: Audience measurement
-    content: "With your consent, we use Vercel Web Analytics to measure visits and page views on the production website. Navigation data is sent to Vercel to provide these statistics. We also use PostHog (European ingestion) to analyze pages viewed and contact form steps, only with your consent. Form names, email addresses and message contents are not sent to PostHog. Session replay is disabled. URL query parameters and fragments are removed before sending. Vercel does not set audience measurement cookies; PostHog uses browser local storage to recognize visits, as well as session storage. You can refuse or withdraw consent in cookie preferences; further events are then blocked."
+    content: "With your consent, we use Vercel Web Analytics, PostHog (European ingestion), and Google Tag Manager / Google Analytics (Consent Mode v2) to measure visits, pages viewed, and production website performance. Form names, email addresses, and message contents are never transmitted. Session replay is disabled. You can refuse or withdraw consent at any time in cookie preferences; further events are immediately blocked."
   - title: Data Retention
     content: "Your data is stored for a maximum period of 3 years from your last interaction with us, in compliance with GDPR guidelines."
   - title: Your Rights

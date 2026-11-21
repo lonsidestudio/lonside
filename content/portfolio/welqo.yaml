@@ -231,12 +231,6 @@ productModules:
     behaviorEn: "Automated mandate generation, smartphone eIDAS signing, and instant encrypted archiving inside the owner's portal."
     businessRuleFr: "Horodatage probant conforme eIDAS, contrôle d'accès strict par propriétaire (isolation totale des documents) et traçabilité complète des versions signées."
     businessRuleEn: "Cryptographic eIDAS timestamping, strict per-owner access isolation, and immutable signed-version audit trails."
-screenshots:
-  - src: "/images/architecture/welqo.png"
-    altFr: "Schéma d'architecture système Welqo : vitrine SEO locale Next.js, portail propriétaire eIDAS et moteur de synchronisation PMS temps réel"
-    altEn: "Welqo system architecture blueprint: local Next.js SEO storefront, eIDAS owner portal, and real-time PMS sync engine"
-    captionFr: "Blueprint d’architecture Welqo — Acquisition SEO locale, portail propriétaire eIDAS et synchronisation Airbnb/Booking sans collision."
-    captionEn: "Welqo Architecture Blueprint — Local SEO acquisition, eIDAS owner vault, and collision-free Airbnb/Booking sync."
 productFaq:
   - questionFr: "Combien de temps faut-il pour lancer une plateforme PropTech similaire à Welqo ?"
     questionEn: "How long does it take to launch a PropTech platform similar to Welqo?"
