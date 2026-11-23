@@ -16,6 +16,7 @@ Lonside replaces traditional slow web agencies and risky freelance setups by del
 ## Key Public URLs
 - Home (FR / EN): https://www.lonside.com/ | https://www.lonside.com/en
 - About & E-E-A-T: https://www.lonside.com/a-propos | https://www.lonside.com/en/about
+- Bordeaux & Nouvelle-Aquitaine Studio: https://www.lonside.com/bordeaux | https://www.lonside.com/en/bordeaux
 - Interactive Scope Estimator: https://www.lonside.com/estimation | https://www.lonside.com/en/estimate
 - Case Studies Hub: https://www.lonside.com/portfolio | https://www.lonside.com/en/portfolio
 - Engineering Method & SLA: https://www.lonside.com/methode | https://www.lonside.com/en/method

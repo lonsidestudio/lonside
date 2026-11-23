@@ -8,6 +8,10 @@ export const pathnames = {
     fr: '/a-propos',
     en: '/about'
   },
+  '/bordeaux': {
+    fr: '/bordeaux',
+    en: '/bordeaux'
+  },
   '/estimation': {
     fr: '/estimation',
     en: '/estimate'
