@@ -123,16 +123,24 @@ export default function PricingSection({ locale }: PricingSectionProps) {
           ))}
         </div>
 
-        <div className="mt-8 pt-6 border-t border-black/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono">
-          <Link
-            href="/services/application-web-nextjs"
-            className="text-zinc-600 hover:text-black underline underline-offset-4 transition-colors py-2 min-h-[44px] inline-flex items-center"
-          >
-            {t("nextjsLink")}
-          </Link>
+        <div className="mt-8 pt-6 border-t border-black/[0.06] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-2 lg:gap-6 text-xs font-mono">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-6">
+            <Link
+              href="/services/application-web-nextjs"
+              className="text-zinc-600 hover:text-black underline underline-offset-4 transition-colors py-2 min-h-[44px] inline-flex items-center"
+            >
+              {t("nextjsLink")}
+            </Link>
+            <Link
+              href="/services/boutique-shopify-sur-mesure"
+              className="text-zinc-600 hover:text-black underline underline-offset-4 transition-colors py-2 min-h-[44px] inline-flex items-center"
+            >
+              {t("shopifyLink")}
+            </Link>
+          </div>
           <Link
             href="/estimation"
-            className="text-black hover:text-zinc-600 underline underline-offset-4 font-medium transition-colors py-2 min-h-[44px] inline-flex items-center"
+            className="text-black hover:text-zinc-600 underline underline-offset-4 font-medium transition-colors py-2 min-h-[44px] inline-flex items-center whitespace-nowrap shrink-0"
           >
             {t("estimatorLink")}
           </Link>

@@ -52,6 +52,10 @@ export const pathnames = {
     fr: '/services/regie-tech-senior',
     en: '/services/senior-engineering-squad'
   },
+  '/services/boutique-shopify-sur-mesure': {
+    fr: '/services/boutique-shopify-sur-mesure',
+    en: '/services/custom-shopify-store'
+  },
   '/services/site-vitrine': {
     fr: '/services/site-vitrine',
     en: '/services/landing-page'

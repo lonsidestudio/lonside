@@ -79,7 +79,7 @@ test('siteConfig points to official Lonside domain, email, calendar, SIRET and G
 
 test('sitemap generates strictly 200 OK canonical URLs with valid hreflang', async () => {
   const entries = await sitemap();
-  assert.equal(entries.length, 34, 'Sitemap must contain exactly 34 URLs (17 FR, 17 EN)');
+  assert.equal(entries.length, 38, 'Sitemap must contain exactly 38 URLs (19 FR, 19 EN)');
 
   const expectedUrls = [
     'https://www.lonside.com/',
@@ -92,6 +92,8 @@ test('sitemap generates strictly 200 OK canonical URLs with valid hreflang', asy
     'https://www.lonside.com/en/services/custom-saas-platform',
     'https://www.lonside.com/services/regie-tech-senior',
     'https://www.lonside.com/en/services/senior-engineering-squad',
+    'https://www.lonside.com/services/boutique-shopify-sur-mesure',
+    'https://www.lonside.com/en/services/custom-shopify-store',
     'https://www.lonside.com/estimation',
     'https://www.lonside.com/en/estimate',
     'https://www.lonside.com/portfolio',
@@ -102,6 +104,8 @@ test('sitemap generates strictly 200 OK canonical URLs with valid hreflang', asy
     'https://www.lonside.com/en/about',
     'https://www.lonside.com/portfolio/bely',
     'https://www.lonside.com/en/portfolio/bely',
+    'https://www.lonside.com/portfolio/eunice-km',
+    'https://www.lonside.com/en/portfolio/eunice-km',
     'https://www.lonside.com/portfolio/michi',
     'https://www.lonside.com/en/portfolio/michi',
     'https://www.lonside.com/portfolio/weedin',
@@ -171,6 +175,7 @@ test('proxy middleware matcher excludes dynamic asset routes to prevent 404', ()
     '/robots.txt',
     '/manifest.webmanifest',
     '/llms.txt',
+    '/f4a8c2e19b7d4036a5e8c1b9d2f7460a.txt',
   ];
 
   for (const route of excludedRoutes) {
@@ -335,4 +340,11 @@ test('zero hardcoded UI bilingual ternaries remain in localized pages and compon
   scanUi('src/app/[locale]');
   scanUi('src/components');
   assert.deepEqual(offenders, [], `Hardcoded UI bilingual ternaries found:\n${offenders.join('\n')}`);
+});
+
+test('IndexNow verification key file exists in public/ and matches its filename', () => {
+  const key = 'f4a8c2e19b7d4036a5e8c1b9d2f7460a';
+  const keyFilePath = path.join('public', `${key}.txt`);
+  assert.ok(fs.existsSync(keyFilePath), 'IndexNow key file must exist in public/');
+  assert.equal(fs.readFileSync(keyFilePath, 'utf8').trim(), key, 'IndexNow key file content must match key');
 });

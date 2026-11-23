@@ -167,7 +167,8 @@
     "description": "Every package includes end-to-end discovery, polished development, complete code ownership on your account, and one month of post-launch warranty.",
     "recommended": "Recommended",
     "tierDetailLink": "View full package details →",
-    "nextjsLink": "Need a custom Next.js & TypeScript web application? Explore our capability →",
+    "nextjsLink": "Next.js & TypeScript Web Apps →",
+    "shopifyLink": "Bespoke Shopify D2C Store (from €4,900) →",
     "estimatorLink": "Estimate your scope & timeline in 30 seconds →",
     "tiers": [
       {
@@ -294,6 +295,7 @@
     "nextjsApps": "Next.js Web Apps",
     "saasPlatforms": "Custom SaaS Platforms",
     "seniorSquad": "Senior Squad",
+    "shopifyStores": "Shopify D2C Stores",
     "cookies": "Cookies",
     "headquartersLine": "{locality} ({postalCode}), France · SIRET {siret}",
     "socialAria": {
@@ -904,6 +906,81 @@
           {
             "q": "How is weekly output tracked?",
             "a": "Directly inside your Linear/GitHub pull requests, paired with a crisp weekly async summary of shipped features and upcoming priorities."
+          }
+        ]
+      },
+      "boutique-shopify-sur-mesure": {
+        "metaTitle": "Custom Shopify Store Development (14 Days) — Lonside Studio",
+        "metaDescription": "Launch a bespoke high-conversion Shopify D2C store in 14 business days (€4,900 fixed fee): custom Liquid + Tailwind theme, AJAX cart drawer, EU multi-currency & native SEO.",
+        "eyebrow": "Shopify D2C Sprint // 14 Business Days",
+        "h1": "Your custom Shopify flagship,",
+        "h1Muted": "engineered to convert.",
+        "intro": "Skip bloated templates weighed down by ten paid apps. We design and engineer your bespoke D2C Shopify storefront in custom Liquid & Tailwind: unmistakable editorial identity, smart AJAX cart drawer, European multi-currency setup, and crisp mobile speed shipped in 14 fixed business days.",
+        "priceLabel": "€4,900 excl. VAT",
+        "timelineLabel": "14 guaranteed business days",
+        "warrantyLabel": "30-day corrective warranty",
+        "idealFor": [
+          "D2C brands (wellness, skincare, nutrition, fashion, premium craft) launching or upgrading their flagship store",
+          "Merchants looking to eliminate monthly third-party app bloat and unlock faster mobile checkout conversion",
+          "Founders selling across European multi-currency markets with physical goods, bundles, and digital downloads"
+        ],
+        "deliverablesTitle": "Delivered turnkey in 14 business days",
+        "deliverables": [
+          {
+            "title": "Bespoke Shopify Theme (Liquid + Tailwind CSS)",
+            "desc": "Editorial art direction tailored to your brand, modular sections editable in the native Shopify Customizer, and zero unnecessary JavaScript overhead."
+          },
+          {
+            "title": "Smart AJAX Cart Drawer & AOV Boosters",
+            "desc": "Zero-reload slide-over cart, live free-shipping progress bar, and one-tap contextual product upsells engineered natively in your theme."
+          },
+          {
+            "title": "EU Multi-Market, Payments & Legal Compliance",
+            "desc": "Shopify Payments, accelerated checkout (Apple Pay, Shop Pay), multi-currency localization across Europe, and full GDPR & legal store policies."
+          },
+          {
+            "title": "Native E-Commerce SEO & Autonomous Handover",
+            "desc": "Product Schema.org markup, live predictive search, clean instant collection filters, optimized sitemaps, and a Loom walkthrough for your team."
+          }
+        ],
+        "comparisonRows": [
+          {
+            "criterion": "Design & brand distinction",
+            "lonside": "100% custom Liquid + Tailwind theme",
+            "freelance": "Lightly tweaked off-the-shelf theme",
+            "traditional": "Slow cycles & €15,000–€40,000+ budgets"
+          },
+          {
+            "criterion": "Recurring third-party app fees",
+            "lonside": "Minimal (AJAX cart & upsells coded natively)",
+            "freelance": "Heavy app stack (€150–€400/month)",
+            "traditional": "Bloated plugins & paid retainers"
+          },
+          {
+            "criterion": "Mobile speed & conversion",
+            "lonside": "Core Web Vitals tuned & mobile-first",
+            "freelance": "Render-blocking third-party scripts",
+            "traditional": "Speed optimization billed separately"
+          },
+          {
+            "criterion": "Timeline & pricing",
+            "lonside": "14 business days • €4,900 fixed fee",
+            "freelance": "Slipping schedule & add-on fees",
+            "traditional": "2–4 months of discovery overhead"
+          }
+        ],
+        "faq": [
+          {
+            "q": "Will my team be able to edit products, prices, and banners without a developer?",
+            "a": "100% yes. Every custom section connects cleanly to the native Shopify Theme Editor so you can launch drops, update pricing, and manage collections autonomously."
+          },
+          {
+            "q": "Do we own 100% of our custom Shopify theme code?",
+            "a": "Absolutely. Your custom theme lives directly inside your Shopify store and your private GitHub repository with zero proprietary licenses or ongoing vendor lock-in."
+          },
+          {
+            "q": "Can you migrate an existing WooCommerce, PrestaShop, or legacy Shopify store without losing SEO?",
+            "a": "Yes. We handle clean catalog imports, 301 URL redirect mapping, metadata preservation, and customer review migration so your search rankings stay protected."
           }
         ]
       }

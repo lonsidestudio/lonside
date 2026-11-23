@@ -7,7 +7,8 @@ export type ServiceRouteKey =
   | 'sprint-mvp-14-jours'
   | 'application-web-nextjs'
   | 'plateforme-saas-sur-mesure'
-  | 'regie-tech-senior';
+  | 'regie-tech-senior'
+  | 'boutique-shopify-sur-mesure';
 
 export interface LocalizedServiceCopy {
   metaTitle: string;
@@ -72,6 +73,14 @@ export const SERVICES: Record<ServiceRouteKey, ServiceDefinition> = {
     priceNumeric: '5500',
     stack: ['Next.js / React / TypeScript', 'Node.js / Python / PostgreSQL', 'CI/CD & Architecture Cloud', 'Slack & GitHub Natif', 'Revues de code & Mentorat'],
     featuredSlugs: ['bely', 'michi'],
+  },
+  'boutique-shopify-sur-mesure': {
+    key: 'boutique-shopify-sur-mesure',
+    frPath: '/services/boutique-shopify-sur-mesure',
+    enPath: '/en/services/custom-shopify-store',
+    priceNumeric: '4900',
+    stack: ['Shopify Custom Theme (Liquid)', 'Tailwind CSS & Design System', 'AJAX Cart Drawer & Upsells Natifs', 'Multi-Marchés & Multi-Devises UE', 'Shopify Payments & Checkout Accéléré', 'SEO E-Commerce & Schema Product', 'Conformité RGPD & UCP Ready'],
+    featuredSlugs: ['eunice-km', 'welqo'],
   },
 };
 
