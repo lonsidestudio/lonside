@@ -1112,5 +1112,81 @@
       "emptyTitle": "No telemetry events recorded in current browser session yet.",
       "emptyHint": "Click \"Emit Test Event\" or interact with the site to see real-time triggers."
     }
+  },
+  "bordeauxPage": {
+    "metaTitle": "Software Engineering, Next.js & Shopify Studio in Bordeaux — Lonside Studio",
+    "metaDescription": "Independent software studio based in Bouliac (Bordeaux, Nouvelle-Aquitaine, France). Custom Next.js apps, SaaS MVPs & Shopify D2C stores shipped in 14–30 days at fixed price.",
+    "breadcrumbLabel": "Bordeaux & Nouvelle-Aquitaine",
+    "eyebrow": "Independent Studio // Bordeaux & Nouvelle-Aquitaine, France",
+    "h1Prefix": "Software, SaaS & Shopify studio,",
+    "h1Highlight": "rooted in Bordeaux.",
+    "intro": "Headquartered in Bouliac on the doorstep of Bordeaux, Lonside Studio partners with founders, startups, and SMBs across Gironde, Nouvelle-Aquitaine, and international markets to design and ship custom Next.js applications, B2B SaaS platforms, and Shopify D2C stores in 14–30 guaranteed business days—with 100% GitHub IP handover.",
+    "kpi1Label": "Headquarters",
+    "kpi1Value": "Bouliac · Bordeaux, FR",
+    "kpi2Label": "Fixed Sprints",
+    "kpi2Value": "14–30 guaranteed days",
+    "kpi3Label": "Code Ownership",
+    "kpi3Value": "100% on your GitHub",
+    "territoryLabel": "Service Area",
+    "territoryTitle": "Bordeaux Métropole, Gironde & Nouvelle-Aquitaine",
+    "territoryDesc": "Available for in-person scoping workshops across Bordeaux Métropole (Bouliac, Central Bordeaux, Euratlantique, Mérignac, Pessac, Talence, Bègles) alongside seamless remote delivery across France, Europe, and North America.",
+    "zones": [
+      "Bordeaux Center",
+      "Bouliac (33270)",
+      "Euratlantique",
+      "Mérignac",
+      "Pessac",
+      "Talence",
+      "Bègles",
+      "Arcachon Bay",
+      "Gironde (33)",
+      "Nouvelle-Aquitaine"
+    ],
+    "officeCardLabel": "Verified French Headquarters",
+    "officeCardDesc": "Zero offshore outsourcing and zero sales layers: every product delivered for our Bordeaux and international clients is architected and engineered directly by our Lead Architect.",
+    "officeAddressLabel": "Location",
+    "officeEmailLabel": "Direct email",
+    "servicesHeading": "Fixed-price engineering capabilities from Bordeaux",
+    "advantagesTitle": "Why partner with an independent Bordeaux engineering studio",
+    "advantages": [
+      {
+        "num": "01",
+        "title": "Sealed budget & contractual deadline",
+        "desc": "From €4,900 (14-day Shopify D2C store) to €13,900 (30-day multi-role SaaS): fixed upfront pricing backed by a 10% fee penalty per 48h of studio-side delay."
+      },
+      {
+        "num": "02",
+        "title": "Local presence, global engineering standards",
+        "desc": "In-person kickoff workshops across Bordeaux Métropole combined with async high-velocity shipping directly inside your Slack, Linear, and private GitHub."
+      },
+      {
+        "num": "03",
+        "title": "Zero vendor lock-in",
+        "desc": "Unlike traditional vendors that keep your infrastructure hostage, 100% of your Next.js, TypeScript, PostgreSQL, or Shopify Liquid codebase belongs to you from day one."
+      }
+    ],
+    "proofTitle": "Products shipped to production",
+    "faqTitle": "Frequently asked questions — Bordeaux & Nouvelle-Aquitaine",
+    "faq": [
+      {
+        "q": "Can we meet in person in Bordeaux to scope our project?",
+        "a": "Yes. Following a quick 15-minute video qualification call, we gladly host in-person product scoping workshops across Bordeaux Métropole (Bouliac, Central Bordeaux, Euratlantique, Mérignac, or Pessac)."
+      },
+      {
+        "q": "What types of software do you build for companies in Bordeaux & Nouvelle-Aquitaine?",
+        "a": "We specialize in 14-day B2B SaaS MVPs, high-speed Next.js & TypeScript web applications, 30-day multi-role operational platforms, and bespoke high-conversion Shopify D2C stores."
+      },
+      {
+        "q": "Do you only work with clients located in Bordeaux?",
+        "a": "Not at all. While headquartered in Bouliac (Bordeaux area, France), our Slack/GitHub delivery model serves founders and companies across Paris, France, Europe, and North America."
+      },
+      {
+        "q": "How do we kick off a sprint with Lonside Studio?",
+        "a": "Run our 30-second scope estimator on /en/estimate or book a direct 15-minute call with our Lead Architect to lock scope, fixed budget, and your production go-live date."
+      }
+    ],
+    "ctaTitle": "Launching a web app, SaaS, or Shopify store from Bordeaux?",
+    "ctaDescription": "Book 15 minutes directly with our Lead Architect to validate feasibility, confirm your fixed price, and lock your delivery date.",
+    "ctaAbout": "Meet the studio"
   }
 }

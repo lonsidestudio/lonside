@@ -1112,5 +1112,81 @@
       "emptyTitle": "Aucun événement télémétrique enregistré pour le moment dans cette session.",
       "emptyHint": "Cliquez sur « Émettre un Événement » ou naviguez sur le site pour voir les déclenchements."
     }
+  },
+  "bordeauxPage": {
+    "metaTitle": "Studio Développement Web, SaaS & Shopify à Bordeaux — Lonside Studio",
+    "metaDescription": "Studio indépendant d’ingénierie logicielle à Bouliac (Bordeaux Métropole, Gironde). Applications Next.js, MVP SaaS et boutiques Shopify livrés dès 14 jours au forfait ferme.",
+    "breadcrumbLabel": "Bordeaux & Nouvelle-Aquitaine",
+    "eyebrow": "Studio Indépendant // Bordeaux Métropole & Nouvelle-Aquitaine",
+    "h1Prefix": "Studio de développement web & SaaS,",
+    "h1Highlight": "ancré à Bordeaux.",
+    "intro": "Établi à Bouliac aux portes de Bordeaux, Lonside Studio accompagne les fondateurs, startups et PME de Gironde et de Nouvelle-Aquitaine pour concevoir et déployer des applications web Next.js, plateformes SaaS et boutiques Shopify sur-mesure en 14 à 30 jours fermes — avec 100 % du code cédé sur votre GitHub.",
+    "kpi1Label": "Ancrage Local",
+    "kpi1Value": "Bouliac · Bordeaux (33)",
+    "kpi2Label": "Sprints Fermes",
+    "kpi2Value": "14 à 30 jours garantis",
+    "kpi3Label": "Propriété Code",
+    "kpi3Value": "100 % sur votre GitHub",
+    "territoryLabel": "Zone d’Intervention",
+    "territoryTitle": "Bordeaux Métropole, Gironde & Nouvelle-Aquitaine",
+    "territoryDesc": "Nous intervenons en rendez-vous de cadrage sur toute la métropole bordelaise (Chartrons, Euratlantique, Mérignac, Pessac, Talence, Bègles, Bouliac) ainsi qu’à distance partout en Nouvelle-Aquitaine, en France et à l’international.",
+    "zones": [
+      "Bordeaux Centre",
+      "Bouliac (33270)",
+      "Euratlantique",
+      "Mérignac",
+      "Pessac",
+      "Talence",
+      "Bègles",
+      "Bassin d’Arcachon",
+      "Gironde (33)",
+      "Nouvelle-Aquitaine"
+    ],
+    "officeCardLabel": "Établissement Principal Vérifié",
+    "officeCardDesc": "Zéro sous-traitance offshore et zéro intermédiaire commercial : chaque produit livré à nos clients bordelais et nationaux est architecturé et codé directement par notre Lead Architect.",
+    "officeAddressLabel": "Implantation",
+    "officeEmailLabel": "Contact direct",
+    "servicesHeading": "Nos expertises livrées au forfait ferme à Bordeaux",
+    "advantagesTitle": "Pourquoi choisir un studio d’ingénierie indépendant en Gironde",
+    "advantages": [
+      {
+        "num": "01",
+        "title": "Forfait scellé & délai contractuel",
+        "desc": "De 4 900 € HT (Boutique Shopify 14j) à 13 900 € HT (Plateforme SaaS 30j) : budget figé avant la première ligne de code et pénalité de 10 % par 48 h en cas de retard imputable au studio."
+      },
+      {
+        "num": "02",
+        "title": "Proximité bordelaise, standards internationaux",
+        "desc": "Possibilité d’ateliers de cadrage en présentiel sur Bordeaux Métropole couplée à une exécution asynchrone ultra-rapide sur Slack, Linear et votre dépôt GitHub privé."
+      },
+      {
+        "num": "03",
+        "title": "Zéro captivité technique",
+        "desc": "Contrairement aux prestataires qui verrouillent votre hébergement ou vos licences, 100 % du code source (Next.js, TypeScript, PostgreSQL ou Shopify Liquid) vous appartient dès le jour 1."
+      }
+    ],
+    "proofTitle": "Produits livrés en production",
+    "faqTitle": "Questions fréquentes — Bordeaux & Nouvelle-Aquitaine",
+    "faq": [
+      {
+        "q": "Peut-on organiser un rendez-vous de cadrage en présentiel à Bordeaux ?",
+        "a": "Oui. Après un premier échange de qualification de 15 minutes en visio, nous organisons volontiers les sessions de cadrage produit en présentiel sur Bordeaux Métropole (Bouliac, Bordeaux Centre, Euratlantique, Mérignac ou Pessac)."
+      },
+      {
+        "q": "Quels types de projets développez-vous pour les entreprises de Gironde et Nouvelle-Aquitaine ?",
+        "a": "Nous livrons principalement des MVP SaaS B2B (14 jours), des applications web Next.js & TypeScript haute performance, des plateformes métier multi-rôles (30 jours) et des boutiques Shopify D2C sur-mesure."
+      },
+      {
+        "q": "Travaillez-vous uniquement avec des clients situés à Bordeaux ?",
+        "a": "Non. Si notre siège est basé à Bouliac (33270) dans la métropole de Bordeaux, nos routines Slack/GitHub nous permettent d’accompagner des fondateurs et PME à Paris, Lyon, Nantes, partout en Europe et à l’international."
+      },
+      {
+        "q": "Comment démarrer un projet avec Lonside Studio à Bordeaux ?",
+        "a": "Simulez votre budget en 30 secondes sur notre page /estimation ou réservez directement un créneau de 15 minutes avec notre Lead Architect pour figer le périmètre et votre date de mise en ligne."
+      }
+    ],
+    "ctaTitle": "Un projet web, SaaS ou Shopify à lancer depuis Bordeaux ?",
+    "ctaDescription": "Échangez 15 minutes en direct avec notre Lead Architect pour valider la faisabilité, le forfait ferme et votre date de livraison.",
+    "ctaAbout": "Découvrir le studio"
   }
 }

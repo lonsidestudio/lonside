@@ -77,6 +77,12 @@ const ROUTES: SitemapRouteDef[] = [
     changeFrequency: 'monthly',
   },
   {
+    fr: '/bordeaux',
+    en: '/en/bordeaux',
+    priority: 0.85,
+    changeFrequency: 'monthly',
+  },
+  {
     fr: '/legal/mentions-legales',
     en: '/en/legal/legal-notice',
     priority: 0.3,

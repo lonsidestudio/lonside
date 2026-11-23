@@ -41,13 +41,16 @@ export default function Footer() {
             <p className="text-xs sm:text-sm text-zinc-500 max-w-sm leading-relaxed font-normal">
               {t("tagline")}
             </p>
-            <p className="text-[11px] font-mono text-zinc-500">
+            <Link
+              href="/bordeaux"
+              className="text-[11px] font-mono text-zinc-500 hover:text-black underline underline-offset-4 transition-colors inline-flex items-center py-2 min-h-[44px]"
+            >
               {t("headquartersLine", {
                 locality: siteConfig.legal.addressLocality,
                 postalCode: siteConfig.legal.postalCode,
                 siret: siteConfig.legal.siret,
               })}
-            </p>
+            </Link>
           </div>
 
           {/* Quick links */}
