@@ -47,6 +47,12 @@ const ROUTES: SitemapRouteDef[] = [
     changeFrequency: 'monthly',
   },
   {
+    fr: '/services/boutique-shopify-sur-mesure',
+    en: '/en/services/custom-shopify-store',
+    priority: 0.9,
+    changeFrequency: 'monthly',
+  },
+  {
     fr: '/estimation',
     en: '/en/estimate',
     priority: 0.8,

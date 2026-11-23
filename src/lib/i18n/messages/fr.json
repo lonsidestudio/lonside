@@ -167,7 +167,8 @@
     "description": "Chaque formule comprend le cadrage complet, le développement soigné, la cession du code sur votre compte et un mois d'assistance sereine.",
     "recommended": "Recommandé",
     "tierDetailLink": "Voir le détail du forfait →",
-    "nextjsLink": "Besoin d'une application web Next.js & TypeScript sur-mesure ? Voir notre expertise →",
+    "nextjsLink": "Applications web Next.js & TypeScript →",
+    "shopifyLink": "Boutique Shopify D2C sur-mesure (dès 4 900 € HT) →",
     "estimatorLink": "Estimer votre budget & délai en 30 secondes →",
     "tiers": [
       {
@@ -294,6 +295,7 @@
     "nextjsApps": "Apps Web Next.js",
     "saasPlatforms": "Plateformes SaaS",
     "seniorSquad": "Régie Tech Senior",
+    "shopifyStores": "Boutiques Shopify",
     "cookies": "Cookies",
     "headquartersLine": "{locality} ({postalCode}), France · SIRET {siret}",
     "socialAria": {
@@ -904,6 +906,81 @@
           {
             "q": "Comment suivez-vous la vélocité chaque semaine ?",
             "a": "Via vos propres outils (Linear, Jira, GitHub PRs) complétés par un point asynchrone hebdomadaire résumant ce qui est en production et les priorités de la semaine suivante."
+          }
+        ]
+      },
+      "boutique-shopify-sur-mesure": {
+        "metaTitle": "Création Boutique Shopify Sur-Mesure (14 Jours) — Lonside Studio",
+        "metaDescription": "Créez une boutique Shopify D2C haute conversion sur-mesure en 14 jours ouvrés (4 900 € HT ferme) : thème Liquid + Tailwind, panier tiroir AJAX, multi-devises UE et SEO natif.",
+        "eyebrow": "Sprint Shopify D2C // 14 Jours Ouvrés",
+        "h1": "Votre boutique Shopify sur-mesure,",
+        "h1Muted": "taillée pour convertir.",
+        "intro": "Oubliez les templates génériques ralentis par dix applications payantes. Nous concevons et codons votre maison e-commerce D2C sur Shopify en Liquid & Tailwind sur-mesure : identité éditoriale forte, panier tiroir AJAX intelligent, multi-marchés européens et vitesse mobile irréprochable en 14 jours fermes.",
+        "priceLabel": "4 900 € HT",
+        "timelineLabel": "14 jours ouvrés garantis",
+        "warrantyLabel": "30 jours de garantie corrective",
+        "idealFor": [
+          "Marques D2C (bien-être, cosmétique, nutrition, mode, artisanat premium) lançant ou refondant leur boutique flagship",
+          "E-commerçants qui veulent supprimer l’empilement d’applications payantes mensuelles et accélérer la conversion mobile",
+          "Fondateurs vendant à l’échelle européenne en multi-devises avec catalogue physique, bundles et produits digitaux"
+        ],
+        "deliverablesTitle": "Ce qui est livré clé en main en 14 jours",
+        "deliverables": [
+          {
+            "title": "Thème Shopify sur-mesure (Liquid + Tailwind CSS)",
+            "desc": "Direction artistique éditoriale dédiée à votre marque, sections modulaires éditables dans le Customizer Shopify et zéro surcharge JavaScript inutile."
+          },
+          {
+            "title": "Panier tiroir AJAX & leviers panier moyen (AOV)",
+            "desc": "Tiroir panier fluide sans rechargement, barre de progression dynamique vers la livraison offerte et recommandations produits ajoutables en un clic."
+          },
+          {
+            "title": "Multi-marchés UE, paiements & conformité légale",
+            "desc": "Configuration Shopify Payments, checkout accéléré (Apple Pay, Shop Pay), localisation multi-devises européenne et pages légales / RGPD complètes."
+          },
+          {
+            "title": "SEO e-commerce natif & passation autonome",
+            "desc": "Balisage Schema.org Product, recherche prédictive, filtres instantanés propres, sitemaps optimisés et vidéo Loom de prise en main pour votre équipe."
+          }
+        ],
+        "comparisonRows": [
+          {
+            "criterion": "Design & différenciation",
+            "lonside": "Thème Liquid + Tailwind 100 % sur-mesure",
+            "freelance": "Thème générique légèrement retouché",
+            "traditional": "Cycles longs et budgets de 15 000 € à 40 000 €+"
+          },
+          {
+            "criterion": "Coût mensuel d’apps tierces",
+            "lonside": "Minimal (panier AJAX & upsells codés nativement)",
+            "freelance": "Empilement d’apps payantes (150–400 €/mois)",
+            "traditional": "Surcouches lourdes et maintenance facturée"
+          },
+          {
+            "criterion": "Vitesse mobile & conversion",
+            "lonside": "Optimisée Core Web Vitals & mobile-first",
+            "freelance": "Scripts tiers bloquants sur smartphone",
+            "traditional": "Optimisation facturée en option ultérieure"
+          },
+          {
+            "criterion": "Délai & budget",
+            "lonside": "14 jours ouvrés • 4 900 € HT ferme",
+            "freelance": "Planning glissant et suppléments",
+            "traditional": "2 à 4 mois de tunnel commercial"
+          }
+        ],
+        "faq": [
+          {
+            "q": "Serai-je totalement autonome pour modifier mes produits, prix et textes après la livraison ?",
+            "a": "Oui à 100 %. Toutes nos sections sur-mesure sont reliées au Shopify Theme Editor natif : vous ajoutez des produits, lancez des promotions et modifiez vos bandeaux sans jamais toucher au code."
+          },
+          {
+            "q": "Le code du thème Shopify m’appartient-il intégralement ?",
+            "a": "Absolument. Votre thème est installé sur votre propre boutique Shopify et sauvegardé sur votre dépôt GitHub privé, sans aucune licence propriétaire ni abonnement captif envers Lonside."
+          },
+          {
+            "q": "Pouvez-vous migrer ma boutique existante (WooCommerce, PrestaShop ou ancien thème Shopify) sans perdre mon SEO ?",
+            "a": "Oui. Nous gérons l’import propre de votre catalogue, le mapping des redirections 301 d’URLs et la conservation de vos métadonnées et avis clients."
           }
         ]
       }

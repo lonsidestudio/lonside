@@ -316,7 +316,7 @@ export default async function ServicePageTemplate({ serviceKey, locale }: Servic
             <h2 className="text-xs font-mono uppercase tracking-[0.18em] text-zinc-500">
               {tServices('ui.otherCapabilities')}
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {otherServices.map(({ def: other, copy: otherCopy }) => (
                 <Link
                   key={other.key}

@@ -106,10 +106,10 @@ export async function getSupervisionReport(): Promise<SupervisionReport> {
     name: 'Moteurs de Recherche & Indexation IA',
     category: 'seo',
     status: 'operational',
-    description: '36 routes canoniques 200 OK directes (accueil, services, méthode, simulateur, études de cas, à propos, légal), hreflang bidirectionnel, IndexNow et llms.txt',
+    description: '38 routes canoniques 200 OK directes (accueil, services, méthode, simulateur, études de cas, à propos, légal), hreflang bidirectionnel, IndexNow et llms.txt',
     details: {
       canonicalBase: 'https://www.lonside.com',
-      sitemapUrls: 36,
+      sitemapUrls: 38,
       aiCrawlersAllowed: true,
       zeroHopRedirects: true,
     },
@@ -132,8 +132,8 @@ export async function getSupervisionReport(): Promise<SupervisionReport> {
     version: '1.0.0',
     services,
     metrics: {
-      activeRoutesCount: 47,
-      sitemapUrlsCount: 36,
+      activeRoutesCount: 49,
+      sitemapUrlsCount: 38,
       securityHeadersEnforced: true,
       consentCompliant: true,
     },

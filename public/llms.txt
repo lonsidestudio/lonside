@@ -23,6 +23,7 @@ Lonside replaces traditional slow web agencies and risky freelance setups by del
 - Next.js Web Applications: https://www.lonside.com/services/application-web-nextjs | https://www.lonside.com/en/services/nextjs-web-application
 - Custom SaaS Platforms: https://www.lonside.com/services/plateforme-saas-sur-mesure | https://www.lonside.com/en/services/custom-saas-platform
 - Senior Engineering Squad: https://www.lonside.com/services/regie-tech-senior | https://www.lonside.com/en/services/senior-engineering-squad
+- Custom Shopify D2C Store (14 Days): https://www.lonside.com/services/boutique-shopify-sur-mesure | https://www.lonside.com/en/services/custom-shopify-store
 
 ---
 
@@ -55,6 +56,14 @@ Lonside replaces traditional slow web agencies and risky freelance setups by del
 - Price: From 5 500 € / month (Flexible monthly allocation)
 - Target: Funded startups and scaling platforms requiring continuous engineering.
 - Integration: Senior engineer embedded directly in client Slack and GitHub routines with zero onboarding delay.
+
+### 4. Custom Shopify D2C Flagship Store (14 Business Days)
+- Price: 4 900 € excl. VAT (Fixed price package • Zero app bloat)
+- Target: D2C brands (wellness, skincare, nutrition, fashion, premium craft) launching or upgrading a high-conversion European Shopify store.
+- Key Deliverables:
+  - 100% custom Shopify Liquid + Tailwind CSS editorial theme.
+  - Native AJAX cart drawer with dynamic free-shipping threshold meter & one-click upsells.
+  - EU multi-currency localization, Shopify Payments, predictive search, e-commerce SEO, and 30-day warranty.
 
 ---
 

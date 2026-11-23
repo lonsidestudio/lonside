@@ -120,6 +120,11 @@ export default function Footer() {
                   {t("seniorSquad")}
                 </Link>
               </li>
+              <li>
+                <Link href="/services/boutique-shopify-sur-mesure" className="hover:text-black transition-colors py-1 inline-block">
+                  {t("shopifyStores")}
+                </Link>
+              </li>
             </ul>
           </div>
 
