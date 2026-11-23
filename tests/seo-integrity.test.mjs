@@ -171,6 +171,7 @@ test('proxy middleware matcher excludes dynamic asset routes to prevent 404', ()
     '/robots.txt',
     '/manifest.webmanifest',
     '/llms.txt',
+    '/f4a8c2e19b7d4036a5e8c1b9d2f7460a.txt',
   ];
 
   for (const route of excludedRoutes) {
@@ -335,4 +336,11 @@ test('zero hardcoded UI bilingual ternaries remain in localized pages and compon
   scanUi('src/app/[locale]');
   scanUi('src/components');
   assert.deepEqual(offenders, [], `Hardcoded UI bilingual ternaries found:\n${offenders.join('\n')}`);
+});
+
+test('IndexNow verification key file exists in public/ and matches its filename', () => {
+  const key = 'f4a8c2e19b7d4036a5e8c1b9d2f7460a';
+  const keyFilePath = path.join('public', `${key}.txt`);
+  assert.ok(fs.existsSync(keyFilePath), 'IndexNow key file must exist in public/');
+  assert.equal(fs.readFileSync(keyFilePath, 'utf8').trim(), key, 'IndexNow key file content must match key');
 });
