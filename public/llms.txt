@@ -67,6 +67,7 @@ Lonside replaces traditional slow web agencies and risky freelance setups by del
 ---
 
 ## Featured Case Studies
+- Eunice KM (HealthTech, Clinical Nutrition & D2C Organic E-Commerce): Bespoke Shopify storefront uniting an organic afro-botanical apothecary (27 EU markets, smart €69 AJAX cart drawer) and an online certified clinical nutrition practice (CAM Method) shipped in 14 days.
 - Welqo (PropTech & Luxury Vacation Rental): Real-time multi-channel booking calendar, dynamic event pricing engine, eIDAS paperless mandate signing.
 - Weedin (EventTech & B2B Ticketing): High-conversion ticketing platform with dynamic seat allocation, fraud-proof QR code generation, and multi-tier access control.
 - Bely (Mobilité & Dispatch Temps Réel): High-velocity dispatch engine with sub-second driver matching and automated fleet telemetry.

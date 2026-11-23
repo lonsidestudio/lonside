@@ -79,7 +79,7 @@ test('siteConfig points to official Lonside domain, email, calendar, SIRET and G
 
 test('sitemap generates strictly 200 OK canonical URLs with valid hreflang', async () => {
   const entries = await sitemap();
-  assert.equal(entries.length, 34, 'Sitemap must contain exactly 34 URLs (17 FR, 17 EN)');
+  assert.equal(entries.length, 36, 'Sitemap must contain exactly 36 URLs (18 FR, 18 EN)');
 
   const expectedUrls = [
     'https://www.lonside.com/',
@@ -102,6 +102,8 @@ test('sitemap generates strictly 200 OK canonical URLs with valid hreflang', asy
     'https://www.lonside.com/en/about',
     'https://www.lonside.com/portfolio/bely',
     'https://www.lonside.com/en/portfolio/bely',
+    'https://www.lonside.com/portfolio/eunice-km',
+    'https://www.lonside.com/en/portfolio/eunice-km',
     'https://www.lonside.com/portfolio/michi',
     'https://www.lonside.com/en/portfolio/michi',
     'https://www.lonside.com/portfolio/weedin',
