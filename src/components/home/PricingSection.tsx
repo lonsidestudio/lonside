@@ -30,6 +30,8 @@ export default function PricingSection({ locale }: PricingSectionProps) {
     cta: string;
   }>;
 
+  const enterpriseHighlights = t.raw("enterprise.highlights") as string[];
+
   return (
     <section id="tarifs" className="relative py-20 sm:py-24 lg:py-28 bg-white border-t border-black/[0.06] scroll-mt-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 w-full">
@@ -121,6 +123,46 @@ export default function PricingSection({ locale }: PricingSectionProps) {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Bandeau 3+1 : Programme Sur-Mesure, Grands Comptes & Appels d'Offres */}
+        <div className="mt-6 rounded-xl border border-black/[0.12] bg-zinc-50/40 p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div className="space-y-3 max-w-2xl">
+            <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.18em] text-zinc-500">
+              <span className="w-1.5 h-1.5 rounded-full bg-black shrink-0" />
+              <span>{t("enterprise.eyebrow")}</span>
+            </div>
+            <h3 className="font-display uppercase text-xl sm:text-2xl text-black tracking-tight leading-snug font-medium">
+              {t("enterprise.title")}
+            </h3>
+            <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
+              {t("enterprise.description")}
+            </p>
+            <div className="flex flex-wrap gap-2 pt-1">
+              {enterpriseHighlights.map((item) => (
+                <span
+                  key={item}
+                  className="text-[10px] sm:text-[11px] font-mono px-2.5 py-1 rounded-lg bg-white border border-black/[0.08] text-zinc-700"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <a
+            href="#contact"
+            onClick={() => {
+              captureLeadEvent("pricing_tier_selected", {
+                tier: t("enterprise.title"),
+                price: "custom_quote",
+              });
+            }}
+            className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl border border-black/[0.2] hover:border-black bg-white hover:bg-black text-black hover:text-white font-mono text-xs uppercase tracking-[0.14em] transition-all duration-200 min-h-[48px] whitespace-nowrap shrink-0 cursor-pointer"
+          >
+            <span>{t("enterprise.cta")}</span>
+            <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
+          </a>
         </div>
 
         <div className="mt-8 pt-6 border-t border-black/[0.06] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-2 lg:gap-6 text-xs font-mono">

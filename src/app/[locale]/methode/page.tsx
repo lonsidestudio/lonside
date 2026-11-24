@@ -68,6 +68,7 @@ export default async function MethodPage({ params }: MethodPageProps) {
 
   const guarantees = t.raw('guarantees') as Array<{ num: string; title: string; desc: string }>;
   const protocolSteps = t.raw('protocolSteps') as Array<{ window: string; title: string; desc: string }>;
+  const scopeChangeOptions = t.raw('scopeChangeOptions') as Array<{ badge: string; title: string; desc: string }>;
   const comparisonRows = t.raw('comparisonRows') as Array<{
     criterion: string;
     lonside: string;
@@ -192,6 +193,38 @@ export default async function MethodPage({ params }: MethodPageProps) {
                 </li>
               ))}
             </ol>
+          </section>
+
+          <section className="space-y-6">
+            <div className="space-y-2 max-w-3xl">
+              <h2 className="font-display uppercase text-2xl sm:text-4xl tracking-tight text-black font-normal">
+                {t('scopeChangeTitle')}
+              </h2>
+              <p className="text-sm sm:text-base text-zinc-600 leading-relaxed">
+                {t('scopeChangeIntro')}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+              {scopeChangeOptions.map((option, idx) => (
+                <div
+                  key={idx}
+                  className="p-6 sm:p-7 rounded-xl border border-black/[0.1] bg-zinc-50/40 flex flex-col justify-start gap-4"
+                >
+                  <div className="flex items-center justify-between gap-2 border-b border-black/[0.06] pb-3">
+                    <span className="text-[10px] font-mono uppercase tracking-[0.16em] text-zinc-500">
+                      {option.badge}
+                    </span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-black shrink-0" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-display uppercase text-xl text-black tracking-tight leading-snug font-medium">
+                      {option.title}
+                    </h3>
+                    <p className="text-sm text-zinc-600 leading-relaxed">{option.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </section>
 
           <section className="space-y-6">

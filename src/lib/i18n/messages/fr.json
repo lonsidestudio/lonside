@@ -174,8 +174,8 @@
       {
         "name": "Sprint Launch",
         "tagline": "Votre première version en ligne, prête pour vos premiers clients",
-        "price": "6 900 €",
-        "period": "forfait ferme • 14 jours ouvrés",
+        "price": "Dès 6 900 €",
+        "period": "forfait ferme après cadrage • 14 jours ouvrés",
         "popular": false,
         "features": [
           "Application web fluide, rapide et responsive sur mobile",
@@ -190,8 +190,8 @@
       {
         "name": "Sprint Scale",
         "tagline": "Pour les plateformes multi-rôles et flux métier avancés",
-        "price": "13 900 €",
-        "period": "forfait ferme • 30 jours ouvrés",
+        "price": "Dès 13 900 €",
+        "period": "forfait ferme après cadrage • 30 jours ouvrés",
         "popular": true,
         "features": [
           "Tout le contenu du Sprint Launch, augmenté de :",
@@ -218,7 +218,18 @@
         ],
         "cta": "Échanger sur une squad"
       }
-    ]
+    ],
+    "enterprise": {
+      "eyebrow": "Sur devis // Grands Comptes, Systèmes Critiques & Appels d’Offres",
+      "title": "Architecture Sur-Mesure & Programme Multi-Sprints",
+      "description": "Pour les projets d’envergure dépassant un sprint standard (refontes métier complètes, moteurs multi-entités, intégrations ERP/SI ou réponses aux appels d’offres) : nous démarrons par une Phase 0 de cadrage d’architecture, puis livrons par jalons fermes de 30 jours en production.",
+      "highlights": [
+        "Phase 0 : Cadrage & Blueprint (5–10j)",
+        "Livraison par jalons fermes de 30j",
+        "Compatible appels d’offres & COMEX"
+      ],
+      "cta": "Discuter d’un projet complexe"
+    }
   },
   "faq": {
     "label": "Réponses sans détour",
@@ -506,14 +517,14 @@
     "recommendations": {
       "launch": {
         "tier": "Sprint Launch",
-        "price": "6 900 € HT (Forfait ferme)",
+        "price": "Dès 6 900 € HT (Forfait ferme après cadrage)",
         "timeline": "14 jours ouvrés garantis",
         "warranty": "Garantie corrective 30 jours",
         "summary": "Application web ou MVP SaaS complet en production avec authentification, Stripe, SEO technique et 100 % du code sur votre GitHub privé."
       },
       "scale": {
         "tier": "Sprint Scale",
-        "price": "13 900 € HT (Forfait ferme)",
+        "price": "Dès 13 900 € HT (Forfait ferme après cadrage)",
         "timeline": "30 jours ouvrés (2 jalons)",
         "warranty": "Garantie corrective 45 jours",
         "summary": "Plateforme multi-rôles, PostgreSQL RLS multi-tenant, moteurs métier & API temps réel, tests automatisés et cession 100 % GitHub."
@@ -616,7 +627,7 @@
         "h1": "Votre MVP SaaS en production,",
         "h1Muted": "livré en 14 jours fermes.",
         "intro": "Passez d’une idée validée à une application web réelle, sécurisée et prête à encaisser vos premiers clients Stripe en deux semaines. Zéro intermédiaire, zéro dépassement budgétaire, propriété intellectuelle intégrale dès le premier commit.",
-        "priceLabel": "6 900 € HT",
+        "priceLabel": "Dès 6 900 € HT",
         "timelineLabel": "14 jours ouvrés garantis",
         "warrantyLabel": "30 jours de garantie corrective",
         "idealFor": [
@@ -652,7 +663,7 @@
           },
           {
             "criterion": "Budget",
-            "lonside": "6 900 € HT ferme et scellé",
+            "lonside": "Dès 6 900 € HT ferme après cadrage",
             "freelance": "TJM variable, risque de dérive",
             "traditional": "25 000 € à 60 000 €+ HT"
           },
@@ -766,7 +777,7 @@
         "h1": "Plateformes SaaS B2B,",
         "h1Muted": "architecturées pour scaler.",
         "intro": "Pour les produits ambitieux qui dépassent le simple MVP : portails multi-rôles (Admin, Client, Opérateur), isolation multi-tenant stricte, moteurs de calcul métier, synchronisation API temps réel et facturation automatisée, livrés en 30 jours ouvrés.",
-        "priceLabel": "13 900 € HT",
+        "priceLabel": "Dès 13 900 € HT",
         "timelineLabel": "30 jours ouvrés (2 jalons)",
         "warrantyLabel": "45 jours de garantie corrective",
         "idealFor": [
@@ -916,7 +927,7 @@
         "h1": "Votre boutique Shopify sur-mesure,",
         "h1Muted": "taillée pour convertir.",
         "intro": "Oubliez les templates génériques ralentis par dix applications payantes. Nous concevons et codons votre maison e-commerce D2C sur Shopify en Liquid & Tailwind sur-mesure : identité éditoriale forte, panier tiroir AJAX intelligent, multi-marchés européens et vitesse mobile irréprochable en 14 jours fermes.",
-        "priceLabel": "4 900 € HT",
+        "priceLabel": "Dès 4 900 € HT",
         "timelineLabel": "14 jours ouvrés garantis",
         "warrantyLabel": "30 jours de garantie corrective",
         "idealFor": [
@@ -964,7 +975,7 @@
           },
           {
             "criterion": "Délai & budget",
-            "lonside": "14 jours ouvrés • 4 900 € HT ferme",
+            "lonside": "14 jours ouvrés • Dès 4 900 € HT ferme",
             "freelance": "Planning glissant et suppléments",
             "traditional": "2 à 4 mois de tunnel commercial"
           }
@@ -1035,6 +1046,20 @@
         "desc": "Suite de tests automatisés, audit Core Web Vitals, en-têtes de sécurité, déploiement sur votre infrastructure, documentation d’architecture et passation vidéo complète."
       }
     ],
+    "scopeChangeTitle": "Gestion des évolutions hors cahier des charges",
+    "scopeChangeIntro": "Un produit vivant génère toujours de nouvelles idées en cours de route. Plutôt que de bloquer ou de facturer à l’aveugle, toute demande ajoutée après le verrouillage du périmètre suit un protocole limpide à deux options :",
+    "scopeChangeOptions": [
+      {
+        "badge": "Option A // Recommandée — Zéro décalage",
+        "title": "Inscription au Backlog Post-Lancement",
+        "desc": "La demande est documentée et priorisée pour le sprint suivant ou la Régie d’Immersion. Votre date de mise en production initiale et votre forfait scellé restent intacts au centime et au jour près."
+      },
+      {
+        "badge": "Option B // Si critique avant mise en ligne",
+        "title": "Avenant Express chiffré sous 24 heures",
+        "desc": "Si la fonctionnalité est indispensable avant le lancement, nous émettons sous 24 h un mini-avenant écrit précisant le coût fixe additionnel et l’ajustement exact de calendrier, validé conjointement avant développement."
+      }
+    ],
     "comparisonTitle": "Comparatif chiffré : Studio Indépendant vs Freelance vs ESN",
     "comparisonHeaders": {
       "criterion": "Critère décisif",
@@ -1045,7 +1070,7 @@
     "comparisonRows": [
       {
         "criterion": "Prévisibilité budgétaire",
-        "lonside": "Forfait ferme scellé (6 900 € – 13 900 € HT)",
+        "lonside": "Forfait ferme après cadrage (dès 4 900 € à 13 900 €+ HT ou sur devis multi-sprints)",
         "freelance": "TJM ouvert, dérive fréquente +30 % à +80 %",
         "esn": "Devis lourds + avenants de changement"
       },

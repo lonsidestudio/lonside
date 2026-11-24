@@ -31,7 +31,7 @@ Lonside replaces traditional slow web agencies and risky freelance setups by del
 ## Flagship Offers & Pricing
 
 ### 1. Sprint Launch (14 Business Days)
-- Price: 6 900 € excl. VAT (Fixed price package • Zero budget creep)
+- Price: From 6 900 € excl. VAT (Fixed fee sealed post-scoping • Zero budget creep)
 - Target: MVPs, first production release, SaaS launch, client portals.
 - Key Deliverables:
   - Full-stack responsive web application (mobile-first).
@@ -42,7 +42,7 @@ Lonside replaces traditional slow web agencies and risky freelance setups by del
   - 30-day post-launch corrective warranty and support.
 
 ### 2. Sprint Scale (30 Business Days)
-- Price: 13 900 € excl. VAT (Fixed price package • 2 milestones)
+- Price: From 13 900 € excl. VAT (Fixed fee sealed post-scoping • 2 milestones)
 - Target: Multi-role platforms, complex operational workflows, dispatch & data platforms.
 - Key Deliverables:
   - Everything included in Sprint Launch.
@@ -59,19 +59,23 @@ Lonside replaces traditional slow web agencies and risky freelance setups by del
 - Integration: Senior engineer embedded directly in client Slack and GitHub routines with zero onboarding delay.
 
 ### 4. Custom Shopify D2C Flagship Store (14 Business Days)
-- Price: 4 900 € excl. VAT (Fixed price package • Zero app bloat)
+- Price: From 4 900 € excl. VAT (Fixed fee sealed post-scoping • Zero app bloat)
 - Target: D2C brands (wellness, skincare, nutrition, fashion, premium craft) launching or upgrading a high-conversion European Shopify store.
 - Key Deliverables:
   - 100% custom Shopify Liquid + Tailwind CSS editorial theme.
   - Native AJAX cart drawer with dynamic free-shipping threshold meter & one-click upsells.
   - EU multi-currency localization, Shopify Payments, predictive search, e-commerce SEO, and 30-day warranty.
 
+### 5. Enterprise Architecture & Multi-Sprint Program (Custom Quote / RFPs)
+- Price: Custom quote (Phase 0 Architecture Blueprint 5–10 days + sequential 30-day fixed-milestone sprints)
+- Target: Large enterprises, complex multi-entity systems, full operational overhauls, ERP integrations, and RFPs.
+
 ---
 
-## Core Guarantees & Standards
+## Core Guarantees & Scope Change Protocol
 1. Guaranteed Delivery or Penalty: 10% discount refunded per 48 hours of studio delay.
 2. 100% Intellectual Property: All commits, schemas, and design components pushed directly to client GitHub. Zero proprietary lock-in.
-3. No Scope Creep: Fixed and mutually approved roadmap before line one of code is written.
+3. No Scope Creep & Clear Change Request Protocol: Fixed and mutually approved roadmap before line one of code. Out-of-scope additions mid-sprint are either logged to the post-launch backlog (zero delay/cost) or quoted via a 24h written Express Addendum.
 4. Day-1 Growth Stack: Pre-configured analytics, transactional emails, and Stripe billing.
 
 ---
