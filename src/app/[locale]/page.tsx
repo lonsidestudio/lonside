@@ -135,7 +135,7 @@ export default async function HomePage({ params }: PageProps) {
     email: siteConfig.contactEmail,
     sameAs: sameAsProfiles,
     description: tMeta("description"),
-    priceRange: "6900€ - 13900€",
+    priceRange: "4900€+",
     areaServed: ["FR", "EU", "US"],
     address: {
       "@type": "PostalAddress",
@@ -150,6 +150,8 @@ export default async function HomePage({ params }: PageProps) {
       "Web Application Development",
       "Next.js Architecture",
       "SaaS MVP Sprints",
+      "Custom Shopify D2C Storefronts",
+      "Enterprise Multi-Sprint Engineering",
       "Full-Stack TypeScript",
       "Cloud & Data Platforms",
     ],
@@ -165,10 +167,27 @@ export default async function HomePage({ params }: PageProps) {
       itemListElement: [
         {
           "@type": "Offer",
+          name: "Shopify D2C Sprint (14d)",
+          description: tPricing("shopifyLink"),
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            minPrice: "4900",
+            priceCurrency: "EUR",
+          },
+          availability: "https://schema.org/InStock",
+          url: currentLocale === "en"
+            ? `${siteConfig.siteUrl}/en/services/custom-shopify-store`
+            : `${siteConfig.siteUrl}/services/boutique-shopify-sur-mesure`,
+        },
+        {
+          "@type": "Offer",
           name: pricingTiers[0]?.name || "Sprint Launch",
           description: pricingTiers[0]?.tagline || "",
-          price: "6900",
-          priceCurrency: "EUR",
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            minPrice: "6900",
+            priceCurrency: "EUR",
+          },
           availability: "https://schema.org/InStock",
           url: `${canonicalUrl}#tarifs`,
         },
@@ -176,10 +195,33 @@ export default async function HomePage({ params }: PageProps) {
           "@type": "Offer",
           name: pricingTiers[1]?.name || "Sprint Scale",
           description: pricingTiers[1]?.tagline || "",
-          price: "13900",
-          priceCurrency: "EUR",
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            minPrice: "13900",
+            priceCurrency: "EUR",
+          },
           availability: "https://schema.org/InStock",
           url: `${canonicalUrl}#tarifs`,
+        },
+        {
+          "@type": "Offer",
+          name: pricingTiers[2]?.name || "Régie d'Immersion",
+          description: pricingTiers[2]?.tagline || "",
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            minPrice: "5500",
+            priceCurrency: "EUR",
+            unitCode: "MON",
+          },
+          availability: "https://schema.org/InStock",
+          url: `${canonicalUrl}#tarifs`,
+        },
+        {
+          "@type": "Offer",
+          name: tPricing("enterprise.title"),
+          description: tPricing("enterprise.description"),
+          availability: "https://schema.org/InStock",
+          url: `${canonicalUrl}#contact`,
         },
       ],
     },

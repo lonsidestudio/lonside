@@ -55,8 +55,11 @@ export default async function ServicePageTemplate({ serviceKey, locale }: Servic
     areaServed: ['FR', 'EU', 'US'],
     offers: {
       '@type': 'Offer',
-      price: def.priceNumeric,
-      priceCurrency: 'EUR',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        minPrice: def.priceNumeric,
+        priceCurrency: 'EUR',
+      },
       availability: 'https://schema.org/InStock',
       url: canonicalUrl,
     },
