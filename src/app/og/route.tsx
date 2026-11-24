@@ -3,18 +3,33 @@ import { NextRequest } from 'next/server';
 import frMessages from '@/lib/i18n/messages/fr.json';
 import enMessages from '@/lib/i18n/messages/en.json';
 
-export const runtime = 'edge';
+const MAX_TITLE_LENGTH = 120;
+const MAX_DESCRIPTION_LENGTH = 220;
+
+function sanitizeOgText(raw: string | null, fallback: string, maxLen: number): string {
+  const cleaned = (raw || fallback)
+    .replace(/[\u0000-\u001F\u007F]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!cleaned) return fallback.slice(0, maxLen);
+  if (cleaned.length <= maxLen) return cleaned;
+  return `${cleaned.slice(0, maxLen - 1).trimEnd()}…`;
+}
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const locale = searchParams.get('locale') || 'fr';
+  const locale = searchParams.get('locale') === 'en' ? 'en' : 'fr';
   const messages = locale === 'en' ? enMessages : frMessages;
 
   const defaultTitle = messages.metadata.defaultTitle;
   const defaultDescription = messages.metadata.description;
 
-  const title = searchParams.get('title') || defaultTitle;
-  const description = searchParams.get('description') || defaultDescription;
+  const title = sanitizeOgText(searchParams.get('title'), defaultTitle, MAX_TITLE_LENGTH);
+  const description = sanitizeOgText(
+    searchParams.get('description'),
+    defaultDescription,
+    MAX_DESCRIPTION_LENGTH
+  );
 
   return new ImageResponse(
     (
@@ -100,6 +115,13 @@ export async function GET(request: NextRequest) {
         </div>
       </div>
     ),
-    { width: 1200, height: 630 }
+    {
+      width: 1200,
+      height: 630,
+      headers: {
+        'Cache-Control': 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400',
+        'X-Content-Type-Options': 'nosniff',
+      },
+    }
   );
 }
