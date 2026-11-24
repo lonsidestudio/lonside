@@ -474,7 +474,7 @@
   },
   "estimation": {
     "metaTitle": "Simulateur de Prix & Délai MVP / Application Web — Lonside Studio",
-    "metaDescription": "Estimez le forfait ferme (6 900 € à 13 900 € HT) et le délai garanti (14 à 30 jours) de votre MVP SaaS ou application web Next.js en 30 secondes.",
+    "metaDescription": "Estimez le forfait ferme après cadrage (dès 4 900 € à 13 900 €+ HT ou sur devis) et le délai garanti (14 à 30 jours) de votre MVP SaaS, app Next.js ou boutique Shopify.",
     "schemaName": "Simulateur de Périmètre & Forfait Lonside",
     "breadcrumbLabel": "Estimation",
     "eyebrow": "Simulateur de Périmètre & Forfait",
@@ -622,7 +622,7 @@
     "items": {
       "sprint-mvp-14-jours": {
         "metaTitle": "Sprint MVP 14 Jours au Forfait Fixe — Lonside Studio",
-        "metaDescription": "Lancez votre MVP SaaS ou application web en production dès 14 jours ouvrés. Forfait ferme à 6 900 € HT, 100 % du code cédé sur votre GitHub, garantie 30 jours.",
+        "metaDescription": "Lancez votre MVP SaaS ou application web en production dès 14 jours ouvrés. Forfait ferme après cadrage dès 6 900 € HT, 100 % du code sur votre GitHub, garantie 30 jours.",
         "eyebrow": "Sprint Launch // 14 Jours Ouvrés",
         "h1": "Votre MVP SaaS en production,",
         "h1Muted": "livré en 14 jours fermes.",
@@ -772,7 +772,7 @@
       },
       "plateforme-saas-sur-mesure": {
         "metaTitle": "Développement Plateforme SaaS Sur-Mesure (30 Jours) — Lonside Studio",
-        "metaDescription": "Plateformes SaaS B2B multi-rôles, portails multi-tenants, moteurs de calcul temps réel et facturation Stripe livrés en 30 jours au forfait ferme de 13 900 € HT.",
+        "metaDescription": "Plateformes SaaS B2B multi-rôles, portails multi-tenants, moteurs temps réel et Stripe livrés en 30 jours au forfait ferme après cadrage dès 13 900 € HT (ou multi-sprints).",
         "eyebrow": "Sprint Scale // 30 Jours Ouvrés",
         "h1": "Plateformes SaaS B2B,",
         "h1Muted": "architecturées pour scaler.",
@@ -813,7 +813,7 @@
           },
           {
             "criterion": "Coût total d’une V1 complète",
-            "lonside": "13 900 € HT ferme (2 jalons)",
+            "lonside": "Dès 13 900 € HT ferme (ou multi-sprints)",
             "freelance": "20 000 € à 40 000 € étalés",
             "traditional": "60 000 € à 150 000 € HT"
           },
@@ -922,7 +922,7 @@
       },
       "boutique-shopify-sur-mesure": {
         "metaTitle": "Création Boutique Shopify Sur-Mesure (14 Jours) — Lonside Studio",
-        "metaDescription": "Créez une boutique Shopify D2C haute conversion sur-mesure en 14 jours ouvrés (4 900 € HT ferme) : thème Liquid + Tailwind, panier tiroir AJAX, multi-devises UE et SEO natif.",
+        "metaDescription": "Créez une boutique Shopify D2C haute conversion sur-mesure en 14 jours ouvrés (dès 4 900 € HT ferme après cadrage) : thème Liquid + Tailwind, panier tiroir AJAX et SEO natif.",
         "eyebrow": "Sprint Shopify D2C // 14 Jours Ouvrés",
         "h1": "Votre boutique Shopify sur-mesure,",
         "h1Muted": "taillée pour convertir.",
@@ -1177,7 +1177,7 @@
       {
         "num": "01",
         "title": "Forfait scellé & délai contractuel",
-        "desc": "De 4 900 € HT (Boutique Shopify 14j) à 13 900 € HT (Plateforme SaaS 30j) : budget figé avant la première ligne de code et pénalité de 10 % par 48 h en cas de retard imputable au studio."
+        "desc": "Dès 4 900 € HT (Boutique Shopify 14j), dès 13 900 € HT (Plateforme SaaS 30j) ou sur devis multi-sprints pour les grands comptes : budget scellé après cadrage et pénalité de 10 % par 48 h de retard."
       },
       {
         "num": "02",

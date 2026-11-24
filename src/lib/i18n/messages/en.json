@@ -474,7 +474,7 @@
   },
   "estimation": {
     "metaTitle": "MVP & Web Application Scope Estimator — Lonside Studio",
-    "metaDescription": "Estimate your SaaS MVP or custom Next.js web application scope, fixed budget (€6,900–€13,900), and guaranteed delivery timeline in 30 seconds.",
+    "metaDescription": "Estimate your SaaS MVP, Next.js web app, or custom Shopify scope, fixed post-scoping budget (from €4,900 to €13,900+ or custom quote), and timeline in 30 seconds.",
     "schemaName": "Lonside Sprint Scope & Pricing Estimator",
     "breadcrumbLabel": "Estimator",
     "eyebrow": "Interactive Scope Simulator",
@@ -622,7 +622,7 @@
     "items": {
       "sprint-mvp-14-jours": {
         "metaTitle": "14-Day Fixed-Price MVP Sprint — Lonside Studio",
-        "metaDescription": "Ship your production SaaS MVP or custom web application in 14 business days. Fixed €6,900 scope, 100% GitHub source code ownership, and 30-day warranty.",
+        "metaDescription": "Ship your production SaaS MVP or custom web application in 14 business days. Fixed post-scoping fee from €6,900, 100% GitHub code ownership, and 30-day warranty.",
         "eyebrow": "Sprint Launch // 14 Business Days",
         "h1": "Your production SaaS MVP,",
         "h1Muted": "shipped in 14 business days.",
@@ -772,7 +772,7 @@
       },
       "plateforme-saas-sur-mesure": {
         "metaTitle": "Custom B2B SaaS Platform Engineering (30 Days) — Lonside Studio",
-        "metaDescription": "Multi-tenant B2B SaaS platforms, role-based portals, real-time computation engines, and automated Stripe billing delivered in 30 days for a fixed €13,900 scope.",
+        "metaDescription": "Multi-tenant B2B SaaS platforms, role-based portals, real-time engines, and Stripe billing shipped in 30 days from €13,900 fixed post-scoping (or multi-sprint quote).",
         "eyebrow": "Sprint Scale // 30 Business Days",
         "h1": "Custom B2B SaaS platforms,",
         "h1Muted": "architected to scale.",
@@ -813,7 +813,7 @@
           },
           {
             "criterion": "Total V1 investment",
-            "lonside": "€13,900 fixed across 2 milestones",
+            "lonside": "From €13,900 fixed (or multi-sprint quote)",
             "freelance": "€20k–€40k unpredictable",
             "traditional": "€60k–€150k+ enterprise quotes"
           },
@@ -922,7 +922,7 @@
       },
       "boutique-shopify-sur-mesure": {
         "metaTitle": "Custom Shopify Store Development (14 Days) — Lonside Studio",
-        "metaDescription": "Launch a bespoke high-conversion Shopify D2C store in 14 business days (€4,900 fixed fee): custom Liquid + Tailwind theme, AJAX cart drawer, EU multi-currency & native SEO.",
+        "metaDescription": "Launch a bespoke high-conversion Shopify D2C store in 14 business days (from €4,900 fixed post-scoping): custom Liquid + Tailwind theme, AJAX cart drawer & native SEO.",
         "eyebrow": "Shopify D2C Sprint // 14 Business Days",
         "h1": "Your custom Shopify flagship,",
         "h1Muted": "engineered to convert.",
@@ -1177,7 +1177,7 @@
       {
         "num": "01",
         "title": "Sealed budget & contractual deadline",
-        "desc": "From €4,900 (14-day Shopify D2C store) to €13,900 (30-day multi-role SaaS): fixed upfront pricing backed by a 10% fee penalty per 48h of studio-side delay."
+        "desc": "From €4,900 (14-day Shopify D2C store), from €13,900 (30-day SaaS), or custom multi-sprint enterprise programs: fixed post-scoping fee backed by a 10% delay penalty per 48h."
       },
       {
         "num": "02",

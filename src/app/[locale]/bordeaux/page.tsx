@@ -110,7 +110,7 @@ export default async function BordeauxPage({ params }: BordeauxPageProps) {
     legalName: siteConfig.legal.tradeName,
     url: canonicalUrl,
     email: siteConfig.contactEmail,
-    priceRange: '4900€ - 13900€',
+    priceRange: '4900€+',
     image: `${siteConfig.siteUrl}/og?locale=${currentLocale}`,
     address: {
       '@type': 'PostalAddress',
